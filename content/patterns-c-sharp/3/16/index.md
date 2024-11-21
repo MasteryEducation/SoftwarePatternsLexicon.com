@@ -9,7 +9,7 @@ categories:
 - Functional Programming
 tags:
 - CSharp Lambda Expressions
-- Promises in C#
+- Promises in CSharp
 - Asynchronous Programming
 - Functional Paradigms
 - CSharp Best Practices
