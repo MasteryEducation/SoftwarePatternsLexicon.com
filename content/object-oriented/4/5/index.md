@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/4/5"
+canonical: "https://softwarepatternslexicon.com/object-oriented/4/5"
 title: "Decorator Pattern: Enhance Object Functionality Dynamically"
 description: "Explore the Decorator Pattern in Object-Oriented Design: Intent, Structure, Implementation, and Practical Examples"
 linkTitle: "4.5. Decorator Pattern"

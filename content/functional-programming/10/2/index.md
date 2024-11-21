@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/10/2"
+canonical: "https://softwarepatternslexicon.com/functional-programming/10/2"
 title: "Building a Web Application with Functional Programming"
 description: "Explore how to build a web application using functional programming paradigms with frameworks like Elm, PureScript, and ClojureScript."
 linkTitle: "10.2. Building a Web Application with FP"

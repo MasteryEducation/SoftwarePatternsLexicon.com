@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/16/3"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/16/3"
 title: "Applying Design Patterns in TDD for Robust Software Development"
 description: "Explore the synergy between design patterns and Test-Driven Development (TDD) to enhance software testability and maintainability."
 linkTitle: "16.3. Applying Design Patterns in TDD"

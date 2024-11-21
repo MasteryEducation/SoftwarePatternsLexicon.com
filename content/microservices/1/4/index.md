@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/1/4"
+canonical: "https://softwarepatternslexicon.com/microservices/1/4"
 title: "Comprehensive Overview of Microservices Design Patterns"
 description: "Explore the essential microservices design patterns, addressing architectural challenges with detailed pseudocode examples and visualizations."
 linkTitle: "1.4. Overview of Microservices Design Patterns"

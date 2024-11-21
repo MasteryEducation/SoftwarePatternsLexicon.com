@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/14/1"
+canonical: "https://softwarepatternslexicon.com/microservices/14/1"
 title: "Pseudocode Style Guide for Microservices Design Patterns"
 description: "Explore the essential syntax rules and conventions for writing pseudocode in microservices design patterns, with language-agnostic representations and examples."
 linkTitle: "Pseudocode Style Guide"

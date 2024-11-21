@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/9/3"
+canonical: "https://softwarepatternslexicon.com/microservices/9/3"
 title: "End-to-End Testing in Microservices: Comprehensive Guide"
 description: "Explore the intricacies of end-to-end testing in microservices architecture, focusing on validating entire workflows and simulating real user scenarios."
 linkTitle: "9.3. End-to-End Testing"

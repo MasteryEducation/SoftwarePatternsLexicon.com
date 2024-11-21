@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/8/3"
+canonical: "https://softwarepatternslexicon.com/functional-programming/8/3"
 title: "Functional Programming Extensions in Java and C#: Leveraging Lambda Expressions and Streams"
 description: "Explore how Java and C# integrate functional programming features like lambda expressions, streams, and other constructs to enhance code expressiveness and efficiency."
 linkTitle: "8.3. Functional Extensions in Java and C#"

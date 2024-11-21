@@ -21,7 +21,7 @@ tags:
   - Dynamic Service Location
   - Distributed Systems
   - Spring Cloud
-canonical: "https://softwarepatternslexicon.com/microservices/service-discovery/client-side-discovery"
+canonical: "https://softwarepatternslexicon.com/java-microservices/service-discovery/client-side-discovery"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 

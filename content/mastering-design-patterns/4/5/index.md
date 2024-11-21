@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/4/5"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/4/5"
 title: "Decorator Pattern: Enhancing Object Functionality Dynamically"
 description: "Explore the Decorator Pattern, a structural design pattern that allows dynamic addition of responsibilities to objects. Learn through pseudocode examples and comparisons with inheritance."
 linkTitle: "4.5. Decorator Pattern"

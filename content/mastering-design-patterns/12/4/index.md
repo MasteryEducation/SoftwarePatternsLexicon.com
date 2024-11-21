@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/12/4"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/12/4"
 title: "Lava Flow in Software Development: Understanding and Managing Dead Code"
 description: "Explore the concept of Lava Flow in software development, understand its causes, and learn strategies for cleaning up legacy systems to maintain code quality and efficiency."
 linkTitle: "12.4. Lava Flow"

@@ -24,7 +24,7 @@ tags:
   - Cloud Deployment
   - Containers
   - Virtual Machines
-canonical: "https://softwarepatternslexicon.com/microservices/deployment/service-instance-per-host"
+canonical: "https://softwarepatternslexicon.com/java-microservices/deployment/service-instance-per-host"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 

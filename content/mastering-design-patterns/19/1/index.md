@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/19/1"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/19/1"
 title: "Mastering Design Patterns: A Comprehensive Recap of Key Concepts"
 description: "Dive into the essential design patterns and principles that shape modern software development, with a focus on pseudocode and cross-paradigm insights."
 linkTitle: "19.1. Recap of Key Concepts"

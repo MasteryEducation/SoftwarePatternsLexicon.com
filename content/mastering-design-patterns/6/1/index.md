@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/6/1"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/6/1"
 title: "Introduction to Concurrency: Mastering Challenges in Concurrent Programming"
 description: "Explore the intricacies of concurrency in software development, understand the challenges, and learn about threads and processes with practical pseudocode examples."
 linkTitle: "6.1. Introduction to Concurrency"

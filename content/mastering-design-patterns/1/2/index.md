@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/1/2"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/1/2"
 title: "History and Evolution of Design Patterns: From Origins to Modern Paradigms"
 description: "Explore the rich history and evolution of design patterns, from their origins to their application across modern programming paradigms. Understand the contributions of the Gang of Four and the adaptation of patterns in both Object-Oriented and Functional Programming."
 linkTitle: "1.2. History and Evolution of Design Patterns"

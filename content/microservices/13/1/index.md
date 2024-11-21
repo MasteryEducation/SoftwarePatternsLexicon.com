@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/13/1"
+canonical: "https://softwarepatternslexicon.com/microservices/13/1"
 title: "Microservices Design Patterns: Recap of Key Concepts"
 description: "A comprehensive recap of key concepts in microservices design patterns, focusing on architectural principles and pseudocode illustrations."
 linkTitle: "13.1. Recap of Key Concepts"

@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/11/4"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/11/4"
 title: "Security Proxy: Controlling Access to Resources and Implementing Auditing"
 description: "Explore the Security Proxy design pattern, its role in controlling access to resources, and how it facilitates auditing in software systems."
 linkTitle: "11.4. Security Proxy"

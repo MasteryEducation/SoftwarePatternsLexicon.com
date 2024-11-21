@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/5/6"
+canonical: "https://softwarepatternslexicon.com/microservices/5/6"
 title: "Message Broker Pattern in Microservices: Facilitating Asynchronous Communication"
 description: "Explore the Message Broker Pattern in Microservices, focusing on asynchronous communication using brokers like Kafka and RabbitMQ. Understand the benefits, considerations, and implementation through detailed pseudocode examples."
 linkTitle: "5.6. Message Broker Pattern"

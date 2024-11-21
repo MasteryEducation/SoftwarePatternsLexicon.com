@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/11/2"
+canonical: "https://softwarepatternslexicon.com/microservices/11/2"
 title: "Implementing Microservices at Scale: Success Stories and Key Takeaways"
 description: "Explore the implementation of microservices at scale through success stories from companies like Netflix and Amazon, and uncover key takeaways for organizational alignment and technological innovations."
 linkTitle: "11.2. Implementing Microservices at Scale"

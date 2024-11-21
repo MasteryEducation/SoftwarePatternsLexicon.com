@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/10/1"
+canonical: "https://softwarepatternslexicon.com/microservices/10/1"
 
 title: "Containerization: Mastering Docker and Kubernetes for Microservices"
 description: "Explore the intricacies of containerization in microservices, focusing on Docker for packaging and Kubernetes for orchestration. Learn how to standardize environments and manage containers effectively."

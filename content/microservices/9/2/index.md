@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/9/2"
+canonical: "https://softwarepatternslexicon.com/microservices/9/2"
 
 title: "Integration Testing in Microservices: Ensuring Seamless Inter-Service Communication"
 description: "Explore integration testing in microservices, focusing on verifying inter-service communication and ensuring API contracts are honored."

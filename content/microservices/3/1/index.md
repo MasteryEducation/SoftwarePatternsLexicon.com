@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/3/1"
+canonical: "https://softwarepatternslexicon.com/microservices/3/1"
 
 title: "Single Responsibility Principle in Microservices: Designing Focused Services"
 description: "Explore the Single Responsibility Principle in Microservices, ensuring each service has a clear purpose, and balancing granularity with complexity."

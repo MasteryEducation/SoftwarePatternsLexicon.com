@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/3/7"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/3/7"
 title: "Object Pool Pattern: Efficient Resource Management in Software Design"
 description: "Explore the Object Pool Pattern, a creational design pattern that optimizes resource management by reusing objects. Learn its intent, motivation, and implementation with pseudocode examples."
 linkTitle: "3.7. Object Pool Pattern"

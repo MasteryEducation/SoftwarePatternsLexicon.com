@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/9/4"
+canonical: "https://softwarepatternslexicon.com/microservices/9/4"
 
 title: "Continuous Testing in CI/CD: Automating Test Execution in Microservices"
 description: "Explore the principles and practices of continuous testing in CI/CD for microservices, with pseudocode examples and best practices."

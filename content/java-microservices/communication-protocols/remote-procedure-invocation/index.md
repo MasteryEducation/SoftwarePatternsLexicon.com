@@ -22,7 +22,7 @@ tags:
   - Microservices
   - Network Communication
   - Service Integration
-canonical: "https://softwarepatternslexicon.com/microservices/communication-protocols/remote-procedure-invocation"
+canonical: "https://softwarepatternslexicon.com/java-microservices/communication-protocols/remote-procedure-invocation"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 

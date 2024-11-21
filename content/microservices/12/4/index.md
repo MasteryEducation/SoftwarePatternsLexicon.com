@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/12/4"
+canonical: "https://softwarepatternslexicon.com/microservices/12/4"
 title: "Event Sourcing and CQRS: In-Depth Guide for Microservices Architecture"
 description: "Explore the advanced concepts of Event Sourcing and CQRS in microservices architecture, with detailed explanations, pseudocode examples, and performance considerations."
 linkTitle: "12.4. Event Sourcing and CQRS in Depth"

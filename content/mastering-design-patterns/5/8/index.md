@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/5/8"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/5/8"
 
 title: "Observer Pattern: Mastering Publish-Subscribe Mechanisms in Software Design"
 description: "Explore the Observer Pattern, a key behavioral design pattern, and learn how to implement it using pseudocode. Understand its intent, motivation, and the differences between push and pull models."

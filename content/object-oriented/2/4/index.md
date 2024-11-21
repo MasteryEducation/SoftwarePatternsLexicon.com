@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/2/4"
+canonical: "https://softwarepatternslexicon.com/object-oriented/2/4"
 title: "Pseudocode Conventions and Style Guide for Object-Oriented Design Patterns"
 description: "Explore the conventions and style guide for writing pseudocode in object-oriented design patterns, ensuring clarity and consistency in your software design documentation."
 linkTitle: "2.4. Pseudocode Conventions and Style Guide"

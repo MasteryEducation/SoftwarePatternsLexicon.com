@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/5/10"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/5/10"
 title: "Strategy Pattern: Mastering Behavioral Design Patterns"
 description: "Explore the Strategy Pattern, a key behavioral design pattern that allows defining a family of algorithms and selecting strategies at runtime. Learn through comprehensive pseudocode examples and diagrams."
 linkTitle: "5.10. Strategy Pattern"

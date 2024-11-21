@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/3/7"
+canonical: "https://softwarepatternslexicon.com/functional-programming/3/7"
 title: "Transducer Pattern: Efficient Data Transformation in Functional Programming"
 description: "Explore the Transducer Pattern in Functional Programming, focusing on efficient data transformations, advantages over chaining, and practical pseudocode implementations."
 linkTitle: "3.7. Transducer Pattern"

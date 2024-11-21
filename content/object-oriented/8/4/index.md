@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/8/4"
+canonical: "https://softwarepatternslexicon.com/object-oriented/8/4"
 title: "Model-Driven Development (MDD) in Object-Oriented Design Patterns"
 description: "Explore Model-Driven Development (MDD) in Object-Oriented Design Patterns, focusing on generating code from models and utilizing patterns in MDD environments."
 linkTitle: "8.4. Model-Driven Development (MDD)"

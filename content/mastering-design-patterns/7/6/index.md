@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/7/6"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/7/6"
 
 title: "Understanding Functor and Monad Patterns in Functional Programming"
 description: "Explore the intricacies of Functor and Monad patterns in functional programming, focusing on mapping and chaining operations. Learn how to implement and utilize these patterns effectively in your code."

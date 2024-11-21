@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/8/2"
+canonical: "https://softwarepatternslexicon.com/functional-programming/8/2"
 title: "Functional Programming in Python: Exploring Built-in Functions and Libraries"
 description: "Explore the functional programming features in Python, including built-in higher-order functions and libraries like Toolz and Funcy, with practical examples and pseudocode comparisons."
 linkTitle: "8.2. Functional Features in Python"

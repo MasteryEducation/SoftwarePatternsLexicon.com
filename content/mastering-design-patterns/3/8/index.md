@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/3/8"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/3/8"
 title: "Dependency Injection Design Pattern: Mastering Creational Patterns"
 description: "Explore the Dependency Injection Pattern, a pivotal creational design pattern in software development. Learn its intent, motivation, and implementation through pseudocode, and understand its benefits and potential pitfalls."
 linkTitle: "3.8. Dependency Injection Pattern"

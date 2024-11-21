@@ -22,7 +22,7 @@ tags:
   - Modular Design
   - Fault Isolation
 weight: 200
-canonical: "https://softwarepatternslexicon.com/microservices/microservice-architecture"
+canonical: "https://softwarepatternslexicon.com/java-microservices/microservice-architecture"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 

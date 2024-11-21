@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/8/7"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/8/7"
 
 title: "Service-Oriented Architecture (SOA) - Implementing Services and Integration Techniques"
 description: "Explore the fundamentals of Service-Oriented Architecture (SOA), its components, benefits, and integration techniques, with detailed pseudocode examples and diagrams."

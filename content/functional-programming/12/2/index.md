@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/12/2"
+canonical: "https://softwarepatternslexicon.com/functional-programming/12/2"
 title: "The Future of Functional Programming: Trends, Developments, and Industry Adoption"
 description: "Explore the growing influence of functional programming, its trends, developments, and adoption across various industries."
 linkTitle: "12.2. The Future of Functional Programming"

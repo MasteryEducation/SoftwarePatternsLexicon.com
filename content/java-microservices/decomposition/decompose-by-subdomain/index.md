@@ -22,7 +22,7 @@ tags:
   - Service Decomposition
   - Spring Boot
   - Spring Cloud
-canonical: "https://softwarepatternslexicon.com/microservices/decomposition/decompose-by-subdomain"
+canonical: "https://softwarepatternslexicon.com/java-microservices/decomposition/decompose-by-subdomain"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 

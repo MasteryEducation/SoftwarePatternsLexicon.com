@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/11/2"
+canonical: "https://softwarepatternslexicon.com/functional-programming/11/2"
 title: "Mastering Continuation-Passing Style (CPS) in Functional Programming"
 description: "Explore the depths of Continuation-Passing Style (CPS) in functional programming, understanding its role in managing control flow and asynchronous operations through detailed explanations and pseudocode implementations."
 linkTitle: "11.2. Continuation-Passing Style (CPS)"

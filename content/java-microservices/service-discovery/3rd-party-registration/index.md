@@ -24,7 +24,7 @@ tags:
   - Network Location
   - Spring Boot
   - Spring Cloud
-canonical: "https://softwarepatternslexicon.com/microservices/service-discovery/3rd-party-registration"
+canonical: "https://softwarepatternslexicon.com/java-microservices/service-discovery/3rd-party-registration"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 

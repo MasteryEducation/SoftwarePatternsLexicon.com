@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/14/5"
+canonical: "https://softwarepatternslexicon.com/microservices/14/5"
 title: "Comprehensive Bibliography and Further Reading on Microservices Design Patterns"
 description: "Explore an extensive bibliography and further reading resources on microservices design patterns, including recommended books, articles, online tutorials, and videos for deeper understanding and practical application."
 linkTitle: "Bibliography and Further Reading"

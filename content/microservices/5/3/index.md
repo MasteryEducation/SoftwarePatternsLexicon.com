@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/5/3"
+canonical: "https://softwarepatternslexicon.com/microservices/5/3"
 title: "Circuit Breaker Pattern: Protecting Microservices from Failure"
 description: "Explore the Circuit Breaker Pattern in microservices architecture, learn how it prevents cascading failures, and understand its states and transitions with pseudocode examples."
 linkTitle: "5.3. Circuit Breaker Pattern"

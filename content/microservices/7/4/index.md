@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/7/4"
+canonical: "https://softwarepatternslexicon.com/microservices/7/4"
 title: "Threat Modeling and Monitoring in Microservices"
 description: "Explore the intricacies of threat modeling and monitoring in microservices architecture, focusing on identifying vulnerabilities and implementing robust security measures."
 linkTitle: "7.4. Threat Modeling and Monitoring"

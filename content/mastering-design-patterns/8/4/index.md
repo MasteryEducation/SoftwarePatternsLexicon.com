@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/8/4"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/8/4"
 title: "Layered Architecture: Organizing Code into Layers for Scalable and Maintainable Systems"
 description: "Explore the Layered Architecture pattern, its benefits, trade-offs, and implementation using pseudocode. Learn how to organize code into layers for scalable and maintainable systems."
 linkTitle: "8.4. Layered Architecture"

@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/7/4"
+canonical: "https://softwarepatternslexicon.com/functional-programming/7/4"
 title: "Data Parallelism with Functional Programming Patterns"
 description: "Explore data parallelism in functional programming, leveraging map-reduce and immutable data structures for efficient parallel processing."
 linkTitle: "7.4. Data Parallelism with Functional Patterns"

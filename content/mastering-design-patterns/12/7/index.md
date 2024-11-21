@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/12/7"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/12/7"
 title: "Dead End Patterns: Recognizing and Avoiding Common Pitfalls in Software Design"
 description: "Explore Dead End Patterns in software design, learn how to recognize them, and discover strategies for recovery to enhance your development skills."
 linkTitle: "12.7. Dead End Patterns"

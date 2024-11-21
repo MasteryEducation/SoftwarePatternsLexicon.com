@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/12/1"
+canonical: "https://softwarepatternslexicon.com/microservices/12/1"
 title: "Serverless Microservices: Leveraging Functions as a Service"
 description: "Explore the integration of serverless architecture with microservices, focusing on AWS Lambda, Azure Functions, and the benefits and challenges of this approach."
 linkTitle: "12.1. Serverless Microservices"

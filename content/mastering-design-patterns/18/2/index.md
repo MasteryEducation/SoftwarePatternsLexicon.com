@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/18/2"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/18/2"
 title: "Design by Contract: Mastering Interface Expectations and Invariants"
 description: "Explore the concept of Design by Contract, a powerful methodology for specifying interface expectations and enforcing invariants in software design. Learn how to apply this approach across programming paradigms with detailed pseudocode examples and visual aids."
 linkTitle: "18.2. Design by Contract"

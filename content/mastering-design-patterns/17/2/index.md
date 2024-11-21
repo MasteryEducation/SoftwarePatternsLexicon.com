@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/17/2"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/17/2"
 title: "Combining Design Patterns for Robust Software Solutions"
 description: "Explore the synergy of combining design patterns to create robust software solutions. Learn through real-world case studies and composite pattern strategies."
 linkTitle: "17.2. Combining Patterns for Robust Solutions"

@@ -24,7 +24,7 @@ tags:
   - Deployment Management
   - Spring Boot
   - Spring Cloud
-canonical: "https://softwarepatternslexicon.com/microservices/deployment/multiple-service-instances-per-host"
+canonical: "https://softwarepatternslexicon.com/java-microservices/deployment/multiple-service-instances-per-host"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 

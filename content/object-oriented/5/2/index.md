@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/5/2"
+canonical: "https://softwarepatternslexicon.com/object-oriented/5/2"
 title: "Chain of Responsibility Pattern: Mastering Request Handling in OOP"
 description: "Explore the Chain of Responsibility Pattern in Object-Oriented Programming, its intent, applicability, structure, participants, consequences, and detailed pseudocode implementation."
 linkTitle: "5.2. Chain of Responsibility Pattern"

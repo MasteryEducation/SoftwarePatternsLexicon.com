@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/7/3"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/7/3"
 title: "Higher-Order Functions: Mastering Functional Programming Patterns"
 description: "Explore the world of Higher-Order Functions, a cornerstone of functional programming. Learn how to pass and return functions, and understand their role as first-class citizens in programming."
 linkTitle: "7.3. Higher-Order Functions"

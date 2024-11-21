@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/2/1"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/2/1"
 title: "SOLID Principles: Mastering Software Design"
 description: "Explore the SOLID principles of software design to enhance your understanding of clean code and maintainable architecture."
 linkTitle: "2.1. SOLID Principles"

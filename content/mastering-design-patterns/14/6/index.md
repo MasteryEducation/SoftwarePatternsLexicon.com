@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/14/6"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/14/6"
 title: "Event Sourcing: Mastering Event-Driven Design Patterns"
 description: "Explore the intricacies of Event Sourcing, a powerful design pattern in Domain-Driven Design (DDD), and learn how to store changes as events and reconstruct state effectively."
 linkTitle: "14.6. Event Sourcing"

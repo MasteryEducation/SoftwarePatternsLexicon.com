@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/10/2"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/10/2"
 title: "Message Channel Design Pattern: Transporting Messages in Enterprise Integration"
 description: "Explore the Message Channel design pattern, a fundamental concept in enterprise integration for transporting messages efficiently. Understand Point-to-Point and Publish-Subscribe models with detailed pseudocode examples and diagrams."
 linkTitle: "10.2. Message Channel"

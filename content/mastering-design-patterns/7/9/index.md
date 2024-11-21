@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/7/9"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/7/9"
 title: "Recursion Patterns in Functional Programming"
 description: "Explore recursion patterns in functional programming, including structural, generative, and tail recursion, and learn strategies to avoid stack overflows."
 linkTitle: "7.9. Recursion Patterns"

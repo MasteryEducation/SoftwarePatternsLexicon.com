@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/10/3"
+canonical: "https://softwarepatternslexicon.com/microservices/10/3"
 title: "Infrastructure as Code: Automating Microservices Deployment"
 description: "Explore the principles and practices of Infrastructure as Code (IaC) in microservices architecture, focusing on tools like Terraform and Ansible for consistent and reproducible deployments."
 linkTitle: "10.3. Infrastructure as Code"

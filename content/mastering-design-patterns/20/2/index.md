@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/20/2"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/20/2"
 title: "Comprehensive Design Pattern Reference Guide: Intent, Applicability, and Key Features"
 description: "Explore a detailed reference guide on design patterns, including intent, applicability, and key features, with visual diagrams and pseudocode examples."
 linkTitle: "20.2. Design Pattern Reference Guide"

@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/11/4"
+canonical: "https://softwarepatternslexicon.com/functional-programming/11/4"
 title: "Effect Systems and Type-Level Programming"
 description: "Explore how effect systems and type-level programming enhance functional programming by managing side effects and enforcing constraints through advanced type features."
 linkTitle: "11.4. Effect Systems and Type-Level Programming"

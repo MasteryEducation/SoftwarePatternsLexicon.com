@@ -21,7 +21,7 @@ tags:
   - System Reliability
   - Application Health
   - Microservices
-canonical: "https://softwarepatternslexicon.com/microservices/reliability/observability/health-check-api"
+canonical: "https://softwarepatternslexicon.com/java-microservices/reliability/observability/health-check-api"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 

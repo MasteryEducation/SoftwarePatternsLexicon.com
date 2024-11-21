@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/2/3"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/2/3"
 title: "Design Patterns vs. Anti-Patterns: Mastering Software Design"
 description: "Explore the crucial differences between design patterns and anti-patterns in software development. Learn how to recognize, avoid, and transform anti-patterns into effective design patterns with practical examples and pseudocode."
 linkTitle: "2.3. Design Patterns vs. Anti-Patterns"

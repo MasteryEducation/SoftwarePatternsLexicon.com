@@ -21,7 +21,7 @@ tags:
   - Service Registry
   - System Architecture
   - Load Balancing
-canonical: "https://softwarepatternslexicon.com/microservices/service-discovery/server-side-discovery"
+canonical: "https://softwarepatternslexicon.com/java-microservices/service-discovery/server-side-discovery"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 

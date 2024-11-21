@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/7/8"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/7/8"
 title: "Memoization Pattern: Optimizing Performance with Caching"
 description: "Explore the Memoization Pattern in Functional Programming, a technique to optimize performance by caching function results. Learn how to implement memoization in pseudocode, understand its benefits, and apply it across programming paradigms."
 linkTitle: "7.8. Memoization Pattern"

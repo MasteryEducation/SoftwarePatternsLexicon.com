@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/2/3"
+canonical: "https://softwarepatternslexicon.com/microservices/2/3"
 title: "Data Management in Microservices: Patterns and Principles"
 description: "Explore the core data management patterns in microservices architecture, including Database Per Service, Event Sourcing, and CQRS, with detailed explanations and pseudocode examples."
 linkTitle: "2.3. Data Management in Microservices"

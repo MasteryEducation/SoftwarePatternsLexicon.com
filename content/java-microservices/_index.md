@@ -13,6 +13,6 @@ menu:
         vendor: bs
         name: book
         className: text-primary
-canonical: "https://softwarepatternslexicon.com/microservices"
+canonical: "https://softwarepatternslexicon.com/java-microservices"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---

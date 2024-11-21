@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/3/4"
+canonical: "https://softwarepatternslexicon.com/microservices/3/4"
 
 title: "Continuous Delivery and DevOps Culture in Microservices"
 description: "Explore the integration of Continuous Delivery and DevOps Culture in Microservices Architecture, focusing on automating deployment pipelines, infrastructure as code, and fostering cross-functional teams."

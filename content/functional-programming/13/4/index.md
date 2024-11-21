@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/13/4"
+canonical: "https://softwarepatternslexicon.com/functional-programming/13/4"
 title: "Reference Materials for Functional Programming Patterns"
 description: "Explore the mathematical foundations and essential tools for functional programming patterns, including category theory, algebra, and key libraries."
 linkTitle: "Reference Materials"

@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/8/5"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/8/5"
 title: "Microservices Architecture: Designing Distributed Systems with Service Decomposition"
 description: "Explore the intricacies of Microservices Architecture, focusing on designing distributed systems and service decomposition. Learn how to implement microservices effectively using pseudocode examples and diagrams."
 linkTitle: "8.5. Microservices Architecture"

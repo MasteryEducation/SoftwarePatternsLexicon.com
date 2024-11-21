@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/18/1"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/18/1"
 title: "Principles of Good Design: Simplicity, Clarity, Modularity, and Reusability"
 description: "Explore the foundational principles of good software design, focusing on simplicity, clarity, modularity, and reusability, to create efficient and maintainable systems."
 linkTitle: "18.1. Principles of Good Design"

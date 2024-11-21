@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/7/1"
+canonical: "https://softwarepatternslexicon.com/object-oriented/7/1"
 title: "Principles of Good Object-Oriented Design: Emphasizing Modularity and Reusability"
 description: "Explore the core principles of good object-oriented design, focusing on modularity and reusability while balancing flexibility and complexity in software development."
 linkTitle: "7.1. Principles of Good Object-Oriented Design"

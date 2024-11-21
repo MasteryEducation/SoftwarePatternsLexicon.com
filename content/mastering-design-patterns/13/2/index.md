@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/13/2"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/13/2"
 title: "Composing Methods: Mastering Method Refactoring Techniques"
 description: "Explore the art of composing methods through Extract Method, Inline Method, and Replace Temp with Query refactoring techniques to enhance code readability and maintainability."
 linkTitle: "13.2. Composing Methods"

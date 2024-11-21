@@ -21,7 +21,7 @@ tags:
   - Distributed Systems
   - Resilience
   - System Architecture
-canonical: "https://softwarepatternslexicon.com/microservices/reliability/resilience/circuit-breaker"
+canonical: "https://softwarepatternslexicon.com/java-microservices/reliability/resilience/circuit-breaker"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 

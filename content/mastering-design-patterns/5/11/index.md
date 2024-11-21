@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/5/11"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/5/11"
 
 title: "Template Method Pattern: Mastering Behavioral Design Patterns"
 description: "Explore the Template Method Pattern in software design, its intent, motivation, and pseudocode implementation. Learn how to define algorithms in base classes, utilize hook methods, and understand variations."

@@ -24,7 +24,7 @@ tags:
   - Spring Boot
   - Spring Cloud
   - Quality Assurance
-canonical: "https://softwarepatternslexicon.com/microservices/testing/consumer-side-contract-test"
+canonical: "https://softwarepatternslexicon.com/java-microservices/testing/consumer-side-contract-test"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 

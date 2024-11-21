@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/1/3"
+canonical: "https://softwarepatternslexicon.com/microservices/1/3"
 title: "Principles of Microservices Design: Key Architectural Patterns"
 description: "Explore the core principles of microservices design, including Single Responsibility, Loose Coupling, Continuous Delivery, and Decentralized Governance, with illustrative pseudocode examples."
 linkTitle: "1.3. Principles of Microservices Design"

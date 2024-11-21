@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/9/5"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/9/5"
 title: "Circuit Breaker Pattern: Ensuring Resilience in Distributed Systems"
 description: "Explore the Circuit Breaker Pattern, a crucial design pattern for fault isolation and graceful failure handling in distributed systems. Learn its intent, applicability, and implementation through detailed pseudocode and diagrams."
 linkTitle: "9.5. Circuit Breaker Pattern"

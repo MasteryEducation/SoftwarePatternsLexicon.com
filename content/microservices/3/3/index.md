@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/3/3"
+canonical: "https://softwarepatternslexicon.com/microservices/3/3"
 
 title: "Scalability and Resilience in Microservices Architecture"
 description: "Explore the principles of scalability and resilience in microservices architecture, focusing on horizontal scaling, fault isolation, and auto-scaling strategies."

@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/15/4"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/15/4"
 
 title: "Publish-Subscribe Pattern: Decoupled Communication in Software Design"
 description: "Explore the Publish-Subscribe Pattern, a key design pattern for decoupled communication in software systems. Learn how message brokers and topics facilitate efficient data exchange."

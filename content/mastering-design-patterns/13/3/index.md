@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/13/3"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/13/3"
 title: "Moving Features Between Objects: Mastering Refactoring Patterns"
 description: "Explore the art of moving features between objects in software design, focusing on Move Method, Move Field, Extract Class, and Inline Class refactoring patterns."
 linkTitle: "13.3. Moving Features Between Objects"

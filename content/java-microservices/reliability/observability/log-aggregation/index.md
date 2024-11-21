@@ -21,7 +21,7 @@ tags:
   - Troubleshooting
   - Observability
   - Data Collection
-canonical: "https://softwarepatternslexicon.com/microservices/reliability/observability/log-aggregation"
+canonical: "https://softwarepatternslexicon.com/java-microservices/reliability/observability/log-aggregation"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 

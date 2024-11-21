@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/2/6"
+canonical: "https://softwarepatternslexicon.com/functional-programming/2/6"
 title: "Closures and Lexical Scope: Mastering Functional Programming"
 description: "Explore closures and lexical scope in functional programming, understanding their concepts, applications, and implementations through detailed examples and diagrams."
 linkTitle: "2.6. Closures and Lexical Scope"

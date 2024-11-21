@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/11/1"
+canonical: "https://softwarepatternslexicon.com/functional-programming/11/1"
 title: "Category Theory and Functional Programming: Exploring Objects, Morphisms, Functors, and Monads"
 description: "Dive deep into the intersection of category theory and functional programming, exploring fundamental concepts such as objects, morphisms, functors, and monads, and their relevance to abstracting patterns and structures in functional programming."
 linkTitle: "11.1. Category Theory and Functional Programming"

@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/4/2"
+canonical: "https://softwarepatternslexicon.com/microservices/4/2"
 
 title: "Decomposition by Subdomain: Domain-Driven Design (DDD) in Microservices"
 description: "Explore the principles of Domain-Driven Design (DDD) for decomposing microservices by subdomain, focusing on bounded contexts, ubiquitous language, aggregates, and entities with practical pseudocode examples."

@@ -21,7 +21,7 @@ tags:
   - Observability
   - Troubleshooting
   - Performance Optimization
-canonical: "https://softwarepatternslexicon.com/microservices/reliability/observability/application-metrics"
+canonical: "https://softwarepatternslexicon.com/java-microservices/reliability/observability/application-metrics"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 

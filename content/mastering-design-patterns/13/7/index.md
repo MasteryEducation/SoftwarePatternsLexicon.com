@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/13/7"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/13/7"
 title: "Mastering Generalization in Software Design: Pull Up, Push Down, and Extract Techniques"
 description: "Explore the art of dealing with generalization in software design through refactoring patterns like Pull Up Field/Method, Push Down Method/Field, and Extract Subclass/Superclass, with detailed pseudocode examples and diagrams."
 linkTitle: "13.7. Dealing with Generalization"

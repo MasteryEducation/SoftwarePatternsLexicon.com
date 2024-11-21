@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/6/4"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/6/4"
 title: "Monitor Object Pattern for Synchronization in Concurrency"
 description: "Explore the Monitor Object Pattern, a key concurrency design pattern for synchronization in multithreaded programming. Learn its intent, motivation, and implementation through detailed pseudocode examples."
 linkTitle: "6.4. Monitor Object Pattern"

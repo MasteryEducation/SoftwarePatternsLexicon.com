@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/10/2"
+canonical: "https://softwarepatternslexicon.com/object-oriented/10/2"
 title: "Comprehensive Design Pattern Reference Guide"
 description: "Explore a detailed reference guide on object-oriented design patterns, including intent, applicability, and key features for each pattern."
 linkTitle: "10.2. Design Pattern Reference Guide"

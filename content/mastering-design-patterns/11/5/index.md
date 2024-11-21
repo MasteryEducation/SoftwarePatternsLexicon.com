@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/11/5"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/11/5"
 title: "Input Validation Patterns: Preventing Injection Attacks and Sanitizing User Input"
 description: "Explore comprehensive input validation patterns to prevent injection attacks and sanitize user input, ensuring secure software design."
 linkTitle: "11.5. Input Validation Patterns"

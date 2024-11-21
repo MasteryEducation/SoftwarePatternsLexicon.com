@@ -23,7 +23,7 @@ tags:
   - System Architecture
   - Fault Tolerance
   - Load Balancing
-canonical: "https://softwarepatternslexicon.com/microservices/service-discovery/service-registry"
+canonical: "https://softwarepatternslexicon.com/java-microservices/service-discovery/service-registry"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 

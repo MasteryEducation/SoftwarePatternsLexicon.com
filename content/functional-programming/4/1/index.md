@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/4/1"
+canonical: "https://softwarepatternslexicon.com/functional-programming/4/1"
 title: "Monoid Pattern in Functional Programming: Concepts and Pseudocode"
 description: "Explore the Monoid Pattern in Functional Programming, understanding its algebraic structure, laws, and practical applications through detailed pseudocode examples."
 linkTitle: "4.1. Monoid Pattern"

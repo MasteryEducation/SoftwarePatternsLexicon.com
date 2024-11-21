@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/9/1"
+canonical: "https://softwarepatternslexicon.com/object-oriented/9/1"
 
 title: "Comprehensive Recap of Key Object-Oriented Design Patterns Concepts"
 description: "A detailed summary of key concepts in object-oriented design patterns, reflecting on learning outcomes and reinforcing understanding."

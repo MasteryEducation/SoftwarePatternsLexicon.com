@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/17/3"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/17/3"
 
 title: "Design Pattern Selection and Trade-offs: Mastering Choices for Optimal Software Design"
 description: "Explore the intricacies of selecting the right design patterns and understanding their trade-offs in software development. This comprehensive guide helps expert developers and architects make informed decisions for efficient and maintainable code."

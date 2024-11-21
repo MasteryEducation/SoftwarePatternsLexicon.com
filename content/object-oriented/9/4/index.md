@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/9/4"
+canonical: "https://softwarepatternslexicon.com/object-oriented/9/4"
 title: "Mastering Object-Oriented Design Patterns: Final Thoughts and Continuous Practice"
 description: "Explore the art of mastering object-oriented design patterns with insights, encouragement, and guidance for continuous practice in software development."
 linkTitle: "9.4. Final Thoughts"

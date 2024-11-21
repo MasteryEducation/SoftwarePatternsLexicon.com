@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/9/8"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/9/8"
 title: "Saga Pattern: Managing Distributed Transactions and Coordinating Long-Running Processes"
 description: "Explore the Saga Pattern for managing distributed transactions and coordinating long-running processes in distributed systems. Learn how to implement this pattern using pseudocode and understand its applicability, key participants, and design considerations."
 linkTitle: "9.8. Saga Pattern"

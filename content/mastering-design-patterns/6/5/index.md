@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/6/5"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/6/5"
 
 title: "Producer-Consumer Pattern: Managing Work Queues in Concurrency"
 description: "Explore the Producer-Consumer Pattern, a fundamental concurrency design pattern for managing work queues efficiently. Learn its intent, motivation, and implementation with detailed pseudocode examples."

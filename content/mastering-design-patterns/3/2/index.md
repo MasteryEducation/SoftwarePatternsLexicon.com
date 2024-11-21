@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/3/2"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/3/2"
 
 title: "Singleton Design Pattern: Mastering Creational Patterns with Pseudocode"
 description: "Explore the Singleton Design Pattern, its intent, applicability, and implementation with pseudocode examples across programming paradigms. Understand its advantages and disadvantages for expert software engineers."

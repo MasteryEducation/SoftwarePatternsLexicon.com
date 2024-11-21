@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/5/2"
+canonical: "https://softwarepatternslexicon.com/microservices/5/2"
 
 title: "Service Mesh Pattern: Enhancing Microservices Communication"
 description: "Explore the Service Mesh Pattern in microservices architecture, focusing on managing service-to-service communication with sidecar proxies, load balancing, encryption, and observability."

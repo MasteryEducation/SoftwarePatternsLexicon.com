@@ -22,7 +22,7 @@ tags:
   - Troubleshooting
   - Fault Management
   - Microservices
-canonical: "https://softwarepatternslexicon.com/microservices/reliability/observability/exception-tracking"
+canonical: "https://softwarepatternslexicon.com/java-microservices/reliability/observability/exception-tracking"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 

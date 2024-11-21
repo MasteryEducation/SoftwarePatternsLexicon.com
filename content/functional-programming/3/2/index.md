@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/3/2"
+canonical: "https://softwarepatternslexicon.com/functional-programming/3/2"
 title: "Monad Pattern in Functional Programming: A Comprehensive Guide"
 description: "Explore the Monad Pattern in Functional Programming, understanding its principles, laws, and applications with detailed pseudocode examples."
 linkTitle: "3.2. Monad Pattern"

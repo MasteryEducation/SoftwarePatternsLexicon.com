@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/2/2"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/2/2"
 title: "DRY, KISS, and YAGNI: Essential Software Design Principles"
 description: "Explore the foundational software design principles DRY, KISS, and YAGNI, and learn how to apply them effectively in your development process."
 linkTitle: "2.2. DRY, KISS, and YAGNI"

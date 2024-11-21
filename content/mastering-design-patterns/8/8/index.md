@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/8/8"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/8/8"
 title: "Pipe and Filter Architecture: Mastering Data Stream Processing with Composable Filters"
 description: "Explore the Pipe and Filter Architecture, a powerful design pattern for processing data streams with composable filters. Learn its intent, key participants, applicability, and implementation through detailed pseudocode examples and visual diagrams."
 linkTitle: "8.8. Pipe and Filter Architecture"

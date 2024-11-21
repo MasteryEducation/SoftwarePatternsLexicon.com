@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/1/2"
+canonical: "https://softwarepatternslexicon.com/object-oriented/1/2"
 title: "History of Design Patterns: Evolution and Impact of the Gang of Four"
 description: "Explore the origins, evolution, and significance of design patterns in object-oriented programming, focusing on the influential work of the Gang of Four."
 linkTitle: "1.2. History of Design Patterns"

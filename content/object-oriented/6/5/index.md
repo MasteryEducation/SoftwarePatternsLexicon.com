@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/6/5"
+canonical: "https://softwarepatternslexicon.com/object-oriented/6/5"
 title: "Object-Oriented Design Patterns Case Studies: Text Editor, GUI Framework, and Networking Library"
 description: "Explore real-world applications of design patterns through detailed case studies on developing a text editor, building a GUI framework, and implementing a networking library, using patterns like Composite, Command, Memento, Observer, Strategy, Template Method, Singleton, Adapter, and Proxy."
 linkTitle: "6.5. Case Studies"

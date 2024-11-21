@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/2/5"
+canonical: "https://softwarepatternslexicon.com/functional-programming/2/5"
 title: "Lazy Evaluation in Functional Programming: Concepts and Pseudocode"
 description: "Explore the concept of lazy evaluation in functional programming, its benefits, use cases, and implementation through pseudocode examples."
 linkTitle: "2.5. Lazy Evaluation"

@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/6/3"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/6/3"
 title: "Future Pattern in Concurrency Design: Representing Pending Results"
 description: "Explore the Future Pattern in concurrency design, learn how it represents pending results, and see its implementation using pseudocode. Enhance your understanding of asynchronous programming with this comprehensive guide."
 linkTitle: "6.3. Future Pattern"

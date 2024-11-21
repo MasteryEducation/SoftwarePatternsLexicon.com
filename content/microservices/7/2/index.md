@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/7/2"
+canonical: "https://softwarepatternslexicon.com/microservices/7/2"
 title: "Service-to-Service Security in Microservices"
 description: "Explore the essential security patterns for service-to-service communication in microservices, including Mutual TLS, API Keys, and Tokens, with detailed pseudocode examples."
 linkTitle: "7.2. Service-to-Service Security"

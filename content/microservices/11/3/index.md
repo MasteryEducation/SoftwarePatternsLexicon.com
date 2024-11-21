@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/11/3"
+canonical: "https://softwarepatternslexicon.com/microservices/11/3"
 
 title: "Microservices Lessons Learned: Best Practices and Common Pitfalls"
 description: "Explore the lessons learned from implementing microservices architecture, including best practices and common pitfalls to avoid."

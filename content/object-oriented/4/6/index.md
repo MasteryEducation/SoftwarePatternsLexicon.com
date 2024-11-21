@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/4/6"
+canonical: "https://softwarepatternslexicon.com/object-oriented/4/6"
 title: "Facade Pattern in Object-Oriented Design"
 description: "Explore the Facade Pattern, a structural design pattern that provides a simplified interface to complex subsystems, enhancing code readability and maintainability."
 linkTitle: "4.6. Facade Pattern"

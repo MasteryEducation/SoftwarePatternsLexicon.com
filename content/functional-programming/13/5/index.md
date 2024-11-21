@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/13/5"
+canonical: "https://softwarepatternslexicon.com/functional-programming/13/5"
 title: "Functional Programming Patterns: Comprehensive Bibliography and Further Reading"
 description: "Explore an extensive bibliography and further reading resources on functional programming patterns, including books, articles, tutorials, and videos."
 linkTitle: "Comprehensive Bibliography and Further Reading"

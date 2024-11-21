@@ -22,7 +22,7 @@ tags:
   - Domain-Driven Design
   - Spring Boot
   - Spring Cloud
-canonical: "https://softwarepatternslexicon.com/microservices/decomposition/decompose-by-business-capability"
+canonical: "https://softwarepatternslexicon.com/java-microservices/decomposition/decompose-by-business-capability"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 

@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/12/6"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/12/6"
 title: "Boat Anchor: Removing Unused Code to Avoid Unnecessary Complexity"
 description: "Explore the Boat Anchor anti-pattern, learn how to identify and remove unused code, and understand its impact on software complexity."
 linkTitle: "12.6. Boat Anchor"

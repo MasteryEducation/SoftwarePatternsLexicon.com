@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/5/10"
+canonical: "https://softwarepatternslexicon.com/object-oriented/5/10"
 title: "Strategy Pattern: Enhance Flexibility with Interchangeable Algorithms"
 description: "Explore the Strategy Pattern in object-oriented design, focusing on defining and encapsulating a family of algorithms to enhance flexibility and interchangeability."
 linkTitle: "5.10. Strategy Pattern"

@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/14/6"
+canonical: "https://softwarepatternslexicon.com/microservices/14/6"
 
 title: "Microservices Design Patterns FAQ: Comprehensive Guide to Architectural Principles"
 description: "Explore frequently asked questions about microservices design patterns, addressing complex topics with clarity and detailed pseudocode examples."

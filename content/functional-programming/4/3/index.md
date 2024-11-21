@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/4/3"
+canonical: "https://softwarepatternslexicon.com/functional-programming/4/3"
 title: "Lens Pattern in Functional Programming: A Comprehensive Guide"
 description: "Explore the Lens Pattern in Functional Programming for immutable data structure manipulation, accessing and modifying nested data, and composing complex accessors."
 linkTitle: "4.3. Lens Pattern"

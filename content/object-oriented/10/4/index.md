@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/10/4"
+canonical: "https://softwarepatternslexicon.com/object-oriented/10/4"
 title: "Object-Oriented Design Patterns: Additional Exercises and Solutions"
 description: "Enhance your understanding of object-oriented design patterns with practical exercises and detailed solutions. Explore real-world scenarios and reinforce key concepts."
 linkTitle: "10.4. Additional Exercises and Solutions"

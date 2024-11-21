@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/3/3"
+canonical: "https://softwarepatternslexicon.com/object-oriented/3/3"
 title: "Factory Method Pattern: Mastering Object Creation in OOP"
 description: "Explore the Factory Method Pattern in object-oriented programming, its intent, structure, and practical implementation in pseudocode."
 linkTitle: "3.3. Factory Method Pattern"

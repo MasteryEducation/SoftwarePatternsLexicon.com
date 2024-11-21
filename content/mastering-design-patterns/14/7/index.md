@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/14/7"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/14/7"
 title: "CQRS (Command Query Responsibility Segregation) Design Pattern: Mastering Domain-Driven Design"
 description: "Explore the CQRS (Command Query Responsibility Segregation) design pattern, its implementation, and benefits in domain-driven design. Learn how to separate read and write models using pseudocode examples."
 linkTitle: "14.7. CQRS (Command Query Responsibility Segregation)"

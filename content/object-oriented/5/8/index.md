@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/5/8"
+canonical: "https://softwarepatternslexicon.com/object-oriented/5/8"
 
 title: "Observer Pattern: Mastering One-to-Many Dependencies in Software Design"
 description: "Explore the Observer Pattern, a fundamental design pattern in object-oriented programming that defines a one-to-many dependency between objects. Learn its intent, applicability, structure, and implementation with detailed pseudocode examples."

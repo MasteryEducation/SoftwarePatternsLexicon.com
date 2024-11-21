@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/3/5"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/3/5"
 title: "Builder Pattern: Mastering Creational Design Patterns"
 description: "Explore the Builder Pattern in software design, its intent, motivation, and implementation using pseudocode. Learn when to use it, its advantages, and trade-offs."
 linkTitle: "3.5. Builder Pattern"

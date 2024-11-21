@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/11/1"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/11/1"
 
 title: "Introduction to Security Patterns: Principles of Secure Design and Threat Modeling"
 description: "Explore the fundamentals of security design patterns, focusing on principles of secure design and threat modeling. Learn how to implement these patterns across programming paradigms using pseudocode."

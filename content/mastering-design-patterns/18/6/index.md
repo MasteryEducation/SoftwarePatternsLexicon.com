@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/18/6"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/18/6"
 title: "Dependency Injection and Inversion of Control: Mastering Design Patterns for Effective Dependency Management"
 description: "Explore the intricacies of Dependency Injection and Inversion of Control, two pivotal design patterns that enhance code flexibility and maintainability by managing dependencies and reducing hard-coded couplings."
 linkTitle: "18.6. Dependency Injection and Inversion of Control"

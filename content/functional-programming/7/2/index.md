@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/7/2"
+canonical: "https://softwarepatternslexicon.com/functional-programming/7/2"
 title: "Futures and Promises: Managing Asynchronous Computations in Functional Programming"
 description: "Explore the concepts of Futures and Promises in functional programming, learn how to manage asynchronous computations, and understand how to compose Futures effectively with detailed pseudocode examples."
 linkTitle: "7.2. Futures and Promises"

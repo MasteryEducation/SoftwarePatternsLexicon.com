@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/5/9"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/5/9"
 title: "State Pattern: Mastering State Transitions with Design Patterns"
 description: "Explore the State Pattern in software design, its intent, motivation, and implementation using pseudocode. Learn how to manage state transitions effectively with state machines."
 linkTitle: "5.9. State Pattern"

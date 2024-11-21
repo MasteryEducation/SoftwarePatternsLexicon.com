@@ -22,7 +22,7 @@ tags:
   - Microservices
   - Logging
   - Performance Analysis
-canonical: "https://softwarepatternslexicon.com/microservices/reliability/observability/distributed-tracing"
+canonical: "https://softwarepatternslexicon.com/java-microservices/reliability/observability/distributed-tracing"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 

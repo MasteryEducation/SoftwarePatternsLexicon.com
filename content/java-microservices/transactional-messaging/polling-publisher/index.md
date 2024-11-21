@@ -22,7 +22,7 @@ tags:
   - System Architecture
   - Database Transactions
   - Messaging
-canonical: "https://softwarepatternslexicon.com/microservices/transactional-messaging/polling-publisher"
+canonical: "https://softwarepatternslexicon.com/java-microservices/transactional-messaging/polling-publisher"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 

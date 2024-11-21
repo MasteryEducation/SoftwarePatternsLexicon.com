@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/8/1"
+canonical: "https://softwarepatternslexicon.com/object-oriented/8/1"
 title: "UML for Design Patterns: Visualizing Object-Oriented Solutions"
 description: "Explore how UML diagrams enhance understanding and implementation of design patterns in object-oriented programming."
 linkTitle: "8.1. Using UML with Design Patterns"

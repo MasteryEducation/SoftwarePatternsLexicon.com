@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/5/5"
+canonical: "https://softwarepatternslexicon.com/microservices/5/5"
 title: "Saga Pattern in Microservices: Managing Distributed Transactions"
 description: "Explore the Saga Pattern in microservices architecture, focusing on managing distributed transactions through choreography and orchestration. Learn with pseudocode examples and diagrams."
 linkTitle: "5.5. Saga Pattern"

@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/4/7"
+canonical: "https://softwarepatternslexicon.com/object-oriented/4/7"
 title: "Flyweight Pattern: Efficient Object Sharing in OOP"
 description: "Explore the Flyweight Pattern in Object-Oriented Design, focusing on efficient object sharing to manage large numbers of fine-grained objects. Learn about its intent, applicability, structure, and implementation with detailed pseudocode examples."
 linkTitle: "4.7. Flyweight Pattern"

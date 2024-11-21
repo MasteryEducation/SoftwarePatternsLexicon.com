@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/20/6"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/20/6"
 title: "Frequently Asked Questions (FAQ) on Design Patterns: Addressing Common Misconceptions and Providing Expert Tips"
 description: "Explore the frequently asked questions about design patterns, addressing common misconceptions and providing expert tips and advice for mastering design patterns across programming paradigms."
 linkTitle: "20.6. Frequently Asked Questions (FAQ)"

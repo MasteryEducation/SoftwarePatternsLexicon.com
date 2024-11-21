@@ -19,7 +19,7 @@ tags:
   - Message Processing
   - Fault Tolerance
   - Data Consistency
-canonical: "https://softwarepatternslexicon.com/microservices/communication-protocols/idempotent-consumer"
+canonical: "https://softwarepatternslexicon.com/java-microservices/communication-protocols/idempotent-consumer"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 

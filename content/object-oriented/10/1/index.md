@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/10/1"
+canonical: "https://softwarepatternslexicon.com/object-oriented/10/1"
 
 title: "Glossary of Object-Oriented Design Patterns and Concepts"
 description: "Comprehensive Glossary of Key Object-Oriented Design Patterns and Concepts with Pseudocode Examples"

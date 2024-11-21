@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/11/6"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/11/6"
 title: "Exception Shielding: Protecting Sensitive Information and Handling Errors Securely"
 description: "Explore the Exception Shielding pattern, a crucial security design pattern for protecting sensitive information and handling errors securely in software development."
 linkTitle: "11.6. Exception Shielding"

@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/5/4"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/5/4"
 title: "Interpreter Pattern: Mastering Behavioral Design Patterns"
 description: "Explore the Interpreter Pattern, a key behavioral design pattern, to define grammars and languages, implement pseudocode, and apply it in parsing."
 linkTitle: "5.4. Interpreter Pattern"

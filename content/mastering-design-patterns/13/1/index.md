@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/13/1"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/13/1"
 title: "Introduction to Refactoring: Enhancing Code Quality Without Altering Behavior"
 description: "Explore the fundamentals of refactoring, a crucial process in software development that improves code quality, readability, and maintainability without changing its external behavior. Learn about the importance of clean code and how refactoring contributes to robust software architecture."
 linkTitle: "13.1. Introduction to Refactoring"

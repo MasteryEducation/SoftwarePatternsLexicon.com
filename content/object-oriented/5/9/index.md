@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/5/9"
+canonical: "https://softwarepatternslexicon.com/object-oriented/5/9"
 title: "State Pattern: Mastering Dynamic Behavior in Object-Oriented Design"
 description: "Explore the State Pattern in object-oriented design, allowing objects to change behavior based on internal state changes. Learn its intent, structure, and implementation with detailed pseudocode examples."
 linkTitle: "5.9. State Pattern"

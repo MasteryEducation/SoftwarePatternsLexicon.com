@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/6/4"
+canonical: "https://softwarepatternslexicon.com/microservices/6/4"
 title: "CQRS (Command Query Responsibility Segregation) Pattern in Microservices"
 description: "Explore the CQRS pattern in microservices architecture, focusing on separating read and write models to optimize workloads, with detailed pseudocode examples."
 linkTitle: "6.4. CQRS (Command Query Responsibility Segregation) Pattern"

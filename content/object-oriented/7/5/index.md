@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/7/5"
+canonical: "https://softwarepatternslexicon.com/object-oriented/7/5"
 title: "Architectural Patterns and Design Patterns: Understanding and Differentiating"
 description: "Explore the distinctions and synergies between architectural patterns and design patterns in software development, enhancing your understanding of how they complement each other."
 linkTitle: "7.5. Architectural Patterns and Design Patterns"

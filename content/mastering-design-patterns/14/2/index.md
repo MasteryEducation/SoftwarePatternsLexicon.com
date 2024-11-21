@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/14/2"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/14/2"
 title: "Entities and Value Objects: Core Concepts in Domain-Driven Design"
 description: "Explore the foundational concepts of Entities and Value Objects in Domain-Driven Design, with detailed pseudocode examples and practical insights for expert developers."
 linkTitle: "14.2. Entities and Value Objects"

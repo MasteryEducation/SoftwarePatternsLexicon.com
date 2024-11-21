@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/5/7"
+canonical: "https://softwarepatternslexicon.com/object-oriented/5/7"
 title: "Memento Pattern: Capturing and Restoring Object State"
 description: "Explore the Memento Pattern in Object-Oriented Design, its intent, structure, and practical implementation in pseudocode."
 linkTitle: "5.7. Memento Pattern"

@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/2/2"
+canonical: "https://softwarepatternslexicon.com/object-oriented/2/2"
 title: "Design Principles and Best Practices for Object-Oriented Design"
 description: "Explore essential design principles such as DRY, KISS, YAGNI, and the Principle of Least Knowledge to enhance object-oriented design and software development."
 linkTitle: "2.2. Design Principles and Best Practices"

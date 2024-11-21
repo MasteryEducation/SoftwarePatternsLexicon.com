@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/3/5"
+canonical: "https://softwarepatternslexicon.com/microservices/3/5"
 title: "Decentralized Data Management in Microservices Architecture"
 description: "Explore decentralized data management in microservices, focusing on data ownership, eventual consistency, and distributed transactions with detailed pseudocode examples."
 linkTitle: "3.5. Decentralized Data Management"

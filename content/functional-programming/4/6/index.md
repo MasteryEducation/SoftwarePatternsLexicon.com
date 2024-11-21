@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/4/6"
+canonical: "https://softwarepatternslexicon.com/functional-programming/4/6"
 title: "Zipper Pattern in Functional Programming: Navigating and Updating Immutable Data Structures"
 description: "Explore the Zipper Pattern in functional programming, a powerful technique for navigating and updating immutable data structures like trees and lists. Learn through detailed explanations, pseudocode examples, and visualizations."
 linkTitle: "4.6. Zipper Pattern"

@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/13/7"
+canonical: "https://softwarepatternslexicon.com/functional-programming/13/7"
 
 title: "A.7. Common Interview Questions for Functional Programming"
 description: "Explore common interview questions for functional programming, with sample answers and insights into industry expectations."

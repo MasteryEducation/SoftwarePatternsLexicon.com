@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/3/3"
+canonical: "https://softwarepatternslexicon.com/functional-programming/3/3"
 title: "Applicative Functor Pattern in Functional Programming"
 description: "Explore the Applicative Functor Pattern in Functional Programming, its concepts, differences from Functors and Monads, and practical pseudocode implementations."
 linkTitle: "3.3. Applicative Functor Pattern"

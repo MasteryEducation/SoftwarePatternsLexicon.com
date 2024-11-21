@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/6/1"
+canonical: "https://softwarepatternslexicon.com/functional-programming/6/1"
 title: "Immutable Collections in Functional Programming"
 description: "Explore the benefits and implementation of immutable collections such as lists, sets, and maps in functional programming. Learn through pseudocode examples and diagrams."
 linkTitle: "6.1. Immutable Collections"

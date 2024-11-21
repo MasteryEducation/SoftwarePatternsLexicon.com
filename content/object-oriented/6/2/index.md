@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/6/2"
+canonical: "https://softwarepatternslexicon.com/object-oriented/6/2"
 title: "Combining Design Patterns: Mastering Composite Patterns in Software Development"
 description: "Explore the art of combining design patterns to create robust and flexible software solutions. Learn how composite patterns enhance functionality and discover real-world case studies of combined patterns in action."
 linkTitle: "6.2. Combining Patterns"

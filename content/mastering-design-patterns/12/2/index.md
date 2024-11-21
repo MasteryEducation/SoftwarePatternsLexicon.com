@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/12/2"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/12/2"
 title: "Spaghetti Code: Understanding and Refactoring"
 description: "Explore the intricacies of spaghetti code, its impact on software development, and effective strategies for refactoring to enhance code maintainability and readability."
 linkTitle: "12.2. Spaghetti Code"

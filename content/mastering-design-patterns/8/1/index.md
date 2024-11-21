@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/8/1"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/8/1"
 title: "Introduction to Software Architecture: Architectural Styles and Patterns for Large Systems"
 description: "Explore the fundamental concepts of software architecture, including architectural styles and patterns, and their significance in designing large-scale systems."
 linkTitle: "8.1. Introduction to Software Architecture"

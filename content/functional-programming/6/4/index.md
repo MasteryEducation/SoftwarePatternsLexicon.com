@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/6/4"
+canonical: "https://softwarepatternslexicon.com/functional-programming/6/4"
 title: "Functional Queues and Deques: Efficient Access Patterns and Amortized Time Complexity"
 description: "Explore the world of functional queues and deques, understanding their efficient access patterns, amortized time complexity, and how to implement them using pseudocode."
 linkTitle: "6.4. Functional Queues and Deques"

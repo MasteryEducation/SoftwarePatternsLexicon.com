@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/5/1"
+canonical: "https://softwarepatternslexicon.com/object-oriented/5/1"
 title: "Behavioral Design Patterns: Managing Algorithms and Responsibilities"
 description: "Explore the purpose and intricacies of behavioral design patterns in object-oriented programming, focusing on managing algorithms and responsibilities among objects."
 linkTitle: "5.1. Introduction to Behavioral Patterns"

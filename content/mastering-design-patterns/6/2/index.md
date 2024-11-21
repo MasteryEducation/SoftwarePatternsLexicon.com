@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/6/2"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/6/2"
 
 title: "Active Object Pattern: Decoupling Method Execution for Concurrency"
 description: "Explore the Active Object Pattern, a concurrency design pattern that decouples method execution from method invocation to enhance system responsiveness and manage concurrent tasks effectively."

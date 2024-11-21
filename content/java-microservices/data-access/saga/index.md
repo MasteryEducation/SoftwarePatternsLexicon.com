@@ -24,7 +24,7 @@ tags:
   - Fault Tolerance
   - Event-Driven Architecture
   - Workflow Management
-canonical: "https://softwarepatternslexicon.com/microservices/data-access/saga"
+canonical: "https://softwarepatternslexicon.com/java-microservices/data-access/saga"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 

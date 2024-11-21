@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/14/3"
+canonical: "https://softwarepatternslexicon.com/microservices/14/3"
 title: "Microservices Design Patterns: Exercise Solutions"
 description: "Explore detailed solutions to exercises on microservices design patterns, complete with explanations and insights into problem-solving approaches."
 linkTitle: "Microservices Design Patterns: Exercise Solutions"

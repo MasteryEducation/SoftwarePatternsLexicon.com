@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/6/1"
+canonical: "https://softwarepatternslexicon.com/microservices/6/1"
 title: "Database per Service Pattern: Isolating Data Storage in Microservices"
 description: "Explore the Database per Service Pattern in microservices architecture, focusing on isolating data storage for each service, its benefits, challenges, and implementation strategies."
 linkTitle: "6.1. Database per Service Pattern"

@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/10/7"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/10/7"
 
 title: "Splitter and Aggregator: Mastering Enterprise Integration Patterns"
 description: "Explore the Splitter and Aggregator patterns in enterprise integration, learn how to divide and combine messages, and handle complex data structures with practical pseudocode examples."

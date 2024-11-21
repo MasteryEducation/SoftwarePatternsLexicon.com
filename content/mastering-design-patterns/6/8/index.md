@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/6/8"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/6/8"
 title: "Immutable Pattern: Safely Managing Shared Data in Concurrency"
 description: "Explore the Immutable Pattern, a concurrency design pattern that ensures safe management of shared data through immutability. Learn its intent, motivation, and implementation with detailed pseudocode examples."
 linkTitle: "6.8. Immutable Pattern"

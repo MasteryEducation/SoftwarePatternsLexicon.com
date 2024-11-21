@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/10/1"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/10/1"
 title: "Messaging Systems Overview: Asynchronous Communication and Message-Oriented Middleware"
 description: "Explore the fundamentals of messaging systems, focusing on asynchronous communication and message-oriented middleware, to master enterprise integration patterns."
 linkTitle: "10.1. Messaging Systems Overview"

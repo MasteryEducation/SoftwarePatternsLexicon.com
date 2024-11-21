@@ -20,7 +20,7 @@ tags:
   - Contract Verification
   - Microservice Testing
   - Integration Testing
-canonical: "https://softwarepatternslexicon.com/microservices/testing/consumer-driven-contract-test"
+canonical: "https://softwarepatternslexicon.com/java-microservices/testing/consumer-driven-contract-test"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 

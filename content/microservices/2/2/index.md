@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/2/2"
+canonical: "https://softwarepatternslexicon.com/microservices/2/2"
 
 title: "Communication in Microservices: Synchronous and Asynchronous Patterns"
 description: "Explore the intricacies of communication in microservices, focusing on synchronous and asynchronous patterns, service discovery, and resilience strategies."

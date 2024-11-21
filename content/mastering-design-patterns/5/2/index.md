@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/5/2"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/5/2"
 title: "Chain of Responsibility Pattern: Mastering Behavioral Design Patterns"
 description: "Explore the Chain of Responsibility Pattern, a key behavioral design pattern that helps decouple senders and receivers in software design. Learn its intent, motivation, implementation, and use cases with detailed pseudocode examples."
 linkTitle: "5.2. Chain of Responsibility Pattern"

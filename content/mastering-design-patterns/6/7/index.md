@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/6/7"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/6/7"
 title: "Thread Pool Pattern: Efficiently Managing Concurrent Tasks"
 description: "Explore the Thread Pool Pattern, a concurrency design pattern that optimizes resource usage by managing a pool of threads for executing tasks. Learn its intent, motivation, and implementation through detailed pseudocode examples."
 linkTitle: "6.7. Thread Pool Pattern"

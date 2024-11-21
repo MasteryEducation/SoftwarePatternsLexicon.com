@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/5/1"
+canonical: "https://softwarepatternslexicon.com/microservices/5/1"
 title: "API Gateway Pattern: Centralized Entry Point for Microservices"
 description: "Explore the API Gateway Pattern in microservices architecture, focusing on its role as a centralized entry point for managing client interactions, routing, authentication, and protocol translation."
 linkTitle: "5.1. API Gateway Pattern"

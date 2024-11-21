@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/5/2"
+canonical: "https://softwarepatternslexicon.com/functional-programming/5/2"
 title: "Either Monad: Handling Computations with Two Possible Outcomes"
 description: "Explore the Either Monad in functional programming, a powerful pattern for handling computations with two possible outcomes, representing success and failure. Learn how to work with Left and Right, carry error information, and chain computations that may fail through comprehensive explanations and pseudocode examples."
 linkTitle: "5.2. Either Monad"

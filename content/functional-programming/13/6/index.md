@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/13/6"
+canonical: "https://softwarepatternslexicon.com/functional-programming/13/6"
 title: "Frequently Asked Questions (FAQ) on Functional Programming Patterns"
 description: "Explore common queries and clarifications on functional programming patterns, including key concepts, pseudocode examples, and practical insights."
 linkTitle: "FAQ on Functional Programming Patterns"

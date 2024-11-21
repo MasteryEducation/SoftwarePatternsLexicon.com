@@ -21,7 +21,7 @@ tags:
   - Event-Driven Architecture
   - System Architecture
   - Workflow Management
-canonical: "https://softwarepatternslexicon.com/microservices/data-access/domain-event"
+canonical: "https://softwarepatternslexicon.com/java-microservices/data-access/domain-event"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 

@@ -20,7 +20,7 @@ tags:
   - Spring Cloud
   - System Architecture
   - Cross-cutting Concerns
-canonical: "https://softwarepatternslexicon.com/microservices/cross-cutting-concerns/externalized-configuration"
+canonical: "https://softwarepatternslexicon.com/java-microservices/cross-cutting-concerns/externalized-configuration"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 

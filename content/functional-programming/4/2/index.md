@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/4/2"
+canonical: "https://softwarepatternslexicon.com/functional-programming/4/2"
 title: "Understanding Algebraic Data Types (ADTs) in Functional Programming"
 description: "Explore the intricacies of Algebraic Data Types (ADTs) in functional programming, including Sum and Product Types, Pattern Matching, and practical pseudocode examples."
 linkTitle: "4.2. Algebraic Data Types (ADTs)"

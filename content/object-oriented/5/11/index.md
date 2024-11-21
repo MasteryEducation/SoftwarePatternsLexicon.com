@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/5/11"
+canonical: "https://softwarepatternslexicon.com/object-oriented/5/11"
 title: "Template Method Pattern: Mastering Algorithm Skeletons in Object-Oriented Design"
 description: "Explore the Template Method Pattern in object-oriented design, its intent, applicability, structure, and implementation with detailed pseudocode examples."
 linkTitle: "5.11. Template Method Pattern"

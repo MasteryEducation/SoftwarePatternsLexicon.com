@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/6/5"
+canonical: "https://softwarepatternslexicon.com/microservices/6/5"
 
 title: "Data Replication and Synchronization in Microservices"
 description: "Explore data replication and synchronization techniques in microservices, ensuring data consistency and handling conflicts effectively."

@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/3/5"
+canonical: "https://softwarepatternslexicon.com/functional-programming/3/5"
 title: "Strategy Pattern in Functional Programming: A Comprehensive Guide"
 description: "Explore the Strategy Pattern in Functional Programming, its concepts, applications, and pseudocode implementations for enhanced code modularity and flexibility."
 linkTitle: "3.5. Strategy Pattern in FP"

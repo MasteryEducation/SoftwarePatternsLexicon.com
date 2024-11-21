@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/4/8"
+canonical: "https://softwarepatternslexicon.com/object-oriented/4/8"
 title: "Proxy Pattern: Understanding and Implementing in Object-Oriented Design"
 description: "Explore the Proxy Pattern in Object-Oriented Design, its intent, structure, and practical implementations with detailed pseudocode examples."
 linkTitle: "4.8. Proxy Pattern"

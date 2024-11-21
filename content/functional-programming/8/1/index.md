@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/8/1"
+canonical: "https://softwarepatternslexicon.com/functional-programming/8/1"
 title: "Functional Programming in JavaScript: Mastering FP Concepts with Libraries and Patterns"
 description: "Explore the integration of functional programming in JavaScript using libraries like Lodash, Ramda, and Immutable.js. Learn to apply FP concepts effectively in JavaScript code."
 linkTitle: "8.1. Functional Programming in JavaScript"

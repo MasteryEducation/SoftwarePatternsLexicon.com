@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/9/2"
+canonical: "https://softwarepatternslexicon.com/object-oriented/9/2"
 
 title: "The Future of Design Patterns in OOP: Emerging Trends and Adaptations"
 description: "Explore the evolving landscape of object-oriented design patterns, emerging trends, and how they adapt to technological advances."

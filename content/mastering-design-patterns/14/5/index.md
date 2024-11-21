@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/14/5"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/14/5"
 
 title: "Bounded Contexts in Domain-Driven Design: A Comprehensive Guide"
 description: "Explore the concept of Bounded Contexts in Domain-Driven Design, learn how to integrate multiple models, and understand the importance of context mapping with detailed pseudocode examples."

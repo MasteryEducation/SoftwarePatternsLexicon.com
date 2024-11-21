@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/7/2"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/7/2"
 
 title: "Immutability and Pure Functions: Mastering Functional Programming Patterns"
 description: "Explore the benefits of immutability and the art of writing pure functions in functional programming. Learn how these concepts enhance code reliability, maintainability, and performance."

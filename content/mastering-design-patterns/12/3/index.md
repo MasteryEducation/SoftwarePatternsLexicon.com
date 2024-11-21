@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/12/3"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/12/3"
 
 title: "The God Object: Understanding and Avoiding Overloaded Classes"
 description: "Explore the concept of the God Object in software design, understand its pitfalls, and learn strategies to break down responsibilities for cleaner, more maintainable code."

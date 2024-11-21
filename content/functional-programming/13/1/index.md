@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/13/1"
+canonical: "https://softwarepatternslexicon.com/functional-programming/13/1"
 title: "Pseudocode Style Guide for Functional Programming Patterns"
 description: "Explore the syntax rules, conventions, and common constructs of pseudocode in functional programming patterns."
 linkTitle: "Pseudocode Style Guide"

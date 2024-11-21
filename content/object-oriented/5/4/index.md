@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/5/4"
+canonical: "https://softwarepatternslexicon.com/object-oriented/5/4"
 title: "Interpreter Pattern: Understanding and Implementing in Pseudocode"
 description: "Explore the Interpreter Pattern in Object-Oriented Design, its intent, structure, and implementation in pseudocode. Learn how to define a representation for a language and create an interpreter for its sentences."
 linkTitle: "5.4. Interpreter Pattern"

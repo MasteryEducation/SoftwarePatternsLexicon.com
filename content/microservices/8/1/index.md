@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/8/1"
+canonical: "https://softwarepatternslexicon.com/microservices/8/1"
 title: "Comprehensive Guide to Monitoring and Logging in Microservices"
 description: "Explore centralized logging, metrics collection, and monitoring in microservices architecture with detailed pseudocode examples."
 linkTitle: "8.1. Monitoring and Logging"

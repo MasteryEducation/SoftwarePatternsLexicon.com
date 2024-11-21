@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/3/3"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/3/3"
 
 title: "Mastering the Factory Method Pattern: A Comprehensive Guide"
 description: "Explore the Factory Method Pattern, a fundamental creational design pattern, with detailed pseudocode examples and cross-paradigm insights."

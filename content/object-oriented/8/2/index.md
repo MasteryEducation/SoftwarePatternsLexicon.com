@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/8/2"
+canonical: "https://softwarepatternslexicon.com/object-oriented/8/2"
 title: "Software Tools for Designing Patterns: UML Modeling and Code Generation"
 description: "Explore the essential software tools for designing patterns, focusing on UML modeling and code generation techniques to streamline object-oriented design."
 linkTitle: "8.2. Software Tools for Designing Patterns"

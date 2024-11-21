@@ -23,7 +23,7 @@ tags:
   - System Architecture
   - Spring Boot
   - Spring Security
-canonical: "https://softwarepatternslexicon.com/microservices/reliability/security/access-token"
+canonical: "https://softwarepatternslexicon.com/java-microservices/reliability/security/access-token"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 

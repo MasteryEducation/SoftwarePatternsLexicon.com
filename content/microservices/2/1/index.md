@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/2/1"
+canonical: "https://softwarepatternslexicon.com/microservices/2/1"
 title: "Service Decomposition Strategies in Microservices Architecture"
 description: "Explore service decomposition strategies in microservices architecture, including decomposition by business capability, subdomain, and the Strangler Fig pattern, with illustrative pseudocode examples."
 linkTitle: "2.1. Service Decomposition Strategies"

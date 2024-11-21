@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/10/1"
+canonical: "https://softwarepatternslexicon.com/functional-programming/10/1"
 
 title: "Functional Patterns in Data Processing: Stream Processing and Event Handling"
 description: "Explore the use of functional programming patterns in data processing, focusing on stream processing and event handling for real-time data applications."

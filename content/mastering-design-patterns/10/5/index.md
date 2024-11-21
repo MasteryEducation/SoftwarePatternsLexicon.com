@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/10/5"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/10/5"
 title: "Content-Based Router: Dynamic Message Routing in Enterprise Integration Patterns"
 description: "Explore the Content-Based Router design pattern for dynamic message routing in enterprise integration, with comprehensive pseudocode examples and insights."
 linkTitle: "10.5. Content-Based Router"

@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/3/1"
+canonical: "https://softwarepatternslexicon.com/object-oriented/3/1"
 title: "Creational Design Patterns: A Comprehensive Introduction"
 description: "Explore the purpose, characteristics, and selection of Creational Design Patterns in Object-Oriented Programming with detailed pseudocode examples."
 linkTitle: "3.1. Introduction to Creational Patterns"

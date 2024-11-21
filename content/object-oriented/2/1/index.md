@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/2/1"
+canonical: "https://softwarepatternslexicon.com/object-oriented/2/1"
 title: "SOLID Design Principles: Mastering Object-Oriented Design"
 description: "Explore the SOLID principles of object-oriented design, including Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, and Dependency Inversion, with detailed explanations and pseudocode examples."
 linkTitle: "2.1. SOLID Design Principles"

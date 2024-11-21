@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/2/2"
+canonical: "https://softwarepatternslexicon.com/functional-programming/2/2"
 title: "Higher-Order Functions in Functional Programming"
 description: "Explore the power of higher-order functions in functional programming, including map, filter, reduce, compose, and pipe, with detailed pseudocode implementations."
 linkTitle: "2.2. Higher-Order Functions"

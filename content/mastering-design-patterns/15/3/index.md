@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/15/3"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/15/3"
 title: "Observer Pattern: Mastering Reactive Systems with Push and Pull Notifications"
 description: "Explore the Observer Pattern in-depth, focusing on implementing reactive systems with push and pull notifications. Learn how to effectively use this pattern across programming paradigms."
 linkTitle: "15.3. Observer Pattern Revisited"

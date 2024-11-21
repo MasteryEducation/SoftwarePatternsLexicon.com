@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/10/3"
+canonical: "https://softwarepatternslexicon.com/object-oriented/10/3"
 title: "Pseudocode Syntax Reference for Object-Oriented Design Patterns"
 description: "Explore a comprehensive guide to pseudocode syntax conventions used in object-oriented design patterns, enhancing your understanding and implementation skills."
 linkTitle: "10.3. Pseudocode Syntax Reference"

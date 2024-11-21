@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/1/3"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/1/3"
 
 title: "Importance of Design Patterns in Modern Programming"
 description: "Explore the critical role of design patterns in enhancing reusability, maintainability, and communication among developers in modern software development."

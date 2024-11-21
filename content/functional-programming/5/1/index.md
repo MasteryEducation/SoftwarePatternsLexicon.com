@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/5/1"
+canonical: "https://softwarepatternslexicon.com/functional-programming/5/1"
 title: "Option/Maybe Monad: Safe Handling of Nullable Values in Functional Programming"
 description: "Explore the Option/Maybe Monad in functional programming, a powerful pattern for safely handling nullable values and avoiding null reference errors. Learn about its operations, including map, flatMap, and getOrElse, with detailed pseudocode implementations."
 linkTitle: "5.1. Option/Maybe Monad"

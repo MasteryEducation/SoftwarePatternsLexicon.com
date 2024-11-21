@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/16/1"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/16/1"
 
 title: "Test-Driven Development (TDD): Mastering the Red-Green-Refactor Cycle"
 description: "Explore the fundamentals of Test-Driven Development (TDD), including the Red-Green-Refactor cycle and its benefits for software design and development."

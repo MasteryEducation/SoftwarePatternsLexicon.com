@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/17/4"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/17/4"
 title: "Case Studies with Pseudocode: Mastering Design Patterns Across Paradigms"
 description: "Explore comprehensive case studies with pseudocode to master design patterns across programming paradigms. Learn through end-to-end examples and lessons learned."
 linkTitle: "17.4. Case Studies with Pseudocode"

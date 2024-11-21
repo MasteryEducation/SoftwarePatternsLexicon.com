@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/3/2"
+canonical: "https://softwarepatternslexicon.com/object-oriented/3/2"
 title: "Singleton Pattern: Ensuring a Single Instance with Global Access"
 description: "Explore the Singleton Pattern in Object-Oriented Design, its intent, applicability, structure, and implementation considerations with detailed pseudocode examples."
 linkTitle: "3.2. Singleton Pattern"

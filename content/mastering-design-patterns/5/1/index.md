@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/5/1"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/5/1"
 
 title: "Behavioral Design Patterns: Mastering Object Communication and Algorithm Management"
 description: "Explore the intricacies of behavioral design patterns, focusing on communication between objects and managing algorithms and responsibilities in software development."

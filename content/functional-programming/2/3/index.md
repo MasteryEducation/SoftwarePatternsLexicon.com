@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/2/3"
+canonical: "https://softwarepatternslexicon.com/functional-programming/2/3"
 title: "Function Composition in Functional Programming"
 description: "Explore the power of function composition in functional programming, enhancing code modularity and reusability through pseudocode examples."
 linkTitle: "2.3. Function Composition"

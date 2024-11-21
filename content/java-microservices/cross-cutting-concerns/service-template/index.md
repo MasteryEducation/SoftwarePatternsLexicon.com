@@ -24,7 +24,7 @@ tags:
   - Code Quality
   - Fast Development
   - Reusability
-canonical: "https://softwarepatternslexicon.com/microservices/cross-cutting-concerns/service-template"
+canonical: "https://softwarepatternslexicon.com/java-microservices/cross-cutting-concerns/service-template"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 

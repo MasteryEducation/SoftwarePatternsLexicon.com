@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/13/5"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/13/5"
 title: "Simplifying Conditional Expressions: Techniques for Cleaner Code"
 description: "Explore techniques to simplify conditional expressions in software development, enhancing code readability and maintainability through decomposition, consolidation, and removal of control flags."
 linkTitle: "13.5. Simplifying Conditional Expressions"

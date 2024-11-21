@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/6/2"
+canonical: "https://softwarepatternslexicon.com/microservices/6/2"
 title: "Shared Database Pattern in Microservices: Balancing Simplicity and Coupling"
 description: "Explore the Shared Database Pattern in microservices architecture, its applicability, trade-offs, and implementation with pseudocode examples."
 linkTitle: "6.2. Shared Database Pattern"

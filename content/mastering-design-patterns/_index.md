@@ -14,6 +14,6 @@ menu:
         vendor: bs
         name: book
         className: text-primary
-canonical: "https://softwarepatternslexicon.com/pseudocode-1"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---

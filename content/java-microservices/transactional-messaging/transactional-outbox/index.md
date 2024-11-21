@@ -23,7 +23,7 @@ tags:
   - Eventual Consistency
   - System Architecture
   - Fault Tolerance
-canonical: "https://softwarepatternslexicon.com/microservices/transactional-messaging/transactional-outbox"
+canonical: "https://softwarepatternslexicon.com/java-microservices/transactional-messaging/transactional-outbox"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 

@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/1/2"
+canonical: "https://softwarepatternslexicon.com/functional-programming/1/2"
 title: "Importance of Functional Programming Patterns"
 description: "Explore the significance of functional programming patterns in solving common problems, enhancing code quality, and their role in modern software development."
 linkTitle: "1.2. Importance of Functional Programming Patterns"

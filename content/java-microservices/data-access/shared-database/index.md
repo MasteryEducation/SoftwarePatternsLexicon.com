@@ -20,7 +20,7 @@ tags:
   - Data Consistency
   - System Architecture
   - Database Management
-canonical: "https://softwarepatternslexicon.com/microservices/data-access/shared-database"
+canonical: "https://softwarepatternslexicon.com/java-microservices/data-access/shared-database"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 

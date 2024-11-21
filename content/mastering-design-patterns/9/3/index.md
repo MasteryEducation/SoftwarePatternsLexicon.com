@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/9/3"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/9/3"
 title: "Consensus Algorithms in Distributed Systems: Paxos and Raft"
 description: "Explore the intricacies of consensus algorithms, focusing on Paxos and Raft, to achieve agreement in distributed systems."
 linkTitle: "9.3. Consensus Algorithms"

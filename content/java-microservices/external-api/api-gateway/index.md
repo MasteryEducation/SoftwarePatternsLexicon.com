@@ -23,7 +23,7 @@ tags:
   - System Architecture
   - Load Balancing
   - Routing
-canonical: "https://softwarepatternslexicon.com/microservices/external-api/api-gateway"
+canonical: "https://softwarepatternslexicon.com/java-microservices/external-api/api-gateway"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 

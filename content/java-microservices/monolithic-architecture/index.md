@@ -19,7 +19,7 @@ tags:
   - System Architecture
   - Application Deployment
 weight: 100
-canonical: "https://softwarepatternslexicon.com/microservices/monolithic-architecture"
+canonical: "https://softwarepatternslexicon.com/java-microservices/monolithic-architecture"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 

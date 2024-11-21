@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/4/2"
+canonical: "https://softwarepatternslexicon.com/object-oriented/4/2"
 title: "Adapter Pattern: Bridging Interfaces in Object-Oriented Design"
 description: "Explore the Adapter Pattern, a structural design pattern that allows incompatible interfaces to work together in object-oriented programming. Learn its intent, applicability, structure, and implementation through detailed pseudocode and examples."
 linkTitle: "4.2. Adapter Pattern"

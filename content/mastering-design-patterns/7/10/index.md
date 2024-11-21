@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/7/10"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/7/10"
 title: "Mastering Error Handling in Functional Programming: Using Either and Option Types"
 description: "Explore comprehensive techniques for error handling in functional programming using Either and Option types, with practical pseudocode examples."
 linkTitle: "7.10. Error Handling in Functional Programming"

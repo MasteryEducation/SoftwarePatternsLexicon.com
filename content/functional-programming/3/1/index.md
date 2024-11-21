@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/3/1"
+canonical: "https://softwarepatternslexicon.com/functional-programming/3/1"
 title: "Functor Pattern in Functional Programming: Concepts, Implementation, and Examples"
 description: "Explore the Functor Pattern in functional programming, understand its concept, applicability, and implementation with detailed pseudocode and examples."
 linkTitle: "3.1. Functor Pattern"

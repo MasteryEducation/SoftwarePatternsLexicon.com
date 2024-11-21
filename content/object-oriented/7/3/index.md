@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/7/3"
+canonical: "https://softwarepatternslexicon.com/object-oriented/7/3"
 title: "Encapsulation and Information Hiding: Protecting Object Integrity and Exposing Necessary Interfaces"
 description: "Explore the core principles of encapsulation and information hiding in object-oriented programming, focusing on protecting object integrity and exposing only necessary interfaces."
 linkTitle: "7.3. Encapsulation and Information Hiding"

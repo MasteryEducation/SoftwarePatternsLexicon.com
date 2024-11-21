@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/9/1"
+canonical: "https://softwarepatternslexicon.com/microservices/9/1"
 title: "Unit Testing in Microservices: Isolating Service Logic and Simulating Dependencies"
 description: "Explore the intricacies of unit testing in microservices architecture, focusing on isolating service logic and utilizing mocking and stubbing techniques to simulate dependencies effectively."
 linkTitle: "9.1. Unit Testing"

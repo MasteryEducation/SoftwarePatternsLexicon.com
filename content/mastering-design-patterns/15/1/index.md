@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/15/1"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/15/1"
 title: "Event-Driven Architecture: Benefits, Challenges, and Asynchronous Communication"
 description: "Explore the fundamentals of Event-Driven Architecture, its benefits, challenges, and the role of asynchronous communication in modern software design."
 linkTitle: "15.1. Introduction to Event-Driven Architecture"

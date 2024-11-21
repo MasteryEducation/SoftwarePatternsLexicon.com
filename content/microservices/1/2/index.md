@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/1/2"
+canonical: "https://softwarepatternslexicon.com/microservices/1/2"
 title: "Comparing Monolithic and Microservices Architectures"
 description: "Explore the differences between Monolithic and Microservices Architectures, their features, limitations, and when to use each approach."
 linkTitle: "1.2. Comparing Monolithic and Microservices Architectures"

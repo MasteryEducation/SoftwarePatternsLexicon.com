@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/8/4"
+canonical: "https://softwarepatternslexicon.com/functional-programming/8/4"
 title: "Functional Programming Challenges and Best Practices"
 description: "Explore the challenges and best practices of integrating functional programming patterns into imperative languages, including overcoming language limitations and balancing paradigms."
 linkTitle: "8.4. Challenges and Best Practices"

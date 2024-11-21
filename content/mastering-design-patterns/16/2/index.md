@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/16/2"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/16/2"
 title: "Writing Unit Tests in Pseudocode: Mastering TDD Across Paradigms"
 description: "Explore the art of writing unit tests in pseudocode, enhancing your understanding of Test-Driven Development (TDD) and design patterns across programming paradigms."
 linkTitle: "16.2. Writing Unit Tests in Pseudocode"

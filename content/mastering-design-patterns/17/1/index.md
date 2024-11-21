@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/17/1"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/17/1"
 title: "Object-Oriented vs. Functional Implementations: Translating Patterns Across Paradigms"
 description: "Explore the nuances of implementing design patterns in Object-Oriented and Functional Programming paradigms, with detailed pseudocode examples and comparative analysis."
 linkTitle: "17.1. Object-Oriented vs. Functional Implementations"

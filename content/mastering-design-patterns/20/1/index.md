@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/20/1"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/20/1"
 
 title: "Glossary of Terms: Key Concepts in Design Patterns"
 description: "Explore a comprehensive glossary of key terms and concepts related to design patterns, programming paradigms, and software architecture. Understand acronyms, jargon, and definitions essential for mastering design patterns across programming paradigms."

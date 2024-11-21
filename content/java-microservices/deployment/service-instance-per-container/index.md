@@ -23,7 +23,7 @@ tags:
   - Kubernetes
   - Cloud Native
   - DevOps
-canonical: "https://softwarepatternslexicon.com/microservices/deployment/service-instance-per-container"
+canonical: "https://softwarepatternslexicon.com/java-microservices/deployment/service-instance-per-container"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 

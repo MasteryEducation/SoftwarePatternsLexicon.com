@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/7/1"
+canonical: "https://softwarepatternslexicon.com/microservices/7/1"
 title: "Authentication and Authorization in Microservices: Implementing Security at the Gateway"
 description: "Explore the intricacies of authentication and authorization in microservices, focusing on centralized access control, OAuth2, and OpenID Connect, with practical pseudocode examples."
 linkTitle: "7.1. Authentication and Authorization"

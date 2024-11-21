@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/2/4"
+canonical: "https://softwarepatternslexicon.com/microservices/2/4"
 title: "Testing Microservices: A Comprehensive Guide to Unit, Integration, and Contract Testing"
 description: "Explore the intricacies of testing microservices, focusing on unit testing, integration testing, and contract testing. Learn how to ensure robust, reliable, and scalable microservices architecture."
 linkTitle: "2.4. Testing Microservices"

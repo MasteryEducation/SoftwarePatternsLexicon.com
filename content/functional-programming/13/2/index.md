@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/13/2"
+canonical: "https://softwarepatternslexicon.com/functional-programming/13/2"
 
 title: "Glossary of Functional Programming Terms: Key Concepts and Definitions"
 description: "Explore the essential glossary of terms in functional programming, including definitions of key concepts, acronyms, and abbreviations to enhance your understanding of FP-specific language."

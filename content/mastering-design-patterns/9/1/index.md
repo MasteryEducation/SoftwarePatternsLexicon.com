@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/9/1"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/9/1"
 title: "Introduction to Distributed Systems: Challenges, Scalability, and Fault Tolerance"
 description: "Explore the fundamentals of distributed systems, including challenges, scalability, and fault tolerance, with practical examples and diagrams."
 linkTitle: "9.1. Introduction to Distributed Systems"

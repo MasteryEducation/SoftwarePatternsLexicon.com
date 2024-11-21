@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/1/5"
+canonical: "https://softwarepatternslexicon.com/functional-programming/1/5"
 title: "Functional Programming Patterns Guide: How to Use This Guide"
 description: "Explore how to effectively navigate and utilize the Functional Programming Patterns guide, including structure, pseudocode conventions, and practical applications."
 linkTitle: "1.5. How to Use This Guide"

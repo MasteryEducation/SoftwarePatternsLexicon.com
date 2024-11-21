@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/3/4"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/3/4"
 title: "Abstract Factory Pattern: Mastering Creational Design Patterns"
 description: "Explore the Abstract Factory Pattern in software design, its intent, structure, and implementation with pseudocode examples across programming paradigms."
 linkTitle: "3.4. Abstract Factory Pattern"

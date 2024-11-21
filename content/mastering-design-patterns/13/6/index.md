@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/13/6"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/13/6"
 title: "Simplifying Method Calls: Rename, Add, and Remove Parameters"
 description: "Master the art of simplifying method calls through renaming, adding, and removing parameters. Enhance code readability and maintainability with expert techniques."
 linkTitle: "13.6. Making Method Calls Simpler"

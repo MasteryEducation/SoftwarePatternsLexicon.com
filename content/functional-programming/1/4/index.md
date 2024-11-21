@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/1/4"
+canonical: "https://softwarepatternslexicon.com/functional-programming/1/4"
 title: "Functional Programming Languages and Ecosystems: Exploring FP in Modern Software Development"
 description: "Discover the languages, features, and tools that define functional programming ecosystems, from Haskell to JavaScript."
 linkTitle: "1.4. Functional Programming Languages and Ecosystems"

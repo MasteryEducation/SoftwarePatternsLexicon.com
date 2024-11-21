@@ -21,7 +21,7 @@ tags:
   - Troubleshooting
   - Data Management
   - System Monitoring
-canonical: "https://softwarepatternslexicon.com/microservices/reliability/observability/audit-logging"
+canonical: "https://softwarepatternslexicon.com/java-microservices/reliability/observability/audit-logging"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 

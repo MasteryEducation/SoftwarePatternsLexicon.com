@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/4/1"
+canonical: "https://softwarepatternslexicon.com/object-oriented/4/1"
 title: "Structural Design Patterns: Organizing Classes and Objects for Effective Software Architecture"
 description: "Explore the purpose and implementation of structural design patterns in object-oriented programming, focusing on organizing classes and objects for efficient software architecture."
 linkTitle: "4.1. Introduction to Structural Patterns"

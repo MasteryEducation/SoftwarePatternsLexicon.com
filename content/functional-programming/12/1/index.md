@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/12/1"
+canonical: "https://softwarepatternslexicon.com/functional-programming/12/1"
 
 title: "Comprehensive Recap of Functional Programming Key Concepts"
 description: "Explore the essential learnings and outcomes of functional programming patterns, including pure functions, immutability, higher-order functions, and more."

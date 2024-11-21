@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/13/4"
+canonical: "https://softwarepatternslexicon.com/microservices/13/4"
 
 title: "Microservices Architecture: Embracing Microservices Thoughtfully"
 description: "Explore the final thoughts on microservices architecture, weighing benefits against complexity, and encouraging practice and application in your professional journey."

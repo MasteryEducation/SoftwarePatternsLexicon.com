@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/15/6"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/15/6"
 title: "Designing Event-Driven Systems: Mastering Event-Driven Patterns"
 description: "Explore the intricacies of designing event-driven systems, focusing on event storming techniques and modeling events and handlers. This comprehensive guide provides expert insights into event-driven architecture, enhancing your software design skills."
 linkTitle: "15.6. Designing Event-Driven Systems"

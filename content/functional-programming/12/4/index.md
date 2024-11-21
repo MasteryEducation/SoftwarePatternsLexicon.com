@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/12/4"
+canonical: "https://softwarepatternslexicon.com/functional-programming/12/4"
 title: "Final Thoughts on Functional Programming Patterns: Embrace, Apply, and Excel"
 description: "Explore the transformative power of functional programming patterns and how they can be applied to solve real-world problems. Learn how embracing these patterns can enhance your coding skills and advance your career."
 linkTitle: "12.4. Final Thoughts"

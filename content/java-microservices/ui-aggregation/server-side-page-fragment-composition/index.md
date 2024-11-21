@@ -25,7 +25,7 @@ tags:
   - Spring Cloud
   - Distributed Systems
   - Web Composition
-canonical: "https://softwarepatternslexicon.com/microservices/ui-aggregation/server-side-page-fragment-composition"
+canonical: "https://softwarepatternslexicon.com/java-microservices/ui-aggregation/server-side-page-fragment-composition"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 

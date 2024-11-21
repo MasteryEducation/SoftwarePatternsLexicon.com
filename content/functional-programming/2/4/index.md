@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/2/4"
+canonical: "https://softwarepatternslexicon.com/functional-programming/2/4"
 title: "Recursion in Functional Programming: Concepts, Techniques, and Pseudocode"
 description: "Explore the power of recursion in functional programming, including tail recursion optimization, with detailed pseudocode examples."
 linkTitle: "2.4. Recursion"

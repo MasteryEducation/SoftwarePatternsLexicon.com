@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/8/10"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/8/10"
 title: "Client-Server Pattern: Centralized Resource Management and Network Communication"
 description: "Explore the Client-Server Pattern, a fundamental architectural pattern for centralized resource management and efficient network communication in software design."
 linkTitle: "8.10. Client-Server Pattern"

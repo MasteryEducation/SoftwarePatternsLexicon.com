@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/5/5"
+canonical: "https://softwarepatternslexicon.com/object-oriented/5/5"
 title: "Iterator Pattern: Mastering Sequential Access in Object-Oriented Design"
 description: "Explore the Iterator Pattern, a key behavioral design pattern in object-oriented programming, providing a way to access elements of an aggregate object sequentially without exposing its underlying representation."
 linkTitle: "5.5. Iterator Pattern"

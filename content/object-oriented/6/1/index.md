@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/6/1"
+canonical: "https://softwarepatternslexicon.com/object-oriented/6/1"
 title: "Selecting the Right Design Pattern: Analyzing Problem Contexts and Guidelines"
 description: "Learn how to choose the right object-oriented design pattern by analyzing problem contexts and following selection guidelines."
 linkTitle: "6.1. Selecting the Right Pattern"

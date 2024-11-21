@@ -21,7 +21,7 @@ tags:
   - Event-Driven Architecture
   - Decoupling
   - Resilience
-canonical: "https://softwarepatternslexicon.com/microservices/communication-protocols/messaging"
+canonical: "https://softwarepatternslexicon.com/java-microservices/communication-protocols/messaging"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 

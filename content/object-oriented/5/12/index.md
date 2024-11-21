@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/5/12"
+canonical: "https://softwarepatternslexicon.com/object-oriented/5/12"
 title: "Visitor Pattern: Mastering Object-Oriented Design"
 description: "Explore the Visitor Pattern in object-oriented design, its intent, structure, applicability, and implementation with detailed pseudocode examples."
 linkTitle: "5.12. Visitor Pattern"

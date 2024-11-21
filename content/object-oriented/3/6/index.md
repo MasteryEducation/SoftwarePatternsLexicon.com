@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/3/6"
+canonical: "https://softwarepatternslexicon.com/object-oriented/3/6"
 title: "Prototype Pattern: Efficient Object Creation and Cloning"
 description: "Explore the Prototype Pattern in object-oriented design, focusing on efficient object creation through cloning, with detailed pseudocode examples and implementation considerations."
 linkTitle: "3.6. Prototype Pattern"

@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/2/5"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/2/5"
 title: "Pseudocode Conventions: Mastering Syntax and Style"
 description: "Explore the essential conventions of pseudocode, including syntax, style, variables, data types, and control structures, to effectively communicate design patterns across programming paradigms."
 linkTitle: "2.5. Pseudocode Conventions"

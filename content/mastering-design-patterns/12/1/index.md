@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/12/1"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/12/1"
 
 title: "Understanding Anti-Patterns: Common Pitfalls in Software Design"
 description: "Explore the concept of anti-patterns in software development, their impact, and strategies to avoid them. Learn how to identify and refactor these common pitfalls to enhance code quality and maintainability."

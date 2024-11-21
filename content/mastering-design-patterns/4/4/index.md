@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/4/4"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/4/4"
 
 title: "Composite Pattern: Mastering Tree Structures and Hierarchies"
 description: "Explore the Composite Pattern in software design, learn its intent, motivation, and how to implement it using pseudocode. Understand tree structures and hierarchies, and work with recursive structures effectively."

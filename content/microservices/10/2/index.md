@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/10/2"
+canonical: "https://softwarepatternslexicon.com/microservices/10/2"
 title: "Continuous Integration and Continuous Deployment: Automating Builds and Deployments"
 description: "Explore the intricacies of Continuous Integration and Continuous Deployment in microservices, focusing on automating builds, streamlining release processes, and minimizing downtime with Blue-Green and Canary Deployments."
 linkTitle: "10.2. Continuous Integration and Continuous Deployment"

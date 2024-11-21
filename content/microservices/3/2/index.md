@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/3/2"
+canonical: "https://softwarepatternslexicon.com/microservices/3/2"
 title: "Loose Coupling and High Cohesion in Microservices Architecture"
 description: "Explore the principles of loose coupling and high cohesion in microservices architecture, and learn how these concepts enhance scalability and maintainability through practical strategies and pseudocode examples."
 linkTitle: "3.2. Loose Coupling and High Cohesion"

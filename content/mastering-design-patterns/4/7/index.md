@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/4/7"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/4/7"
 title: "Flyweight Pattern: Optimize Memory Usage with Shared State"
 description: "Explore the Flyweight Pattern in software design to optimize memory usage by sharing common state across multiple objects. Learn through pseudocode examples and diagrams."
 linkTitle: "4.7. Flyweight Pattern"

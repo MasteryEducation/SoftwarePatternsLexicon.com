@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/6/4"
+canonical: "https://softwarepatternslexicon.com/object-oriented/6/4"
 title: "Avoiding Anti-Patterns: Mastering Object-Oriented Design"
 description: "Explore how to recognize and avoid common anti-patterns in object-oriented design, transforming them into effective patterns for better software development."
 linkTitle: "6.4. Avoiding Anti-Patterns"

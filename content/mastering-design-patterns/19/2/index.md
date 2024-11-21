@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/19/2"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/19/2"
 title: "Design Patterns in Modern Software Development: Adapting to Changing Technologies"
 description: "Explore how design patterns play a crucial role in modern software development, enabling adaptability to changing technologies and fostering continuous learning."
 linkTitle: "19.2. The Role of Design Patterns in Modern Software Development"

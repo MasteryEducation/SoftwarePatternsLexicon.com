@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/10/6"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/10/6"
 
 title: "Message Filter Design Pattern: Filtering Unwanted Messages in Enterprise Integration"
 description: "Explore the Message Filter design pattern, a crucial component in enterprise integration for filtering unwanted messages and implementing subscription criteria. Learn how to apply this pattern using pseudocode examples across programming paradigms."

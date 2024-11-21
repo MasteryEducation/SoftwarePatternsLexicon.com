@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/7/7"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/7/7"
 title: "Lazy Evaluation: Mastering Deferred Computations in Functional Programming"
 description: "Explore the concept of lazy evaluation in functional programming, its benefits, implementation techniques, and practical applications through detailed pseudocode examples."
 linkTitle: "7.7. Lazy Evaluation"

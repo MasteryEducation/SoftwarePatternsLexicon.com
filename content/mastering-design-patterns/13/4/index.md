@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/13/4"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/13/4"
 title: "Organizing Data in Software Design: Encapsulation, Object Replacement, and Association Changes"
 description: "Explore the intricacies of organizing data in software design through encapsulation, object replacement, and association changes. Learn how these techniques enhance code maintainability and flexibility."
 linkTitle: "13.4. Organizing Data"

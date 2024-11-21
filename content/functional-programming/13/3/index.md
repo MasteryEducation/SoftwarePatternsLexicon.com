@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/13/3"
+canonical: "https://softwarepatternslexicon.com/functional-programming/13/3"
 title: "Functional Programming Patterns: Exercise Solutions"
 description: "Explore detailed solutions and explanations for exercises in functional programming patterns, enhancing your understanding and practical application skills."
 linkTitle: "Exercise Solutions"

@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/5/3"
+canonical: "https://softwarepatternslexicon.com/object-oriented/5/3"
 title: "Command Pattern: Encapsulating Requests in Object-Oriented Design"
 description: "Explore the Command Pattern in Object-Oriented Design, its intent, structure, and implementation with detailed pseudocode examples."
 linkTitle: "5.3. Command Pattern"

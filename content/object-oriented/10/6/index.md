@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/10/6"
+canonical: "https://softwarepatternslexicon.com/object-oriented/10/6"
 
 title: "Bibliography and Further Reading: Expanding Your Knowledge on Object-Oriented Design Patterns"
 description: "Explore a comprehensive bibliography and further reading resources on object-oriented design patterns, including foundational works, influential papers, and advanced study suggestions."

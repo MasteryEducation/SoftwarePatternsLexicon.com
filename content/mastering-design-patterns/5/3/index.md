@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/5/3"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/5/3"
 title: "Command Pattern: Encapsulating Actions as Objects"
 description: "Explore the Command Pattern, a behavioral design pattern that encapsulates actions as objects, enabling flexible command execution, undo/redo functionality, and more."
 linkTitle: "5.3. Command Pattern"

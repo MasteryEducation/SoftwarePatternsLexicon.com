@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/4/8"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/4/8"
 title: "Proxy Pattern: A Comprehensive Guide to Structural Design Patterns"
 description: "Explore the Proxy Pattern in software design, its types, implementation, and use cases. Learn how to apply this pattern across programming paradigms with detailed pseudocode examples."
 linkTitle: "4.8. Proxy Pattern"

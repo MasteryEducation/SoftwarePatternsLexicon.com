@@ -20,7 +20,7 @@ tags:
   - Data Consistency
   - System Architecture
   - Fault Tolerance
-canonical: "https://softwarepatternslexicon.com/microservices/data-access/command-side-replica"
+canonical: "https://softwarepatternslexicon.com/java-microservices/data-access/command-side-replica"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 

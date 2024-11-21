@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/7/1"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/7/1"
 
 title: "Mastering Functional Programming: An In-Depth Introduction"
 description: "Explore the principles of functional programming, its differences from object-oriented programming, and how it can enhance your software development skills."

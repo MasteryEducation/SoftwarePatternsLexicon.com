@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/10/8"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/10/8"
 title: "Scatter-Gather Pattern: Mastering Parallel Processing and Result Collection"
 description: "Explore the Scatter-Gather Pattern, a powerful design pattern for parallel processing of messages and collecting results. Learn how to implement it using pseudocode across programming paradigms."
 linkTitle: "10.8. Scatter-Gather Pattern"

@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/7/4"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/7/4"
 title: "Function Composition: Mastering Functional Programming Patterns"
 description: "Explore the art of Function Composition in Functional Programming, combining functions to create complex operations. Learn through pseudocode examples and diagrams."
 linkTitle: "7.4. Function Composition"

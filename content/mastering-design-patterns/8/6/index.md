@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/8/6"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/8/6"
 title: "Event-Driven Architecture: Mastering Reactive Systems"
 description: "Explore the intricacies of Event-Driven Architecture, a pivotal design pattern for building responsive and scalable systems. Learn through detailed pseudocode examples and visual diagrams."
 linkTitle: "8.6. Event-Driven Architecture"

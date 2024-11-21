@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/7/7"
+canonical: "https://softwarepatternslexicon.com/object-oriented/7/7"
 title: "Test-Driven Development (TDD) with Design Patterns: Enhance Testability and Write Effective Tests"
 description: "Explore how to enhance testability using design patterns in Test-Driven Development (TDD). Learn to write effective tests for pattern-based code with detailed pseudocode examples and visual aids."
 linkTitle: "7.7. Using Patterns in Test-Driven Development (TDD)"

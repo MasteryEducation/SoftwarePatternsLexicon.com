@@ -24,7 +24,7 @@ tags:
   - Event-Driven Architecture
   - Microservices
   - CQRS
-canonical: "https://softwarepatternslexicon.com/microservices/data-access/cqrs"
+canonical: "https://softwarepatternslexicon.com/java-microservices/data-access/cqrs"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 

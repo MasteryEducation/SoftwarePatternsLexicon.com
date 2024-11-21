@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/10/3"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/10/3"
 title: "Message Endpoint: Connecting Applications to Messaging Systems"
 description: "Explore the Message Endpoint pattern, a crucial component in enterprise integration, facilitating seamless communication between applications and messaging systems."
 linkTitle: "10.3. Message Endpoint"

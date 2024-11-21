@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/10/4"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/10/4"
 
 title: "Message Translator: Adapting Message Formats for Seamless Integration"
 description: "Explore the Message Translator pattern in enterprise integration, focusing on adapting message formats and data transformation for seamless communication between disparate systems."

@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/5/4"
+canonical: "https://softwarepatternslexicon.com/microservices/5/4"
 title: "Event-Driven Communication in Microservices: Asynchronous Messaging Patterns"
 description: "Explore the intricacies of event-driven communication in microservices, focusing on asynchronous messaging, publish-subscribe, and message queues, with detailed pseudocode examples."
 linkTitle: "5.4. Event-Driven Communication"

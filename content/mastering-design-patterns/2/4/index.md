@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/2/4"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/2/4"
 
 title: "UML Diagrams and Notations: A Comprehensive Guide for Expert Developers"
 description: "Explore UML diagrams and notations, including class, sequence, activity, and state diagrams, to master software design patterns across programming paradigms."

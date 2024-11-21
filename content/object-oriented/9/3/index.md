@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/9/3"
+canonical: "https://softwarepatternslexicon.com/object-oriented/9/3"
 title: "Continuing Education and Resources in Object-Oriented Design Patterns"
 description: "Explore a comprehensive guide to continuing education and resources for mastering object-oriented design patterns, including recommended books, online courses, communities, and conferences."
 linkTitle: "9.3. Continuing Education and Resources"

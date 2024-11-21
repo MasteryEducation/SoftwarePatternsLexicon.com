@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/6/2"
+canonical: "https://softwarepatternslexicon.com/functional-programming/6/2"
 
 title: "Trees and Graphs in Functional Programming"
 description: "Explore the functional representation of trees and graphs, including traversal algorithms and pseudocode implementations."

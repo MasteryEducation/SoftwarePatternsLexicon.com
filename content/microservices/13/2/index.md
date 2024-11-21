@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/13/2"
+canonical: "https://softwarepatternslexicon.com/microservices/13/2"
 title: "The Future of Microservices Architecture: Emerging Trends and Continuous Learning"
 description: "Explore the future of microservices architecture, focusing on emerging trends like service meshes, edge computing, and AI integration, and the importance of continuous learning."
 linkTitle: "13.2. The Future of Microservices Architecture"

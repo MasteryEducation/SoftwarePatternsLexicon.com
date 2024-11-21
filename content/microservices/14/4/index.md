@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/14/4"
+canonical: "https://softwarepatternslexicon.com/microservices/14/4"
 title: "Microservices Reference Architectures: A Comprehensive Guide"
 description: "Explore microservices reference architectures with templates, diagrams, and sample code to enhance your understanding of microservices design patterns."
 linkTitle: "Microservices Reference Architectures"

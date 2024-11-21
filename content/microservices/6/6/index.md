@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/6/6"
+canonical: "https://softwarepatternslexicon.com/microservices/6/6"
 title: "Polyglot Persistence in Microservices: Leveraging Multiple Data Storage Technologies"
 description: "Explore the concept of Polyglot Persistence in Microservices, where multiple data storage technologies are used to optimize each service's data needs. Learn how to choose the right database for each service and see pseudocode implementations for interfacing with different data stores."
 linkTitle: "6.6. Polyglot Persistence"

@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/1/1"
+canonical: "https://softwarepatternslexicon.com/object-oriented/1/1"
 title: "Understanding Design Patterns in Object-Oriented Programming"
 description: "Explore the definition, purpose, and role of design patterns in solving common software design problems within object-oriented programming."
 linkTitle: "1.1. What Are Design Patterns?"

@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/2/6"
+canonical: "https://softwarepatternslexicon.com/microservices/2/6"
 title: "Pseudocode Conventions for Microservices Design Patterns"
 description: "Explore the essential pseudocode conventions for modeling microservices design patterns, including syntax rules, service representation, and illustrative examples."
 linkTitle: "2.6. Pseudocode Conventions"

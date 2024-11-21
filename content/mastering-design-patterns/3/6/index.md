@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/3/6"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/3/6"
 title: "Prototype Design Pattern: Mastering Object Cloning Across Programming Paradigms"
 description: "Explore the Prototype Design Pattern, its intent, motivation, and implementation using pseudocode. Understand object cloning, deep vs. shallow copy, and apply these concepts across programming paradigms."
 linkTitle: "3.6. Prototype Pattern"

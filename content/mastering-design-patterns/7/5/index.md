@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/7/5"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/7/5"
 title: "Currying and Partial Application in Functional Programming"
 description: "Explore the concepts of Currying and Partial Application in Functional Programming, with detailed pseudocode examples and practical insights."
 linkTitle: "7.5. Currying and Partial Application"

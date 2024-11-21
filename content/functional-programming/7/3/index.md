@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/7/3"
+canonical: "https://softwarepatternslexicon.com/functional-programming/7/3"
 title: "Actors Model in Functional Programming: Isolating State and Message Passing Concurrency"
 description: "Explore the Actors Model in functional programming, focusing on state isolation, message passing concurrency, and practical implementations with pseudocode examples."
 linkTitle: "7.3. Actors Model"

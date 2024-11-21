@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/14/3"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/14/3"
 title: "Aggregates and Repositories: Mastering Domain-Driven Design Patterns"
 description: "Explore the intricacies of Aggregates and Repositories in Domain-Driven Design, focusing on managing object graphs and data access patterns."
 linkTitle: "14.3. Aggregates and Repositories"

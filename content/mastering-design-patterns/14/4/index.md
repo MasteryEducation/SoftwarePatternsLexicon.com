@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/14/4"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/14/4"
 title: "Domain Services: Mastering Domain-Driven Design Patterns"
 description: "Explore Domain Services in Domain-Driven Design, focusing on handling operations not belonging to entities, with detailed pseudocode implementations and insights."
 linkTitle: "14.4. Domain Services"

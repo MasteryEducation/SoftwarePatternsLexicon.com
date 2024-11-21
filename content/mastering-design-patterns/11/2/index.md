@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/11/2"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/11/2"
 title: "Authentication and Authorization Patterns in Secure Software Design"
 description: "Explore comprehensive authentication and authorization patterns for secure access control, including role-based security, with detailed pseudocode examples and diagrams."
 linkTitle: "11.2. Authentication and Authorization Patterns"

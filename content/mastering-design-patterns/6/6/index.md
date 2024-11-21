@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/6/6"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/6/6"
 title: "Read-Write Lock Pattern: Enhancing Concurrency in Software Systems"
 description: "Explore the Read-Write Lock Pattern, a concurrency design pattern that optimizes resource access in multi-threaded environments. Learn its intent, motivation, and implementation through detailed pseudocode examples."
 linkTitle: "6.6. Read-Write Lock Pattern"

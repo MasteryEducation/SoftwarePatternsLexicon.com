@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/4/6"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/4/6"
 title: "Facade Pattern: Simplifying Complex Subsystems with Design Patterns"
 description: "Explore the Facade Pattern, a structural design pattern that simplifies complex subsystems in software architecture. Learn its intent, motivation, and practical implementation through pseudocode examples."
 linkTitle: "4.6. Facade Pattern"

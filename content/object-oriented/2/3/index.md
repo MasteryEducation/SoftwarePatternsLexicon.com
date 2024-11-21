@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/2/3"
+canonical: "https://softwarepatternslexicon.com/object-oriented/2/3"
 title: "UML Notations and Diagrams: A Comprehensive Guide for Object-Oriented Design"
 description: "Explore UML Notations and Diagrams to enhance your understanding of Object-Oriented Design Patterns with detailed explanations and pseudocode examples."
 linkTitle: "2.3. UML Notations and Diagrams"

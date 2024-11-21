@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/5/4"
+canonical: "https://softwarepatternslexicon.com/functional-programming/5/4"
 title: "Validated Data: Accumulating Errors and Combining Validations in Functional Programming"
 description: "Explore the concept of validated data in functional programming, focusing on error accumulation and parallel validation using applicative functors, with detailed pseudocode examples."
 linkTitle: "5.4. Validated Data"

@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/16/5"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/16/5"
 title: "Refactoring with TDD: Mastering Continuous Improvement and Handling Legacy Code"
 description: "Explore the synergy between Refactoring and Test-Driven Development (TDD) to achieve continuous improvement in software design, with a focus on managing and enhancing legacy code."
 linkTitle: "16.5. Refactoring with TDD"

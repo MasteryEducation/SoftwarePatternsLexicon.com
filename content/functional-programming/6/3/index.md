@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/6/3"
+canonical: "https://softwarepatternslexicon.com/functional-programming/6/3"
 title: "Streams and Infinite Sequences in Functional Programming"
 description: "Explore the concept of streams and infinite sequences in functional programming, focusing on lazy evaluation, operations, and practical implementations."
 linkTitle: "6.3. Streams and Infinite Sequences"

@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/12/5"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/12/5"
 title: "Golden Hammer: Avoiding the Overuse of Familiar Patterns in Software Design"
 description: "Explore the Golden Hammer anti-pattern, its implications in software design, and strategies to avoid over-reliance on familiar solutions. Learn how to choose the right tool for the job through comprehensive examples and insights."
 linkTitle: "12.5. Golden Hammer"

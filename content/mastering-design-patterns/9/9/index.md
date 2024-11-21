@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/9/9"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/9/9"
 title: "Idempotency Patterns in Distributed Systems"
 description: "Comprehensive guide on Idempotency Patterns in distributed systems, ensuring repeatable actions with techniques for idempotent operations."
 linkTitle: "9.9. Idempotency Patterns"

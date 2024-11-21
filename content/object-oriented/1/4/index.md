@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/1/4"
+canonical: "https://softwarepatternslexicon.com/object-oriented/1/4"
 
 title: "How to Use This Guide: Mastering Object-Oriented Design Patterns with Pseudocode"
 description: "Explore the structure, conventions, and pseudocode syntax of our comprehensive guide on object-oriented design patterns for expert developers."

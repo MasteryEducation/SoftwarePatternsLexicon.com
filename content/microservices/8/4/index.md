@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/8/4"
+canonical: "https://softwarepatternslexicon.com/microservices/8/4"
 title: "Logging Patterns in Microservices: Structured Logging and Log Aggregation"
 description: "Explore logging patterns in microservices architecture, focusing on structured logging and log aggregation techniques to enhance observability and troubleshooting."
 linkTitle: "8.4. Logging Patterns"

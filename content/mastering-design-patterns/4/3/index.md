@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/4/3"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/4/3"
 title: "Bridge Pattern: Separating Abstraction from Implementation"
 description: "Explore the Bridge Pattern, a powerful structural design pattern that separates abstraction from implementation, enabling flexibility and scalability in software design. Learn through pseudocode examples and practical use cases."
 linkTitle: "4.3. Bridge Pattern"

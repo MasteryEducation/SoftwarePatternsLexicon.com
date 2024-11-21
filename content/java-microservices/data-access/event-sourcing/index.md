@@ -24,7 +24,7 @@ tags:
   - CQRS
   - Event Store
   - Kafka
-canonical: "https://softwarepatternslexicon.com/microservices/data-access/event-sourcing"
+canonical: "https://softwarepatternslexicon.com/java-microservices/data-access/event-sourcing"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 

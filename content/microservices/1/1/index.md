@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/1/1"
+canonical: "https://softwarepatternslexicon.com/microservices/1/1"
 title: "Understanding Microservices: Definition, Evolution, Benefits, and Challenges"
 description: "Explore the core principles, history, benefits, and challenges of microservices architecture, with illustrative pseudocode examples."
 linkTitle: "1.1. What Are Microservices?"

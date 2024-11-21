@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/3/5"
+canonical: "https://softwarepatternslexicon.com/object-oriented/3/5"
 title: "Builder Pattern: Constructing Complex Objects with Ease"
 description: "Explore the Builder Pattern in Object-Oriented Design: Intent, Structure, and Implementation in Pseudocode"
 linkTitle: "3.5. Builder Pattern"

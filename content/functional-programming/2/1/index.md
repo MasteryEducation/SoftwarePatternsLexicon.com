@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/2/1"
+canonical: "https://softwarepatternslexicon.com/functional-programming/2/1"
 title: "Pure Functions and Immutability in Functional Programming"
 description: "Explore the core concepts of pure functions and immutability in functional programming, their benefits, and practical implementations through detailed pseudocode examples."
 linkTitle: "2.1. Pure Functions and Immutability"

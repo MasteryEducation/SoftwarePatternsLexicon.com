@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/5/7"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/5/7"
 
 title: "Memento Pattern: Capturing and Restoring State in Software Design"
 description: "Explore the Memento Pattern, a behavioral design pattern that allows capturing and restoring an object's state. Learn its intent, motivation, and implementation through pseudocode examples."

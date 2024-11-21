@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/7/2"
+canonical: "https://softwarepatternslexicon.com/object-oriented/7/2"
 
 title: "Design by Contract: Ensuring Software Correctness with Preconditions and Postconditions"
 description: "Explore the concept of Design by Contract in object-oriented programming, focusing on defining preconditions and postconditions to ensure software correctness and reliability."

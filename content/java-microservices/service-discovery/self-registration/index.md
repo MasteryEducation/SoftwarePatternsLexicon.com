@@ -24,7 +24,7 @@ tags:
   - Network Location
   - Distributed Systems
   - High Availability
-canonical: "https://softwarepatternslexicon.com/microservices/service-discovery/self-registration"
+canonical: "https://softwarepatternslexicon.com/java-microservices/service-discovery/self-registration"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 

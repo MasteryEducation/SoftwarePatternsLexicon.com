@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/9/1"
+canonical: "https://softwarepatternslexicon.com/functional-programming/9/1"
 title: "Property-Based Testing: Ensuring Software Reliability with Generative Data"
 description: "Explore the power of property-based testing in functional programming, leveraging generative data to ensure software correctness across a wide range of inputs."
 linkTitle: "9.1. Property-Based Testing"

@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/15/2"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/15/2"
 title: "Event Sourcing Pattern: Mastering State Changes with Pseudocode"
 description: "Explore the Event Sourcing Pattern, a powerful design pattern for managing state changes in software systems. Learn through detailed pseudocode examples and diagrams."
 linkTitle: "15.2. Event Sourcing Pattern"

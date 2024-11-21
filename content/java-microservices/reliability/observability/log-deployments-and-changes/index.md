@@ -22,7 +22,7 @@ tags:
   - Compliance
   - System Audit
   - Change Tracking
-canonical: "https://softwarepatternslexicon.com/microservices/reliability/observability/log-deployments-and-changes"
+canonical: "https://softwarepatternslexicon.com/java-microservices/reliability/observability/log-deployments-and-changes"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 

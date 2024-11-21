@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/20/4"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/20/4"
 title: "Master Design Patterns: Additional Reading and Resources"
 description: "Explore comprehensive resources, books, and tutorials to deepen your understanding of design patterns across programming paradigms."
 linkTitle: "20.4. Additional Reading and Resources"

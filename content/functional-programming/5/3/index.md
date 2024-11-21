@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/5/3"
+canonical: "https://softwarepatternslexicon.com/functional-programming/5/3"
 title: "Try Monad: Encapsulating Exceptions in Functional Programming"
 description: "Explore the Try Monad in functional programming, a powerful pattern for managing exceptions as values, with operations like map, flatMap, and recover."
 linkTitle: "5.3. Try Monad"

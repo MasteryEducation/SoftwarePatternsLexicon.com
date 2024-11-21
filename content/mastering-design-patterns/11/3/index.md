@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/11/3"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/11/3"
 title: "Secure Factory and Builder Patterns: Ensuring Safe Object Creation"
 description: "Explore the Secure Factory and Builder Patterns to ensure safe object creation and manage sensitive information in software design."
 linkTitle: "11.3. Secure Factory and Builder Patterns"

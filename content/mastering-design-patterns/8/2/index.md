@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/8/2"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/8/2"
 title: "Model-View-Controller (MVC) Architectural Pattern: Separating Concerns"
 description: "Explore the Model-View-Controller (MVC) architectural pattern, its intent, key participants, applicability, and pseudocode implementation. Learn how MVC separates concerns in software design for enhanced modularity and maintainability."
 linkTitle: "8.2. Model-View-Controller (MVC)"

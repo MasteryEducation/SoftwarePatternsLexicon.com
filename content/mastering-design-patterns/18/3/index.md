@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/18/3"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/18/3"
 title: "Separation of Concerns: Decoupling Components for Enhanced Maintainability"
 description: "Explore the principle of Separation of Concerns in software design, a key strategy for decoupling components and enhancing maintainability across programming paradigms."
 linkTitle: "18.3. Separation of Concerns"

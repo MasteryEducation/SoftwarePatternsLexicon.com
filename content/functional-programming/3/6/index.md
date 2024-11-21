@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/3/6"
+canonical: "https://softwarepatternslexicon.com/functional-programming/3/6"
 title: "Memoization: Boosting Performance with Functional Programming"
 description: "Explore the concept of memoization in functional programming, a powerful technique for caching function results to improve performance and reduce redundant calculations. Learn through detailed explanations, pseudocode implementations, and practical examples."
 linkTitle: "3.6. Memoization"

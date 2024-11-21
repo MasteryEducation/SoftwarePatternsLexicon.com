@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/1/1"
+canonical: "https://softwarepatternslexicon.com/functional-programming/1/1"
 title: "Understanding Functional Programming: Concepts, History, and Paradigm Comparison"
 description: "Explore the foundational principles of functional programming, its historical evolution, and how it compares to imperative programming paradigms."
 linkTitle: "1.1. What Is Functional Programming?"

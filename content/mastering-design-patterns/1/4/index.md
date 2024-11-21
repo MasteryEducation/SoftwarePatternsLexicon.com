@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/1/4"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/1/4"
 title: "Mastering Design Patterns: How to Use This Guide Effectively"
 description: "Learn how to navigate and utilize the Mastering Design Patterns guide with ease, focusing on structure, conventions, and pseudocode syntax."
 linkTitle: "1.4. How to Use This Guide"

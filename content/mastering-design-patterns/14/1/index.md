@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/14/1"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/14/1"
 title: "Domain-Driven Design (DDD): Mastering Complexity with Ubiquitous Language"
 description: "Explore the intricacies of Domain-Driven Design (DDD), a strategic approach to tackling complexity in software development. Learn how to leverage Ubiquitous Language to align technical and business teams."
 linkTitle: "14.1. Introduction to DDD"

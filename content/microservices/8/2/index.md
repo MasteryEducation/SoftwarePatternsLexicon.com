@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/8/2"
+canonical: "https://softwarepatternslexicon.com/microservices/8/2"
 title: "Distributed Tracing in Microservices: A Comprehensive Guide"
 description: "Explore the intricacies of distributed tracing in microservices architecture, including tools like Jaeger and Zipkin, implementing trace contexts, and adding tracing to service interactions with pseudocode examples."
 linkTitle: "8.2. Distributed Tracing"

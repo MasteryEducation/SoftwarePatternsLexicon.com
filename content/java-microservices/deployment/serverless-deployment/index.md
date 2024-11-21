@@ -25,7 +25,7 @@ tags:
   - Cost Efficiency
   - Microservices
 
-canonical: "https://softwarepatternslexicon.com/microservices/deployment/serverless-deployment"
+canonical: "https://softwarepatternslexicon.com/java-microservices/deployment/serverless-deployment"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 

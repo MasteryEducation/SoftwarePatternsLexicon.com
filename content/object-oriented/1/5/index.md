@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/1/5"
+canonical: "https://softwarepatternslexicon.com/object-oriented/1/5"
 title: "Mastering Object-Oriented Programming Principles: Encapsulation, Inheritance, Polymorphism, and Abstraction"
 description: "Dive deep into the core principles of Object-Oriented Programming (OOP) - Encapsulation, Inheritance, Polymorphism, and Abstraction. Learn how these principles form the foundation of modern software design and development."
 linkTitle: "1.5. Overview of Object-Oriented Programming Principles"

@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/4/3"
+canonical: "https://softwarepatternslexicon.com/object-oriented/4/3"
 title: "Bridge Pattern: Decoupling Abstraction from Implementation"
 description: "Explore the Bridge Pattern in object-oriented design, focusing on decoupling abstraction from implementation to enhance extensibility. Includes detailed pseudocode and visual aids."
 linkTitle: "4.3. Bridge Pattern"

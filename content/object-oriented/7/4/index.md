@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/7/4"
+canonical: "https://softwarepatternslexicon.com/object-oriented/7/4"
 title: "The Law of Demeter: Minimizing Coupling in Object-Oriented Design"
 description: "Explore the Law of Demeter, also known as the Principle of Least Knowledge, to understand how to minimize coupling and write loosely coupled code in object-oriented design."
 linkTitle: "7.4. The Law of Demeter (Principle of Least Knowledge)"

@@ -21,7 +21,7 @@ tags:
   - Legacy Systems
   - Software Architecture
   - Data Transformation
-canonical: "https://softwarepatternslexicon.com/microservices/decomposition/anti-corruption-layer"
+canonical: "https://softwarepatternslexicon.com/java-microservices/decomposition/anti-corruption-layer"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 

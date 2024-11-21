@@ -25,7 +25,7 @@ tags:
   - Client-Specific API
   - Custom Client Interaction
   - Front-End Development
-canonical: "https://softwarepatternslexicon.com/microservices/external-api/backend-for-front-end"
+canonical: "https://softwarepatternslexicon.com/java-microservices/external-api/backend-for-front-end"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 

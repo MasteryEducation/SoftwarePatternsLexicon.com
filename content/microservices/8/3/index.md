@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/8/3"
+canonical: "https://softwarepatternslexicon.com/microservices/8/3"
 
 title: "Health Checks and Circuit Breakers in Microservices Architecture"
 description: "Explore the critical role of health checks and circuit breakers in microservices architecture, ensuring service reliability and resilience through proactive monitoring and automated recovery mechanisms."

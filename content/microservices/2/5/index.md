@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/2/5"
+canonical: "https://softwarepatternslexicon.com/microservices/2/5"
 title: "Microservices Deployment Strategies: Containers, Orchestration, and CI/CD"
 description: "Explore comprehensive deployment strategies for microservices, focusing on containers, orchestration with Docker and Kubernetes, and CI/CD automation."
 linkTitle: "2.5. Deployment Strategies"

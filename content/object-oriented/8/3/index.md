@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/8/3"
+canonical: "https://softwarepatternslexicon.com/object-oriented/8/3"
 
 title: "Effective Documentation of Object-Oriented Design Patterns"
 description: "Master the art of documenting object-oriented design patterns with comprehensive templates and strategies for recording pattern usage and decisions."

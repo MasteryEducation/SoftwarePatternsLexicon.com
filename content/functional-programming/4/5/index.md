@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/4/5"
+canonical: "https://softwarepatternslexicon.com/functional-programming/4/5"
 title: "Dependency Injection in Functional Programming: Enhancing Modularity and Testability"
 description: "Explore the concept of Dependency Injection in Functional Programming, focusing on inversion of control, benefits in testing and modularity, and practical pseudocode implementations using higher-order functions."
 linkTitle: "4.5. Dependency Injection in FP"

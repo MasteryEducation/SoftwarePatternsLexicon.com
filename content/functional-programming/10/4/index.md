@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/10/4"
+canonical: "https://softwarepatternslexicon.com/functional-programming/10/4"
 title: "Lessons Learned from Functional Programming Patterns"
 description: "Explore the successes, challenges, and best practices in applying functional programming patterns in real-world applications."
 linkTitle: "10.4. Lessons Learned"

@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/19/4"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/19/4"
 title: "Mastering Design Patterns: Final Thoughts and Embracing Patterns Thoughtfully"
 description: "Explore the final thoughts on mastering design patterns, emphasizing thoughtful application and continuous practice for expert developers."
 linkTitle: "19.4. Final Thoughts"

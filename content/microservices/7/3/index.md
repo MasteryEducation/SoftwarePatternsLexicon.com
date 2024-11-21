@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/7/3"
+canonical: "https://softwarepatternslexicon.com/microservices/7/3"
 title: "Data Storage Security in Microservices: Encryption and Compliance"
 description: "Explore the principles of securing data storage in microservices, focusing on encryption at rest and compliance with regulations like GDPR."
 linkTitle: "7.3. Security in Data Storage"

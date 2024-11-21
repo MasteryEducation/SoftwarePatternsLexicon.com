@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/13/3"
+canonical: "https://softwarepatternslexicon.com/microservices/13/3"
 title: "Moving Forward with Microservices: Strategies and Resources"
 description: "Explore strategies for implementing microservices in projects and discover resources for further learning, including books, courses, and online communities."
 linkTitle: "13.3. Moving Forward"

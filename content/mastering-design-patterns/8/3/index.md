@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/8/3"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/8/3"
 title: "Model-View-ViewModel (MVVM) Architectural Pattern: Mastering Data Binding Techniques"
 description: "Explore the Model-View-ViewModel (MVVM) architectural pattern, focusing on data binding techniques with detailed pseudocode implementations and practical insights."
 linkTitle: "8.3. Model-View-ViewModel (MVVM)"

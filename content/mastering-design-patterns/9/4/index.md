@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/9/4"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/9/4"
 title: "Eventual Consistency Patterns: Ensuring Data Consistency in Distributed Systems"
 description: "Explore Eventual Consistency Patterns in distributed systems, focusing on techniques for synchronization and handling data consistency across nodes."
 linkTitle: "9.4. Eventual Consistency Patterns"

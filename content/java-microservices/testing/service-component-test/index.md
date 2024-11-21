@@ -23,7 +23,7 @@ tags:
   - Integration Testing
   - Spring Boot
   - Spring Cloud
-canonical: "https://softwarepatternslexicon.com/microservices/testing/service-component-test"
+canonical: "https://softwarepatternslexicon.com/java-microservices/testing/service-component-test"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 

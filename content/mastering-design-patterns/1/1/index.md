@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/1/1"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/1/1"
 title: "Understanding Design Patterns: Definition, Purpose, and Benefits"
 description: "Explore the definition, purpose, and benefits of design patterns in software development. Learn how they enhance code reusability, maintainability, and communication among developers."
 linkTitle: "1.1. What Are Design Patterns?"

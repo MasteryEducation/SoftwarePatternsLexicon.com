@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/7/1"
+canonical: "https://softwarepatternslexicon.com/functional-programming/7/1"
 title: "Immutable State and Concurrency: Enhancing Multithreading with Functional Programming"
 description: "Explore the benefits of immutability in multithreading and learn how to design concurrent functional programs using pure functions for safe concurrency."
 linkTitle: "7.1. Immutable State and Concurrency"

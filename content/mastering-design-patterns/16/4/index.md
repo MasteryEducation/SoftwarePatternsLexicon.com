@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/16/4"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/16/4"
 title: "Mock Objects and Test Doubles in TDD: Fakes, Stubs, Mocks, and Spies"
 description: "Explore the world of mock objects and test doubles in Test-Driven Development (TDD), including fakes, stubs, mocks, and spies, with detailed pseudocode examples and practical insights."
 linkTitle: "16.4. Mock Objects and Test Doubles"

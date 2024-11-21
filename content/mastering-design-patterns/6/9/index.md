@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/6/9"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/6/9"
 title: "Double-Checked Locking in Concurrency Patterns"
 description: "Explore the Double-Checked Locking pattern in concurrency, its intent, motivation, and implementation through pseudocode, along with pitfalls and best practices."
 linkTitle: "6.9. Double-Checked Locking"

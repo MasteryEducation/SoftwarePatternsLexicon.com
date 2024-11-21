@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/10/9"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/10/9"
 title: "Routing Slip Pattern: Dynamic Routing Paths in Enterprise Integration"
 description: "Explore the Routing Slip Pattern, a powerful enterprise integration pattern for defining dynamic routing paths and implementing processing sequences in distributed systems."
 linkTitle: "10.9. Routing Slip Pattern"

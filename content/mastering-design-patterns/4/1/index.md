@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/4/1"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/4/1"
 
 title: "Structural Patterns in Software Design: A Comprehensive Overview"
 description: "Explore the world of structural design patterns, focusing on composition vs. inheritance and organizing code for flexibility. Learn how these patterns enhance software architecture across paradigms."

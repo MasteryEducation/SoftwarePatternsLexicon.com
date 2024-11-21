@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/4/3"
+canonical: "https://softwarepatternslexicon.com/microservices/4/3"
 title: "Strangler Fig Pattern: Incremental Migration Strategy for Microservices"
 description: "Explore the Strangler Fig Pattern, a strategic approach for incrementally migrating from monolithic systems to microservices architecture. Learn about its implementation steps, benefits, and challenges, illustrated with pseudocode examples."
 linkTitle: "4.3. Strangler Fig Pattern"

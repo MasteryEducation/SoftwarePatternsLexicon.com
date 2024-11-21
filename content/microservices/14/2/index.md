@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/14/2"
+canonical: "https://softwarepatternslexicon.com/microservices/14/2"
 title: "Glossary of Microservices Design Patterns: Key Concepts and Terminology"
 description: "Explore a comprehensive glossary of terms related to microservices design patterns, including definitions, acronyms, and industry-specific language."
 linkTitle: "Glossary of Microservices Design Patterns"

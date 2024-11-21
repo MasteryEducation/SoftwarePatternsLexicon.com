@@ -21,7 +21,7 @@ tags:
   - CI/CD
   - System Architecture
   - Service Abstraction
-canonical: "https://softwarepatternslexicon.com/microservices/deployment/service-deployment-platform"
+canonical: "https://softwarepatternslexicon.com/java-microservices/deployment/service-deployment-platform"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 

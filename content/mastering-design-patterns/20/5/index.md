@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/20/5"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/20/5"
 title: "Mastering Design Patterns: Common Interview Questions and Answers"
 description: "Explore essential design pattern interview questions with detailed explanations and pseudocode examples to prepare for technical interviews."
 linkTitle: "20.5. Common Interview Questions on Design Patterns"

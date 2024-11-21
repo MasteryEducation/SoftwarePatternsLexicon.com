@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/3/1"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/3/1"
 title: "Creational Design Patterns: An In-Depth Overview"
 description: "Explore the purpose, use cases, and selection criteria for creational design patterns in software development."
 linkTitle: "3.1. Overview of Creational Patterns"

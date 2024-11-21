@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/3/4"
+canonical: "https://softwarepatternslexicon.com/object-oriented/3/4"
 title: "Abstract Factory Pattern in Object-Oriented Design"
 description: "Explore the Abstract Factory Pattern, a creational design pattern that provides an interface for creating families of related objects without specifying their concrete classes. Learn its intent, structure, participants, and implementation with detailed pseudocode examples."
 linkTitle: "3.4. Abstract Factory Pattern"

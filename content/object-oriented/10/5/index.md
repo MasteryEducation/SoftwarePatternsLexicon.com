@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/10/5"
+canonical: "https://softwarepatternslexicon.com/object-oriented/10/5"
 title: "Frequently Asked Questions (FAQ) on Object-Oriented Design Patterns"
 description: "Comprehensive answers to common questions and misconceptions about object-oriented design patterns, with detailed explanations and pseudocode examples."
 linkTitle: "10.5. Frequently Asked Questions (FAQ)"

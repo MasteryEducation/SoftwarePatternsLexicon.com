@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/8/9"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/8/9"
 
 title: "Broker Pattern: Decoupling Components with Message Brokers"
 description: "Explore the Broker Pattern in software architecture, a design pattern that decouples components using message brokers, enhancing scalability and flexibility."

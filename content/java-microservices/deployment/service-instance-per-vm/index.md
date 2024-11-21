@@ -22,7 +22,7 @@ tags:
   - Resource Isolation
   - Scalability
   - Fault Isolation
-canonical: "https://softwarepatternslexicon.com/microservices/deployment/service-instance-per-vm"
+canonical: "https://softwarepatternslexicon.com/java-microservices/deployment/service-instance-per-vm"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 

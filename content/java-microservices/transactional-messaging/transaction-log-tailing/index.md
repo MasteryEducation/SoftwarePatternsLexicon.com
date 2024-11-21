@@ -24,7 +24,7 @@ tags:
   - Data Consistency
   - Message Brokering
   - Fault Tolerance
-canonical: "https://softwarepatternslexicon.com/microservices/transactional-messaging/transaction-log-tailing"
+canonical: "https://softwarepatternslexicon.com/java-microservices/transactional-messaging/transaction-log-tailing"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 

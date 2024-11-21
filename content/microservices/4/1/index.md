@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/4/1"
+canonical: "https://softwarepatternslexicon.com/microservices/4/1"
 title: "Microservices Decomposition by Business Capability: Aligning Services with Business Goals"
 description: "Explore the decomposition of microservices by business capability, aligning services with organizational structure, and leveraging pseudocode examples to model business-capable services."
 linkTitle: "4.1. Decomposition by Business Capability"

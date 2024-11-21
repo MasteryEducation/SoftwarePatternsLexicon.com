@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/10/3"
+canonical: "https://softwarepatternslexicon.com/functional-programming/10/3"
 title: "Financial Systems and Functional Programming: Enhancing FinTech with Reliability and Correctness"
 description: "Explore how functional programming patterns improve reliability and correctness in financial systems, with a case study on building a risk assessment tool."
 linkTitle: "10.3. Financial Systems and FP"

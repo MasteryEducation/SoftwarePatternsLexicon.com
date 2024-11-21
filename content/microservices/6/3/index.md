@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/6/3"
+canonical: "https://softwarepatternslexicon.com/microservices/6/3"
 title: "Event Sourcing Pattern: Capturing State Changes as Events"
 description: "Explore the Event Sourcing Pattern in Microservices, focusing on capturing state changes as events, building application state from event history, and understanding its advantages and implementation."
 linkTitle: "6.3. Event Sourcing Pattern"

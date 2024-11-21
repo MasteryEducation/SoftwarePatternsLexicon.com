@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/5/5"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/5/5"
 
 title: "Iterator Pattern in Design Patterns: Mastering Sequential Access"
 description: "Explore the Iterator Pattern, a fundamental behavioral design pattern, to master sequential access to elements in collections. Learn through pseudocode examples and understand internal vs. external iterators."

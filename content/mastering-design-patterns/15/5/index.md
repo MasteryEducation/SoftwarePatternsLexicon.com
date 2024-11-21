@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/15/5"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/15/5"
 title: "Reactive Programming Concepts: Streams, Dataflow, and Backpressure Handling"
 description: "Explore the core principles of reactive programming, including streams, dataflow, and backpressure handling, with detailed pseudocode examples and diagrams."
 linkTitle: "15.5. Reactive Programming Concepts"

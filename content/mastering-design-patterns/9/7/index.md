@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/9/7"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/9/7"
 title: "Bulkhead Pattern: Enhancing System Resilience with Resource Isolation"
 description: "Explore the Bulkhead Pattern, a key strategy for improving system resilience through resource isolation in distributed systems. Learn how to implement this pattern using pseudocode and understand its applicability across programming paradigms."
 linkTitle: "9.7. Bulkhead Pattern"

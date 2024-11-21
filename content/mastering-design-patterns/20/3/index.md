@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/20/3"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/20/3"
 title: "UML Notation Reference: Mastering Symbols and Diagrams"
 description: "Explore the comprehensive guide to UML Notation, including symbols, diagrams, and best practices for reading and writing UML in software design."
 linkTitle: "20.3. UML Notation Reference"

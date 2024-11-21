@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/12/3"
+canonical: "https://softwarepatternslexicon.com/microservices/12/3"
 title: "Domain-Driven Design in Microservices: Aligning Services with Domain Models"
 description: "Explore how Domain-Driven Design (DDD) principles can be applied to microservices architecture, focusing on aligning services with domain models and defining clear service boundaries through bounded contexts."
 linkTitle: "12.3. Domain-Driven Design in Microservices"

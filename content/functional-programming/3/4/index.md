@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/3/4"
+canonical: "https://softwarepatternslexicon.com/functional-programming/3/4"
 title: "Observer Pattern in Functional Reactive Programming (FRP)"
 description: "Explore the Observer Pattern in Functional Reactive Programming, managing data streams, implementing Observables and Subscribers, and creating functional reactive systems with pseudocode examples."
 linkTitle: "3.4. Observer Pattern in Functional Reactive Programming"

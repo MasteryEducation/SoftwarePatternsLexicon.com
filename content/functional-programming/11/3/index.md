@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/11/3"
+canonical: "https://softwarepatternslexicon.com/functional-programming/11/3"
 title: "Free Monads and Interpreters: Abstracting Over Effects in Functional Programming"
 description: "Explore the concept of Free Monads and Interpreters in functional programming, understanding how they abstract over effects and enable building interpreters for programs."
 linkTitle: "11.3. Free Monads and Interpreters"

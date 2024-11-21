@@ -24,7 +24,7 @@ tags:
   - Network Protocols
   - Data Exchange
   - Inter-Service Communication
-canonical: "https://softwarepatternslexicon.com/microservices/communication-protocols/domain-specific-protocol"
+canonical: "https://softwarepatternslexicon.com/java-microservices/communication-protocols/domain-specific-protocol"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 

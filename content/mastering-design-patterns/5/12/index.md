@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/5/12"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/5/12"
 
 title: "Visitor Pattern: Mastering Operations on Object Structures"
 description: "Explore the Visitor Pattern, a powerful behavioral design pattern that enables operations on object structures. Learn through pseudocode examples and understand the double dispatch technique."

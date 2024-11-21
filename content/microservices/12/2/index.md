@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/12/2"
+canonical: "https://softwarepatternslexicon.com/microservices/12/2"
 
 title: "Micro Frontends: Extending Microservices Principles to the Frontend"
 description: "Explore the concept of Micro Frontends, a modern approach to building scalable and modular web applications by extending microservices principles to the frontend."

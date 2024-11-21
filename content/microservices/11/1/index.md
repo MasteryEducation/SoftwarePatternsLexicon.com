@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/11/1"
+canonical: "https://softwarepatternslexicon.com/microservices/11/1"
 title: "Migrating from Monolith to Microservices: Challenges and Strategies"
 description: "Explore the journey of transitioning from monolithic architectures to microservices, addressing cultural and technical hurdles, and employing strategies like the Strangler Fig pattern."
 linkTitle: "11.1. Migrating from Monolith to Microservices"

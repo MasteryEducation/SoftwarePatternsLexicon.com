@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/18/4"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/18/4"
 title: "Law of Demeter: Minimizing Coupling in Software Design"
 description: "Explore the Law of Demeter, a fundamental principle in software design that promotes loosely coupled code by minimizing dependencies between components."
 linkTitle: "18.4. Law of Demeter"

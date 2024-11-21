@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/4/4"
+canonical: "https://softwarepatternslexicon.com/object-oriented/4/4"
 title: "Composite Pattern: Mastering Part-Whole Hierarchies in OOP"
 description: "Explore the Composite Pattern in Object-Oriented Design, learn how to compose objects into tree structures, and understand its implementation through detailed pseudocode examples."
 linkTitle: "4.4. Composite Pattern"

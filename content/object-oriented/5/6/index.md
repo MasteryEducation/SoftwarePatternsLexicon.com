@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/5/6"
+canonical: "https://softwarepatternslexicon.com/object-oriented/5/6"
 title: "Mediator Pattern: Streamlining Object Interactions in OOP"
 description: "Explore the Mediator Pattern, a key behavioral design pattern in object-oriented programming, to reduce coupling and manage complexity through encapsulated interactions."
 linkTitle: "5.6. Mediator Pattern"

@@ -20,7 +20,7 @@ tags:
   - Decoupling
   - Scalability
   - Resilience
-canonical: "https://softwarepatternslexicon.com/microservices/decomposition/self-contained-service"
+canonical: "https://softwarepatternslexicon.com/java-microservices/decomposition/self-contained-service"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 

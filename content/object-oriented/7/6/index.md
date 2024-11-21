@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/7/6"
+canonical: "https://softwarepatternslexicon.com/object-oriented/7/6"
 
 title: "Pattern-Oriented Software Architecture"
 description: "Explore the integration of design patterns into software architectures, focusing on layered architectures and frameworks."

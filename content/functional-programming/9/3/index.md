@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/9/3"
+canonical: "https://softwarepatternslexicon.com/functional-programming/9/3"
 title: "Managing Side Effects in Functional Programming"
 description: "Explore strategies for managing side effects in functional programming, focusing on isolation techniques and testing methodologies."
 linkTitle: "9.3. Managing Side Effects"

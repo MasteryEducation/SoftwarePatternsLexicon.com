@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/1/5"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/1/5"
 title: "Programming Paradigms Overview: OOP, FP, Procedural, and Concurrent"
 description: "Explore the foundational programming paradigms: Object-Oriented, Functional, Procedural, and Concurrent Programming, their principles, and applications."
 linkTitle: "1.5. Overview of Programming Paradigms"

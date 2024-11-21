@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/18/5"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/18/5"
 
 title: "Encapsulation and Information Hiding: Mastering Software Design"
 description: "Explore the principles of encapsulation and information hiding in software design, enhancing code security and maintainability across programming paradigms."

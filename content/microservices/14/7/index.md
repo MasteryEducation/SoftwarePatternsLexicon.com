@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/14/7"
+canonical: "https://softwarepatternslexicon.com/microservices/14/7"
 
 title: "Common Microservices Interview Questions: Mastering Design Patterns and Architectural Principles"
 description: "Prepare for technical interviews with a comprehensive guide to common microservices interview questions, including sample answers and insights into industry expectations."

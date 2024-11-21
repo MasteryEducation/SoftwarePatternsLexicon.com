@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-4/10/4"
+canonical: "https://softwarepatternslexicon.com/microservices/10/4"
 title: "Scaling and Resilience in Microservices Architecture"
 description: "Explore the principles of scaling and resilience in microservices architecture, including auto-scaling strategies and fault tolerance, with illustrative pseudocode and diagrams."
 linkTitle: "10.4. Scaling and Resilience"

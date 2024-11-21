@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/5/6"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/5/6"
 title: "Mediator Pattern in Software Design: Simplifying Communication in Complex Systems"
 description: "Explore the Mediator Pattern in software design, a powerful tool for reducing direct communication between objects and enhancing system maintainability. Learn its intent, motivation, and implementation through detailed pseudocode examples."
 linkTitle: "5.6. Mediator Pattern"

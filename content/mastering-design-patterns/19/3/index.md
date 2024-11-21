@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/19/3"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/19/3"
 title: "Continuing Education and Resources: Mastering Design Patterns"
 description: "Explore essential resources for mastering design patterns, including books, articles, online courses, communities, and conferences to enhance your software development skills."
 linkTitle: "19.3. Continuing Education and Resources"

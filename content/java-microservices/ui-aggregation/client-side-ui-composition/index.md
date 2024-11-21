@@ -23,7 +23,7 @@ tags:
   - Spring Cloud
   - Frontend Development
   - Web Architecture
-canonical: "https://softwarepatternslexicon.com/microservices/ui-aggregation/client-side-ui-composition"
+canonical: "https://softwarepatternslexicon.com/java-microservices/ui-aggregation/client-side-ui-composition"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 

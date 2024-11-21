@@ -21,7 +21,7 @@ tags:
   - Continuous Delivery
   - System Architecture
   - Gradual Replacement
-canonical: "https://softwarepatternslexicon.com/microservices/decomposition/strangler-application"
+canonical: "https://softwarepatternslexicon.com/java-microservices/decomposition/strangler-application"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 

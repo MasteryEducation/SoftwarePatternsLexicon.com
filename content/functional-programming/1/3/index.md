@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/1/3"
+canonical: "https://softwarepatternslexicon.com/functional-programming/1/3"
 title: "Core Principles of Functional Programming"
 description: "Explore the foundational principles of functional programming, including pure functions, immutability, higher-order functions, recursion, and lazy evaluation, with detailed explanations and pseudocode examples."
 linkTitle: "1.3. Core Principles of Functional Programming"

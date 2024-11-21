@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/9/2"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/9/2"
 title: "Leader Election Pattern in Distributed Systems"
 description: "Explore the Leader Election Pattern, a crucial design pattern for coordinating distributed nodes in distributed systems. Learn its intent, key participants, applicability, and implementation through pseudocode examples."
 linkTitle: "9.2. Leader Election Pattern"

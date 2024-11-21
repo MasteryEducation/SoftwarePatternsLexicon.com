@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/4/4"
+canonical: "https://softwarepatternslexicon.com/functional-programming/4/4"
 title: "Interpreter Pattern in Functional Programming: Building Domain-Specific Languages"
 description: "Explore the Interpreter Pattern in Functional Programming, learn how to implement Domain-Specific Languages (DSLs) using functions, and understand the advantages of this approach over Object-Oriented Programming."
 linkTitle: "4.4. Interpreter Pattern in FP"

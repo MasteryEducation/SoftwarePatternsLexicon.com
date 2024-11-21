@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/9/2"
+canonical: "https://softwarepatternslexicon.com/functional-programming/9/2"
 title: "Debugging Pure Functions: Simplifying Debugging with Predictable Behavior"
 description: "Explore the art of debugging pure functions in functional programming. Learn techniques and tools for tracing and monitoring, and understand how the predictability of pure functions simplifies the debugging process."
 linkTitle: "9.2. Debugging Pure Functions"

@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-2/1/3"
+canonical: "https://softwarepatternslexicon.com/object-oriented/1/3"
 
 title: "Importance of Design Patterns in Object-Oriented Programming (OOP)"
 description: "Explore the significance of design patterns in OOP, focusing on enhancing code reusability, maintainability, and facilitating communication among developers."

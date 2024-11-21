@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-1/11/7"
+canonical: "https://softwarepatternslexicon.com/mastering-design-patterns/11/7"
 
 title: "Secure Session Management: Ensuring Integrity and Preventing Hijacking"
 description: "Explore secure session management techniques to maintain session integrity and prevent hijacking in software systems."

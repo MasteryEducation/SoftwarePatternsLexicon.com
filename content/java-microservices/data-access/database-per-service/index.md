@@ -22,7 +22,7 @@ tags:
   - System Design
   - Messaging
   - CQRS
-canonical: "https://softwarepatternslexicon.com/microservices/data-access/database-per-service"
+canonical: "https://softwarepatternslexicon.com/java-microservices/data-access/database-per-service"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 

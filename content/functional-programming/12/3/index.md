@@ -1,5 +1,5 @@
 ---
-canonical: "https://softwarepatternslexicon.com/pseudocode-3/12/3"
+canonical: "https://softwarepatternslexicon.com/functional-programming/12/3"
 title: "Continuing Your Journey in Functional Programming"
 description: "Explore resources, communities, and strategies to deepen your understanding of functional programming and apply it effectively in real-world scenarios."
 linkTitle: "12.3. Continuing Your Journey"
