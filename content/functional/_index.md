@@ -1,7 +1,7 @@
 ---
 type: docs
 title: Functional Programming Design Patterns
-linkTitle: Functional Programming
+linkTitle: Functional Programming Design Patterns
 nav_weight: 100000
 menu:
   main:
