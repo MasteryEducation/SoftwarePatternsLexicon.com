@@ -1,15 +1,15 @@
 ---
 type: docs
 title: |
-  Object-Oriented Programming
+  Functional Programming
 linkTitle: | 
-  Object-Oriented Programming
+  Functional Programming
 nav_weight: 2
-description: 
+description:
 menu:
   main:
     parent: pseudocode
-    weight: 2
+    weight: 3
     params:
       description: 
       icon:

@@ -1,18 +1,17 @@
 ---
 type: docs
 title: |
-  Introduction to Design Patterns
+  Introduction
 linkTitle: | 
-  Introduction to Design Patterns
+  Introduction
 nav_weight: 1
-description: |
-  An all-encompassing guide covering fundamental design patterns across different programming paradigms, illustrated with clear pseudocode examples.
+description: 
 menu:
   main:
     parent: pseudocode
     weight: 1
     params:
-      description: Language-Agnostic Guide Using Pseudocode
+      description:
       icon:
         vendor: bs
         name: book
