@@ -1,17 +1,17 @@
 ---
 type: docs
 title: |
-  Object-Oriented Programming
+  Object-Oriented Design Patterns
 linkTitle: | 
-  Object-Oriented Programming
+  Object-Oriented Design Patterns
 nav_weight: 2
-description: 
+description: Focuses on classic object-oriented design patterns, as defined by the Gang of Four, with detailed pseudocode implementations.
 menu:
   main:
     parent: pseudocode
     weight: 2
     params:
-      description: 
+      description: Foundations and Implementations in Pseudocode
       icon:
         vendor: bs
         name: book

@@ -1,17 +1,15 @@
 ---
 type: docs
-title: |
-  Introduction
-linkTitle: | 
-  Introduction
+title: Mastering Design Patterns
+linkTitle: Mastering Design Patterns
 nav_weight: 1
-description: 
+description: An all-encompassing guide covering fundamental design patterns across different programming paradigms, illustrated with clear pseudocode examples.
 menu:
   main:
     parent: pseudocode
     weight: 1
     params:
-      description:
+      description: A Comprehensive Guide Using Pseudocode
       icon:
         vendor: bs
         name: book
