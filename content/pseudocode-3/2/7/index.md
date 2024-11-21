@@ -115,7 +115,7 @@ graph TD
 
 ```mermaid
 graph TD
-    A[addThreeNumbers(a, b, c)] --> B[curryAddThreeNumbers#40;a#41;]
+    A[addThreeNumbers#40;a, b, c#41;] --> B[curryAddThreeNumbers#40;a#41;]
     B --> C[curryAddThreeNumbers#40;b#41;]
     C --> D[curryAddThreeNumbers#40;c#41;]
     D --> E[a + b + c]
