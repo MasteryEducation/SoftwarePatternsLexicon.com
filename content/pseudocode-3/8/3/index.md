@@ -6,13 +6,13 @@ linkTitle: "8.3. Functional Extensions in Java and C#"
 categories:
 - Functional Programming
 - Java
-- C#
+- CSharp
 tags:
 - Lambda Expressions
 - Streams
 - Functional Programming
 - Java
-- C#
+- CSharp
 date: 2024-11-17
 type: docs
 nav_weight: 8300
