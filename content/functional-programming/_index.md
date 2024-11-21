@@ -1,7 +1,7 @@
 ---
 type: docs
-title: Functional Programming Patterns
-linkTitle: Functional Programming Patterns
+title: Functional Programming Design Patterns In Pseodocode
+linkTitle: Functional Programming
 nav_weight: 3
 description: Explores key functional programming design patterns, demonstrating how they solve common problems through pseudocode examples.
 menu:

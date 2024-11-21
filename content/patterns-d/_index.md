@@ -1,6 +1,6 @@
 ---
 type: docs
-title: D
+title: D Design Patterns
 linkTitle: D
 description: |
   Designed for expert software engineers and architects, this resource delves deep into creational, structural, behavioral, and concurrency patterns, leveraging D's unique features like templates, mixins, metaprogramming, and compile-time function execution. 
