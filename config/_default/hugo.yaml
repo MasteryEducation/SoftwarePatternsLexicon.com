@@ -1,0 +1,83 @@
+baseURL: https://softwarepatternslexicon.com/
+title: Software Patterns Lexicon
+# Copyright, the {year} is the placeholder of this year.
+copyright: "© 2023-{year} [Tokenizer Inc.](https://tokenizer.ca/) | © 2023-{year} [Mastery Education](https://github.com/orgs/MasteryEducation) | All Rights Reserved."
+defaultContentLanguage: en
+defaultContentLanguageInSubdir: # true # disable this to remove the default language code from URL, i.e. /en/docs -> /docs.
+enableRobotsTXT: true
+timeout: 120s # images processing takes a long time, it's recommended to commit the resources folder for improve the build performance.
+enableEmoji: true
+
+meta.date: false
+
+markup:
+  highlight:
+    noClasses: false
+
+permalinks:
+  blog: /blog/:year/:month/:title
+
+outputs:
+  home:
+    - HTML
+    - Offline        # required by PWA module for displaying the offline pages.
+    - RSS
+    - SearchIndex    # required by search module.
+    - WebAppManifest # required by PWA module to make your site installable.
+
+
+meta.date: false
+meta.reading_time: false
+
+
+taxonomies:
+  
+  tags: tags
+  categories: categories
+  series: series
+  # authors: authors      # multiple authors.
+
+build:
+  writeStats: true # required by PurgeCSS.
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    noClasses: false
+    lineNos: true
+    lineNumbersInTable: false
+
+# see https://gohugo.io/content-management/related/#configure-related-content
+related:
+  includeNewer: true
+  indices:
+  - name: keywords
+    weight: 100
+  - name: tags
+    weight: 80
+  - name: categories
+    weight: 60
+  - name: series
+    weight: 60
+  #- name: authors
+  #  weight: 1010
+  - name: date
+    weight: 10
+  threshold: 10 # for testing, increase it to suit your case.
+  toLower: false
+
+security:
+  funcs:
+    getenv:
+      - ^HUGO
+      - CI$
+      - PWD
+      - GITHUB_TOKEN
+
+markup:
+  tableOfContents:
+    endLevel: 4
+    ordered: false
+    startLevel: 2

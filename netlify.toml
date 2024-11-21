@@ -1,0 +1,19 @@
+[build]
+command = "npm ci && hugo --gc -b $URL" # change to suite your needs.
+publish = "public"
+
+[build.environment]
+NODE_VERSION = "23.1.0"
+HUGO_VERSION = "0.138.0"
+HUGO_ENABLEGITINFO = "true"
+HUGO_ENV = "production"
+GO_VERSION = "1.23.2"
+
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "deny"
+    X-XSS-Protection = "1; mode=block"

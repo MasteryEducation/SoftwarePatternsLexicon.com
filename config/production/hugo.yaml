@@ -1,0 +1,7 @@
+# see https://hugomods.com/en/docs/google-analytics/.
+# googleAnalytics: 'G-XXXXXXXXXX' # Google Analytics, please make sure you've imported the Google Analytics module.
+googleAnalytics: 'G-8LEC9HEHET'
+# disqusShortname: XXXXXX # The Disqus shortname.
+
+params:
+  google_adsense: ca-pub-4156851781403242

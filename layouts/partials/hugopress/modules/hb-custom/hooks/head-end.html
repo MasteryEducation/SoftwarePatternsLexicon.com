@@ -1,0 +1,17 @@
+{{/* Put custom HTML markup before the end of <head>. */}}
+    <script src="/quizdown/quizdown.js"></script>
+    <script src="/quizdown/quizdownKatex.js"></script>
+    <script src="/quizdown/quizdownHighlight.js"></script>
+    <script>
+        let config = {
+            startOnLoad: true,
+            shuffleAnswers: true,
+            shuffleQuestions: true,
+            primaryColor: 'steelblue',
+            secondaryColor: '#f2f2f2',
+            textColor: 'black',
+            locale: null
+        };
+        quizdown.register(quizdownHighlight).register(quizdownKatex).init(config)
+    </script>
+    

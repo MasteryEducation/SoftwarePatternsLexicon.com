@@ -1,0 +1,26 @@
+<div class="hb-blog-main-container">
+  <div class="hb-blog-main">
+    {{ partial "hugopress/functions/render-hooks" (dict "Name" "hb-blog-main-begin" "Page" .) }}
+    {{- if isset .Page.Params "homepage" -}}
+      {{ .Content }}
+    {{ else }}
+      {{- if eq site.Params.hb.blog.list_style "minimalist" }}
+        {{ partial "hb/modules/blog/posts-minimalist" (dict "Pages" .Paginator.Pages) }}
+      {{- else }}
+        {{- $cols := partialCached "hb/modules/blog/functions/list-cols" . }}
+        {{ partial "hb/modules/blog/posts" (dict "Pages" .Paginator.Pages "Cols" $cols) }}
+      {{- end }}
+      {{ partial "hb/modules/pagination/index" .Paginator }}
+    {{- end -}}
+    {{ partial "hugopress/functions/render-hooks" (dict "Name" "hb-blog-main-end" "Page" .) }}
+  </div>
+  {{ partial "hb/modules/blog/sidebar" . }}
+</div>
+
+
+
+
+
+
+
+
