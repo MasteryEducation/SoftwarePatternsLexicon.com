@@ -104,9 +104,9 @@ To better understand the flow of Partial Application and Currying, let's visuali
 
 ```mermaid
 graph TD
-    A[calculateVolume(length, width, height)] --> B[partialApplyVolume(width, height)]
-    B --> C[volumeWithFixedDimensions(length)]
-    C --> D[calculateVolume(length, 5, 10)]
+    A[calculateVolume#40;length, width, height#41;] --> B[partialApplyVolume#40;width, height#41;]
+    B --> C[volumeWithFixedDimensions#40;length#41;]
+    C --> D[calculateVolume#40;length, 5, 10#41;]
 ```
 
 **Description**: This diagram illustrates how Partial Application transforms the `calculateVolume` function into a specialized version with fixed `width` and `height`.
@@ -115,9 +115,9 @@ graph TD
 
 ```mermaid
 graph TD
-    A[addThreeNumbers(a, b, c)] --> B[curryAddThreeNumbers(a)]
-    B --> C[curryAddThreeNumbers(b)]
-    C --> D[curryAddThreeNumbers(c)]
+    A[addThreeNumbers(a, b, c)] --> B[curryAddThreeNumbers#40;a#41;]
+    B --> C[curryAddThreeNumbers#40;b#41;]
+    C --> D[curryAddThreeNumbers#40;c#41;]
     D --> E[a + b + c]
 ```
 
