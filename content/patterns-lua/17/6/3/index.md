@@ -9,7 +9,7 @@ categories:
 - Software Development
 tags:
 - Lua
-- C#
+- CSharp
 - NLua
 - Game Development
 - Scripting
