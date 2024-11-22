@@ -146,7 +146,7 @@ To better understand the concepts of data sampling and approximation, let's visu
 flowchart TD
     A[Start] --> B{Select Sampling Method}
     B --> |Random Sampling| C[Use TABLESAMPLE]
-    B --> |Random Sampling| D[Use ORDER BY NEWID()]
+    B --> |Random Sampling| D[Use ORDER BY NEWID#40;#41;]
     B --> |Approximate Aggregation| E[Use APPROX_COUNT_DISTINCT]
     B --> |Approximate Aggregation| F[Use HyperLogLog]
     C --> G[Analyze Sample]
