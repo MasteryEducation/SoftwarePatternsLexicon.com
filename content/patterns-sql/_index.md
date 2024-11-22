@@ -15,6 +15,6 @@ menu:
         vendor: bs
         name: book
         className: text-primary
-canonical: "https://softwarepatternslexicon.com/patterns-cpp"
+canonical: "https://softwarepatternslexicon.com/patterns-sql"
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
