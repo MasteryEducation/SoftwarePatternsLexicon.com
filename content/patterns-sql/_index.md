@@ -1,6 +1,6 @@
 ---
 type: docs
-title: SQL
+title: SQL Design Patterns
 linkTitle: SQL
 description: |
   Explore a wide array of topics including data modeling patterns, query optimization techniques, transaction management, indexing strategies, security enhancements, and integration with modern application architectures like microservices and cloud-based systems. Stay ahead of the curve by learning how to implement advanced patterns such as temporal data handling, recursive queries, and big data integration.
