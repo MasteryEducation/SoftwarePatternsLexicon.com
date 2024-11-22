@@ -224,7 +224,7 @@ erDiagram
         INT EmployeeID PK
         VARCHAR FirstName
         VARCHAR LastName
-        VARCHAR Email UNIQUE
+        VARCHAR Email UK
         INT DepartmentID FK
     }
     DEPARTMENTS {

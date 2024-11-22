@@ -246,12 +246,12 @@ To better understand the normalization process, let's visualize the transformati
 
 ```mermaid
 graph TD;
-    A[Unnormalized Table] --> B[First Normal Form (1NF)];
-    B --> C[Second Normal Form (2NF)];
-    C --> D[Third Normal Form (3NF)];
-    D --> E[Boyce-Codd Normal Form (BCNF)];
-    E --> F[Fourth Normal Form (4NF)];
-    F --> G[Fifth Normal Form (5NF)];
+    A[Unnormalized Table] --> B[First Normal Form #40;1NF#41;];
+    B --> C[Second Normal Form #40;2NF#41;];
+    C --> D[Third Normal Form #40;3NF#41;];
+    D --> E[Boyce-Codd Normal Form #40;BCNF#41;];
+    E --> F[Fourth Normal Form #40;4NF#41;];
+    F --> G[Fifth Normal Form #40;5NF#41;];
 ```
 
 **Diagram Description**: This diagram illustrates the progression of a table through various normal forms, highlighting the increasing levels of data integrity and reduced redundancy.

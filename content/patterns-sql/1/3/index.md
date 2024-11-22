@@ -188,7 +188,7 @@ Procedural extensions, such as stored procedures and user-defined functions, hav
 
 Modern SQL databases continue to enhance their procedural capabilities, offering features such as error handling, control-of-flow constructs, and support for complex data types. These enhancements enable developers to build robust applications that leverage the full power of the database.
 
-### Visualizing SQL's Evolution
+### SQL Evolution
 
 To better understand the evolution of SQL, let's visualize its development and the introduction of key features over time.
 
@@ -201,11 +201,11 @@ timeline
     1986 : "SQL-86 Standard Published"
     1989 : "SQL-89 Standard"
     1992 : "SQL-92 Standard"
-    1999 : "SQL:1999 Standard (Object-Relational)"
-    2003 : "SQL:2003 Standard (XML, Window Functions)"
-    2008 : "SQL:2008 Standard (Enhanced OLAP, Triggers)"
-    2011 : "SQL:2011 Standard (Temporal Data)"
-    2016 : "SQL:2016 Standard (JSON Support)"
+    1999 : "SQL#58;1999 Standard (Object-Relational)"
+    2003 : "SQL#58;2003 Standard (XML, Window Functions)"
+    2008 : "SQL#58;2008 Standard (Enhanced OLAP, Triggers)"
+    2011 : "SQL#58;2011 Standard (Temporal Data)"
+    2016 : "SQL#58;2016 Standard (JSON Support)"
 ```
 
 This timeline illustrates the key milestones in SQL's history, highlighting the continuous evolution of the language to meet the changing needs of the industry.
