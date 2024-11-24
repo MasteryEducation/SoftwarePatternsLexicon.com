@@ -1,6 +1,6 @@
 ---
 type: docs
-title: C# Design Patterns
+title: C#
 linkTitle: C#
 nav_weight: 10
 menu:

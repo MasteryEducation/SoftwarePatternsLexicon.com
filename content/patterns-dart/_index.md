@@ -1,6 +1,6 @@
 ---
 type: docs
-title: Dart Design Patterns
+title: Dart
 linkTitle: Dart
 description: 
 nav_weight: 30

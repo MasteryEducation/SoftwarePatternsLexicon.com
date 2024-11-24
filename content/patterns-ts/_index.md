@@ -1,6 +1,6 @@
 ---
 type: docs
-title: TypeScript Design Patterns
+title: TypeScript
 linkTitle: TypeScript
 description: 
 nav_weight: 160

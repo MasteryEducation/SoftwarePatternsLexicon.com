@@ -1,6 +1,6 @@
 ---
 type: docs
-title: Kotlin Design Patterns
+title: Kotlin
 linkTitle: Kotlin
 nav_weight: 90
 menu:

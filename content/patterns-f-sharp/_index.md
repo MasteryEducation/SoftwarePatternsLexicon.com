@@ -1,6 +1,6 @@
 ---
 type: docs
-title: F# Design Patterns
+title: F#
 linkTitle: F#
 description: 
 nav_weight: 50

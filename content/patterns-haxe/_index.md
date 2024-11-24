@@ -1,6 +1,6 @@
 ---
 type: docs
-title: Haxe Design Patterns
+title: Haxe
 linkTitle: Haxe
 description: earn how to leverage Haxe's unique features—such as its powerful macro system, static typing, and multi-paradigm support—to write clean, maintainable, and efficient code that compiles seamlessly to JavaScript, C++, C#, Java, Python, and more.
 nav_weight: 67

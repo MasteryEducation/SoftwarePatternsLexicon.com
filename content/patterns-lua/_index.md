@@ -1,6 +1,6 @@
 ---
 type: docs
-title: Lua Design Patterns
+title: Lua
 linkTitle: Lua
 description: |
   Discover the comprehensive resource on Lua Design Patterns and Best Practices tailored for absolute beginners, intermediate, and expert developers. This ultimate guide covers everything from Lua programming fundamentals to advanced design patterns, performance optimization, security, and real-world applications. Elevate your software engineering skills and architect robust, efficient Lua applications with in-depth knowledge and practical insights.

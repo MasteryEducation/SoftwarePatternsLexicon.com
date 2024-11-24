@@ -106,6 +106,8 @@ github.com/hbstack/breadcrumb v0.7.3 h1:HVwTFf8ZOW4PkSUH2phx33DwMa2hmjpn2GHN1/nC
 github.com/hbstack/breadcrumb v0.7.3/go.mod h1:Xh93KE3dzXP7fYKcV7mjiMgw7P4JUOFfFgsx28jTo5o=
 github.com/hbstack/breadcrumb v0.7.4 h1:+AN+vB5yAIbaJVQlfa0M7bxREQa1SLxqqgKxPZPkMqk=
 github.com/hbstack/breadcrumb v0.7.4/go.mod h1:PuwTpChVZHvvcEEEf7XmSNr4vwKEgVJxxSLKUuD5TUc=
+github.com/hbstack/breadcrumb v0.8.0 h1:Yli5Rmf+z7AfRoj4GoXHqSy4X0e7tlbPd9/vPlOGTWY=
+github.com/hbstack/breadcrumb v0.8.0/go.mod h1:VU6j9DqY+2mkRuzJVu6vYvL9/psUSxxKg28/Us7c21Y=
 github.com/hbstack/carousel v0.2.5 h1:+N4U9wvCvd8gWI0anyNVqelkrDqsWI/jDc8LG/KvB1E=
 github.com/hbstack/carousel v0.2.5/go.mod h1:37ffr9r5ilAS4b7KrplyCeOcTPmFd2PMygLo+VPe3oY=
 github.com/hbstack/carousel v0.2.6 h1:yQ9Pv0kTYZluDd07I7V27In89JU9/e3wBb3LF8W7dwQ=
@@ -178,6 +180,8 @@ github.com/hbstack/hb v0.15.1 h1:bQxZrwDwPTw9ZIpq4rJkjmUAIYQifYnIL3z7yESwlvs=
 github.com/hbstack/hb v0.15.1/go.mod h1:FJilVCHtkVpfXZT+Ii2OFCVeu9wQh/YGgRMuPKX5ycA=
 github.com/hbstack/hb v0.15.3 h1:Q7XKGYLJobkRYKiMd4tLmmBQDaIBX7n3f8QlwAohKvA=
 github.com/hbstack/hb v0.15.3/go.mod h1:FJilVCHtkVpfXZT+Ii2OFCVeu9wQh/YGgRMuPKX5ycA=
+github.com/hbstack/hb v0.16.0 h1:k5SLF8zmGb8M5UWJwTjWi8/EuiKZ+7gQbP2qRcWYdr0=
+github.com/hbstack/hb v0.16.0/go.mod h1:FJilVCHtkVpfXZT+Ii2OFCVeu9wQh/YGgRMuPKX5ycA=
 github.com/hbstack/header v0.14.3 h1:86aaE3aMLwEMMGGx16rOdHonuVFMRcIZMWOoYqut4PU=
 github.com/hbstack/header v0.14.3/go.mod h1:W7eolpYJctsTD8GVFEj09Ogbqqy8OAqcxBEbW3ZTYIg=
 github.com/hbstack/header v0.14.5 h1:TGjaudDop6df38A0K8hjMOdmcD1WpUN03xenpgR7tJw=
@@ -438,6 +442,8 @@ github.com/hugomods/search v0.17.2/go.mod h1:xPnDGjP/HCdEWJrJBwwdI2mEtdxFxp+wHBw
 github.com/hugomods/search v0.18.0/go.mod h1:xPnDGjP/HCdEWJrJBwwdI2mEtdxFxp+wHBwSl/r2m00=
 github.com/hugomods/search v0.18.3 h1:ArJTyKNFU4joba+mrrM7EsplxPWbQ/rAE4LCn34D6+o=
 github.com/hugomods/search v0.18.3/go.mod h1:xPnDGjP/HCdEWJrJBwwdI2mEtdxFxp+wHBwSl/r2m00=
+github.com/hugomods/search v0.19.0 h1:SQoSJoX9EbcnH1m3+IiAv99lSg8C+iCHpZguU9Wbyg8=
+github.com/hugomods/search v0.19.0/go.mod h1:xPnDGjP/HCdEWJrJBwwdI2mEtdxFxp+wHBwSl/r2m00=
 github.com/hugomods/search-index v0.1.1 h1:jAJ+Gu0nzCq/bbjEeJQcI1gLgqJOn+RHnTf9Sp1go2w=
 github.com/hugomods/search-index v0.1.1/go.mod h1:2owtATJ1XxWAvK/trnNoUC1EoBimAtRYVa7F+JO/s9c=
 github.com/hugomods/seo/modules/alternatives v0.1.0 h1:G5IjM7j7ExgXEMyxQj1Z/5JwwRW8DEmL0nDJYxA3NhE=
@@ -513,6 +519,8 @@ github.com/hugomods/simple-icons v13.14.0+incompatible h1:e9sqmoq9kUVYta3mmBsnu8
 github.com/hugomods/simple-icons v13.14.0+incompatible/go.mod h1:1Lvymol7AMVY7ji/o88jMoDHHZIJ5Wc+WwNe5hjmk+U=
 github.com/hugomods/simple-icons v13.15.0+incompatible h1:zEsdNi8d6A7w1BoO8Pz0uUbtV1QqkaBk/4bbPx3xAQc=
 github.com/hugomods/simple-icons v13.15.0+incompatible/go.mod h1:1Lvymol7AMVY7ji/o88jMoDHHZIJ5Wc+WwNe5hjmk+U=
+github.com/hugomods/simple-icons v13.18.0+incompatible h1:nBbi6HunJ/1nRzUsBz7Hw756f4kVjq+pkLgS0aO8y7A=
+github.com/hugomods/simple-icons v13.18.0+incompatible/go.mod h1:1Lvymol7AMVY7ji/o88jMoDHHZIJ5Wc+WwNe5hjmk+U=
 github.com/hugomods/snackbar v0.1.2 h1:SLpfH9jlYwf81epH7DvM2XTZHo+3fXXpk6XKtxmo964=
 github.com/hugomods/snackbar v0.1.2/go.mod h1:ykFm0IFibeQPuPAm8Gaa27xJS/bNZcSez4omVSl2gQ0=
 github.com/hugomods/workbox v0.1.0 h1:yxuTj3gT1BNf6OitxrjxSJXfmbFBj2UTwdWr142eYFQ=

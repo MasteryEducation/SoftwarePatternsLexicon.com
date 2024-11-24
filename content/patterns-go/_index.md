@@ -1,6 +1,6 @@
 ---
 type: docs
-title: Go Design Patterns
+title: Go
 linkTitle: Go
 nav_weight: 60
 menu:

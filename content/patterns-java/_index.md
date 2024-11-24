@@ -1,6 +1,6 @@
 ---
 type: docs
-title: Java Design Patterns
+title: Java
 linkTitle: Java
 description: 
 nav_weight: 70

@@ -1,6 +1,6 @@
 ---
 type: docs
-title: Clojure Design Patterns
+title: Clojure
 linkTitle: Clojure
 nav_weight: 13
 menu:

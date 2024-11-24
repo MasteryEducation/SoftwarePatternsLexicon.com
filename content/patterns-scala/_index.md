@@ -1,6 +1,6 @@
 ---
 type: docs
-title: Scala Design Patterns
+title: Scala
 linkTitle: Scala
 nav_weight: 140
 menu:

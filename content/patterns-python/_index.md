@@ -1,6 +1,6 @@
 ---
 type: docs
-title: Python Design Patterns
+title: Python
 linkTitle: Python
 nav_weight: 110
 menu:

@@ -1,6 +1,6 @@
 ---
 type: docs
-title: JavaScript Design Patterns
+title: JavaScript
 linkTitle: JavaScript
 nav_weight: 80
 menu:
