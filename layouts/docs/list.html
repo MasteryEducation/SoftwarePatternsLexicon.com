@@ -1,0 +1,17 @@
+{{- define "main" }}
+  <div class="hb-docs">
+    <div class="hb-docs-sidebar" tabindex="-1" data-bs-hide="focusout">
+      {{ partialCached "hb/modules/docs/nav" . .FirstSection }}
+    </div>
+    <div class="hb-docs-main col-12 col-xxl-10">
+      {{ partial "hugopress/functions/render-hooks" (dict "Page" . "Name" "hb-docs-main-begin") }}
+      {{- if isset .Page.Params "homepage" -}}
+        {{ .Content }}
+      {{ else }}
+        {{ partial "hb/modules/docs/section" . }}
+      {{- end -}}
+      {{ partial "hugopress/functions/render-hooks" (dict "Page" . "Name" "hb-docs-main-end") }}
+    </div>
+    {{ partialCached "hb/modules/docs/nav-toggle" . }}
+  </div>
+{{- end -}}

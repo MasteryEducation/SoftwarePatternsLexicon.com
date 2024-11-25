@@ -1,0 +1,15 @@
+pwa:
+  caches:
+    font:
+      strategy: network-first
+    image:
+      strategy: network-first
+    script:
+      strategy: network-first
+    style:
+      strategy: network-first
+
+hugopress:
+  modules:
+    pwa:
+      disable: true

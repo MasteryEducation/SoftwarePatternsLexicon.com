@@ -1,0 +1,27 @@
+[build]
+publish = "public"
+command = """\
+  curl -LJO https://github.com/sass/dart-sass/releases/download/${DART_SASS_VERSION}/dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz && \
+  tar -xf dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz && \
+  rm dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz && \
+  export PATH=/opt/build/repo/dart-sass:$PATH && \
+  npm ci && \
+  hugo --gc -b $URL \
+  """
+
+[build.environment]
+NODE_VERSION = "23.1.0"
+HUGO_VERSION = "0.139.0"
+HUGO_ENABLEGITINFO = "true"
+HUGO_ENV = "production"
+GO_VERSION = "1.23.2"
+DART_SASS_VERSION = "1.81.0"
+TZ = "America/Toronto"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "deny"
+    X-XSS-Protection = "1; mode=block"

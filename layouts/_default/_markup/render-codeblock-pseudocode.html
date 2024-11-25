@@ -1,0 +1,5 @@
+{{ $lang := or .Type "text" }}
+{{ if eq .Type "pseudocode" }}
+  {{ $lang = "java" }}
+{{ end }}
+{{ transform.Highlight .Inner $lang  }}
