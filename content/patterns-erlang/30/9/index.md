@@ -12,7 +12,7 @@ tags:
 - Erlang
 - Elixir
 - Haskell
-- F#
+- FSharp
 - Functional Programming
 date: 2024-11-23
 type: docs
