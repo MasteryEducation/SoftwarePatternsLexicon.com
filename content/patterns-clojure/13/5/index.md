@@ -1,245 +1,315 @@
 ---
-
-linkTitle: "13.5 Repositories and Factories in Clojure"
-title: "Repositories and Factories in Clojure: Managing Storage and Object Creation in Domain-Driven Design"
-description: "Explore the role of repositories and factories in Clojure for managing storage and retrieval of aggregates, and encapsulating object creation logic within Domain-Driven Design."
-categories:
-- Software Design
-- Domain-Driven Design
-- Clojure Patterns
-tags:
-- Repositories
-- Factories
-- Clojure
-- Domain-Driven Design
-- Design Patterns
-date: 2024-10-25
-type: docs
-nav_weight: 1350000
 canonical: "https://softwarepatternslexicon.com/patterns-clojure/13/5"
+title: "Authentication and Authorization with Friend and Buddy in Clojure"
+description: "Explore the implementation of authentication and authorization in Clojure web applications using libraries like Friend and Buddy. Learn about different authentication methods, authorization strategies, and best practices for securing web applications."
+linkTitle: "13.5. Authentication and Authorization with Friend and Buddy"
+tags:
+- "Clojure"
+- "Web Development"
+- "Authentication"
+- "Authorization"
+- "Friend"
+- "Buddy"
+- "Security"
+- "OAuth"
+date: 2024-11-25
+type: docs
+nav_weight: 135000
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 
-## 13.5 Repositories and Factories in Clojure
+## 13.5. Authentication and Authorization with Friend and Buddy
 
-In the realm of Domain-Driven Design (DDD), repositories and factories play crucial roles in managing the lifecycle of domain objects. Repositories abstract the data layer, providing a clean interface for storage and retrieval of aggregates, while factories encapsulate the logic of object creation, ensuring that domain objects are instantiated correctly and consistently. This article delves into how these patterns can be effectively implemented in Clojure, leveraging its functional programming paradigms and powerful abstractions.
+In the realm of web development, ensuring that users are who they claim to be (authentication) and that they have the appropriate permissions to access resources (authorization) are critical components. In Clojure, libraries such as [Friend](https://github.com/cemerick/friend) and [Buddy](https://funcool.github.io/buddy-auth/latest/) provide robust solutions for implementing these security features. This section will guide you through the concepts, comparisons, and implementations of authentication and authorization using these libraries.
 
-### Introduction to Repositories and Factories
+### Understanding Authentication and Authorization
 
-**Repositories** serve as a bridge between the domain and data mapping layers, abstracting the complexities of data access and persistence. They provide a collection-like interface for accessing domain objects, allowing the domain logic to remain agnostic of the underlying data storage mechanisms.
+**Authentication** is the process of verifying the identity of a user or system. Common methods include:
 
-**Factories**, on the other hand, are responsible for creating instances of domain objects. They encapsulate the instantiation logic, ensuring that objects are created in a consistent state, often incorporating complex initialization processes.
+- **Form-based Authentication**: Users provide credentials via a form.
+- **Token-based Authentication**: Users receive a token after initial authentication, which is used for subsequent requests.
+- **OAuth**: A protocol for token-based authentication and authorization, allowing third-party services to exchange information without exposing user credentials.
 
-### Implementing Repositories in Clojure
+**Authorization**, on the other hand, determines what an authenticated user is allowed to do. This often involves:
 
-In Clojure, repositories can be implemented using protocols or multimethods, which provide polymorphic dispatch based on the type of the aggregate or the operation being performed.
+- **Role-Based Access Control (RBAC)**: Users are assigned roles, and permissions are granted based on these roles.
+- **Attribute-Based Access Control (ABAC)**: Access is granted based on attributes and policies.
 
-#### Using Protocols for Repository Interfaces
+### Comparing Friend and Buddy
 
-Clojure protocols offer a way to define a set of operations that can be implemented by different types. Here's how you can define a repository protocol for managing a simple `User` aggregate:
+Both Friend and Buddy are popular libraries in the Clojure ecosystem for handling authentication and authorization, but they have different strengths and use cases.
 
-```clojure
-(defprotocol UserRepository
-  (find-user [this id])
-  (save-user [this user])
-  (delete-user [this id]))
-```
+#### Friend
 
-This protocol defines three operations: `find-user`, `save-user`, and `delete-user`. Implementations of this protocol can vary depending on the storage mechanism, such as in-memory, database, or even a remote service.
+Friend is a comprehensive library that provides:
 
-#### Implementing a Repository with Multimethods
+- **Pluggable Authentication**: Supports various authentication workflows, including form-based and OAuth.
+- **Authorization**: Offers role-based access control.
+- **Ease of Integration**: Designed to work seamlessly with Ring, a Clojure web application library.
 
-Multimethods provide another approach, allowing dispatch based on arbitrary criteria. This can be useful when you need more flexibility in your repository logic:
+#### Buddy
 
-```clojure
-(defmulti user-repo (fn [action & _] action))
+Buddy is a more modern library that focuses on:
 
-(defmethod user-repo :find [action id]
-  ;; Implementation for finding a user
-  )
+- **Token-Based Authentication**: Strong support for JWT (JSON Web Tokens) and session management.
+- **Security Features**: Includes cryptographic functions and utilities for secure password storage.
+- **Flexibility**: Provides a modular approach, allowing developers to pick and choose components as needed.
 
-(defmethod user-repo :save [action user]
-  ;; Implementation for saving a user
-  )
+### Implementing Authentication with Friend
 
-(defmethod user-repo :delete [action id]
-  ;; Implementation for deleting a user
-  )
-```
-
-### Encapsulating Object Creation with Factories
-
-Factories in Clojure can be implemented using higher-order functions or macros, providing a flexible way to encapsulate object creation logic.
-
-#### Higher-Order Functions as Factories
-
-Higher-order functions can be used to create factory functions that encapsulate the creation logic of domain objects:
+Let's start by implementing a simple form-based authentication using Friend.
 
 ```clojure
-(defn user-factory [name email]
-  {:id (java.util.UUID/randomUUID)
-   :name name
-   :email email
-   :created-at (java.time.Instant/now)})
+(ns myapp.core
+  (:require [ring.adapter.jetty :refer [run-jetty]]
+            [ring.middleware.defaults :refer [wrap-defaults site-defaults]]
+            [cemerick.friend :as friend]
+            [cemerick.friend.credentials :as creds]
+            [cemerick.friend.workflows :as workflows]))
+
+;; Define a simple user database
+(def users {"user1" {:username "user1"
+                     :password (creds/hash-bcrypt "password")
+                     :roles #{::user}}})
+
+;; Define a simple handler
+(defn handler [request]
+  {:status 200
+   :headers {"Content-Type" "text/html"}
+   :body "Welcome to the secure area!"})
+
+;; Wrap the handler with Friend's authentication middleware
+(def app
+  (-> handler
+      (friend/authenticate {:credential-fn (partial creds/bcrypt-credential-fn users)
+                            :workflows [(workflows/interactive-form)]})
+      (wrap-defaults site-defaults)))
+
+;; Start the server
+(defn -main []
+  (run-jetty app {:port 3000}))
 ```
 
-This factory function generates a new `User` map with a unique ID and timestamp, ensuring that each user is created with the necessary attributes.
+In this example, we define a simple user database with bcrypt-hashed passwords and wrap our handler with Friend's authentication middleware. The `interactive-form` workflow handles form-based login.
 
-#### Using Macros for Factory Creation
+### Implementing Authentication with Buddy
 
-Macros can also be employed to create more complex factory logic, especially when dealing with DSLs or repetitive patterns:
+Now, let's implement token-based authentication using Buddy.
 
 ```clojure
-(defmacro defentity [name & fields]
-  `(defn ~(symbol (str name "-factory")) [~@fields]
-     (merge {:id (java.util.UUID/randomUUID)
-             :created-at (java.time.Instant/now)}
-            (zipmap '~fields [~@fields]))))
+(ns myapp.core
+  (:require [ring.adapter.jetty :refer [run-jetty]]
+            [ring.middleware.defaults :refer [wrap-defaults site-defaults]]
+            [buddy.auth :refer [authenticated?]]
+            [buddy.auth.backends.token :refer [jws-backend]]
+            [buddy.auth.middleware :refer [wrap-authentication]]
+            [buddy.sign.jwt :as jwt]))
 
-(defentity user name email)
+;; Define a secret key for signing tokens
+(def secret "mysecretkey")
+
+;; Define a simple handler
+(defn handler [request]
+  (if (authenticated? request)
+    {:status 200
+     :headers {"Content-Type" "text/html"}
+     :body "Welcome to the secure area!"}
+    {:status 401
+     :headers {"Content-Type" "text/html"}
+     :body "Unauthorized"}))
+
+;; Define the authentication backend
+(def backend (jws-backend {:secret secret}))
+
+;; Wrap the handler with Buddy's authentication middleware
+(def app
+  (-> handler
+      (wrap-authentication backend)
+      (wrap-defaults site-defaults)))
+
+;; Start the server
+(defn -main []
+  (run-jetty app {:port 3000}))
 ```
 
-This macro defines a factory function for any entity, automatically adding an ID and creation timestamp.
+In this example, we use Buddy's `jws-backend` for token-based authentication. The `authenticated?` function checks if the request contains a valid token.
 
-### Separation of Concerns
+### Authorization Strategies
 
-A key principle in DDD is the separation of concerns between domain logic and data persistence. Repositories and factories help achieve this by isolating the persistence logic from the domain model. This separation ensures that domain objects remain focused on business logic, while repositories handle data access and factories manage object creation.
+#### Role-Based Access Control (RBAC)
 
-### Visualizing Repositories and Factories
+Both Friend and Buddy support RBAC, allowing you to define roles and permissions.
 
-To better understand the interaction between repositories, factories, and domain objects, consider the following diagram:
+**Friend Example:**
+
+```clojure
+(friend/authenticate {:credential-fn (partial creds/bcrypt-credential-fn users)
+                      :workflows [(workflows/interactive-form)]
+                      :authorization-fn (fn [identity]
+                                          (contains? (:roles identity) ::admin))})
+```
+
+**Buddy Example:**
+
+```clojure
+(defn admin-handler [request]
+  (if (some #{:admin} (:roles request))
+    {:status 200 :body "Admin area"}
+    {:status 403 :body "Forbidden"}))
+```
+
+### Best Practices for Securing Web Applications
+
+1. **Use Strong Password Hashing**: Always hash passwords using strong algorithms like bcrypt.
+2. **Implement HTTPS**: Ensure all data is transmitted securely using HTTPS.
+3. **Validate Input**: Protect against injection attacks by validating and sanitizing user input.
+4. **Use Secure Tokens**: For token-based authentication, use secure, signed tokens like JWT.
+5. **Limit Session Lifetimes**: Implement session expiration and renewal strategies.
+6. **Regularly Update Dependencies**: Keep libraries and dependencies up to date to mitigate vulnerabilities.
+
+### Session Management and Storing Credentials Securely
+
+- **Session Management**: Use secure cookies and consider session storage mechanisms that prevent session hijacking.
+- **Storing Credentials**: Never store plain-text passwords. Use environment variables or secure vaults for sensitive information.
+
+### Visualizing Authentication Flow
 
 ```mermaid
-graph TD;
-    A[Domain Layer] -->|Uses| B[Repository Interface]
-    B -->|Implements| C[Concrete Repository]
-    A -->|Uses| D[Factory]
-    D -->|Creates| E[Domain Object]
-    C -->|Persists| E
+sequenceDiagram
+    participant User
+    participant Browser
+    participant Server
+    User->>Browser: Enter credentials
+    Browser->>Server: Send credentials
+    Server->>Server: Validate credentials
+    alt Valid credentials
+        Server->>Browser: Send session token
+        Browser->>User: Access granted
+    else Invalid credentials
+        Server->>Browser: Send error message
+        Browser->>User: Access denied
+    end
 ```
 
-This diagram illustrates how the domain layer interacts with repositories and factories, maintaining a clear separation between concerns.
+This diagram illustrates the typical flow of form-based authentication, where the user submits credentials, the server validates them, and a session token is issued upon successful authentication.
 
-### Advantages and Disadvantages
+### Try It Yourself
 
-**Advantages:**
-- **Abstraction:** Repositories abstract data access, allowing for easy swapping of storage mechanisms.
-- **Consistency:** Factories ensure consistent object creation, reducing errors related to improper initialization.
-- **Separation of Concerns:** Keeps domain logic clean and focused on business rules.
+Experiment with the provided code examples by:
 
-**Disadvantages:**
-- **Complexity:** Introducing repositories and factories can add complexity, especially in simple applications.
-- **Overhead:** May introduce additional layers of abstraction that are unnecessary for straightforward use cases.
+- Modifying the user database to include additional users and roles.
+- Implementing additional authentication workflows, such as OAuth.
+- Enhancing the authorization logic to include more complex role hierarchies.
 
-### Best Practices
+### References and Links
 
-- **Define Clear Interfaces:** Use protocols or multimethods to define clear interfaces for repositories.
-- **Encapsulate Creation Logic:** Use factories to encapsulate complex creation logic, ensuring domain objects are always in a valid state.
-- **Focus on Domain Logic:** Keep domain objects free from persistence concerns, focusing on business rules and logic.
+- [Friend](https://github.com/cemerick/friend)
+- [Buddy Authentication](https://funcool.github.io/buddy-auth/latest/)
+- [Ring](https://github.com/ring-clojure/ring)
+- [Clojure Documentation](https://clojure.org/reference/documentation)
 
-### Conclusion
+### Knowledge Check
 
-Repositories and factories are powerful patterns in Domain-Driven Design, providing a structured approach to managing data access and object creation. By leveraging Clojure's functional programming capabilities, these patterns can be implemented in a clean and efficient manner, promoting maintainability and scalability in your applications.
+- What are the differences between authentication and authorization?
+- How does Friend handle form-based authentication?
+- What are the benefits of using token-based authentication with Buddy?
+- How can you implement role-based access control in Clojure?
+- What are some best practices for securing web applications?
 
-## Quiz Time!
+### Embrace the Journey
+
+Remember, mastering authentication and authorization is a journey. As you progress, you'll build more secure and robust web applications. Keep experimenting, stay curious, and enjoy the journey!
+
+## **Ready to Test Your Knowledge?**
 
 {{< quizdown >}}
 
-### What is the primary role of a repository in Domain-Driven Design?
+### What is the primary purpose of authentication?
 
-- [x] To abstract the data layer and provide a clean interface for storage and retrieval of aggregates.
-- [ ] To encapsulate the logic of object creation.
-- [ ] To manage the lifecycle of domain events.
-- [ ] To define the business rules of the domain.
+- [x] Verifying the identity of a user or system
+- [ ] Determining what resources a user can access
+- [ ] Encrypting data
+- [ ] Managing user sessions
 
-> **Explanation:** Repositories abstract the data layer, providing a clean interface for accessing and manipulating aggregates without exposing the underlying storage details.
+> **Explanation:** Authentication is the process of verifying the identity of a user or system.
 
+### Which library provides strong support for token-based authentication in Clojure?
 
-### How can Clojure protocols be used in implementing repositories?
+- [ ] Friend
+- [x] Buddy
+- [ ] Ring
+- [ ] Compojure
 
-- [x] By defining a set of operations that can be implemented by different types.
-- [ ] By encapsulating object creation logic.
-- [ ] By managing state changes in a controlled manner.
-- [ ] By providing a centralized registry for service instances.
+> **Explanation:** Buddy provides strong support for token-based authentication, including JWT.
 
-> **Explanation:** Clojure protocols allow you to define a set of operations that can be implemented by various types, making them suitable for defining repository interfaces.
+### What is a common method for storing user passwords securely?
 
+- [ ] Plain text
+- [x] Hashing with bcrypt
+- [ ] Encoding with Base64
+- [ ] Storing in cookies
 
-### What is a key benefit of using factories in object creation?
+> **Explanation:** Hashing passwords with bcrypt is a secure method for storing user passwords.
 
-- [x] They ensure consistent object creation, reducing errors related to improper initialization.
-- [ ] They provide a centralized registry for service instances.
-- [ ] They manage the lifecycle of domain events.
-- [ ] They abstract the data layer and provide a clean interface for storage.
+### How does Friend handle form-based authentication?
 
-> **Explanation:** Factories encapsulate the logic of object creation, ensuring that objects are instantiated consistently and correctly.
+- [x] Using interactive-form workflows
+- [ ] Using JWT tokens
+- [ ] Through OAuth only
+- [ ] By storing passwords in cookies
 
+> **Explanation:** Friend handles form-based authentication using interactive-form workflows.
 
-### Which Clojure feature allows for polymorphic dispatch based on arbitrary criteria?
+### What is a key feature of role-based access control (RBAC)?
 
-- [ ] Protocols
-- [x] Multimethods
-- [ ] Macros
-- [ ] Atoms
+- [x] Assigning permissions based on user roles
+- [ ] Encrypting user data
+- [ ] Using tokens for authentication
+- [ ] Storing user sessions in cookies
 
-> **Explanation:** Multimethods in Clojure allow for polymorphic dispatch based on arbitrary criteria, providing flexibility in implementing repository logic.
+> **Explanation:** RBAC assigns permissions based on user roles, allowing for structured access control.
 
+### What is a best practice for securing web applications?
 
-### What is the purpose of the `defentity` macro example provided in the article?
+- [x] Implementing HTTPS
+- [ ] Using plain text passwords
+- [ ] Storing tokens in local storage
+- [ ] Ignoring input validation
 
-- [x] To define a factory function for any entity, automatically adding an ID and creation timestamp.
-- [ ] To manage the lifecycle of domain events.
-- [ ] To abstract the data layer and provide a clean interface for storage.
-- [ ] To encapsulate the logic of object creation.
+> **Explanation:** Implementing HTTPS ensures secure data transmission, which is a best practice for web security.
 
-> **Explanation:** The `defentity` macro creates a factory function for any entity, ensuring consistent creation with an ID and timestamp.
+### Which library is designed to work seamlessly with Ring?
 
+- [x] Friend
+- [ ] Buddy
+- [ ] ClojureScript
+- [ ] Leiningen
 
-### What is a disadvantage of using repositories and factories?
+> **Explanation:** Friend is designed to work seamlessly with Ring, a Clojure web application library.
 
-- [x] They can add complexity, especially in simple applications.
-- [ ] They ensure consistent object creation.
-- [ ] They abstract the data layer.
-- [ ] They promote separation of concerns.
+### What is the purpose of the `authenticated?` function in Buddy?
 
-> **Explanation:** While repositories and factories provide many benefits, they can introduce complexity, particularly in simpler applications where such abstraction might be unnecessary.
+- [x] To check if a request contains a valid token
+- [ ] To hash user passwords
+- [ ] To encrypt data
+- [ ] To manage user sessions
 
+> **Explanation:** The `authenticated?` function in Buddy checks if a request contains a valid token.
 
-### How do repositories and factories promote separation of concerns?
+### What is the benefit of using JWT for authentication?
 
-- [x] By isolating persistence logic from domain logic, allowing domain objects to focus on business rules.
-- [ ] By managing the lifecycle of domain events.
-- [ ] By providing a centralized registry for service instances.
-- [ ] By encapsulating the logic of object creation.
+- [x] Stateless authentication
+- [ ] Requires server-side session storage
+- [ ] Increases server load
+- [ ] Requires plain text passwords
 
-> **Explanation:** Repositories and factories separate persistence and creation logic from domain logic, ensuring that domain objects remain focused on business rules.
+> **Explanation:** JWT allows for stateless authentication, reducing the need for server-side session storage.
 
-
-### What is the role of a factory in Domain-Driven Design?
-
-- [ ] To abstract the data layer and provide a clean interface for storage.
-- [x] To encapsulate the logic of object creation, ensuring consistent instantiation.
-- [ ] To manage the lifecycle of domain events.
-- [ ] To define the business rules of the domain.
-
-> **Explanation:** Factories encapsulate the logic of object creation, ensuring that domain objects are instantiated consistently and correctly.
-
-
-### Which of the following is a best practice when implementing repositories in Clojure?
-
-- [x] Define clear interfaces using protocols or multimethods.
-- [ ] Use factories to encapsulate complex creation logic.
-- [ ] Focus on domain logic and keep domain objects free from persistence concerns.
-- [ ] Use macros to create more complex factory logic.
-
-> **Explanation:** Defining clear interfaces using protocols or multimethods is a best practice for implementing repositories, ensuring consistent and flexible data access.
-
-
-### True or False: Repositories and factories are only useful in large, complex applications.
+### True or False: Authorization is the process of verifying user identity.
 
 - [ ] True
 - [x] False
 
-> **Explanation:** While repositories and factories are particularly beneficial in large, complex applications, they can also provide structure and consistency in smaller projects, depending on the requirements.
+> **Explanation:** Authorization is the process of determining what resources an authenticated user can access, not verifying identity.
 
 {{< /quizdown >}}
