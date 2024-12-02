@@ -94,7 +94,7 @@ To better understand how Haskell code interacts with WebAssembly and the browser
 ```mermaid
 graph TD;
     A[Haskell Source Code] --> B[Asterius Compiler];
-    B --> C[WebAssembly Module (.wasm)];
+    B --> C["WebAssembly Module (.wasm)"];
     C --> D[Web Browser];
     D --> E[JavaScript Integration];
     E --> F[User Interface];
