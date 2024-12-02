@@ -4,10 +4,12 @@ title_sections_depth: 1 # the depth of sections on the title.
 title_sections_depth_dir: start # when start, the depth is counting from the root sections.
 
 description: >
-  Discover the comprehensive library of software design patterns with real-life examples in Java, 
-  Scala, Kotlin, Clojure, Go, JavaScript, TypeScript, Python, C#, C/C++, and more. 
-  Enhance your programming skills with detailed explanations, real-world code examples, UML diagrams, benefits, trade-offs, and related patterns.
-
+  **Elevate your programming expertise with our comprehensive Design Patterns library!** 
+  Dive into real-life examples across a multitude of languages including C#, Clojure, C++, D, Dart, Elixir, 
+  F#, Go, Haskell, Haxe, Java, JavaScript, Julia, Kotlin, Lua, PHP, Python, Ruby, Scala, SQL, Swift, TypeScript, and more. 
+  Each design pattern is accompanied by detailed explanations, UML diagrams, and practical code examples. 
+  Discover the benefits and trade-offs, and learn how to harness language-specific features and paradigms. 
+  **Test your understanding with 10 engaging quizzes provided for each pattern/page**, enhancing your learning experience and reinforcing key concepts. **Enhance your coding skills and tackle complex challenges with confidence using proven solutions from the world of software development.**
 code_block_panel:
   max_lines: 100
 
@@ -127,7 +129,7 @@ pwa:
   manifest:
     background_color: '#712cf9'
     theme_color: '#712cf9'
-    short_name: 'Software Patterns Lexicon'
+    short_name: 'Design Patterns'
 
 # https://hugomods.com/search/configurations/
 search:
