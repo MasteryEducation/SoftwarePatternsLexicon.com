@@ -100,10 +100,6 @@ In this example, we create an asynchronous stream of integers and process each v
 - **Scalable Data Handling**: By allowing for the asynchronous processing of data streams, Async Streams facilitate the development of scalable applications that can handle large volumes of data.
 - **Improved Asynchronous Patterns**: Async Streams provide a more natural way to work with asynchronous data flows, improving the readability and maintainability of asynchronous code.
 
-### Encouraging Engagement with Rust's Evolution
-
-As Rust continues to evolve, it's important for developers to stay updated with the latest features and contribute to discussions within the community. By engaging with the Rust community, developers can help shape the future of the language and ensure that it continues to meet the needs of modern software development.
-
 ### Try It Yourself
 
 To get hands-on experience with GATs and Async Streams, consider experimenting with the examples provided in this section. Try modifying the code to explore different use cases and see how these features can be applied to your own projects.

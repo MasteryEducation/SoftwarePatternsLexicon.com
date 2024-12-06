@@ -401,6 +401,8 @@ github.com/hugomods/icons/vendors/simple-icons v1.0.59 h1:zpjSmGkhcG40fzEVL+xDQR
 github.com/hugomods/icons/vendors/simple-icons v1.0.59/go.mod h1:orl9o8nQFUF8h4m0qS+ympS8btJTaTxx4ZsXHSvXzHw=
 github.com/hugomods/icons/vendors/simple-icons v1.0.60 h1:cfAx6+n6XQfEOoGIzdLqRQzGzfc3xq5Sjy3Hx1oUrDs=
 github.com/hugomods/icons/vendors/simple-icons v1.0.60/go.mod h1:/skqfU1fJ+WnPV8nX3sP2yTBJc7PLMdciMp8qNXDKYU=
+github.com/hugomods/icons/vendors/simple-icons v1.0.61 h1:PNDI2fXu648RCh6MXdPfCzo93BBTRRxqX+BpmLwE9Vk=
+github.com/hugomods/icons/vendors/simple-icons v1.0.61/go.mod h1:x5TsryarJP5xAGVAXiZCa/7tP8+b22n5BbHfxtjX2uc=
 github.com/hugomods/idb-js v0.1.0 h1:mA6hEGtR0aFEdmq9zYMGpfSpCU6SMilx9RzC4uK3DqY=
 github.com/hugomods/idb-js v0.1.0/go.mod h1:GPfnmr+BQpP4s6Epd4Yu+RlUog8q/Djw8qy8BZFWZ04=
 github.com/hugomods/images v0.10.1 h1:ok3ZUZ63MAcmFuTx2kC5JJ3Sffd420RRW9yO57SFeQA=
@@ -521,6 +523,8 @@ github.com/hugomods/simple-icons v13.15.0+incompatible h1:zEsdNi8d6A7w1BoO8Pz0uU
 github.com/hugomods/simple-icons v13.15.0+incompatible/go.mod h1:1Lvymol7AMVY7ji/o88jMoDHHZIJ5Wc+WwNe5hjmk+U=
 github.com/hugomods/simple-icons v13.18.0+incompatible h1:nBbi6HunJ/1nRzUsBz7Hw756f4kVjq+pkLgS0aO8y7A=
 github.com/hugomods/simple-icons v13.18.0+incompatible/go.mod h1:1Lvymol7AMVY7ji/o88jMoDHHZIJ5Wc+WwNe5hjmk+U=
+github.com/hugomods/simple-icons v13.19.0+incompatible h1:UT7rOPtplW6lwrnF05Up8JNw0KlkmMERYNCyssaRT+A=
+github.com/hugomods/simple-icons v13.19.0+incompatible/go.mod h1:1Lvymol7AMVY7ji/o88jMoDHHZIJ5Wc+WwNe5hjmk+U=
 github.com/hugomods/snackbar v0.1.2 h1:SLpfH9jlYwf81epH7DvM2XTZHo+3fXXpk6XKtxmo964=
 github.com/hugomods/snackbar v0.1.2/go.mod h1:ykFm0IFibeQPuPAm8Gaa27xJS/bNZcSez4omVSl2gQ0=
 github.com/hugomods/workbox v0.1.0 h1:yxuTj3gT1BNf6OitxrjxSJXfmbFBj2UTwdWr142eYFQ=
