@@ -1,279 +1,289 @@
 ---
-linkTitle: "9.4 Decorators"
-title: "Mastering Decorators in TypeScript: Enhance Your Code with Annotations and Metadata"
-description: "Explore the power of decorators in TypeScript to add annotations and metadata to classes and class members, enabling code modification without altering the original code."
-categories:
-- Design Patterns
-- TypeScript
-- JavaScript
-tags:
-- Decorators
-- TypeScript
-- Design Patterns
-- Code Enhancement
-- Metadata
-date: 2024-10-25
-type: docs
-nav_weight: 940000
 canonical: "https://softwarepatternslexicon.com/patterns-js/9/4"
+title: "Currying and Partial Application in JavaScript Functional Programming"
+description: "Explore the concepts of currying and partial application in JavaScript, transforming functions with multiple arguments into sequences of single-argument functions, and fixing a few arguments of a function for enhanced code reusability and clarity."
+linkTitle: "9.4 Currying and Partial Application"
+tags:
+- "JavaScript"
+- "Functional Programming"
+- "Currying"
+- "Partial Application"
+- "Code Reusability"
+- "Ramda"
+- "Advanced Techniques"
+- "Web Development"
+date: 2024-11-25
+type: docs
+nav_weight: 94000
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 
-## 9.4 Decorators
+## 9.4 Currying and Partial Application
 
-Decorators in TypeScript provide a powerful way to add annotations and metadata to classes and class members at design time. They enable developers to modify existing code behavior without altering the original code, making them a valuable tool for enhancing functionality and maintaining clean code. In this article, we'll delve into the concept of decorators, their implementation, and practical use cases.
+In the realm of functional programming, currying and partial application are powerful techniques that can transform the way we write and organize our JavaScript code. These concepts help in creating more modular, reusable, and readable code by breaking down functions into smaller, more manageable pieces. Let's dive into these concepts, understand their differences, and explore how they can be applied in JavaScript.
 
-### Understanding the Concept of Decorators
+### Understanding Currying
 
-Decorators are a form of syntactic sugar in TypeScript that allow you to attach metadata to classes, methods, properties, or parameters. They are inspired by a similar feature in languages like Python and Java and are part of the ECMAScript proposal. Decorators can be used to:
+**Currying** is a process in functional programming where a function with multiple arguments is transformed into a sequence of functions, each taking a single argument. This transformation allows us to fix some arguments of a function and create a new function that takes the remaining arguments.
 
-- **Add Annotations:** Provide additional information about a class or its members.
-- **Modify Behavior:** Change how methods or classes behave without modifying their actual code.
-- **Enhance Functionality:** Implement cross-cutting concerns like logging, security, or caching.
+#### Definition and Explanation
 
-### Implementation Steps
+Currying is named after the mathematician Haskell Curry. In a curried function, instead of taking all arguments at once, the function takes the first argument and returns a new function that takes the second argument, and so on, until all arguments are provided.
 
-#### 1. Enable Decorators
+#### Example of Currying
 
-Before you can use decorators in TypeScript, you need to enable them in your project. This is done by setting the `"experimentalDecorators": true` flag in your `tsconfig.json` file:
+Let's consider a simple example of a function that adds three numbers:
 
-```json
-{
-  "compilerOptions": {
-    "experimentalDecorators": true
-  }
-}
-```
-
-#### 2. Create Decorator Functions
-
-A decorator is essentially a function that takes a target and optionally a property key and descriptor. Here's a simple example of a method decorator:
-
-```typescript
-function Log(target: any, propertyKey: string, descriptor: PropertyDescriptor) {
-  const originalMethod = descriptor.value;
-  descriptor.value = function (...args: any[]) {
-    console.log(`Calling ${propertyKey} with arguments: ${JSON.stringify(args)}`);
-    return originalMethod.apply(this, args);
-  };
-  return descriptor;
-}
-```
-
-#### 3. Apply Decorators
-
-Decorators are applied using the `@` symbol. You can apply them to classes, methods, properties, or parameters:
-
-```typescript
-class Example {
-  @Log
-  greet(name: string) {
-    return `Hello, ${name}!`;
-  }
+```javascript
+function addThreeNumbers(a, b, c) {
+  return a + b + c;
 }
 
-const example = new Example();
-example.greet('World'); // Logs: Calling greet with arguments: ["World"]
-```
-
-### Code Examples
-
-#### Implementing a `@Log` Method Decorator
-
-The `@Log` decorator logs method calls and their parameters, providing insight into method usage without altering the method's core logic.
-
-```typescript
-function Log(target: any, propertyKey: string, descriptor: PropertyDescriptor) {
-  const originalMethod = descriptor.value;
-  descriptor.value = function (...args: any[]) {
-    console.log(`Calling ${propertyKey} with arguments: ${JSON.stringify(args)}`);
-    return originalMethod.apply(this, args);
-  };
-  return descriptor;
-}
-
-class Calculator {
-  @Log
-  add(a: number, b: number): number {
-    return a + b;
-  }
-}
-
-const calculator = new Calculator();
-calculator.add(2, 3); // Logs: Calling add with arguments: [2,3]
-```
-
-#### Creating a `@Singleton` Class Decorator
-
-The `@Singleton` decorator ensures that only one instance of a class is created, enforcing the Singleton design pattern.
-
-```typescript
-function Singleton<T extends { new (...args: any[]): {} }>(constructor: T) {
-  return class extends constructor {
-    private static instance: T;
-    constructor(...args: any[]) {
-      if (!Singleton.instance) {
-        super(...args);
-        Singleton.instance = this;
-      }
-      return Singleton.instance;
-    }
-  };
-}
-
-@Singleton
-class Database {
-  connect() {
-    console.log('Connected to the database.');
-  }
-}
-
-const db1 = new Database();
-const db2 = new Database();
-console.log(db1 === db2); // true
-```
-
-### Use Cases for Decorators
-
-Decorators are versatile and can be used in various scenarios, such as:
-
-- **Aspect-Oriented Programming:** Implement cross-cutting concerns like logging, security, or caching.
-- **Dependency Injection:** Automatically inject dependencies into classes.
-- **Validation:** Validate method parameters or class properties.
-- **Authorization:** Check user permissions before executing a method.
-
-### Practice: Writing a `@Debounce` Decorator
-
-A `@Debounce` decorator can be used to prevent a method from being called too frequently, which is useful in scenarios like handling button clicks or search input.
-
-```typescript
-function Debounce(delay: number) {
-  return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
-    const originalMethod = descriptor.value;
-    let timeout: NodeJS.Timeout;
-    descriptor.value = function (...args: any[]) {
-      clearTimeout(timeout);
-      timeout = setTimeout(() => originalMethod.apply(this, args), delay);
+// Curried version
+function curriedAdd(a) {
+  return function(b) {
+    return function(c) {
+      return a + b + c;
     };
-    return descriptor;
   };
 }
 
-class Search {
-  @Debounce(300)
-  search(query: string) {
-    console.log(`Searching for ${query}`);
-  }
-}
-
-const search = new Search();
-search.search('TypeScript');
-search.search('Decorators');
-search.search('Patterns'); // Only the last call will be executed after 300ms
+// Usage
+const addFive = curriedAdd(5);
+const addFiveAndTwo = addFive(2);
+console.log(addFiveAndTwo(3)); // Output: 10
 ```
 
-### Considerations
+In this example, `curriedAdd` is a curried version of `addThreeNumbers`. We can see how the function is broken down into a series of unary functions.
 
-While decorators offer many benefits, there are some considerations to keep in mind:
+#### Visualizing Currying
 
-- **Experimental Feature:** Decorators are an experimental feature in TypeScript and may change in future versions.
-- **Readability:** Overusing decorators can make code harder to read and maintain. Use them judiciously.
-- **Performance:** Be aware of the potential performance impact, especially when using decorators that modify method behavior.
+```mermaid
+graph TD;
+    A[addThreeNumbers(a, b, c)] --> B[curriedAdd(a)];
+    B --> C[curriedAdd(a)(b)];
+    C --> D[curriedAdd(a)(b)(c)];
+```
 
-### Conclusion
+**Caption:** This diagram illustrates how a function with multiple arguments is transformed into a sequence of functions, each taking a single argument.
 
-Decorators in TypeScript provide a powerful mechanism for enhancing and modifying code behavior without altering the original implementation. By understanding how to implement and apply decorators, you can leverage their capabilities to improve code maintainability and functionality. Whether you're implementing logging, enforcing design patterns, or adding metadata, decorators offer a flexible and elegant solution.
+### Understanding Partial Application
 
-## Quiz Time!
+**Partial Application** is a technique where we fix a few arguments of a function, producing another function of smaller arity. Unlike currying, which transforms a function into a series of unary functions, partial application allows us to fix some arguments and leave the rest to be provided later.
+
+#### Definition and Explanation
+
+Partial application is useful when you want to create a specialized version of a function by pre-filling some of its arguments. This can be particularly handy in scenarios where certain parameters are constant or known in advance.
+
+#### Example of Partial Application
+
+Consider a function that calculates the volume of a cuboid:
+
+```javascript
+function calculateVolume(length, width, height) {
+  return length * width * height;
+}
+
+// Partially applied function
+function calculateVolumeWithLength(length) {
+  return function(width, height) {
+    return calculateVolume(length, width, height);
+  };
+}
+
+// Usage
+const calculateVolumeWithLengthFive = calculateVolumeWithLength(5);
+console.log(calculateVolumeWithLengthFive(2, 3)); // Output: 30
+```
+
+In this example, `calculateVolumeWithLength` is a partially applied version of `calculateVolume`, where the `length` is fixed.
+
+### Differences Between Currying and Partial Application
+
+While both currying and partial application involve transforming functions, they serve different purposes:
+
+- **Currying**: Transforms a function into a series of unary functions. Each function takes one argument and returns another function.
+- **Partial Application**: Fixes a few arguments of a function, returning a new function that takes the remaining arguments.
+
+### Use Cases and Benefits
+
+#### Creating Specialized Functions
+
+Currying and partial application are particularly useful for creating specialized functions. For instance, if you have a function that applies a discount to a price, you can create a specialized function for a specific discount rate:
+
+```javascript
+function applyDiscount(rate, price) {
+  return price - (price * rate);
+}
+
+// Curried version
+const curriedApplyDiscount = rate => price => price - (price * rate);
+
+// Specialized function for a 10% discount
+const applyTenPercentDiscount = curriedApplyDiscount(0.10);
+console.log(applyTenPercentDiscount(100)); // Output: 90
+```
+
+#### Configuring Functions in Advance
+
+These techniques allow you to configure functions in advance, making your code more modular and easier to maintain. For example, in a web application, you might have a function that fetches data from an API. By partially applying the base URL, you can create specialized functions for different endpoints:
+
+```javascript
+function fetchData(baseUrl, endpoint) {
+  return fetch(`${baseUrl}/${endpoint}`).then(response => response.json());
+}
+
+// Partially applied function
+const fetchFromApi = fetchData.bind(null, 'https://api.example.com');
+
+// Usage
+fetchFromApi('users').then(data => console.log(data));
+```
+
+### Libraries Supporting Currying
+
+Several libraries in the JavaScript ecosystem support currying and partial application, making it easier to work with these concepts. One popular library is **Ramda**.
+
+#### Using Ramda for Currying
+
+Ramda provides a `curry` function that automatically curries any function:
+
+```javascript
+const R = require('ramda');
+
+const add = (a, b, c) => a + b + c;
+const curriedAdd = R.curry(add);
+
+console.log(curriedAdd(1)(2)(3)); // Output: 6
+console.log(curriedAdd(1, 2)(3)); // Output: 6
+console.log(curriedAdd(1)(2, 3)); // Output: 6
+```
+
+Ramda's `curry` function allows for flexible application of arguments, making it a powerful tool for functional programming in JavaScript.
+
+### Benefits of Currying and Partial Application
+
+#### Code Reusability
+
+By breaking down functions into smaller, more manageable pieces, currying and partial application enhance code reusability. You can create generalized functions and then specialize them as needed.
+
+#### Code Clarity
+
+These techniques promote code clarity by reducing the complexity of function calls. Instead of passing multiple arguments each time, you can create specialized functions that encapsulate specific configurations.
+
+#### Encouraging Functional Composition
+
+Currying and partial application encourage functional composition, allowing you to build complex operations by combining simpler functions.
+
+### Try It Yourself
+
+Experiment with the concepts of currying and partial application by modifying the examples provided. Try creating your own curried and partially applied functions for different scenarios.
+
+### Knowledge Check
+
+- What is the main difference between currying and partial application?
+- How can currying improve code reusability?
+- What are some use cases for partial application?
+- How does Ramda support currying in JavaScript?
+
+### Summary
+
+Currying and partial application are powerful techniques in functional programming that can transform the way we write JavaScript code. By breaking down functions into smaller, more manageable pieces, these techniques enhance code reusability, clarity, and modularity. Libraries like Ramda provide built-in support for currying, making it easier to apply these concepts in your projects. Remember, this is just the beginning. As you progress, you'll discover more ways to leverage these techniques to build more complex and interactive web applications. Keep experimenting, stay curious, and enjoy the journey!
+
+## Quiz: Mastering Currying and Partial Application in JavaScript
 
 {{< quizdown >}}
 
-### What is the primary purpose of decorators in TypeScript?
+### What is currying in JavaScript?
 
-- [x] To add annotations and metadata to classes and class members
-- [ ] To compile TypeScript code into JavaScript
-- [ ] To manage package dependencies
-- [ ] To perform runtime type checking
+- [x] Transforming a function with multiple arguments into a sequence of functions with single arguments.
+- [ ] Fixing a few arguments of a function to create a new function.
+- [ ] A technique to optimize function performance.
+- [ ] A method to handle asynchronous operations.
 
-> **Explanation:** Decorators are used to add annotations and metadata to classes and class members, enabling modification of behavior without altering the original code.
+> **Explanation:** Currying transforms a function with multiple arguments into a sequence of functions, each taking a single argument.
 
-### How do you enable decorators in a TypeScript project?
+### What is partial application in JavaScript?
 
-- [x] Set `"experimentalDecorators": true` in `tsconfig.json`
-- [ ] Install a specific TypeScript plugin
-- [ ] Use a special command-line flag during compilation
-- [ ] Decorators are enabled by default in TypeScript
+- [ ] Transforming a function with multiple arguments into a sequence of functions with single arguments.
+- [x] Fixing a few arguments of a function to create a new function.
+- [ ] A technique to optimize function performance.
+- [ ] A method to handle asynchronous operations.
 
-> **Explanation:** To use decorators, you must set `"experimentalDecorators": true` in your `tsconfig.json` file.
+> **Explanation:** Partial application involves fixing some arguments of a function, creating a new function that takes the remaining arguments.
 
-### Which symbol is used to apply decorators in TypeScript?
+### Which library provides built-in support for currying in JavaScript?
 
-- [x] @
-- [ ] #
-- [ ] $
-- [ ] %
+- [ ] Lodash
+- [x] Ramda
+- [ ] jQuery
+- [ ] Axios
 
-> **Explanation:** The `@` symbol is used to apply decorators to classes, methods, properties, or parameters.
+> **Explanation:** Ramda is a popular library that provides built-in support for currying in JavaScript.
 
-### What does the `@Log` decorator do in the provided example?
+### How does currying improve code reusability?
 
-- [x] Logs method calls and their parameters
-- [ ] Prevents a method from being called
-- [ ] Ensures only one instance of a class is created
-- [ ] Validates method parameters
+- [x] By breaking down functions into smaller, more manageable pieces.
+- [ ] By optimizing function performance.
+- [ ] By handling asynchronous operations.
+- [ ] By reducing the number of function calls.
 
-> **Explanation:** The `@Log` decorator logs method calls and their parameters, providing insight into method usage.
+> **Explanation:** Currying enhances code reusability by breaking down functions into smaller, more manageable pieces, allowing for more flexible function composition.
 
-### What is a potential drawback of using decorators?
+### What is a use case for partial application?
 
-- [x] They can make code harder to read and maintain
-- [ ] They are not supported in TypeScript
-- [ ] They increase the size of the compiled JavaScript
-- [ ] They require additional runtime libraries
+- [x] Creating specialized functions by pre-filling some arguments.
+- [ ] Transforming functions into unary functions.
+- [ ] Optimizing function performance.
+- [ ] Handling asynchronous operations.
 
-> **Explanation:** Overusing decorators can make code harder to read and maintain, so they should be used judiciously.
+> **Explanation:** Partial application is useful for creating specialized functions by pre-filling some arguments.
 
-### What pattern does the `@Singleton` decorator enforce?
+### What is the output of the following code snippet?
 
-- [x] Singleton
-- [ ] Factory
-- [ ] Observer
-- [ ] Strategy
+```javascript
+const add = (a, b, c) => a + b + c;
+const curriedAdd = R.curry(add);
+console.log(curriedAdd(1)(2)(3));
+```
 
-> **Explanation:** The `@Singleton` decorator ensures that only one instance of a class is created, enforcing the Singleton design pattern.
+- [x] 6
+- [ ] 3
+- [ ] 9
+- [ ] 12
 
-### In which programming paradigm are decorators particularly useful?
+> **Explanation:** The curried function `curriedAdd` takes each argument separately and returns the sum, which is 6.
 
-- [x] Aspect-Oriented Programming
-- [ ] Functional Programming
-- [ ] Procedural Programming
-- [ ] Object-Oriented Programming
+### Which of the following is a benefit of using currying?
 
-> **Explanation:** Decorators are particularly useful in Aspect-Oriented Programming for implementing cross-cutting concerns like logging and security.
+- [x] Encourages functional composition.
+- [ ] Reduces memory usage.
+- [ ] Increases execution speed.
+- [ ] Simplifies asynchronous code.
 
-### What is the purpose of the `@Debounce` decorator in the example?
+> **Explanation:** Currying encourages functional composition by allowing complex operations to be built from simpler functions.
 
-- [x] To prevent a method from being called too frequently
-- [ ] To log method calls
-- [ ] To validate method parameters
-- [ ] To ensure a method is only called once
+### What is the main difference between currying and partial application?
 
-> **Explanation:** The `@Debounce` decorator prevents a method from being called too frequently, which is useful in scenarios like handling button clicks or search input.
+- [x] Currying transforms functions into unary functions, while partial application fixes some arguments.
+- [ ] Currying fixes some arguments, while partial application transforms functions into unary functions.
+- [ ] Both are the same.
+- [ ] Currying is used for asynchronous operations, while partial application is not.
 
-### Are decorators a stable feature in TypeScript?
+> **Explanation:** Currying transforms functions into unary functions, while partial application fixes some arguments.
 
-- [ ] Yes, they are stable and will not change
-- [x] No, they are an experimental feature
-- [ ] Yes, but only in the latest version
-- [ ] No, they are deprecated
-
-> **Explanation:** Decorators are an experimental feature in TypeScript and may change in future versions.
-
-### True or False: Decorators can be applied to classes, methods, properties, and parameters.
+### Can currying be used to create specialized functions?
 
 - [x] True
 - [ ] False
 
-> **Explanation:** Decorators can be applied to classes, methods, properties, and parameters, allowing for flexible code enhancement.
+> **Explanation:** Currying can be used to create specialized functions by fixing some arguments and returning a new function.
+
+### Is Ramda the only library that supports currying in JavaScript?
+
+- [ ] True
+- [x] False
+
+> **Explanation:** While Ramda is a popular library for currying, other libraries like Lodash also provide support for currying.
 
 {{< /quizdown >}}

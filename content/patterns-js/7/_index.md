@@ -1,7 +1,5 @@
 ---
-title: "7. Node.js Specific Patterns"
+title: "7. Behavioral Design Patterns in JavaScript"
 type: docs
 nav_weight: 70000
-canonical: "https://softwarepatternslexicon.com/patterns-js/7"
-license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---

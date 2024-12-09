@@ -1,7 +1,5 @@
 ---
-title: "19. Appendices and Additional Resources"
+title: "19. Desktop Development with JavaScript"
 type: docs
 nav_weight: 190000
-canonical: "https://softwarepatternslexicon.com/patterns-js/19"
-license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
