@@ -3,11 +3,11 @@ type: docs
 title: Cloud Computing
 linkTitle: Cloud Computing
 description: Cloud Computing Patterns offer a set of best practices and architectural blueprints for designing, deploying, and managing applications and services in the cloud. These patterns address common challenges associated with scalability, resource management, security, and cost-efficiency, enabling organizations to harness the full potential of cloud computing platforms.
-nav_weight: 180000
+nav_weight: 300
 menu:
   main:
     parent: specialty
-    weight: 180000
+    weight: 300
     params:
       description: Harness the full potential of cloud computing platforms.
       icon:

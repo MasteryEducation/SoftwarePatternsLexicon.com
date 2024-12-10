@@ -2,11 +2,11 @@
 type: docs
 title: Functional Programming
 linkTitle: Functional Programming
-nav_weight: 100000
+nav_weight: 600
 menu:
   main:
     parent: specialty
-    weight: 100000
+    weight: 600
     params:
       description: Using few popular programming languages
       icon:

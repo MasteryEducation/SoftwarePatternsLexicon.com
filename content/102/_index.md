@@ -3,11 +3,11 @@ type: docs
 linkTitle: Data Modeling
 title: Data Modeling
 description: Data modeling is a critical aspect of designing software systems, databases, and applications. It involves structuring and organizing data to meet specific requirements, optimize performance, ensure scalability, and maintain data integrity.
-nav_weight: 102000
+nav_weight: 400
 menu:
   main:
     parent: specialty
-    weight: 102000
+    weight: 400
     params:
       description: Relational, dimensional, time-series.
       icon:

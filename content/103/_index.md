@@ -3,11 +3,11 @@ type: docs
 linkTitle: Bitemporal Modeling
 title: Bitemporal Modeling
 description: Bitemporal modeling is a data modeling approach that captures both **valid time** (the period when data is true in the real world) and **transaction time** (the period when data is recorded in the database). By tracking these two dimensions of time, bitemporal models provide a comprehensive history of data changes, allowing for sophisticated temporal queries and robust auditing capabilities.
-nav_weight: 103000
+nav_weight: 200
 menu:
   main:
     parent: specialty
-    weight: 103000
+    weight: 200
     params:
       description: "Solutions to common challenges in handling temporal data."
       icon:
