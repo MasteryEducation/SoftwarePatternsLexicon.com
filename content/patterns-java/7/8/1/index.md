@@ -1,296 +1,387 @@
 ---
 canonical: "https://softwarepatternslexicon.com/patterns-java/7/8/1"
-title: "Implementing Hexagonal Architecture in Java: A Comprehensive Guide"
-description: "Learn how to implement Hexagonal Architecture in Java applications by defining ports and adapters to isolate application logic and enhance modularity."
-linkTitle: "7.8.1 Implementing Hexagonal Architecture in Java"
-categories:
-- Software Architecture
-- Java Development
-- Design Patterns
+title: "Implementing Proxy in Java"
+description: "Learn how to implement the Proxy pattern in Java, a structural design pattern that provides a surrogate or placeholder for another object to control access to it."
+linkTitle: "7.8.1 Implementing Proxy in Java"
 tags:
-- Hexagonal Architecture
-- Ports and Adapters
-- Java
-- Software Design
-- Dependency Management
-date: 2024-11-17
+- "Java"
+- "Design Patterns"
+- "Proxy Pattern"
+- "Structural Patterns"
+- "Software Architecture"
+- "Object-Oriented Programming"
+- "Advanced Java"
+- "Programming Techniques"
+date: 2024-11-25
 type: docs
-nav_weight: 7810
+nav_weight: 78100
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 
-## 7.8.1 Implementing Hexagonal Architecture in Java
+## 7.8.1 Implementing Proxy in Java
 
-Hexagonal Architecture, also known as Ports and Adapters, is a design pattern that aims to create loosely coupled application components that can be easily connected to their software environment. This architecture pattern is particularly useful for achieving a high level of modularity and testability in software systems. In this section, we will delve into the implementation of Hexagonal Architecture in Java, providing step-by-step instructions, code examples, and best practices.
+The Proxy pattern is a structural design pattern that acts as an intermediary for another object, providing a surrogate or placeholder to control access to it. This pattern is particularly useful in scenarios where direct access to an object is either undesirable or impractical. By using a proxy, you can add an additional layer of control, such as access control, lazy initialization, logging, or caching.
 
-### Understanding Hexagonal Architecture
+### Intent
 
-Hexagonal Architecture was introduced by Alistair Cockburn to address the challenges of creating systems that are adaptable to change. The core idea is to separate the business logic of an application from its external dependencies, such as databases, user interfaces, and external services. This separation is achieved through the use of ports and adapters.
+- **Description**: The Proxy pattern is designed to provide a surrogate or placeholder for another object to control access to it. This can be useful for various reasons, such as controlling access to a resource-intensive object, adding security, or logging access.
 
-- **Ports**: These are interfaces that define the points of interaction between the core application logic and the external world. They represent the application's capabilities and requirements.
-- **Adapters**: These are implementations of the ports that handle the interaction with external systems. Adapters translate the external system's data and operations into a form that the core application logic can understand and vice versa.
+### Also Known As
 
-### Key Benefits of Hexagonal Architecture
+- **Alternate Names**: Surrogate
 
-- **Isolation of Business Logic**: The core application logic is isolated from external dependencies, making it easier to test and maintain.
-- **Flexibility**: New external systems can be integrated with minimal changes to the core logic.
-- **Scalability**: The architecture supports scaling by allowing different parts of the system to be developed and deployed independently.
+### Motivation
 
-### Implementing Hexagonal Architecture in Java
+The Proxy pattern is essential in situations where an object is resource-intensive to create or requires protection from unauthorized access. For example, consider a scenario where you have a large image that takes time to load. Instead of loading the image immediately, a proxy can be used to load it only when it is needed, thus saving resources and improving performance.
 
-Let's walk through the process of implementing Hexagonal Architecture in a Java application. We will use a simple example of a library management system to illustrate the concepts.
+### Applicability
 
-#### Step 1: Define the Core Domain Logic
+- **Guidelines**: Use the Proxy pattern when:
+  - You need to control access to an object.
+  - You want to add additional functionality to an object without modifying its code.
+  - You need to manage the lifecycle of an object, such as lazy initialization or caching.
 
-The first step is to define the core domain logic of your application. This is the heart of your system, where the business rules and processes reside. In our library management system, the core logic might include operations like adding a book, borrowing a book, and returning a book.
-
-```java
-// Core domain logic
-public class LibraryService {
-
-    private final BookRepository bookRepository;
-
-    public LibraryService(BookRepository bookRepository) {
-        this.bookRepository = bookRepository;
-    }
-
-    public void addBook(Book book) {
-        bookRepository.save(book);
-    }
-
-    public Book borrowBook(String title) {
-        Book book = bookRepository.findByTitle(title);
-        if (book != null && !book.isBorrowed()) {
-            book.setBorrowed(true);
-            bookRepository.save(book);
-            return book;
-        }
-        return null;
-    }
-
-    public void returnBook(Book book) {
-        book.setBorrowed(false);
-        bookRepository.save(book);
-    }
-}
-```
-
-In this example, `LibraryService` is the core domain logic, and `BookRepository` is an interface that acts as a port.
-
-#### Step 2: Define Ports as Interfaces
-
-Ports are defined as interfaces that describe the operations that the core logic requires from or offers to the external world. In our example, `BookRepository` is a port that defines the operations related to book persistence.
-
-```java
-// Port interface
-public interface BookRepository {
-    void save(Book book);
-    Book findByTitle(String title);
-}
-```
-
-#### Step 3: Implement Adapters
-
-Adapters implement the port interfaces and handle the interaction with external systems. In our example, we might have an adapter that interacts with a database to persist book information.
-
-```java
-// Adapter implementation
-public class JpaBookRepository implements BookRepository {
-
-    private final EntityManager entityManager;
-
-    public JpaBookRepository(EntityManager entityManager) {
-        this.entityManager = entityManager;
-    }
-
-    @Override
-    public void save(Book book) {
-        entityManager.persist(book);
-    }
-
-    @Override
-    public Book findByTitle(String title) {
-        return entityManager.createQuery("SELECT b FROM Book b WHERE b.title = :title", Book.class)
-                .setParameter("title", title)
-                .getSingleResult();
-    }
-}
-```
-
-In this example, `JpaBookRepository` is an adapter that uses JPA to interact with a database.
-
-#### Step 4: Structure the Project
-
-To reflect the architectural boundaries, it's important to structure the project in a way that separates the core logic from the adapters. A typical project structure might look like this:
-
-```
-src/main/java
-├── com
-│   └── example
-│       ├── library
-│       │   ├── core
-│       │   │   ├── LibraryService.java
-│       │   │   └── Book.java
-│       │   ├── ports
-│       │   │   └── BookRepository.java
-│       │   └── adapters
-│       │       └── JpaBookRepository.java
-```
-
-This structure clearly delineates the core logic, ports, and adapters, making it easier to manage dependencies and maintain the system.
-
-#### Step 5: Manage Dependencies and Inversion of Control
-
-One of the key considerations in Hexagonal Architecture is managing dependencies and ensuring that the core logic is not directly dependent on external systems. This is achieved through dependency inversion, where the high-level modules (core logic) are not dependent on low-level modules (adapters).
-
-In Java, dependency inversion can be achieved using dependency injection frameworks like Spring. Here's how you might configure the `LibraryService` to use a `JpaBookRepository`:
-
-```java
-@Configuration
-public class AppConfig {
-
-    @Bean
-    public EntityManager entityManager() {
-        // Configure and return the EntityManager
-    }
-
-    @Bean
-    public BookRepository bookRepository(EntityManager entityManager) {
-        return new JpaBookRepository(entityManager);
-    }
-
-    @Bean
-    public LibraryService libraryService(BookRepository bookRepository) {
-        return new LibraryService(bookRepository);
-    }
-}
-```
-
-In this configuration, Spring manages the dependencies and injects the appropriate implementations at runtime.
-
-### Visualizing Hexagonal Architecture
-
-To better understand the structure of Hexagonal Architecture, let's visualize it using a diagram. This diagram illustrates the separation between the core logic, ports, and adapters.
+### Structure
 
 ```mermaid
-graph TD;
-    A[Core Logic] -->|Port| B[Adapter 1];
-    A -->|Port| C[Adapter 2];
-    B -->|External System 1| D[Database];
-    C -->|External System 2| E[User Interface];
+classDiagram
+    class Subject {
+        <<interface>>
+        +request()
+    }
+    class RealSubject {
+        +request()
+    }
+    class Proxy {
+        -realSubject: RealSubject
+        +request()
+    }
+
+    Subject <|.. RealSubject
+    Subject <|.. Proxy
+    Proxy o-- RealSubject
 ```
 
-**Diagram Description**: The diagram shows the core logic at the center, with ports connecting it to various adapters. Each adapter interacts with an external system, such as a database or user interface.
+- **Caption**: The Proxy pattern structure, showing the relationship between `Subject`, `RealSubject`, and `Proxy`.
 
-### Considerations for Implementing Hexagonal Architecture
+### Participants
 
-- **Testability**: By isolating the core logic from external dependencies, you can easily test the core logic using mock implementations of the ports.
-- **Modularity**: The architecture promotes modularity, allowing different parts of the system to be developed and deployed independently.
-- **Scalability**: The architecture supports scaling by allowing new adapters to be added without affecting the core logic.
-- **Flexibility**: The architecture allows for easy integration with new external systems by simply adding new adapters.
+- **Subject**: Defines the common interface for `RealSubject` and `Proxy` so that a `Proxy` can be used anywhere a `RealSubject` is expected.
+- **RealSubject**: The actual object that the `Proxy` represents.
+- **Proxy**: Maintains a reference to the `RealSubject` and controls access to it. It can perform additional actions before or after forwarding a request to the `RealSubject`.
 
-### Try It Yourself
+### Collaborations
 
-To get hands-on experience with Hexagonal Architecture, try modifying the code examples provided. Here are a few suggestions:
+- **Interactions**: The `Proxy` receives client requests and forwards them to the `RealSubject` after performing any necessary pre-processing or access control checks.
 
-- **Add a new adapter**: Implement a new adapter that interacts with a different type of database or a web service.
-- **Extend the core logic**: Add new operations to the `LibraryService` and update the ports and adapters accordingly.
-- **Test the core logic**: Write unit tests for the `LibraryService` using mock implementations of the `BookRepository`.
+### Consequences
 
-### Conclusion
+- **Analysis**: The Proxy pattern provides a level of indirection to support controlled access, additional functionality, and resource management. However, it can introduce complexity and overhead, especially if not implemented carefully.
 
-Implementing Hexagonal Architecture in Java can greatly enhance the modularity, testability, and scalability of your applications. By defining clear boundaries between the core logic and external systems, you can create systems that are adaptable to change and easy to maintain. Remember, this is just the beginning. As you progress, you'll build more complex and robust applications. Keep experimenting, stay curious, and enjoy the journey!
+### Implementation
 
-## Quiz Time!
+#### Implementation Guidelines
+
+1. **Define the Subject Interface**: Create an interface that both the `RealSubject` and `Proxy` will implement.
+2. **Implement the RealSubject**: Develop the actual object that performs the core functionality.
+3. **Create the Proxy**: Implement the proxy class that controls access to the `RealSubject`.
+
+#### Sample Code Snippets
+
+Let's explore a simple example of the Proxy pattern in Java, where a proxy controls access to a resource-intensive object.
+
+```java
+// Subject interface
+interface Image {
+    void display();
+}
+
+// RealSubject class
+class RealImage implements Image {
+    private String fileName;
+
+    public RealImage(String fileName) {
+        this.fileName = fileName;
+        loadFromDisk();
+    }
+
+    private void loadFromDisk() {
+        System.out.println("Loading " + fileName);
+    }
+
+    @Override
+    public void display() {
+        System.out.println("Displaying " + fileName);
+    }
+}
+
+// Proxy class
+class ProxyImage implements Image {
+    private RealImage realImage;
+    private String fileName;
+
+    public ProxyImage(String fileName) {
+        this.fileName = fileName;
+    }
+
+    @Override
+    public void display() {
+        if (realImage == null) {
+            realImage = new RealImage(fileName);
+        }
+        realImage.display();
+    }
+}
+
+// Client code
+public class ProxyPatternDemo {
+    public static void main(String[] args) {
+        Image image = new ProxyImage("test_10mb.jpg");
+
+        // Image will be loaded from disk
+        image.display();
+        System.out.println("");
+
+        // Image will not be loaded from disk
+        image.display();
+    }
+}
+```
+
+- **Explanation**: In this example, the `ProxyImage` class acts as a proxy for the `RealImage` class. The `ProxyImage` controls access to the `RealImage` and ensures that the image is only loaded from disk when it is first displayed.
+
+#### Sample Use Cases
+
+- **Real-world Scenarios**: The Proxy pattern is commonly used in virtual proxies for lazy initialization, remote proxies for distributed systems, and protection proxies for access control.
+
+### Related Patterns
+
+- **Connections**: The Proxy pattern is related to the [Decorator Pattern]({{< ref "/patterns-java/7/7" >}} "Decorator Pattern"), which also adds functionality to an object. However, the Proxy pattern focuses on controlling access, while the Decorator pattern focuses on adding behavior.
+
+### Known Uses
+
+- **Examples in Libraries or Frameworks**: The Java RMI (Remote Method Invocation) uses the Proxy pattern to represent remote objects locally.
+
+### Types of Proxies
+
+There are several types of proxies, each serving a different purpose:
+
+1. **Virtual Proxy**: Controls access to a resource that is expensive to create.
+2. **Remote Proxy**: Represents an object located in a different address space.
+3. **Protection Proxy**: Controls access to the methods of an object based on access rights.
+4. **Smart Proxy**: Provides additional functionality, such as reference counting or logging.
+
+#### Virtual Proxy Example
+
+A virtual proxy is used to defer the creation of an expensive object until it is needed.
+
+```java
+// Virtual Proxy example
+class VirtualProxyImage implements Image {
+    private RealImage realImage;
+    private String fileName;
+
+    public VirtualProxyImage(String fileName) {
+        this.fileName = fileName;
+    }
+
+    @Override
+    public void display() {
+        if (realImage == null) {
+            realImage = new RealImage(fileName);
+        }
+        realImage.display();
+    }
+}
+```
+
+#### Remote Proxy Example
+
+A remote proxy is used to represent an object that resides in a different address space.
+
+```java
+// Remote Proxy example
+interface RemoteService {
+    void performOperation();
+}
+
+class RemoteServiceImpl implements RemoteService {
+    @Override
+    public void performOperation() {
+        System.out.println("Performing operation on remote service");
+    }
+}
+
+class RemoteProxy implements RemoteService {
+    private RemoteServiceImpl remoteService;
+
+    @Override
+    public void performOperation() {
+        if (remoteService == null) {
+            remoteService = new RemoteServiceImpl();
+        }
+        remoteService.performOperation();
+    }
+}
+```
+
+#### Protection Proxy Example
+
+A protection proxy is used to control access to an object based on access rights.
+
+```java
+// Protection Proxy example
+interface Document {
+    void displayContent();
+}
+
+class SecureDocument implements Document {
+    private String content;
+
+    public SecureDocument(String content) {
+        this.content = content;
+    }
+
+    @Override
+    public void displayContent() {
+        System.out.println("Displaying document content: " + content);
+    }
+}
+
+class ProtectionProxyDocument implements Document {
+    private SecureDocument secureDocument;
+    private String userRole;
+
+    public ProtectionProxyDocument(String content, String userRole) {
+        this.secureDocument = new SecureDocument(content);
+        this.userRole = userRole;
+    }
+
+    @Override
+    public void displayContent() {
+        if ("ADMIN".equals(userRole)) {
+            secureDocument.displayContent();
+        } else {
+            System.out.println("Access denied. Insufficient permissions.");
+        }
+    }
+}
+```
+
+### Transparency to Clients
+
+The Proxy pattern aims to be transparent to clients, meaning that clients should not be aware of whether they are dealing with a proxy or the real object. This transparency allows clients to interact with the proxy as if it were the real object, without needing to change their code.
+
+### Best Practices
+
+- **Use Proxies Wisely**: While proxies can add valuable functionality, they can also introduce complexity and overhead. Use them judiciously to avoid unnecessary performance impacts.
+- **Ensure Transparency**: Strive to make proxies as transparent as possible to clients, so they do not need to be aware of the proxy's presence.
+- **Consider Security**: When using protection proxies, ensure that access control is robust and secure.
+
+### Common Pitfalls
+
+- **Overusing Proxies**: Avoid using proxies when they are not necessary, as they can add unnecessary complexity.
+- **Performance Overhead**: Be mindful of the performance overhead that proxies can introduce, especially in resource-intensive applications.
+
+### Exercises
+
+1. **Implement a Cache Proxy**: Create a proxy that caches the results of expensive operations to improve performance.
+2. **Create a Logging Proxy**: Develop a proxy that logs all method calls to a real object for auditing purposes.
+
+### Summary
+
+The Proxy pattern is a powerful tool for controlling access to objects and adding additional functionality. By understanding and implementing this pattern, developers can create more flexible and efficient applications.
+
+## Test Your Knowledge: Java Proxy Pattern Quiz
 
 {{< quizdown >}}
 
-### What is the primary goal of Hexagonal Architecture?
+### What is the primary purpose of the Proxy pattern?
 
-- [x] To isolate business logic from external dependencies
-- [ ] To increase the complexity of the system
-- [ ] To make the system dependent on specific technologies
-- [ ] To reduce the number of interfaces in the system
+- [x] To control access to another object
+- [ ] To add new behavior to an object
+- [ ] To create a new instance of an object
+- [ ] To manage object lifecycle
 
-> **Explanation:** The primary goal of Hexagonal Architecture is to isolate business logic from external dependencies, making the system more modular and adaptable to change.
+> **Explanation:** The Proxy pattern is used to control access to another object, often adding additional functionality like access control or lazy initialization.
 
-### In Hexagonal Architecture, what is a "port"?
+### Which of the following is NOT a type of proxy?
 
-- [x] An interface that defines interactions with external systems
-- [ ] A class that implements business logic
-- [ ] A database connection
-- [ ] A user interface component
+- [ ] Virtual Proxy
+- [ ] Remote Proxy
+- [ ] Protection Proxy
+- [x] Singleton Proxy
 
-> **Explanation:** A port is an interface that defines the interactions between the core application logic and external systems.
+> **Explanation:** The Singleton Proxy is not a recognized type of proxy. The other options are valid types of proxies.
 
-### What role do adapters play in Hexagonal Architecture?
+### In the Proxy pattern, what role does the `RealSubject` play?
 
-- [x] They implement ports to interact with external systems
-- [ ] They define the core business logic
-- [ ] They act as the main entry point for the application
-- [ ] They store data in the database
+- [x] It is the actual object that performs the core functionality.
+- [ ] It is the interface that defines common operations.
+- [ ] It is the object that controls access to the `Proxy`.
+- [ ] It is the client that interacts with the `Proxy`.
 
-> **Explanation:** Adapters implement ports to handle interactions with external systems, translating data and operations as needed.
+> **Explanation:** The `RealSubject` is the actual object that performs the core functionality, while the `Proxy` controls access to it.
 
-### How does Hexagonal Architecture enhance testability?
+### How does a virtual proxy improve performance?
 
-- [x] By isolating core logic, allowing for easy testing with mock implementations
-- [ ] By making the system more complex
-- [ ] By reducing the number of test cases needed
-- [ ] By eliminating the need for unit tests
+- [x] By deferring the creation of an expensive object until it is needed
+- [ ] By caching all method calls
+- [ ] By logging all operations
+- [ ] By managing object lifecycle
 
-> **Explanation:** Hexagonal Architecture enhances testability by isolating the core logic, allowing it to be tested independently using mock implementations of the ports.
+> **Explanation:** A virtual proxy improves performance by deferring the creation of an expensive object until it is actually needed, thus saving resources.
 
-### Which of the following is a benefit of using Hexagonal Architecture?
+### Which pattern is closely related to the Proxy pattern?
 
-- [x] Flexibility to integrate new external systems
-- [ ] Increased dependency on specific technologies
-- [ ] Reduced modularity
-- [ ] Decreased scalability
+- [ ] Factory Pattern
+- [x] Decorator Pattern
+- [ ] Observer Pattern
+- [ ] Strategy Pattern
 
-> **Explanation:** Hexagonal Architecture provides flexibility to integrate new external systems by adding new adapters without affecting the core logic.
+> **Explanation:** The Decorator Pattern is closely related to the Proxy Pattern, as both involve adding functionality to an object. However, the Proxy Pattern focuses on controlling access.
 
-### What is the purpose of dependency inversion in Hexagonal Architecture?
+### What is a common use case for a remote proxy?
 
-- [x] To ensure high-level modules are not dependent on low-level modules
-- [ ] To increase the number of dependencies in the system
-- [ ] To make the system more complex
-- [ ] To reduce the number of interfaces
+- [x] Representing an object located in a different address space
+- [ ] Adding logging to method calls
+- [ ] Caching expensive operations
+- [ ] Managing object lifecycle
 
-> **Explanation:** Dependency inversion ensures that high-level modules (core logic) are not dependent on low-level modules (adapters), promoting modularity and flexibility.
+> **Explanation:** A remote proxy is used to represent an object located in a different address space, often in distributed systems.
 
-### How can dependency inversion be achieved in Java?
+### What is a key benefit of using the Proxy pattern?
 
-- [x] Using dependency injection frameworks like Spring
-- [ ] By hardcoding dependencies in the application
-- [ ] By eliminating all interfaces
-- [ ] By using only static methods
+- [x] It provides controlled access to an object.
+- [ ] It simplifies object creation.
+- [ ] It enhances object performance.
+- [ ] It reduces code complexity.
 
-> **Explanation:** Dependency inversion can be achieved in Java using dependency injection frameworks like Spring, which manage dependencies and inject appropriate implementations at runtime.
+> **Explanation:** The Proxy pattern provides controlled access to an object, allowing for additional functionality like access control or lazy initialization.
 
-### What is the role of the `LibraryService` class in the example?
+### How can a protection proxy enhance security?
 
-- [x] It represents the core domain logic of the application
-- [ ] It acts as an adapter for external systems
-- [ ] It defines the ports for the application
-- [ ] It is responsible for database interactions
+- [x] By controlling access to methods based on user roles
+- [ ] By encrypting all data
+- [ ] By logging all operations
+- [ ] By managing object lifecycle
 
-> **Explanation:** The `LibraryService` class represents the core domain logic of the application, containing the business rules and processes.
+> **Explanation:** A protection proxy enhances security by controlling access to methods based on user roles or permissions.
 
-### Which of the following best describes a port in Hexagonal Architecture?
+### What is a potential drawback of using proxies?
 
-- [x] An interface that defines the application's capabilities and requirements
-- [ ] A class that handles database interactions
-- [ ] A component that renders the user interface
-- [ ] A service that processes network requests
+- [x] They can introduce complexity and overhead.
+- [ ] They simplify object creation.
+- [ ] They enhance object performance.
+- [ ] They reduce code complexity.
 
-> **Explanation:** A port is an interface that defines the application's capabilities and requirements, serving as a point of interaction between the core logic and external systems.
+> **Explanation:** Proxies can introduce complexity and overhead, especially if not implemented carefully, which can impact performance.
 
-### True or False: Hexagonal Architecture requires a specific technology stack to be implemented.
+### True or False: Clients should be aware of whether they are dealing with a proxy or the real object.
 
 - [ ] True
 - [x] False
 
-> **Explanation:** False. Hexagonal Architecture is a design pattern that can be implemented using various technology stacks. It focuses on the separation of concerns and modularity rather than specific technologies.
+> **Explanation:** Clients should not be aware of whether they are dealing with a proxy or the real object, as the Proxy pattern aims to be transparent to clients.
 
 {{< /quizdown >}}

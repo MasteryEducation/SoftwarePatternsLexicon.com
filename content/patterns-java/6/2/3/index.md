@@ -1,255 +1,297 @@
 ---
 canonical: "https://softwarepatternslexicon.com/patterns-java/6/2/3"
-title: "Active Object Pattern Use Cases and Examples in Java"
-description: "Explore practical use cases and examples of the Active Object Pattern in Java, enhancing performance and responsiveness in GUI, real-time, and network applications."
-linkTitle: "6.2.3 Use Cases and Examples"
-categories:
-- Java Design Patterns
-- Concurrency Patterns
-- Software Engineering
+title: "Mastering Parameterized Factories in Java Design Patterns"
+description: "Explore the advanced concept of Parameterized Factories in Java, enhancing the Factory Method pattern with parameterization for dynamic object creation."
+linkTitle: "6.2.3 Parameterized Factories"
 tags:
-- Active Object Pattern
-- Java Concurrency
-- GUI Applications
-- Real-Time Systems
-- Network Applications
-date: 2024-11-17
+- "Java"
+- "Design Patterns"
+- "Factory Method"
+- "Parameterized Factories"
+- "Creational Patterns"
+- "Software Architecture"
+- "Advanced Java"
+- "Object-Oriented Design"
+date: 2024-11-25
 type: docs
-nav_weight: 6230
+nav_weight: 62300
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 
-## 6.2.3 Use Cases and Examples
+## 6.2.3 Parameterized Factories
 
-The Active Object pattern is a powerful design pattern that decouples method execution from method invocation to enhance concurrency and responsiveness in applications. By using this pattern, we can manage asynchronous operations more effectively, which is particularly beneficial in GUI applications, real-time systems, and network applications. In this section, we will explore practical scenarios where the Active Object pattern is applied, providing code snippets and diagrams to illustrate its implementation in real-world contexts.
+In the realm of software design, the Factory Method pattern stands as a cornerstone for creating objects without specifying the exact class of object that will be created. This pattern provides a way to encapsulate the instantiation logic, promoting loose coupling and enhancing flexibility. However, as applications grow in complexity, the need arises to create objects based on varying parameters, leading us to the concept of **Parameterized Factories**.
 
-### GUI Applications
+### Intent
 
-In GUI applications, responsiveness is crucial. Users expect immediate feedback from the interface, and any delay can lead to a poor user experience. The Active Object pattern helps by offloading long-running tasks to separate threads, allowing the main UI thread to remain responsive.
+**Parameterized Factories** aim to extend the traditional Factory Method pattern by allowing parameters to influence the creation process. This approach provides a more dynamic and flexible way of instantiating objects, accommodating a wider range of scenarios and requirements.
 
-#### Example: Asynchronous Image Processing
+### Motivation
 
-Consider a photo editing application where users can apply filters to images. Applying a filter can be a computationally intensive task that should not block the UI. By using the Active Object pattern, we can execute the filter application asynchronously.
+Consider a scenario where a software application needs to create different types of user interfaces based on the user's locale and preferences. A simple Factory Method might require multiple subclasses to handle each variation, leading to a proliferation of classes and increased maintenance overhead. By parameterizing the factory method, we can streamline this process, reducing the need for subclassing and enhancing the system's adaptability.
 
-```java
-public class ImageProcessor {
-    private final ExecutorService executor = Executors.newSingleThreadExecutor();
+### Applicability
 
-    public Future<Image> applyFilterAsync(Image image, Filter filter) {
-        return executor.submit(() -> {
-            // Simulate long-running filter application
-            Thread.sleep(2000);
-            return filter.apply(image);
-        });
-    }
-}
-```
+Parameterized Factories are particularly useful in situations where:
 
-In this example, `applyFilterAsync` submits the filter application task to an executor, returning a `Future<Image>` that can be used to retrieve the processed image once the task is complete. This approach keeps the UI responsive, as the filter application runs in a separate thread.
+- The creation logic is complex and depends on multiple factors.
+- The system needs to support a wide range of product variations.
+- Subclassing would lead to an unwieldy number of classes.
+- Flexibility and configurability are paramount.
 
-#### Benefits
+### Structure
 
-- **Improved Responsiveness**: The UI remains responsive while the filter is being applied.
-- **Decoupled Execution**: The method invocation is decoupled from execution, allowing for better concurrency management.
-
-### Real-Time Systems
-
-Real-time systems require predictable response times and often involve handling multiple concurrent tasks. The Active Object pattern can help manage these tasks efficiently by separating task invocation from execution.
-
-#### Example: Real-Time Sensor Data Processing
-
-Imagine a real-time monitoring system that collects data from multiple sensors. Each sensor's data must be processed in real-time without blocking the collection of data from other sensors.
-
-```java
-public class SensorDataProcessor {
-    private final ExecutorService executor = Executors.newFixedThreadPool(10);
-
-    public Future<Void> processSensorDataAsync(SensorData data) {
-        return executor.submit(() -> {
-            // Process the sensor data
-            process(data);
-            return null;
-        });
-    }
-
-    private void process(SensorData data) {
-        // Simulate data processing
-        System.out.println("Processing data from sensor: " + data.getId());
-    }
-}
-```
-
-In this example, `processSensorDataAsync` submits data processing tasks to a fixed thread pool, ensuring that multiple sensor data can be processed concurrently without blocking each other.
-
-#### Benefits
-
-- **Predictable Response Times**: Tasks are executed in parallel, ensuring timely processing.
-- **Scalability**: The system can handle more sensors by increasing the thread pool size.
-
-### Network Applications
-
-Network applications often need to handle multiple simultaneous requests, which can be efficiently managed using the Active Object pattern.
-
-#### Example: Asynchronous HTTP Request Handling
-
-Consider a web server that handles HTTP requests. Each request should be processed without blocking the server from handling other requests.
-
-```java
-public class HttpRequestHandler {
-    private final ExecutorService executor = Executors.newCachedThreadPool();
-
-    public Future<HttpResponse> handleRequestAsync(HttpRequest request) {
-        return executor.submit(() -> {
-            // Simulate request processing
-            Thread.sleep(1000);
-            return new HttpResponse("Processed request: " + request.getUrl());
-        });
-    }
-}
-```
-
-Here, `handleRequestAsync` processes HTTP requests asynchronously, allowing the server to handle multiple requests concurrently.
-
-#### Benefits
-
-- **Concurrency Management**: Requests are processed in parallel, improving throughput.
-- **Resource Efficiency**: The cached thread pool adjusts the number of threads according to the workload.
-
-### Visualizing the Active Object Pattern
-
-To better understand the Active Object pattern, let's visualize its components and interactions using a sequence diagram.
+The structure of a Parameterized Factory involves a factory interface or abstract class with a method that accepts parameters. These parameters guide the instantiation process, determining the specific type of object to create.
 
 ```mermaid
-sequenceDiagram
-    participant Client
-    participant Proxy
-    participant Scheduler
-    participant Servant
-    participant Future
-
-    Client->>Proxy: request()
-    Proxy->>Scheduler: enqueue(request)
-    Scheduler->>Servant: execute(request)
-    Servant->>Future: setResult(result)
-    Future->>Client: getResult()
+classDiagram
+    class Product {
+        <<interface>>
+    }
+    class ConcreteProductA {
+        +ConcreteProductA(String type)
+    }
+    class ConcreteProductB {
+        +ConcreteProductB(String type)
+    }
+    class ParameterizedFactory {
+        +createProduct(String type) Product
+    }
+    Product <|-- ConcreteProductA
+    Product <|-- ConcreteProductB
+    ParameterizedFactory --> Product
 ```
 
-#### Diagram Description
+**Caption**: The diagram illustrates a Parameterized Factory structure where the factory method `createProduct` takes a parameter to determine which `Product` subclass to instantiate.
 
-- **Client**: Initiates the request.
-- **Proxy**: Acts as an interface for the client to interact with the active object.
-- **Scheduler**: Manages the execution of requests.
-- **Servant**: Performs the actual task.
-- **Future**: Holds the result of the task for the client to retrieve.
+### Participants
 
-### Encouraging Use of the Active Object Pattern
+- **Product**: The interface or abstract class for objects the factory method creates.
+- **ConcreteProduct**: Concrete implementations of the `Product` interface.
+- **ParameterizedFactory**: The factory class that includes a method accepting parameters to create `Product` instances.
 
-The Active Object pattern is a versatile tool for managing concurrency in applications. By decoupling method invocation from execution, it simplifies thread handling and improves application responsiveness. Consider using this pattern when developing applications that require efficient concurrency management, such as GUI applications, real-time systems, and network applications.
+### Collaborations
 
-### Try It Yourself
+The factory method in the `ParameterizedFactory` class uses the provided parameters to decide which `ConcreteProduct` to instantiate. This decision-making process can involve conditional logic, configuration data, or external inputs.
 
-Experiment with the code examples provided by modifying the thread pool sizes or adding additional tasks to see how the Active Object pattern handles concurrency. Consider implementing a simple chat application where messages are processed asynchronously to maintain responsiveness.
+### Consequences
 
-### Knowledge Check
+**Benefits**:
+- **Flexibility**: Easily accommodate new product types without altering existing code.
+- **Reduced Subclassing**: Minimize the number of subclasses needed, simplifying the class hierarchy.
+- **Dynamic Behavior**: Adjust object creation dynamically based on runtime parameters.
 
-- **Question**: Why is the Active Object pattern beneficial in GUI applications?
-- **Question**: How does the Active Object pattern improve concurrency management in real-time systems?
-- **Question**: What role does the `Future` object play in the Active Object pattern?
+**Drawbacks**:
+- **Complexity**: Parameterization can introduce complexity, making the factory harder to understand and maintain.
+- **Performance**: Additional logic for parameter handling may impact performance.
 
-### Summary
+### Implementation
 
-In this section, we explored the Active Object pattern and its application in various scenarios. We discussed how it enhances performance and responsiveness in GUI applications, real-time systems, and network applications. By decoupling method invocation from execution, the Active Object pattern simplifies concurrency management and improves application scalability.
+To implement a Parameterized Factory, follow these steps:
 
-## Quiz Time!
+1. **Define the Product Interface**: Create an interface or abstract class for the products the factory will create.
+
+2. **Implement Concrete Products**: Develop concrete classes that implement the product interface.
+
+3. **Create the Parameterized Factory**: Implement a factory class with a method that accepts parameters and returns a product instance.
+
+4. **Incorporate Decision Logic**: Use the parameters to determine which concrete product to instantiate.
+
+#### Sample Code Snippets
+
+```java
+// Define the Product interface
+interface Product {
+    void use();
+}
+
+// Implement Concrete Products
+class ConcreteProductA implements Product {
+    private String type;
+
+    public ConcreteProductA(String type) {
+        this.type = type;
+    }
+
+    @Override
+    public void use() {
+        System.out.println("Using ConcreteProductA of type: " + type);
+    }
+}
+
+class ConcreteProductB implements Product {
+    private String type;
+
+    public ConcreteProductB(String type) {
+        this.type = type;
+    }
+
+    @Override
+    public void use() {
+        System.out.println("Using ConcreteProductB of type: " + type);
+    }
+}
+
+// Create the Parameterized Factory
+class ParameterizedFactory {
+    public Product createProduct(String type) {
+        switch (type) {
+            case "A":
+                return new ConcreteProductA(type);
+            case "B":
+                return new ConcreteProductB(type);
+            default:
+                throw new IllegalArgumentException("Unknown product type: " + type);
+        }
+    }
+}
+
+// Client code
+public class Client {
+    public static void main(String[] args) {
+        ParameterizedFactory factory = new ParameterizedFactory();
+        Product productA = factory.createProduct("A");
+        productA.use();
+
+        Product productB = factory.createProduct("B");
+        productB.use();
+    }
+}
+```
+
+**Explanation**: In this example, the `ParameterizedFactory` class uses a parameter to determine which `ConcreteProduct` to instantiate. The `createProduct` method accepts a `String` parameter that guides the creation process.
+
+### Sample Use Cases
+
+- **UI Component Creation**: Dynamically create UI components based on user preferences or device characteristics.
+- **Data Processing Pipelines**: Instantiate different processing modules based on data type or source.
+- **Game Development**: Generate game objects or characters based on player choices or game state.
+
+### Related Patterns
+
+- **[6.6 Singleton Pattern]({{< ref "/patterns-java/6/6" >}} "Singleton Pattern")**: Often used in conjunction with factories to ensure a single instance of a factory.
+- **Abstract Factory**: Provides an interface for creating families of related or dependent objects without specifying their concrete classes.
+
+### Known Uses
+
+- **Spring Framework**: Uses parameterized factories for bean creation, allowing for flexible and configurable object instantiation.
+- **JavaFX**: Utilizes factories for creating UI components based on application state and user interactions.
+
+### Trade-offs Between Parameterization and Subclassing
+
+When deciding between parameterization and subclassing, consider the following:
+
+- **Parameterization** offers greater flexibility and reduces the number of classes, but can increase complexity and require more sophisticated error handling.
+- **Subclassing** provides clearer separation of concerns and can simplify the factory logic, but may lead to a bloated class hierarchy and reduced flexibility.
+
+### Expert Tips and Best Practices
+
+- **Use Enums for Parameters**: When possible, use enums instead of strings for parameters to improve type safety and reduce errors.
+- **Validate Parameters**: Implement robust validation logic to handle invalid or unexpected parameters gracefully.
+- **Consider Performance**: Be mindful of the performance implications of complex parameter handling logic, especially in high-load scenarios.
+
+### Exercises
+
+1. **Modify the Example**: Extend the provided example to include a new product type, `ConcreteProductC`, and update the factory method accordingly.
+2. **Experiment with Enums**: Refactor the example to use an enum for the product type parameter instead of a string.
+3. **Explore Error Handling**: Implement error handling in the factory method to manage invalid parameters more effectively.
+
+### Conclusion
+
+Parameterized Factories offer a powerful way to enhance the flexibility and adaptability of the Factory Method pattern. By allowing parameters to guide the object creation process, developers can create more dynamic and responsive applications. However, this flexibility comes with trade-offs in complexity and performance, requiring careful consideration and implementation.
+
+---
+
+## Test Your Knowledge: Parameterized Factories in Java Design Patterns
 
 {{< quizdown >}}
 
-### Why is the Active Object pattern beneficial in GUI applications?
+### What is the primary advantage of using Parameterized Factories?
 
-- [x] It keeps the UI responsive by offloading tasks to separate threads.
-- [ ] It simplifies the user interface design.
-- [ ] It reduces the need for user input validation.
-- [ ] It enhances the graphical rendering capabilities.
+- [x] They provide flexibility by allowing dynamic object creation based on parameters.
+- [ ] They simplify the class hierarchy by eliminating the need for interfaces.
+- [ ] They improve performance by reducing the number of classes.
+- [ ] They enforce strict type safety by using generics.
 
-> **Explanation:** The Active Object pattern is beneficial in GUI applications because it keeps the UI responsive by offloading long-running tasks to separate threads, allowing the main UI thread to remain responsive.
+> **Explanation:** Parameterized Factories allow for dynamic object creation based on parameters, providing flexibility in how objects are instantiated.
 
-### How does the Active Object pattern improve concurrency management in real-time systems?
+### Which of the following is a potential drawback of Parameterized Factories?
 
-- [x] By separating task invocation from execution, allowing parallel processing.
-- [ ] By reducing the number of tasks that can be processed.
-- [ ] By increasing the complexity of task scheduling.
-- [ ] By limiting the number of concurrent tasks.
+- [x] Increased complexity in the factory logic.
+- [ ] Reduced flexibility in object creation.
+- [ ] Increased number of subclasses.
+- [ ] Decreased performance due to subclassing.
 
-> **Explanation:** The Active Object pattern improves concurrency management in real-time systems by separating task invocation from execution, allowing tasks to be processed in parallel, which ensures timely processing and scalability.
+> **Explanation:** Parameterized Factories can introduce complexity in the factory logic due to the need to handle various parameters and conditions.
 
-### What role does the `Future` object play in the Active Object pattern?
+### In the provided code example, what determines the type of product created?
 
-- [x] It holds the result of an asynchronous task for later retrieval.
-- [ ] It schedules tasks for execution.
-- [ ] It manages the thread pool.
-- [ ] It logs the execution of tasks.
+- [x] The string parameter passed to the `createProduct` method.
+- [ ] The number of parameters passed to the factory.
+- [ ] The type of the factory class.
+- [ ] The return type of the factory method.
 
-> **Explanation:** In the Active Object pattern, the `Future` object holds the result of an asynchronous task, allowing the client to retrieve the result once the task is complete.
+> **Explanation:** The string parameter passed to the `createProduct` method determines which concrete product is instantiated.
 
-### In a network application, how does the Active Object pattern handle multiple simultaneous requests?
+### How can enums improve the implementation of Parameterized Factories?
 
-- [x] By processing requests asynchronously in parallel.
-- [ ] By queuing requests for sequential processing.
-- [ ] By rejecting additional requests.
-- [ ] By limiting the number of requests processed.
+- [x] By providing type safety and reducing errors in parameter handling.
+- [ ] By simplifying the factory logic to a single line.
+- [ ] By eliminating the need for concrete product classes.
+- [ ] By automatically generating factory methods.
 
-> **Explanation:** The Active Object pattern handles multiple simultaneous requests in a network application by processing them asynchronously in parallel, improving throughput and resource efficiency.
+> **Explanation:** Enums provide type safety and reduce errors by limiting the possible values for parameters, making the code more robust.
 
-### What is a key benefit of using the Active Object pattern in real-time systems?
+### What is a common use case for Parameterized Factories?
 
-- [x] Predictable response times due to parallel task execution.
-- [ ] Simplified user interface design.
-- [ ] Reduced need for data validation.
-- [ ] Enhanced graphical rendering.
+- [x] Creating UI components based on user preferences.
+- [ ] Managing database connections.
+- [ ] Implementing singleton objects.
+- [ ] Handling file I/O operations.
 
-> **Explanation:** A key benefit of using the Active Object pattern in real-time systems is achieving predictable response times due to parallel task execution, ensuring timely processing.
+> **Explanation:** Parameterized Factories are commonly used to create UI components dynamically based on user preferences or device characteristics.
 
-### Which component in the Active Object pattern acts as an interface for the client?
+### Which design pattern is often used alongside Parameterized Factories?
 
-- [x] Proxy
-- [ ] Scheduler
-- [ ] Servant
-- [ ] Future
+- [x] Singleton Pattern
+- [ ] Observer Pattern
+- [ ] Strategy Pattern
+- [ ] Decorator Pattern
 
-> **Explanation:** In the Active Object pattern, the Proxy acts as an interface for the client to interact with the active object, managing request submission.
+> **Explanation:** The Singleton Pattern is often used alongside factories to ensure a single instance of a factory is used throughout an application.
 
-### How does the Active Object pattern enhance resource efficiency in network applications?
+### What is a benefit of using parameterization over subclassing?
 
-- [x] By using a cached thread pool that adjusts according to workload.
-- [ ] By limiting the number of concurrent requests.
-- [ ] By reducing the number of threads used.
-- [ ] By increasing the complexity of task scheduling.
+- [x] Reduced number of classes in the hierarchy.
+- [ ] Increased clarity in the factory logic.
+- [ ] Improved performance due to fewer method calls.
+- [ ] Enhanced security through encapsulation.
 
-> **Explanation:** The Active Object pattern enhances resource efficiency in network applications by using a cached thread pool that adjusts the number of threads according to the workload, optimizing resource usage.
+> **Explanation:** Parameterization reduces the number of classes needed, simplifying the class hierarchy and making the system easier to maintain.
 
-### What is the role of the Scheduler in the Active Object pattern?
+### How does the Parameterized Factory pattern relate to the Abstract Factory pattern?
 
-- [x] It manages the execution of requests.
-- [ ] It holds the result of tasks.
-- [ ] It acts as an interface for the client.
-- [ ] It performs the actual task.
+- [x] Both provide interfaces for creating families of related objects.
+- [ ] Parameterized Factory is a simpler form of the Abstract Factory.
+- [ ] Abstract Factory requires subclassing, while Parameterized Factory does not.
+- [ ] They are unrelated patterns with different purposes.
 
-> **Explanation:** In the Active Object pattern, the Scheduler manages the execution of requests, ensuring tasks are processed efficiently.
+> **Explanation:** Both patterns provide interfaces for creating families of related objects, but Parameterized Factories focus on parameter-driven creation.
 
-### How does the Active Object pattern decouple method invocation from execution?
+### What should be considered when implementing a Parameterized Factory?
 
-- [x] By using separate threads for task execution.
-- [ ] By using a single thread for all tasks.
-- [ ] By reducing the number of tasks.
-- [ ] By increasing the complexity of task scheduling.
+- [x] Performance implications of complex parameter handling.
+- [ ] The number of subclasses required.
+- [ ] The use of generics for type safety.
+- [ ] The need for a singleton instance.
 
-> **Explanation:** The Active Object pattern decouples method invocation from execution by using separate threads for task execution, allowing tasks to be processed asynchronously.
+> **Explanation:** When implementing a Parameterized Factory, consider the performance implications of handling complex parameters, especially in high-load scenarios.
 
-### True or False: The Active Object pattern is only useful in GUI applications.
+### True or False: Parameterized Factories eliminate the need for concrete product classes.
 
 - [ ] True
 - [x] False
 
-> **Explanation:** False. The Active Object pattern is useful in various applications, including GUI applications, real-time systems, and network applications, where concurrency and responsiveness are important.
+> **Explanation:** Parameterized Factories do not eliminate the need for concrete product classes; they simply provide a flexible way to instantiate them based on parameters.
 
 {{< /quizdown >}}

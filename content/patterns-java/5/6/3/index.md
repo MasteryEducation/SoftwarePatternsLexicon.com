@@ -1,481 +1,274 @@
 ---
 canonical: "https://softwarepatternslexicon.com/patterns-java/5/6/3"
-title: "Mediator vs. Observer Pattern: Understanding Key Differences and Use Cases"
-description: "Explore the differences between Mediator and Observer patterns in Java, their use cases, and how they can be combined for effective object interaction management."
-linkTitle: "5.6.3 Mediator vs. Observer Pattern"
-categories:
-- Design Patterns
-- Java Programming
-- Software Engineering
+
+title: "Understanding Sealed Classes in Java: A Comprehensive Guide"
+description: "Explore the concept of sealed classes in Java, their purpose, syntax, and practical applications in controlling class hierarchies and enhancing pattern matching."
+linkTitle: "5.6.3 Understanding Sealed Classes"
 tags:
-- Mediator Pattern
-- Observer Pattern
-- Java Design Patterns
-- Behavioral Patterns
-- Object Interaction
-date: 2024-11-17
+- "Java"
+- "Sealed Classes"
+- "Design Patterns"
+- "Java 17"
+- "Object-Oriented Programming"
+- "Class Hierarchy"
+- "Pattern Matching"
+- "Advanced Java"
+date: 2024-11-25
 type: docs
-nav_weight: 5630
+nav_weight: 56300
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
+
 ---
 
-## 5.6.3 Mediator vs. Observer Pattern
+## 5.6.3 Understanding Sealed Classes
 
-In the realm of software design patterns, the Mediator and Observer patterns are both pivotal in managing interactions between objects. While they share the common goal of decoupling components to enhance flexibility and maintainability, they achieve this in distinct ways. This section will delve into the key differences between these two patterns, explore scenarios where one is more suitable than the other, and provide examples to illustrate these differences. We will also discuss how these patterns can sometimes be combined to create robust systems.
+### Introduction to Sealed Classes
 
-### Understanding the Mediator Pattern
+Sealed classes and interfaces, introduced in Java 17, represent a significant evolution in the language's type system. They provide developers with the ability to explicitly control which classes can extend or implement them. This feature is particularly useful in scenarios where a well-defined class hierarchy is essential, such as when modeling algebraic data types or ensuring exhaustive pattern matching.
 
-The Mediator pattern centralizes complex communications and control logic between objects in a system. Instead of having objects communicate directly with each other, they interact through a mediator object. This pattern is particularly useful in systems where multiple objects interact in complex ways, as it reduces the dependencies between them and simplifies communication.
+### Purpose of Sealed Classes and Interfaces
 
-#### Key Characteristics of the Mediator Pattern
+Sealed classes and interfaces aim to offer more control over the inheritance hierarchy. By restricting which classes can extend a sealed class or implement a sealed interface, developers can:
 
-- **Centralized Control**: The mediator acts as a hub for communication, managing interactions between objects.
-- **Reduced Coupling**: Objects do not need to know about each other; they only need to know the mediator.
-- **Simplified Object Interactions**: By centralizing communication, the mediator can manage complex interactions more easily.
+- **Enhance Maintainability**: By controlling the class hierarchy, developers can prevent unauthorized or unintended extensions, reducing the risk of bugs and making the codebase easier to maintain.
+- **Improve Security**: Limiting subclassing can prevent malicious or erroneous subclasses from being introduced, enhancing the security of the application.
+- **Facilitate Exhaustive Pattern Matching**: Sealed types enable the compiler to perform exhaustive checks during pattern matching, ensuring all possible cases are handled.
 
-#### Code Example: Mediator Pattern in Java
+### Syntax for Declaring Sealed Types
 
-Let's consider a chat room application where users can send messages to each other. The mediator pattern can be used to manage the communication between users.
-
-```java
-// User interface
-interface User {
-    void sendMessage(String message);
-    void receiveMessage(String message);
-}
-
-// Concrete User
-class ChatUser implements User {
-    private String name;
-    private ChatMediator mediator;
-
-    public ChatUser(String name, ChatMediator mediator) {
-        this.name = name;
-        this.mediator = mediator;
-    }
-
-    @Override
-    public void sendMessage(String message) {
-        System.out.println(this.name + " sends: " + message);
-        mediator.sendMessage(message, this);
-    }
-
-    @Override
-    public void receiveMessage(String message) {
-        System.out.println(this.name + " receives: " + message);
-    }
-}
-
-// Mediator interface
-interface ChatMediator {
-    void sendMessage(String message, User user);
-    void addUser(User user);
-}
-
-// Concrete Mediator
-class ChatRoom implements ChatMediator {
-    private List<User> users = new ArrayList<>();
-
-    @Override
-    public void sendMessage(String message, User user) {
-        for (User u : users) {
-            if (u != user) {
-                u.receiveMessage(message);
-            }
-        }
-    }
-
-    @Override
-    public void addUser(User user) {
-        users.add(user);
-    }
-}
-
-// Usage
-public class MediatorPatternDemo {
-    public static void main(String[] args) {
-        ChatMediator chatRoom = new ChatRoom();
-
-        User user1 = new ChatUser("Alice", chatRoom);
-        User user2 = new ChatUser("Bob", chatRoom);
-        User user3 = new ChatUser("Charlie", chatRoom);
-
-        chatRoom.addUser(user1);
-        chatRoom.addUser(user2);
-        chatRoom.addUser(user3);
-
-        user1.sendMessage("Hello everyone!");
-    }
-}
-```
-
-### Understanding the Observer Pattern
-
-The Observer pattern defines a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically. This pattern is particularly useful in scenarios where a change in one object needs to be reflected across multiple objects.
-
-#### Key Characteristics of the Observer Pattern
-
-- **Decoupled Notification**: Observers are notified of changes in the subject without the subject needing to know the details of the observers.
-- **Dynamic Subscription**: Observers can be added or removed at runtime, providing flexibility.
-- **Automatic Updates**: Observers are automatically updated when the subject changes state.
-
-#### Code Example: Observer Pattern in Java
-
-Consider a weather station application where multiple display devices need to be updated whenever the weather data changes.
+To declare a sealed class or interface, use the `sealed` keyword followed by a `permits` clause that specifies the permitted subclasses or implementing classes. Here's the basic syntax:
 
 ```java
-// Subject interface
-interface WeatherSubject {
-    void registerObserver(WeatherObserver observer);
-    void removeObserver(WeatherObserver observer);
-    void notifyObservers();
+public sealed class Shape permits Circle, Rectangle, Square {
+    // Class body
 }
 
-// Observer interface
-interface WeatherObserver {
-    void update(float temperature, float humidity, float pressure);
+public final class Circle extends Shape {
+    // Class body
 }
 
-// Concrete Subject
-class WeatherData implements WeatherSubject {
-    private List<WeatherObserver> observers;
-    private float temperature;
-    private float humidity;
-    private float pressure;
-
-    public WeatherData() {
-        observers = new ArrayList<>();
-    }
-
-    public void setMeasurements(float temperature, float humidity, float pressure) {
-        this.temperature = temperature;
-        this.humidity = humidity;
-        this.pressure = pressure;
-        notifyObservers();
-    }
-
-    @Override
-    public void registerObserver(WeatherObserver observer) {
-        observers.add(observer);
-    }
-
-    @Override
-    public void removeObserver(WeatherObserver observer) {
-        observers.remove(observer);
-    }
-
-    @Override
-    public void notifyObservers() {
-        for (WeatherObserver observer : observers) {
-            observer.update(temperature, humidity, pressure);
-        }
-    }
+public final class Rectangle extends Shape {
+    // Class body
 }
 
-// Concrete Observer
-class CurrentConditionsDisplay implements WeatherObserver {
-    private float temperature;
-    private float humidity;
-
-    @Override
-    public void update(float temperature, float humidity, float pressure) {
-        this.temperature = temperature;
-        this.humidity = humidity;
-        display();
-    }
-
-    public void display() {
-        System.out.println("Current conditions: " + temperature + "F degrees and " + humidity + "% humidity");
-    }
-}
-
-// Usage
-public class ObserverPatternDemo {
-    public static void main(String[] args) {
-        WeatherData weatherData = new WeatherData();
-
-        CurrentConditionsDisplay currentDisplay = new CurrentConditionsDisplay();
-        weatherData.registerObserver(currentDisplay);
-
-        weatherData.setMeasurements(80, 65, 30.4f);
-        weatherData.setMeasurements(82, 70, 29.2f);
-    }
+public final class Square extends Shape {
+    // Class body
 }
 ```
 
-### Key Differences Between Mediator and Observer Patterns
+### Key Characteristics of Sealed Classes
 
-#### 1. Communication Style
+- **Explicit Permits Clause**: The `permits` clause explicitly lists all classes that are allowed to extend the sealed class. This list must be exhaustive.
+- **Subclass Requirements**: Permitted subclasses must be either `final`, `sealed`, or `non-sealed`. This ensures that the hierarchy remains controlled.
+- **Compile-Time Checks**: The Java compiler enforces the rules of sealed classes, providing compile-time errors if any constraints are violated.
 
-- **Mediator Pattern**: Centralizes communication through a mediator object. Objects interact by sending messages to the mediator, which then forwards them to the appropriate recipients.
-- **Observer Pattern**: Establishes a direct notification mechanism. The subject notifies all registered observers of changes, and each observer handles the update independently.
+### Practical Applications and Use Cases
 
-#### 2. Coupling
+#### Representing Algebraic Data Types
 
-- **Mediator Pattern**: Reduces coupling by having objects communicate through a mediator. This centralization can simplify complex interactions but may lead to a monolithic mediator if not managed carefully.
-- **Observer Pattern**: Allows for loose coupling between the subject and observers. Observers can be added or removed dynamically, and the subject does not need to know the details of the observers.
-
-#### 3. Use Cases
-
-- **Mediator Pattern**: Ideal for scenarios where multiple objects need to interact in complex ways, such as GUI components or chat applications.
-- **Observer Pattern**: Suitable for scenarios where a change in one object needs to be propagated to multiple dependent objects, such as event handling or data binding.
-
-### Scenarios Where One Pattern is More Appropriate
-
-#### When to Use the Mediator Pattern
-
-- **Complex Interactions**: When multiple objects need to interact in complex ways, and direct communication would lead to a tangled web of dependencies.
-- **Centralized Control**: When you want to centralize control logic and manage interactions from a single point.
-- **Decoupling Components**: When you need to decouple components to enhance maintainability and scalability.
-
-#### When to Use the Observer Pattern
-
-- **State Changes**: When you need to notify multiple objects of changes in another object’s state.
-- **Dynamic Subscription**: When you want to allow observers to subscribe or unsubscribe dynamically.
-- **Decoupled Notification**: When you need a decoupled notification mechanism that allows for independent updates.
-
-### Combining Mediator and Observer Patterns
-
-In some cases, it may be beneficial to combine the Mediator and Observer patterns to leverage the strengths of both. For instance, a mediator can be used to manage complex interactions between components, while the observer pattern can be used within each component to handle state changes and updates.
-
-#### Example: Combining Mediator and Observer Patterns
-
-Consider a smart home system where different devices (lights, thermostat, security cameras) interact through a central hub (mediator). Each device can also have its own state changes that need to be communicated to other components (observer).
+Sealed classes are particularly useful for representing algebraic data types (ADTs), which are common in functional programming languages. ADTs allow developers to define a type by enumerating its possible values. In Java, sealed classes can be used to model such types:
 
 ```java
-// Mediator interface
-interface SmartHomeMediator {
-    void sendCommand(String command, SmartDevice device);
-    void addDevice(SmartDevice device);
+public sealed interface Expression permits Constant, Add, Multiply {
+    // Interface body
 }
 
-// Observer interface
-interface DeviceObserver {
-    void update(String state);
-}
+public final class Constant implements Expression {
+    private final int value;
 
-// Concrete Mediator
-class SmartHomeHub implements SmartHomeMediator {
-    private List<SmartDevice> devices = new ArrayList<>();
-
-    @Override
-    public void sendCommand(String command, SmartDevice device) {
-        for (SmartDevice d : devices) {
-            if (d != device) {
-                d.receiveCommand(command);
-            }
-        }
+    public Constant(int value) {
+        this.value = value;
     }
 
-    @Override
-    public void addDevice(SmartDevice device) {
-        devices.add(device);
+    public int getValue() {
+        return value;
     }
 }
 
-// Smart Device interface
-interface SmartDevice {
-    void receiveCommand(String command);
-    void addObserver(DeviceObserver observer);
-    void removeObserver(DeviceObserver observer);
-    void notifyObservers();
-}
+public final class Add implements Expression {
+    private final Expression left;
+    private final Expression right;
 
-// Concrete Smart Device
-class Light implements SmartDevice {
-    private List<DeviceObserver> observers = new ArrayList<>();
-    private String state;
-
-    @Override
-    public void receiveCommand(String command) {
-        this.state = command;
-        notifyObservers();
+    public Add(Expression left, Expression right) {
+        this.left = left;
+        this.right = right;
     }
 
-    @Override
-    public void addObserver(DeviceObserver observer) {
-        observers.add(observer);
+    public Expression getLeft() {
+        return left;
     }
 
-    @Override
-    public void removeObserver(DeviceObserver observer) {
-        observers.remove(observer);
-    }
-
-    @Override
-    public void notifyObservers() {
-        for (DeviceObserver observer : observers) {
-            observer.update(state);
-        }
+    public Expression getRight() {
+        return right;
     }
 }
 
-// Usage
-public class SmartHomeDemo {
-    public static void main(String[] args) {
-        SmartHomeMediator hub = new SmartHomeHub();
+public final class Multiply implements Expression {
+    private final Expression left;
+    private final Expression right;
 
-        SmartDevice light = new Light();
-        hub.addDevice(light);
+    public Multiply(Expression left, Expression right) {
+        this.left = left;
+        this.right = right;
+    }
 
-        DeviceObserver lightObserver = new DeviceObserver() {
-            @Override
-            public void update(String state) {
-                System.out.println("Light state changed to: " + state);
-            }
-        };
+    public Expression getLeft() {
+        return left;
+    }
 
-        light.addObserver(lightObserver);
-
-        light.receiveCommand("ON");
-        hub.sendCommand("OFF", light);
+    public Expression getRight() {
+        return right;
     }
 }
 ```
 
-### Visualizing the Differences
+In this example, the `Expression` interface is sealed, and its permitted implementations are `Constant`, `Add`, and `Multiply`. This setup allows for exhaustive pattern matching, as the compiler knows all possible implementations of `Expression`.
 
-To better understand the differences between the Mediator and Observer patterns, let's visualize their interactions using Mermaid.js diagrams.
+#### Enhancing Pattern Matching and Exhaustiveness Checks
 
-#### Mediator Pattern Diagram
+Sealed classes improve pattern matching by enabling the compiler to perform exhaustiveness checks. This ensures that all possible cases are handled, reducing the likelihood of runtime errors. Consider the following example:
 
-```mermaid
-classDiagram
-    class Mediator {
-        +sendMessage()
-        +addUser()
-    }
-    class User {
-        +sendMessage()
-        +receiveMessage()
-    }
-    Mediator --> User : manages
-    User --> Mediator : communicates
+```java
+public int evaluate(Expression expr) {
+    return switch (expr) {
+        case Constant c -> c.getValue();
+        case Add a -> evaluate(a.getLeft()) + evaluate(a.getRight());
+        case Multiply m -> evaluate(m.getLeft()) * evaluate(m.getRight());
+    };
+}
 ```
 
-#### Observer Pattern Diagram
+In this `switch` expression, the compiler can verify that all possible cases of `Expression` are covered, providing a compile-time guarantee of exhaustiveness.
 
-```mermaid
-classDiagram
-    class Subject {
-        +registerObserver()
-        +removeObserver()
-        +notifyObservers()
-    }
-    class Observer {
-        +update()
-    }
-    Subject --> Observer : notifies
-    Observer --> Subject : observes
-```
+### Historical Context and Evolution
 
-### Try It Yourself
+The concept of sealed classes is not new and has been present in other programming languages like Scala and Kotlin. Java's introduction of sealed classes reflects a broader trend towards incorporating functional programming concepts and enhancing type safety. This evolution aligns with Java's ongoing efforts to modernize the language while maintaining backward compatibility.
 
-To deepen your understanding, try modifying the code examples provided:
+### Best Practices and Considerations
 
-- **Mediator Pattern**: Add a new type of user with special privileges in the chat room. Implement logic in the mediator to handle these privileges.
-- **Observer Pattern**: Implement a new display device in the weather station example that shows the weather forecast based on the current conditions.
+- **Use Sealed Classes for Well-Defined Hierarchies**: Sealed classes are ideal for scenarios where the class hierarchy is fixed and should not be extended arbitrarily.
+- **Balance Flexibility and Control**: While sealed classes provide control, they also limit flexibility. Consider the trade-offs before using them extensively.
+- **Leverage Pattern Matching**: Combine sealed classes with pattern matching to take full advantage of Java's type system and ensure exhaustive handling of cases.
 
-### Knowledge Check
+### Common Pitfalls and How to Avoid Them
 
-Before proceeding, consider these questions:
+- **Overuse of Sealed Classes**: Avoid using sealed classes in situations where flexibility and extensibility are required. Overuse can lead to rigid designs that are difficult to adapt.
+- **Incorrect Permits Clause**: Ensure that the `permits` clause accurately reflects all intended subclasses. Omitting a subclass can lead to compile-time errors.
+- **Ignoring Subclass Requirements**: Remember that subclasses must be `final`, `sealed`, or `non-sealed`. Failing to adhere to this requirement will result in compilation errors.
 
-- What are the main differences between the Mediator and Observer patterns?
-- In what scenarios would you choose the Mediator pattern over the Observer pattern?
-- How can the two patterns be combined to enhance system design?
+### Exercises and Practice Problems
 
-### Conclusion
+1. **Exercise 1**: Create a sealed class hierarchy to represent different types of vehicles (e.g., Car, Truck, Motorcycle). Implement a method to calculate the total number of wheels for each vehicle type using pattern matching.
 
-The Mediator and Observer patterns are powerful tools in the software engineer's toolkit, each serving distinct purposes in managing object interactions. By understanding their differences and appropriate use cases, you can design systems that are both flexible and maintainable. Remember, this is just the beginning. As you progress, you'll build more complex and interactive systems. Keep experimenting, stay curious, and enjoy the journey!
+2. **Exercise 2**: Modify the `Expression` example to include a new operation, `Subtract`. Update the pattern matching logic to handle this new case.
 
-## Quiz Time!
+3. **Exercise 3**: Design a sealed interface for a simple game character system, with different character classes (e.g., Warrior, Mage, Archer). Implement a method to calculate the attack power based on the character class.
+
+### Summary and Key Takeaways
+
+Sealed classes and interfaces in Java provide a powerful mechanism for controlling class hierarchies and enhancing type safety. By explicitly specifying permitted subclasses, developers can create well-defined and maintainable designs. Sealed classes also improve pattern matching by enabling exhaustive checks, reducing the risk of runtime errors. As Java continues to evolve, sealed classes represent a step towards embracing functional programming concepts and modernizing the language.
+
+### References and Further Reading
+
+- [Oracle Java Documentation](https://docs.oracle.com/en/java/)
+- [Java 17 Release Notes](https://openjdk.java.net/projects/jdk/17/)
+- [Sealed Classes in Scala](https://docs.scala-lang.org/tour/abstract-types.html)
+- [Kotlin Sealed Classes](https://kotlinlang.org/docs/sealed-classes.html)
+
+---
+
+## Test Your Knowledge: Sealed Classes in Java Quiz
 
 {{< quizdown >}}
 
-### What is the primary purpose of the Mediator pattern?
+### What is the primary purpose of sealed classes in Java?
 
-- [x] To centralize communication between objects
-- [ ] To notify multiple objects of state changes
-- [ ] To encapsulate a request as an object
-- [ ] To define a one-to-many dependency
+- [x] To restrict which classes can extend or implement them.
+- [ ] To enhance performance by reducing class loading time.
+- [ ] To simplify the syntax of class declarations.
+- [ ] To allow dynamic class loading at runtime.
 
-> **Explanation:** The Mediator pattern centralizes communication between objects, reducing direct dependencies.
+> **Explanation:** Sealed classes restrict which classes can extend or implement them, providing more control over the class hierarchy.
 
-### Which pattern is more suitable for managing complex interactions between multiple objects?
+### Which keyword is used to declare a sealed class in Java?
 
-- [x] Mediator Pattern
-- [ ] Observer Pattern
-- [ ] Command Pattern
-- [ ] Strategy Pattern
+- [x] sealed
+- [ ] final
+- [ ] abstract
+- [ ] static
 
-> **Explanation:** The Mediator pattern is ideal for managing complex interactions by centralizing communication through a mediator.
+> **Explanation:** The `sealed` keyword is used to declare a sealed class in Java.
 
-### How does the Observer pattern notify observers of changes?
+### What must be included in a sealed class declaration to specify permitted subclasses?
 
-- [x] By calling update methods on registered observers
-- [ ] By sending messages through a mediator
-- [ ] By encapsulating requests as objects
-- [ ] By using a centralized control object
+- [x] A permits clause
+- [ ] An extends clause
+- [ ] An implements clause
+- [ ] A final clause
 
-> **Explanation:** The Observer pattern notifies observers by calling their update methods when the subject's state changes.
+> **Explanation:** A `permits` clause must be included in a sealed class declaration to specify permitted subclasses.
 
-### In which scenario would you choose the Observer pattern over the Mediator pattern?
+### How do sealed classes improve pattern matching in Java?
 
-- [x] When you need to notify multiple objects of state changes
-- [ ] When you need to centralize control logic
-- [ ] When you need to encapsulate requests
-- [ ] When you need to manage complex interactions
+- [x] By enabling exhaustive checks during pattern matching.
+- [ ] By allowing dynamic pattern creation.
+- [ ] By reducing the number of patterns needed.
+- [ ] By simplifying the pattern syntax.
 
-> **Explanation:** The Observer pattern is suitable for scenarios where multiple objects need to be notified of state changes.
+> **Explanation:** Sealed classes enable exhaustive checks during pattern matching, ensuring all possible cases are handled.
 
-### Can the Mediator and Observer patterns be combined in a system?
+### Which of the following is NOT a valid subclass type for a sealed class?
 
-- [x] Yes
-- [ ] No
+- [ ] final
+- [x] abstract
+- [ ] sealed
+- [ ] non-sealed
 
-> **Explanation:** The Mediator and Observer patterns can be combined to leverage the strengths of both, managing complex interactions and state changes.
+> **Explanation:** Subclasses of a sealed class must be `final`, `sealed`, or `non-sealed`. `abstract` is not a valid subclass type for a sealed class.
 
-### What is a key benefit of using the Mediator pattern?
+### What is a common use case for sealed classes?
 
-- [x] Reduced coupling between objects
-- [ ] Automatic updates to observers
-- [ ] Encapsulation of requests
-- [ ] Dynamic subscription of observers
+- [x] Representing algebraic data types
+- [ ] Enhancing runtime performance
+- [ ] Simplifying class loading
+- [ ] Allowing dynamic subclass creation
 
-> **Explanation:** The Mediator pattern reduces coupling by having objects communicate through a mediator.
+> **Explanation:** Sealed classes are commonly used for representing algebraic data types, where a fixed set of possible values is defined.
 
-### Which pattern allows for dynamic subscription and unsubscription of observers?
+### What happens if a subclass not listed in the permits clause tries to extend a sealed class?
 
-- [x] Observer Pattern
-- [ ] Mediator Pattern
-- [ ] Command Pattern
-- [ ] Strategy Pattern
+- [x] A compile-time error occurs.
+- [ ] A runtime exception is thrown.
+- [ ] The subclass is ignored.
+- [ ] The subclass is automatically added to the permits clause.
 
-> **Explanation:** The Observer pattern allows for dynamic subscription and unsubscription of observers, providing flexibility.
+> **Explanation:** A compile-time error occurs if a subclass not listed in the permits clause tries to extend a sealed class.
 
-### What is a potential downside of the Mediator pattern?
+### How can sealed classes enhance security in Java applications?
 
-- [x] The mediator can become a monolithic object
-- [ ] Observers cannot be dynamically added
-- [ ] It tightly couples objects
-- [ ] It does not allow for centralized control
+- [x] By preventing unauthorized subclassing.
+- [ ] By encrypting class files.
+- [ ] By reducing memory usage.
+- [ ] By allowing dynamic security checks.
 
-> **Explanation:** A potential downside of the Mediator pattern is that the mediator can become a monolithic object if not managed carefully.
+> **Explanation:** Sealed classes enhance security by preventing unauthorized subclassing, reducing the risk of malicious or erroneous subclasses.
 
-### How does the Mediator pattern affect object dependencies?
+### What is the effect of using the non-sealed modifier on a subclass of a sealed class?
 
-- [x] It reduces dependencies between objects
-- [ ] It increases dependencies between objects
-- [ ] It has no effect on dependencies
-- [ ] It creates a one-to-many dependency
+- [x] It allows further subclassing of the non-sealed class.
+- [ ] It prevents any subclassing of the non-sealed class.
+- [ ] It makes the class abstract.
+- [ ] It converts the class to a sealed class.
 
-> **Explanation:** The Mediator pattern reduces dependencies between objects by centralizing communication through a mediator.
+> **Explanation:** The `non-sealed` modifier allows further subclassing of the non-sealed class, providing flexibility within the sealed hierarchy.
 
-### True or False: The Observer pattern is used to centralize control logic.
+### True or False: Sealed classes can be used to model open-ended class hierarchies.
 
 - [ ] True
 - [x] False
 
-> **Explanation:** False. The Observer pattern is used to notify multiple objects of state changes, not to centralize control logic.
+> **Explanation:** False. Sealed classes are used to model closed, well-defined class hierarchies, not open-ended ones.
 
 {{< /quizdown >}}
+
+---

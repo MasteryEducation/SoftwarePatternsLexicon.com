@@ -1,514 +1,259 @@
 ---
 canonical: "https://softwarepatternslexicon.com/patterns-java/5/6/4"
-title: "Mediator Pattern Use Cases and Examples in Java"
-description: "Explore practical applications of the Mediator pattern in Java, including GUI frameworks and chat systems, with detailed code examples."
-linkTitle: "5.6.4 Use Cases and Examples"
-categories:
-- Design Patterns
-- Java Programming
-- Software Engineering
+title: "Implementing Sealed Classes in Java: A Comprehensive Guide"
+description: "Explore the implementation of sealed classes in Java, including practical examples, subclass modifiers, and integration with pattern matching."
+linkTitle: "5.6.4 Implementing Sealed Classes in Java"
 tags:
-- Mediator Pattern
-- Java
-- GUI Design
-- Chat Systems
-- Software Architecture
-date: 2024-11-17
+- "Java"
+- "Sealed Classes"
+- "Design Patterns"
+- "Advanced Java"
+- "Pattern Matching"
+- "Domain Modeling"
+- "Java 17"
+- "Object-Oriented Programming"
+date: 2024-11-25
 type: docs
-nav_weight: 5640
+nav_weight: 56400
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 
-## 5.6.4 Use Cases and Examples
+## 5.6.4 Implementing Sealed Classes in Java
 
-The Mediator pattern is a behavioral design pattern that promotes loose coupling by encapsulating the interactions between a set of objects. It allows objects to communicate without knowing each other's details, thus reducing dependencies and enhancing flexibility. In this section, we will delve into practical use cases of the Mediator pattern, focusing on GUI frameworks and chat systems, and provide detailed code examples to illustrate these applications.
+### Introduction
 
-### Real-World Applications of the Mediator Pattern
+Sealed classes, introduced in Java 17, represent a significant evolution in the language's type system. They allow developers to define a restricted hierarchy of classes, providing more control over inheritance and enhancing the expressiveness of domain models. This section delves into the practical implementation of sealed classes, exploring their syntax, use cases, and integration with modern Java features like pattern matching.
 
-The Mediator pattern is particularly useful in scenarios where multiple objects need to interact in a complex manner. By centralizing communication through a mediator, we can simplify the interaction logic and make the system more maintainable. Let's explore some real-world applications:
+### Understanding Sealed Classes
 
-#### 1. GUI Frameworks
+Sealed classes are a type of class that restricts which other classes or interfaces may extend or implement them. This feature is particularly useful in scenarios where a fixed set of subclasses is known and desired, allowing for more predictable and maintainable code.
 
-In graphical user interface (GUI) frameworks, the Mediator pattern is often used to manage interactions between various components, such as buttons, text fields, and sliders. Without a mediator, each component would need to be aware of the others, leading to a tightly coupled system. By introducing a mediator, components can communicate indirectly, making the system more modular and easier to modify.
+#### Declaring Sealed Classes
 
-##### Example: A Simple Dialog Box
-
-Consider a dialog box with several UI components: a text field, a checkbox, and a button. The button should only be enabled if the text field is not empty and the checkbox is checked. Implementing this logic directly in the components would lead to a tangled web of dependencies. Instead, we can use a mediator to coordinate these interactions.
+To declare a sealed class, use the `sealed` keyword followed by a list of permitted subclasses. This list explicitly defines which classes can extend the sealed class, ensuring that no other classes can do so.
 
 ```java
-// Mediator interface
-interface DialogMediator {
-    void componentChanged(Component component);
-}
-
-// Concrete Mediator
-class Dialog implements DialogMediator {
-    private TextField textField;
-    private CheckBox checkBox;
-    private Button button;
-
-    public Dialog(TextField textField, CheckBox checkBox, Button button) {
-        this.textField = textField;
-        this.checkBox = checkBox;
-        this.button = button;
-        textField.setMediator(this);
-        checkBox.setMediator(this);
-        button.setMediator(this);
-    }
-
-    @Override
-    public void componentChanged(Component component) {
-        if (component == textField || component == checkBox) {
-            button.setEnabled(!textField.getText().isEmpty() && checkBox.isChecked());
-        }
-    }
-}
-
-// Abstract Component
-abstract class Component {
-    protected DialogMediator mediator;
-
-    public void setMediator(DialogMediator mediator) {
-        this.mediator = mediator;
-    }
-
-    public void changed() {
-        mediator.componentChanged(this);
-    }
-}
-
-// Concrete Components
-class TextField extends Component {
-    private String text;
-
-    public String getText() {
-        return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-        changed();
-    }
-}
-
-class CheckBox extends Component {
-    private boolean checked;
-
-    public boolean isChecked() {
-        return checked;
-    }
-
-    public void setChecked(boolean checked) {
-        this.checked = checked;
-        changed();
-    }
-}
-
-class Button extends Component {
-    private boolean enabled;
-
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-        System.out.println("Button enabled: " + enabled);
-    }
+public sealed class Shape permits Circle, Rectangle, Square {
+    // Common methods and fields for all shapes
 }
 ```
 
-In this example, the `Dialog` class acts as the mediator, coordinating the interactions between the `TextField`, `CheckBox`, and `Button`. Each component notifies the mediator when its state changes, and the mediator updates the button's enabled state accordingly.
+In this example, `Shape` is a sealed class, and only `Circle`, `Rectangle`, and `Square` are permitted to extend it.
 
-#### 2. Chat Systems
+#### Modifiers for Subclasses
 
-In collaborative environments like chat applications, the Mediator pattern can be used to manage the communication between users. Each user can be represented as a component, and the chat room acts as the mediator, handling message delivery and user interactions.
+Subclasses of a sealed class must specify one of the following modifiers:
 
-##### Example: A Simple Chat Room
-
-Let's implement a simple chat room where users can send messages to each other through a mediator.
+- **`final`**: The subclass cannot be extended further.
+- **`sealed`**: The subclass can be extended, but only by a specified set of classes.
+- **`non-sealed`**: The subclass can be extended by any class, effectively breaking the seal.
 
 ```java
-// Mediator interface
-interface ChatMediator {
-    void sendMessage(String message, User user);
-    void addUser(User user);
+public final class Circle extends Shape {
+    // Implementation specific to Circle
 }
 
-// Concrete Mediator
-class ChatRoom implements ChatMediator {
-    private List<User> users = new ArrayList<>();
-
-    @Override
-    public void sendMessage(String message, User user) {
-        for (User u : users) {
-            // Message should not be received by the user sending it
-            if (u != user) {
-                u.receive(message);
-            }
-        }
-    }
-
-    @Override
-    public void addUser(User user) {
-        users.add(user);
-    }
+public sealed class Rectangle extends Shape permits FilledRectangle {
+    // Implementation specific to Rectangle
 }
 
-// Abstract Colleague
-abstract class User {
-    protected ChatMediator mediator;
-    protected String name;
-
-    public User(ChatMediator mediator, String name) {
-        this.mediator = mediator;
-        this.name = name;
-    }
-
-    public abstract void send(String message);
-    public abstract void receive(String message);
-}
-
-// Concrete Colleague
-class ChatUser extends User {
-    public ChatUser(ChatMediator mediator, String name) {
-        super(mediator, name);
-    }
-
-    @Override
-    public void send(String message) {
-        System.out.println(this.name + " sends: " + message);
-        mediator.sendMessage(message, this);
-    }
-
-    @Override
-    public void receive(String message) {
-        System.out.println(this.name + " receives: " + message);
-    }
-}
-
-// Usage
-public class ChatApplication {
-    public static void main(String[] args) {
-        ChatMediator chatRoom = new ChatRoom();
-
-        User user1 = new ChatUser(chatRoom, "Alice");
-        User user2 = new ChatUser(chatRoom, "Bob");
-        User user3 = new ChatUser(chatRoom, "Charlie");
-
-        chatRoom.addUser(user1);
-        chatRoom.addUser(user2);
-        chatRoom.addUser(user3);
-
-        user1.send("Hello, everyone!");
-    }
+public non-sealed class Square extends Shape {
+    // Implementation specific to Square
 }
 ```
 
-In this example, the `ChatRoom` class serves as the mediator, managing the communication between `ChatUser` instances. When a user sends a message, the mediator delivers it to all other users in the chat room.
+In this example, `Circle` is a final class, `Rectangle` is a sealed class with `FilledRectangle` as its permitted subclass, and `Square` is non-sealed, allowing any class to extend it.
 
-### GUI Frameworks and Mediator Pattern
+### Integration with Pattern Matching
 
-GUI frameworks often employ the Mediator pattern to handle complex interactions between components. By centralizing the interaction logic, mediators can simplify the development and maintenance of user interfaces.
-
-#### Example: Mediator in a GUI Framework
-
-Consider a more complex GUI application with multiple windows and dialogs. Each window might contain several components that need to interact with each other. By using a mediator, we can manage these interactions without creating dependencies between the components.
+Sealed classes integrate seamlessly with pattern matching in switch expressions, a feature that enhances readability and reduces boilerplate code.
 
 ```java
-// Mediator interface
-interface WindowMediator {
-    void notify(Component sender, String event);
-}
-
-// Concrete Mediator
-class MainWindow implements WindowMediator {
-    private Button saveButton;
-    private Button loadButton;
-    private TextField inputField;
-
-    public MainWindow(Button saveButton, Button loadButton, TextField inputField) {
-        this.saveButton = saveButton;
-        this.loadButton = loadButton;
-        this.inputField = inputField;
-        saveButton.setMediator(this);
-        loadButton.setMediator(this);
-        inputField.setMediator(this);
-    }
-
-    @Override
-    public void notify(Component sender, String event) {
-        if (sender == inputField && event.equals("textChanged")) {
-            saveButton.setEnabled(!inputField.getText().isEmpty());
-        } else if (sender == saveButton && event.equals("click")) {
-            System.out.println("Saving data: " + inputField.getText());
-        } else if (sender == loadButton && event.equals("click")) {
-            System.out.println("Loading data...");
-            inputField.setText("Loaded data");
-        }
-    }
-}
-
-// Usage
-public class GUIApplication {
-    public static void main(String[] args) {
-        Button saveButton = new Button();
-        Button loadButton = new Button();
-        TextField inputField = new TextField();
-
-        MainWindow mainWindow = new MainWindow(saveButton, loadButton, inputField);
-
-        inputField.setText("New data");
-        saveButton.click();
-        loadButton.click();
-    }
+public double calculateArea(Shape shape) {
+    return switch (shape) {
+        case Circle c -> Math.PI * c.radius() * c.radius();
+        case Rectangle r -> r.length() * r.width();
+        case Square s -> s.side() * s.side();
+    };
 }
 ```
 
-In this example, the `MainWindow` class acts as the mediator, coordinating the interactions between the `Button` and `TextField` components. The mediator handles events such as button clicks and text changes, updating the UI accordingly.
+In this example, the switch expression uses pattern matching to determine the type of `Shape` and calculate its area accordingly. The compiler ensures that all possible subclasses are covered, providing compile-time safety.
 
-### Mediator Pattern in Collaborative Environments
+### Scenarios for Using Sealed Classes
 
-Collaborative environments, such as chat systems and collaborative editing tools, benefit greatly from the Mediator pattern. By centralizing communication, mediators can manage user interactions and ensure that changes are propagated efficiently.
+Sealed classes are particularly beneficial in the following scenarios:
 
-#### Example: Collaborative Document Editing
+- **Domain Modeling**: When modeling a domain with a fixed set of types, sealed classes provide a clear and concise way to represent these types and their relationships.
+- **API Design**: In API design, sealed classes can enforce a controlled extension of types, ensuring that only intended subclasses are used.
+- **Pattern Matching**: Sealed classes enhance the power of pattern matching by ensuring exhaustive checks, reducing runtime errors.
 
-In a collaborative document editing application, multiple users can edit the same document simultaneously. A mediator can manage the synchronization of changes and ensure that all users see the most up-to-date version of the document.
+### Practical Example: A Sealed Class Hierarchy
+
+Consider a financial application that models different types of accounts. Using sealed classes, you can define a hierarchy that restricts the types of accounts to a known set.
 
 ```java
-// Mediator interface
-interface DocumentMediator {
-    void updateContent(String content, Editor editor);
-    void addEditor(Editor editor);
-}
+public sealed class Account permits SavingsAccount, CheckingAccount, CreditAccount {
+    protected double balance;
 
-// Concrete Mediator
-class Document implements DocumentMediator {
-    private List<Editor> editors = new ArrayList<>();
-    private String content = "";
-
-    @Override
-    public void updateContent(String content, Editor editor) {
-        this.content = content;
-        for (Editor e : editors) {
-            if (e != editor) {
-                e.refresh(content);
-            }
-        }
-    }
-
-    @Override
-    public void addEditor(Editor editor) {
-        editors.add(editor);
+    public double getBalance() {
+        return balance;
     }
 }
 
-// Abstract Colleague
-abstract class Editor {
-    protected DocumentMediator mediator;
-    protected String name;
+public final class SavingsAccount extends Account {
+    private double interestRate;
 
-    public Editor(DocumentMediator mediator, String name) {
-        this.mediator = mediator;
-        this.name = name;
-    }
-
-    public abstract void edit(String content);
-    public abstract void refresh(String content);
-}
-
-// Concrete Colleague
-class TextEditor extends Editor {
-    public TextEditor(DocumentMediator mediator, String name) {
-        super(mediator, name);
-    }
-
-    @Override
-    public void edit(String content) {
-        System.out.println(this.name + " edits: " + content);
-        mediator.updateContent(content, this);
-    }
-
-    @Override
-    public void refresh(String content) {
-        System.out.println(this.name + " refreshes content: " + content);
+    public double getInterestRate() {
+        return interestRate;
     }
 }
 
-// Usage
-public class CollaborativeEditingApplication {
-    public static void main(String[] args) {
-        DocumentMediator document = new Document();
+public final class CheckingAccount extends Account {
+    private double overdraftLimit;
 
-        Editor editor1 = new TextEditor(document, "Alice");
-        Editor editor2 = new TextEditor(document, "Bob");
+    public double getOverdraftLimit() {
+        return overdraftLimit;
+    }
+}
 
-        document.addEditor(editor1);
-        document.addEditor(editor2);
+public final class CreditAccount extends Account {
+    private double creditLimit;
 
-        editor1.edit("Hello, world!");
+    public double getCreditLimit() {
+        return creditLimit;
     }
 }
 ```
 
-In this example, the `Document` class acts as the mediator, managing the synchronization of content between `TextEditor` instances. When an editor makes changes, the mediator updates the content and notifies all other editors.
+In this example, `Account` is a sealed class with three permitted subclasses: `SavingsAccount`, `CheckingAccount`, and `CreditAccount`. Each subclass has specific fields and methods relevant to its type.
 
-### Try It Yourself
+### Benefits and Drawbacks
 
-To deepen your understanding of the Mediator pattern, try modifying the examples provided:
+#### Benefits
 
-- **GUI Example**: Add a new component, such as a slider, and update the mediator logic to handle its interactions.
-- **Chat System**: Implement a private messaging feature where users can send messages directly to specific users.
-- **Collaborative Editing**: Add a version control feature that tracks changes and allows users to revert to previous versions.
+- **Enhanced Type Safety**: By restricting subclassing, sealed classes provide better type safety and prevent unintended extensions.
+- **Improved Readability**: The explicit declaration of permitted subclasses makes the code more readable and understandable.
+- **Exhaustive Pattern Matching**: Sealed classes ensure that all possible subclasses are considered in pattern matching, reducing runtime errors.
 
-### Visualizing the Mediator Pattern
+#### Drawbacks
 
-To better understand the interactions facilitated by the Mediator pattern, let's visualize the relationships between components and the mediator using a class diagram.
+- **Limited Flexibility**: The restriction on subclassing can be limiting in scenarios where extensibility is required.
+- **Increased Complexity**: Managing a sealed hierarchy can introduce complexity, especially in large systems with many types.
 
-```mermaid
-classDiagram
-    class Mediator {
-        <<interface>>
-        +componentChanged(Component component)
-    }
-    class DialogMediator {
-        +componentChanged(Component component)
-    }
-    class Component {
-        #DialogMediator mediator
-        +setMediator(DialogMediator mediator)
-        +changed()
-    }
-    class TextField {
-        +String text
-        +setText(String text)
-        +getText(): String
-    }
-    class CheckBox {
-        +boolean checked
-        +setChecked(boolean checked)
-        +isChecked(): boolean
-    }
-    class Button {
-        +boolean enabled
-        +setEnabled(boolean enabled)
-    }
+### Best Practices
 
-    Mediator <|.. DialogMediator
-    Component <|-- TextField
-    Component <|-- CheckBox
-    Component <|-- Button
-    DialogMediator o-- Component
-```
+- **Use Sealed Classes for Fixed Hierarchies**: When the set of subclasses is known and unlikely to change, sealed classes provide a robust solution.
+- **Combine with Pattern Matching**: Leverage pattern matching to simplify code and ensure exhaustive checks.
+- **Document Subclass Relationships**: Clearly document the relationships between sealed classes and their subclasses to aid understanding and maintenance.
 
-In this diagram, the `DialogMediator` class implements the `Mediator` interface and manages the interactions between `Component` instances, such as `TextField`, `CheckBox`, and `Button`.
+### Conclusion
 
-### References and Links
+Sealed classes in Java offer a powerful tool for controlling inheritance and enhancing domain models. By understanding their syntax, use cases, and integration with pattern matching, developers can create more maintainable and predictable code. As with any feature, it's essential to weigh the benefits against the drawbacks and apply sealed classes judiciously in appropriate scenarios.
 
-For further reading on the Mediator pattern and its applications, consider the following resources:
+### Further Reading
 
-- [Design Patterns: Elements of Reusable Object-Oriented Software](https://en.wikipedia.org/wiki/Design_Patterns) by Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides.
-- [Refactoring Guru: Mediator Pattern](https://refactoring.guru/design-patterns/mediator)
-- [Java Design Patterns: Mediator](https://www.journaldev.com/1730/mediator-design-pattern-java)
+- [Java Sealed Classes Documentation](https://docs.oracle.com/en/java/javase/17/language/sealed-classes-and-interfaces.html)
+- [Pattern Matching in Java](https://docs.oracle.com/en/java/javase/17/language/pattern-matching.html)
 
-### Knowledge Check
+### Exercises
 
-Before we conclude, let's reinforce your understanding with a few questions:
+1. Implement a sealed class hierarchy for a transportation system with classes like `Car`, `Bus`, and `Bicycle`.
+2. Modify the financial application example to include a new type of account, ensuring that the sealed class hierarchy is updated accordingly.
+3. Experiment with pattern matching in switch expressions using sealed classes to handle different types of events in an event-driven system.
 
-- How does the Mediator pattern promote loose coupling between components?
-- What are the benefits of using a mediator in a GUI framework?
-- How can the Mediator pattern be applied to collaborative environments like chat systems?
+### Quiz
 
-### Embrace the Journey
-
-Remember, mastering design patterns is an ongoing journey. As you continue to explore and apply these patterns, you'll gain a deeper understanding of their benefits and nuances. Keep experimenting, stay curious, and enjoy the process!
-
-## Quiz Time!
+## Test Your Knowledge: Sealed Classes in Java Quiz
 
 {{< quizdown >}}
 
-### What is the primary purpose of the Mediator pattern?
+### What is the primary purpose of sealed classes in Java?
 
-- [x] To centralize communication between components
-- [ ] To increase coupling between components
-- [ ] To eliminate the need for interfaces
-- [ ] To replace all other design patterns
+- [x] To restrict which classes can extend or implement them.
+- [ ] To enhance performance by reducing class loading time.
+- [ ] To simplify the syntax of class declarations.
+- [ ] To allow dynamic subclassing at runtime.
 
-> **Explanation:** The Mediator pattern centralizes communication between components, reducing dependencies and promoting loose coupling.
+> **Explanation:** Sealed classes restrict which other classes can extend or implement them, providing more control over inheritance.
 
-### In a GUI framework, what role does the Mediator pattern play?
+### Which keyword is used to declare a sealed class in Java?
 
-- [x] It manages interactions between UI components
-- [ ] It handles low-level rendering tasks
-- [ ] It replaces the need for event listeners
-- [ ] It directly manipulates the DOM
+- [x] sealed
+- [ ] final
+- [ ] abstract
+- [ ] static
 
-> **Explanation:** The Mediator pattern manages interactions between UI components, simplifying the interaction logic and reducing dependencies.
+> **Explanation:** The `sealed` keyword is used to declare a sealed class in Java.
 
-### How does the Mediator pattern benefit chat systems?
+### What modifier must a subclass of a sealed class specify?
 
-- [x] It centralizes message delivery and user interactions
-- [ ] It encrypts messages for security
-- [ ] It provides a user interface for chat rooms
-- [ ] It stores chat history
+- [x] final, sealed, or non-sealed
+- [ ] public, private, or protected
+- [ ] static, abstract, or synchronized
+- [ ] volatile, transient, or native
 
-> **Explanation:** The Mediator pattern centralizes message delivery and user interactions, ensuring efficient communication between users.
+> **Explanation:** Subclasses of a sealed class must specify one of the following modifiers: `final`, `sealed`, or `non-sealed`.
 
-### Which of the following is a key advantage of using the Mediator pattern?
+### How do sealed classes enhance pattern matching in switch expressions?
 
-- [x] Reduced complexity in component interactions
-- [ ] Increased dependency between components
-- [ ] Elimination of all design patterns
-- [ ] Direct access to component internals
+- [x] By ensuring exhaustive checks of all possible subclasses.
+- [ ] By allowing dynamic type inference.
+- [ ] By reducing the number of case statements required.
+- [ ] By enabling runtime type checking.
 
-> **Explanation:** The Mediator pattern reduces complexity in component interactions by centralizing communication, making the system more maintainable.
+> **Explanation:** Sealed classes enhance pattern matching by ensuring that all possible subclasses are considered, providing compile-time safety.
 
-### In the provided GUI example, what triggers the mediator to update the button's enabled state?
+### In which version of Java were sealed classes introduced?
 
-- [x] Changes in the text field or checkbox
-- [ ] Button clicks
-- [ ] Window resizing
-- [ ] Keyboard shortcuts
+- [x] Java 17
+- [ ] Java 11
+- [ ] Java 8
+- [ ] Java 14
 
-> **Explanation:** The mediator updates the button's enabled state based on changes in the text field or checkbox.
+> **Explanation:** Sealed classes were introduced in Java 17.
 
-### How can the Mediator pattern be applied to collaborative document editing?
+### What is a potential drawback of using sealed classes?
 
-- [x] By managing synchronization of content between editors
-- [ ] By encrypting document content
-- [ ] By providing a user interface for editing
-- [ ] By storing document versions
+- [x] Limited flexibility in extending classes.
+- [ ] Increased runtime performance overhead.
+- [ ] Reduced readability of code.
+- [ ] Difficulty in integrating with legacy systems.
 
-> **Explanation:** The Mediator pattern manages synchronization of content between editors, ensuring all users see the most up-to-date version.
+> **Explanation:** A potential drawback of sealed classes is the limited flexibility in extending classes, as they restrict subclassing.
 
-### What is a common modification to try in the GUI example?
+### Which of the following is NOT a valid subclass modifier for a sealed class?
 
-- [x] Adding a new component and updating mediator logic
-- [ ] Removing the mediator entirely
-- [ ] Hardcoding component interactions
-- [ ] Using global variables for state management
+- [ ] final
+- [ ] sealed
+- [ ] non-sealed
+- [x] abstract
 
-> **Explanation:** A common modification is to add a new component and update the mediator logic to handle its interactions, demonstrating the pattern's flexibility.
+> **Explanation:** `abstract` is not a valid subclass modifier for a sealed class. The valid modifiers are `final`, `sealed`, and `non-sealed`.
 
-### Which design pattern is often used in conjunction with the Mediator pattern in GUI frameworks?
+### What is a common use case for sealed classes?
 
-- [x] Observer pattern
-- [ ] Singleton pattern
-- [ ] Factory pattern
-- [ ] Prototype pattern
+- [x] Domain modeling with a fixed set of types.
+- [ ] Enhancing multithreading performance.
+- [ ] Simplifying database interactions.
+- [ ] Improving network communication efficiency.
 
-> **Explanation:** The Observer pattern is often used in conjunction with the Mediator pattern in GUI frameworks to handle event-driven interactions.
+> **Explanation:** A common use case for sealed classes is domain modeling with a fixed set of types, where the hierarchy is known and controlled.
 
-### What is a potential drawback of the Mediator pattern?
+### How do sealed classes improve API design?
 
-- [x] The mediator can become a complex monolith
-- [ ] It increases coupling between components
-- [ ] It eliminates the need for interfaces
-- [ ] It reduces system maintainability
+- [x] By enforcing a controlled extension of types.
+- [ ] By reducing the number of public methods.
+- [ ] By allowing dynamic method dispatch.
+- [ ] By simplifying error handling.
 
-> **Explanation:** A potential drawback is that the mediator can become a complex monolith if it handles too many interactions, making it harder to maintain.
+> **Explanation:** Sealed classes improve API design by enforcing a controlled extension of types, ensuring that only intended subclasses are used.
 
-### True or False: The Mediator pattern eliminates the need for direct communication between components.
+### True or False: Sealed classes can be extended by any class.
 
-- [x] True
-- [ ] False
+- [ ] True
+- [x] False
 
-> **Explanation:** True. The Mediator pattern eliminates the need for direct communication between components by centralizing interactions through a mediator.
+> **Explanation:** False. Sealed classes can only be extended by the classes specified in their permits clause.
 
 {{< /quizdown >}}

@@ -1,314 +1,235 @@
 ---
 canonical: "https://softwarepatternslexicon.com/patterns-java/5/7/1"
-title: "Implementing Memento Pattern in Java: Save and Restore Object States"
-description: "Learn how to implement the Memento design pattern in Java to save and restore object states efficiently. Explore step-by-step guidance, code examples, and best practices."
-linkTitle: "5.7.1 Implementing Memento in Java"
-categories:
-- Design Patterns
-- Java Programming
-- Software Engineering
+title: "Understanding JPMS: Enhancing Modularity and Encapsulation in Java"
+description: "Explore the Java Platform Module System (JPMS) introduced in Java 9, its impact on encapsulation, modularity, and the overall architecture of Java applications."
+linkTitle: "5.7.1 Understanding JPMS"
 tags:
-- Memento Pattern
-- Java Design Patterns
-- Object State Management
-- Software Architecture
-- Behavioral Patterns
-date: 2024-11-17
+- "Java"
+- "JPMS"
+- "Modularity"
+- "Encapsulation"
+- "Java 9"
+- "Module System"
+- "Software Architecture"
+- "Java Development"
+date: 2024-11-25
 type: docs
-nav_weight: 5710
+nav_weight: 57100
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 
-## 5.7.1 Implementing Memento in Java
+## 5.7.1 Understanding JPMS
 
-In this section, we will delve into the Memento design pattern, a behavioral pattern that allows us to capture and restore an object's state without violating encapsulation. This pattern is particularly useful in scenarios where you need to implement undo mechanisms or maintain historical states of an object. Let's explore how to implement the Memento pattern in Java, complete with detailed explanations and code examples.
+The Java Platform Module System (JPMS), introduced in Java 9, represents a significant evolution in the Java ecosystem, aimed at enhancing modularity and encapsulation. This section delves into the rationale behind its introduction, the core concepts of modules, and how JPMS fundamentally changes the way Java applications are structured and managed.
 
-### Understanding the Memento Pattern
+### Why the Module System Was Introduced in Java 9
 
-The Memento pattern is designed to capture an object's internal state so that it can be restored later. It involves three primary components:
+Java, since its inception, has been a language that emphasizes simplicity, portability, and maintainability. However, as Java applications grew in size and complexity, the limitations of the traditional package system became apparent. The lack of a robust modularity mechanism led to issues such as:
 
-1. **Originator**: The object whose state needs to be saved and restored.
-2. **Memento**: A representation of the Originator's state at a particular point in time.
-3. **Caretaker**: Manages the mementos and is responsible for storing and retrieving them.
+- **Classpath Hell**: Managing dependencies via the classpath often resulted in conflicts and versioning issues.
+- **Poor Encapsulation**: Packages did not provide strong encapsulation, leading to unintended access to internal APIs.
+- **Monolithic JDK**: The Java Development Kit (JDK) itself was a monolithic entity, making it challenging to scale down for smaller devices or applications.
 
-Let's visualize the interaction between these components using a class diagram:
+JPMS was introduced to address these challenges by providing a more structured and scalable approach to modularity.
 
-```mermaid
-classDiagram
-    class Originator {
-        -state: String
-        +createMemento(): Memento
-        +restore(memento: Memento)
-    }
-    
-    class Memento {
-        -state: String
-        +getState(): String
-    }
-    
-    class Caretaker {
-        -mementos: List~Memento~
-        +addMemento(memento: Memento)
-        +getMemento(index: int): Memento
-    }
-    
-    Originator --> Memento
-    Caretaker --> Memento
-```
+### Core Concepts of JPMS
 
-### Step-by-Step Implementation
+#### Modules
 
-#### Step 1: Define the Memento Class
+A **module** in JPMS is a higher-level aggregation of packages and resources. It encapsulates a set of packages and defines a clear boundary for accessibility and dependency management. Each module can explicitly declare:
 
-The Memento class is a simple data holder that stores the state of the Originator. It should not expose any methods that allow modification of its state, ensuring encapsulation.
+- **Dependencies**: Other modules it relies on.
+- **Exports**: Packages it makes available to other modules.
+- **Services**: Interfaces it provides or consumes.
+
+#### Module Descriptors (`module-info.java`)
+
+The `module-info.java` file is the cornerstone of a module. It resides in the root of a module and specifies the module's metadata, including its name, dependencies, and exported packages. Here's a basic example:
 
 ```java
-public class Memento {
-    private final String state;
-
-    public Memento(String state) {
-        this.state = state;
-    }
-
-    public String getState() {
-        return state;
-    }
+module com.example.myapp {
+    requires java.sql;
+    exports com.example.myapp.api;
 }
 ```
 
-In this example, the Memento class holds a single state, represented as a `String`. The state is immutable, as indicated by the `final` keyword, ensuring that once a Memento is created, its state cannot be changed.
+- **`requires`**: Declares dependencies on other modules.
+- **`exports`**: Specifies which packages are accessible to other modules.
 
-#### Step 2: Implement the Originator Class
+#### Module Paths
 
-The Originator is responsible for creating and restoring its state using Mementos. It provides methods to create a Memento and restore its state from a Memento.
+The **module path** is analogous to the classpath but specifically for modules. It tells the Java runtime where to find modules and their dependencies. This separation allows for better management and isolation of module dependencies.
+
+### Enhancing Encapsulation with Modules
+
+Modules provide **strong encapsulation**, a significant improvement over the traditional package system. With JPMS, you can:
+
+- **Control Access**: Only explicitly exported packages are accessible to other modules.
+- **Hide Implementation Details**: Internal packages remain hidden, reducing the risk of accidental usage by external code.
+- **Enforce Dependencies**: The module system enforces dependency declarations, preventing runtime errors due to missing dependencies.
+
+### Defining and Requiring Modules
+
+Let's explore how to define and require modules with practical examples.
+
+#### Defining a Module
+
+Consider a simple application with two modules: `com.example.app` and `com.example.utils`.
+
+1. **Create the `module-info.java` for `com.example.utils`:**
 
 ```java
-public class Originator {
-    private String state;
-
-    public void setState(String state) {
-        System.out.println("Setting state to " + state);
-        this.state = state;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public Memento createMemento() {
-        System.out.println("Creating Memento with state: " + state);
-        return new Memento(state);
-    }
-
-    public void restore(Memento memento) {
-        state = memento.getState();
-        System.out.println("State restored to " + state);
-    }
+module com.example.utils {
+    exports com.example.utils;
 }
 ```
 
-The `Originator` class has methods to set its state, create a Memento, and restore its state from a Memento. The `createMemento` method captures the current state, while the `restore` method updates the state based on a given Memento.
-
-#### Step 3: Create the Caretaker Class
-
-The Caretaker is responsible for managing Mementos. It stores Mementos and provides methods to retrieve them.
+2. **Create the `module-info.java` for `com.example.app`:**
 
 ```java
-import java.util.ArrayList;
-import java.util.List;
-
-public class Caretaker {
-    private final List<Memento> mementos = new ArrayList<>();
-
-    public void addMemento(Memento memento) {
-        mementos.add(memento);
-        System.out.println("Memento added. Total mementos: " + mementos.size());
-    }
-
-    public Memento getMemento(int index) {
-        return mementos.get(index);
-    }
+module com.example.app {
+    requires com.example.utils;
 }
 ```
 
-The `Caretaker` class uses a `List` to store Memento objects. It provides methods to add a Memento to the list and retrieve a Memento by its index.
+In this setup, `com.example.app` depends on `com.example.utils`, and only the `com.example.utils` package is exported for use.
 
-### Putting It All Together
+#### Requiring a Module
 
-Now that we have defined the Memento, Originator, and Caretaker classes, let's see how they work together in a simple example.
+When a module requires another, it must declare this dependency in its `module-info.java`. This ensures that all dependencies are resolved at compile-time, reducing runtime errors.
 
-```java
-public class MementoPatternDemo {
-    public static void main(String[] args) {
-        Originator originator = new Originator();
-        Caretaker caretaker = new Caretaker();
+### Comparing Modules to Packages
 
-        originator.setState("State1");
-        caretaker.addMemento(originator.createMemento());
+While both modules and packages are mechanisms for organizing code, they serve different purposes:
 
-        originator.setState("State2");
-        caretaker.addMemento(originator.createMemento());
+- **Packages**: Primarily used for organizing classes and interfaces within a module. They provide a namespace but lack strong encapsulation.
+- **Modules**: Provide a higher-level structure that includes packages and resources. They enforce encapsulation and dependency management.
 
-        originator.setState("State3");
-        System.out.println("Current State: " + originator.getState());
+#### Impact on Accessibility
 
-        originator.restore(caretaker.getMemento(1));
-        System.out.println("Restored to State: " + originator.getState());
+Modules introduce a new level of accessibility control. Unlike packages, which allow public access to all classes within them, modules can restrict access to specific packages. This leads to more secure and maintainable codebases.
 
-        originator.restore(caretaker.getMemento(0));
-        System.out.println("Restored to State: " + originator.getState());
-    }
-}
-```
+### Practical Applications and Real-World Scenarios
 
-In this example, we create an `Originator` and a `Caretaker`. We change the state of the Originator and save its state using the Caretaker. Later, we restore the Originator's state to previous states using the saved Mementos.
+JPMS is particularly beneficial in large-scale applications where modularity and encapsulation are critical. Here are some scenarios where JPMS shines:
 
-### Try It Yourself
+- **Microservices Architecture**: Modules can represent individual services, each with its own dependencies and exports.
+- **Library Development**: Libraries can expose only their public APIs, keeping implementation details hidden.
+- **JDK Modularity**: The JDK itself is modularized, allowing developers to include only the necessary components, reducing application footprint.
 
-To better understand the Memento pattern, try modifying the code examples:
+### Conclusion
 
-- **Experiment with Different Data Types**: Change the state in the Memento to other data types, such as `int` or custom objects.
-- **Implement Undo and Redo**: Extend the Caretaker to support undo and redo operations by maintaining a pointer to the current state.
-- **Add Timestamps**: Modify the Memento to include timestamps and print them when restoring states.
+The Java Platform Module System is a powerful addition to the Java language, addressing long-standing issues with modularity and encapsulation. By understanding and leveraging JPMS, developers can create more maintainable, scalable, and secure Java applications.
 
-### Visualizing the Memento Pattern in Action
+### Exercises
 
-To further illustrate the Memento pattern, let's visualize the process of saving and restoring states using a sequence diagram.
+1. **Create a Simple Module**: Define a module with a `module-info.java` file and explore how to export packages and require other modules.
+2. **Refactor an Existing Application**: Take a monolithic Java application and refactor it into multiple modules, observing the impact on encapsulation and dependency management.
 
-```mermaid
-sequenceDiagram
-    participant Originator
-    participant Caretaker
-    participant Memento
+### Key Takeaways
 
-    Originator->>Memento: createMemento()
-    Memento-->>Originator: Memento(state)
-    Originator->>Caretaker: addMemento(memento)
-    Caretaker-->>Originator: memento added
+- JPMS enhances modularity and encapsulation in Java applications.
+- Modules provide strong encapsulation, controlling access to packages.
+- The `module-info.java` file is central to defining module metadata.
+- JPMS addresses issues like classpath hell and poor encapsulation.
 
-    Originator->>Memento: createMemento()
-    Memento-->>Originator: Memento(state)
-    Originator->>Caretaker: addMemento(memento)
-    Caretaker-->>Originator: memento added
+### Further Reading
 
-    Originator->>Caretaker: getMemento(index)
-    Caretaker-->>Originator: return memento
-    Originator->>Memento: restore(memento)
-    Memento-->>Originator: state restored
-```
+- [Java Documentation](https://docs.oracle.com/en/java/)
+- [OpenJDK Project Jigsaw](http://openjdk.java.net/projects/jigsaw/)
 
-### Best Practices and Considerations
+---
 
-When implementing the Memento pattern, consider the following best practices:
-
-- **Encapsulation**: Ensure that the Memento class does not expose methods that allow its state to be modified. This maintains the integrity of the saved state.
-- **Memory Management**: Be mindful of memory usage, especially if the Originator's state is large or if many Mementos are created. Consider strategies to limit the number of stored Mementos.
-- **Serialization**: For complex states, consider using serialization to store Mementos, especially if you need to persist them beyond the application's lifecycle.
-
-### Knowledge Check
-
-Before we wrap up, let's pose a few questions to reinforce your understanding:
-
-- What is the primary purpose of the Memento pattern?
-- How does the Caretaker manage Mementos?
-- Why is encapsulation important in the Memento pattern?
-
-### Summary
-
-In this section, we explored the Memento design pattern and its implementation in Java. We learned how to capture and restore an object's state using Mementos, and how the Originator, Memento, and Caretaker interact to achieve this. By following the provided examples and best practices, you can effectively implement the Memento pattern in your Java applications.
-
-Remember, this is just the beginning. As you progress, you'll discover more ways to leverage design patterns to create robust and maintainable software. Keep experimenting, stay curious, and enjoy the journey!
-
-## Quiz Time!
+## Test Your Knowledge: Java Platform Module System (JPMS) Quiz
 
 {{< quizdown >}}
 
-### What is the primary role of the Memento class in the Memento pattern?
+### Why was the Java Platform Module System (JPMS) introduced in Java 9?
 
-- [x] To store the state of the Originator
-- [ ] To modify the state of the Originator
-- [ ] To manage the collection of Mementos
-- [ ] To handle user inputs
+- [x] To enhance modularity and encapsulation in Java applications.
+- [ ] To replace the Java Virtual Machine (JVM).
+- [ ] To eliminate the need for packages.
+- [ ] To improve graphical user interfaces.
 
-> **Explanation:** The Memento class is responsible for storing the state of the Originator without exposing it to other objects.
+> **Explanation:** JPMS was introduced to address issues related to modularity and encapsulation, providing a structured approach to managing dependencies and access control.
 
-### Which component of the Memento pattern is responsible for creating and restoring Mementos?
+### What is the purpose of the `module-info.java` file?
 
-- [x] Originator
-- [ ] Caretaker
-- [ ] Memento
-- [ ] Observer
+- [x] To specify module metadata, including dependencies and exports.
+- [ ] To define the main class of a Java application.
+- [ ] To replace the `package` keyword.
+- [ ] To configure the Java runtime environment.
 
-> **Explanation:** The Originator is responsible for creating Mementos to capture its state and restoring its state from a Memento.
+> **Explanation:** The `module-info.java` file is used to define a module's metadata, such as its name, dependencies, and exported packages.
 
-### What is the main responsibility of the Caretaker in the Memento pattern?
+### How do modules improve encapsulation compared to packages?
 
-- [x] To manage the storage and retrieval of Mementos
-- [ ] To modify the state of the Originator
-- [ ] To create Mementos
-- [ ] To encapsulate state
+- [x] Modules provide strong encapsulation by controlling access to packages.
+- [ ] Modules allow public access to all classes within them.
+- [ ] Modules eliminate the need for access modifiers.
+- [ ] Modules automatically export all packages.
 
-> **Explanation:** The Caretaker manages the storage and retrieval of Mementos, ensuring that the Originator's state can be restored later.
+> **Explanation:** Modules enhance encapsulation by allowing only explicitly exported packages to be accessible to other modules, unlike packages that do not enforce such restrictions.
 
-### Why is encapsulation important in the Memento pattern?
+### What is the module path used for?
 
-- [x] To prevent external objects from modifying the Memento's state
-- [ ] To allow the Caretaker to modify the Originator's state
-- [ ] To expose the internal state of the Originator
-- [ ] To simplify the creation of Mementos
+- [x] To specify where to find modules and their dependencies.
+- [ ] To define the classpath for a Java application.
+- [ ] To list all packages within a module.
+- [ ] To configure the Java compiler options.
 
-> **Explanation:** Encapsulation ensures that the Memento's state cannot be modified by external objects, preserving the integrity of the saved state.
+> **Explanation:** The module path is used to locate modules and their dependencies, similar to how the classpath is used for classes.
 
-### In the Memento pattern, which class is responsible for restoring the state of the Originator?
+### Which of the following is a benefit of using JPMS?
 
-- [x] Originator
-- [ ] Caretaker
-- [ ] Memento
-- [ ] Observer
+- [x] Reducing application footprint by including only necessary components.
+- [ ] Automatically resolving all runtime errors.
+- [x] Enhancing security by hiding implementation details.
+- [ ] Eliminating the need for dependency management.
 
-> **Explanation:** The Originator is responsible for restoring its state from a Memento.
+> **Explanation:** JPMS allows developers to include only the necessary components, reducing the application footprint, and enhances security by hiding non-exported packages.
 
-### What is a potential downside of using the Memento pattern?
+### What does the `requires` keyword in `module-info.java` do?
 
-- [x] Increased memory usage due to storing multiple states
-- [ ] Difficulty in implementing the pattern
-- [ ] Lack of encapsulation
-- [ ] Inability to restore states
+- [x] Declares dependencies on other modules.
+- [ ] Exports packages to other modules.
+- [ ] Imports classes from other packages.
+- [ ] Defines the main class of a module.
 
-> **Explanation:** The Memento pattern can lead to increased memory usage if many states are stored, especially if the state is large.
+> **Explanation:** The `requires` keyword is used to declare dependencies on other modules within the `module-info.java` file.
 
-### How can you limit the memory usage when using the Memento pattern?
+### How does JPMS address the issue of classpath hell?
 
-- [x] By limiting the number of stored Mementos
-- [ ] By exposing the Memento's state
-- [ ] By modifying the Originator's state directly
-- [ ] By using the Observer pattern
+- [x] By enforcing explicit dependency declarations and resolving them at compile-time.
+- [ ] By eliminating the need for a classpath.
+- [x] By providing a separate module path for managing dependencies.
+- [ ] By automatically resolving all dependencies at runtime.
 
-> **Explanation:** Limiting the number of stored Mementos can help manage memory usage effectively.
+> **Explanation:** JPMS addresses classpath hell by requiring explicit dependency declarations and resolving them at compile-time, using a separate module path for better management.
 
-### Which of the following is a common use case for the Memento pattern?
+### What is a key difference between modules and packages?
 
-- [x] Implementing undo functionality
-- [ ] Managing user inputs
-- [ ] Handling concurrent requests
-- [ ] Logging system events
+- [x] Modules provide a higher-level structure that includes packages and resources.
+- [ ] Modules replace packages entirely.
+- [ ] Modules do not support encapsulation.
+- [ ] Modules are only used for graphical applications.
 
-> **Explanation:** The Memento pattern is commonly used to implement undo functionality by capturing and restoring previous states.
+> **Explanation:** Modules provide a higher-level structure that includes packages and resources, offering better encapsulation and dependency management.
 
-### What is the relationship between the Originator and the Memento in the Memento pattern?
+### Can a module export all of its packages by default?
 
-- [x] The Originator creates and uses the Memento to save and restore its state
-- [ ] The Memento modifies the Originator's state directly
-- [ ] The Caretaker modifies the Memento's state
-- [ ] The Memento manages the collection of Originators
+- [ ] Yes, all packages are exported by default.
+- [x] No, only explicitly exported packages are accessible to other modules.
+- [ ] Yes, but only if specified in the `module-info.java`.
+- [ ] No, modules cannot export packages.
 
-> **Explanation:** The Originator creates a Memento to save its state and uses it to restore its state later.
+> **Explanation:** In JPMS, only packages explicitly declared in the `exports` statement of the `module-info.java` are accessible to other modules.
 
-### True or False: The Caretaker should modify the state stored in a Memento.
+### True or False: JPMS allows for better scalability in large-scale applications.
 
-- [ ] True
-- [x] False
+- [x] True
+- [ ] False
 
-> **Explanation:** The Caretaker should not modify the state stored in a Memento; it should only manage the storage and retrieval of Mementos.
+> **Explanation:** True. JPMS enhances scalability by providing a structured approach to modularity and encapsulation, making it easier to manage large-scale applications.
 
 {{< /quizdown >}}

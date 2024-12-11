@@ -1,324 +1,325 @@
 ---
 canonical: "https://softwarepatternslexicon.com/patterns-java/6/2/1"
-title: "Implementing Active Object Pattern in Java for Asynchronous Execution"
-description: "Learn how to implement the Active Object pattern in Java using threads and queues for asynchronous execution, including creating command objects, managing request queues, and handling concurrency."
-linkTitle: "6.2.1 Implementing Active Object in Java"
-categories:
-- Java Design Patterns
-- Concurrency Patterns
-- Software Engineering
+
+title: "Implementing Factory Method in Java"
+description: "Explore the Factory Method pattern in Java, a creational design pattern that defines an interface for object creation, allowing subclasses to alter the type of objects created."
+linkTitle: "6.2.1 Implementing Factory Method in Java"
 tags:
-- Active Object Pattern
-- Java Concurrency
-- Asynchronous Execution
-- Thread Management
-- Design Patterns
-date: 2024-11-17
+- "Java"
+- "Design Patterns"
+- "Factory Method"
+- "Creational Patterns"
+- "Object-Oriented Programming"
+- "Software Architecture"
+- "Advanced Java"
+- "Best Practices"
+date: 2024-11-25
 type: docs
-nav_weight: 6210
+nav_weight: 62100
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
+
 ---
 
-## 6.2.1 Implementing Active Object in Java
+## 6.2.1 Implementing Factory Method in Java
 
-The Active Object pattern is a concurrency design pattern that decouples method execution from method invocation to enhance concurrency and simplify synchronized access to shared resources. This pattern is particularly useful in scenarios where you need to perform long-running tasks asynchronously without blocking the calling thread. In this section, we'll explore how to implement the Active Object pattern in Java, focusing on encapsulating method requests as command objects, managing a queue of pending requests, and processing these requests asynchronously using worker threads.
+The Factory Method pattern is a cornerstone of creational design patterns in object-oriented programming. It provides a way to delegate the instantiation of objects to subclasses, promoting loose coupling and enhancing scalability. This section delves into the Factory Method pattern, its intent, motivation, and practical implementation in Java.
 
-### Understanding the Active Object Pattern
+### Intent
 
-Before diving into the implementation, let's understand the core components of the Active Object pattern:
+The Factory Method pattern defines an interface for creating an object but allows subclasses to alter the type of objects that will be created. This pattern is particularly useful when a class cannot anticipate the class of objects it must create or when a class wants its subclasses to specify the objects it creates.
 
-1. **Command Objects**: Encapsulate the details of a request. Each command object represents a method call with its parameters.
-2. **Scheduler**: Manages a queue of pending requests and dispatches them to worker threads for execution.
-3. **Worker Threads**: Process the requests asynchronously, allowing the client to continue its execution without waiting for the task to complete.
-4. **Proxy**: Provides a synchronous interface to the client while handling the execution asynchronously.
-5. **Result Handling**: Mechanism to retrieve the result of the asynchronous operation once it completes.
+### Motivation
 
-### Implementing Command Objects
+In software development, there are scenarios where the exact class of an object cannot be determined until runtime. The Factory Method pattern addresses this by allowing subclasses to decide which class to instantiate. This approach provides flexibility and encapsulation, enabling developers to introduce new types of products without modifying existing code.
 
-The first step in implementing the Active Object pattern is to encapsulate method requests as command objects. These objects should implement a common interface, allowing them to be handled uniformly by the scheduler and worker threads.
+Consider a scenario where a software application needs to support multiple types of document formats. Instead of hardcoding the creation of each document type, the Factory Method pattern allows the application to delegate the creation process to subclasses, which can decide the specific document type to instantiate.
+
+### Structure
+
+The Factory Method pattern involves several key participants:
+
+- **Product**: Defines the interface of objects the factory method creates.
+- **ConcreteProduct**: Implements the Product interface.
+- **Creator**: Declares the factory method, which returns an object of type Product. It may also define a default implementation of the factory method.
+- **ConcreteCreator**: Overrides the factory method to return an instance of a ConcreteProduct.
+
+#### Class Diagram
+
+The following diagram illustrates the structure of the Factory Method pattern:
+
+```mermaid
+classDiagram
+    class Product {
+        <<interface>>
+    }
+    class ConcreteProductA {
+        +operation()
+    }
+    class ConcreteProductB {
+        +operation()
+    }
+    class Creator {
+        +factoryMethod() Product
+        +someOperation()
+    }
+    class ConcreteCreatorA {
+        +factoryMethod() Product
+    }
+    class ConcreteCreatorB {
+        +factoryMethod() Product
+    }
+    
+    Product <|-- ConcreteProductA
+    Product <|-- ConcreteProductB
+    Creator <|-- ConcreteCreatorA
+    Creator <|-- ConcreteCreatorB
+    Creator o-- Product
+```
+
+**Caption**: The class diagram of the Factory Method pattern, showing the relationship between the Creator, ConcreteCreator, Product, and ConcreteProduct classes.
+
+### Participants
+
+- **Product**: The interface or abstract class that defines the operations that all concrete products must implement.
+- **ConcreteProduct**: A class that implements the Product interface.
+- **Creator**: An abstract class or interface that declares the factory method, which returns an object of type Product.
+- **ConcreteCreator**: A subclass of Creator that implements the factory method to return an instance of a ConcreteProduct.
+
+### Collaborations
+
+- The Creator class relies on its subclasses to implement the factory method and return an instance of a ConcreteProduct.
+- The client interacts with the Creator class to create products, without needing to know the specific class of the product.
+
+### Consequences
+
+The Factory Method pattern offers several benefits:
+
+- **Flexibility**: Allows the code to be more flexible and reusable by decoupling the client code from the specific classes of products.
+- **Scalability**: New product types can be introduced without altering existing code, adhering to the Open/Closed Principle.
+- **Encapsulation**: Encapsulates the instantiation logic, reducing the complexity of client code.
+
+However, it also has potential drawbacks:
+
+- **Complexity**: The pattern can introduce additional complexity due to the need for subclassing.
+- **Overhead**: May result in a proliferation of classes, especially in systems with many product types.
+
+### Implementation
+
+To implement the Factory Method pattern in Java, follow these steps:
+
+1. **Define the Product Interface**: Create an interface or abstract class that defines the operations that all concrete products must implement.
+
+2. **Create ConcreteProduct Classes**: Implement the Product interface in concrete classes.
+
+3. **Define the Creator Class**: Create an abstract class or interface that declares the factory method.
+
+4. **Implement ConcreteCreator Classes**: Subclass the Creator class and implement the factory method to return an instance of a ConcreteProduct.
+
+#### Sample Code Snippets
+
+Let's implement a simple example of the Factory Method pattern in Java, where we create different types of documents.
 
 ```java
-// Command interface representing a request
-public interface Command {
-    void execute();
+// Step 1: Define the Product interface
+interface Document {
+    void open();
+    void close();
 }
 
-// A concrete command implementing the Command interface
-public class PrintCommand implements Command {
-    private final String message;
-
-    public PrintCommand(String message) {
-        this.message = message;
+// Step 2: Create ConcreteProduct classes
+class WordDocument implements Document {
+    @Override
+    public void open() {
+        System.out.println("Opening Word document...");
     }
 
     @Override
-    public void execute() {
-        System.out.println("Executing command: " + message);
+    public void close() {
+        System.out.println("Closing Word document...");
+    }
+}
+
+class PdfDocument implements Document {
+    @Override
+    public void open() {
+        System.out.println("Opening PDF document...");
+    }
+
+    @Override
+    public void close() {
+        System.out.println("Closing PDF document...");
+    }
+}
+
+// Step 3: Define the Creator class
+abstract class DocumentCreator {
+    public abstract Document createDocument();
+
+    public void someOperation() {
+        Document doc = createDocument();
+        doc.open();
+        // Perform operations on the document
+        doc.close();
+    }
+}
+
+// Step 4: Implement ConcreteCreator classes
+class WordDocumentCreator extends DocumentCreator {
+    @Override
+    public Document createDocument() {
+        return new WordDocument();
+    }
+}
+
+class PdfDocumentCreator extends DocumentCreator {
+    @Override
+    public Document createDocument() {
+        return new PdfDocument();
+    }
+}
+
+// Client code
+public class FactoryMethodDemo {
+    public static void main(String[] args) {
+        DocumentCreator creator = new WordDocumentCreator();
+        creator.someOperation();
+
+        creator = new PdfDocumentCreator();
+        creator.someOperation();
     }
 }
 ```
 
-In this example, `Command` is an interface with a single method `execute()`. `PrintCommand` is a concrete implementation that prints a message to the console.
+**Explanation**: In this example, the `Document` interface defines the operations for document objects. The `WordDocument` and `PdfDocument` classes implement this interface. The `DocumentCreator` class declares the factory method `createDocument()`, which is overridden by `WordDocumentCreator` and `PdfDocumentCreator` to return instances of `WordDocument` and `PdfDocument`, respectively. The client code uses the `DocumentCreator` class to create and manipulate document objects without knowing their specific classes.
 
-### Implementing the Scheduler
+### Sample Use Cases
 
-The scheduler is responsible for managing a queue of pending requests and dispatching them to worker threads. We can use a `BlockingQueue` to store the commands, ensuring thread-safe access.
+The Factory Method pattern is widely used in software development. Some real-world scenarios include:
 
-```java
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.LinkedBlockingQueue;
+- **GUI Frameworks**: Creating different types of UI components, such as buttons and windows, without specifying their concrete classes.
+- **Logging Libraries**: Generating different types of loggers (e.g., file logger, console logger) based on configuration.
+- **Data Access Layers**: Creating different types of database connections or queries based on the database type.
 
-public class Scheduler {
-    private final BlockingQueue<Command> commandQueue = new LinkedBlockingQueue<>();
-    private final Thread workerThread;
+### Related Patterns
 
-    public Scheduler() {
-        workerThread = new Thread(this::processCommands);
-        workerThread.start();
-    }
+- **[6.6 Singleton Pattern]({{< ref "/patterns-java/6/6" >}} "Singleton Pattern")**: Ensures a class has only one instance and provides a global point of access to it. Often used in conjunction with Factory Method to manage the lifecycle of created objects.
+- **Abstract Factory Pattern**: Provides an interface for creating families of related or dependent objects without specifying their concrete classes. It can be seen as a higher-level abstraction over the Factory Method pattern.
 
-    public void enqueueCommand(Command command) {
-        try {
-            commandQueue.put(command);
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-            System.err.println("Failed to enqueue command: " + e.getMessage());
-        }
-    }
+### Known Uses
 
-    private void processCommands() {
-        while (true) {
-            try {
-                Command command = commandQueue.take();
-                command.execute();
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-                System.err.println("Worker thread interrupted: " + e.getMessage());
-                break;
-            }
-        }
-    }
-}
-```
+The Factory Method pattern is prevalent in many Java libraries and frameworks:
 
-The `Scheduler` class contains a `BlockingQueue` to hold `Command` objects. The `enqueueCommand` method adds commands to the queue, while the `processCommands` method runs in a separate thread, continuously taking and executing commands from the queue.
+- **Java Collections Framework**: The `Collection` interface uses factory methods to create instances of collections.
+- **Spring Framework**: The `BeanFactory` interface uses factory methods to create and manage beans.
 
-### Setting Up Worker Threads
+### Best Practices
 
-Worker threads are responsible for processing the commands asynchronously. In our example, the `Scheduler` class uses a single worker thread, but you can extend this to use a thread pool for handling multiple requests concurrently.
+- **Use Factory Method when a class cannot anticipate the class of objects it must create**.
+- **Encapsulate object creation logic to promote loose coupling**.
+- **Consider using Factory Method in conjunction with other design patterns** to enhance flexibility and scalability.
 
-```java
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+### Exercises
 
-public class ThreadPoolScheduler {
-    private final BlockingQueue<Command> commandQueue = new LinkedBlockingQueue<>();
-    private final ExecutorService executorService = Executors.newFixedThreadPool(4);
+1. Modify the example code to add a new document type, such as `ExcelDocument`. Implement the necessary classes and methods to support this new type.
+2. Refactor the client code to use a configuration file to determine which `DocumentCreator` subclass to instantiate.
+3. Experiment with Java 8 features, such as lambdas and streams, to enhance the implementation of the Factory Method pattern.
 
-    public ThreadPoolScheduler() {
-        for (int i = 0; i < 4; i++) {
-            executorService.submit(this::processCommands);
-        }
-    }
+### Summary
 
-    public void enqueueCommand(Command command) {
-        try {
-            commandQueue.put(command);
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-            System.err.println("Failed to enqueue command: " + e.getMessage());
-        }
-    }
+The Factory Method pattern is a powerful tool for managing object creation in Java applications. By delegating the instantiation process to subclasses, it promotes flexibility, scalability, and encapsulation. Understanding and implementing this pattern can significantly enhance the design and architecture of software systems.
 
-    private void processCommands() {
-        while (true) {
-            try {
-                Command command = commandQueue.take();
-                command.execute();
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-                System.err.println("Worker thread interrupted: " + e.getMessage());
-                break;
-            }
-        }
-    }
-}
-```
-
-Here, we use an `ExecutorService` to manage a pool of worker threads, allowing multiple commands to be processed concurrently.
-
-### Implementing the Proxy
-
-The proxy provides a synchronous interface to the client while handling the execution asynchronously. It acts as a placeholder for the active object and forwards requests to the scheduler.
-
-```java
-public class ActiveObjectProxy {
-    private final Scheduler scheduler = new ThreadPoolScheduler();
-
-    public void printMessage(String message) {
-        Command command = new PrintCommand(message);
-        scheduler.enqueueCommand(command);
-    }
-}
-```
-
-The `ActiveObjectProxy` class provides a method `printMessage`, which creates a `PrintCommand` and enqueues it for execution.
-
-### Handling Concurrency Issues
-
-When implementing the Active Object pattern, it's crucial to handle concurrency issues such as synchronization and shared resource access. Here are some best practices:
-
-- **Synchronization**: Use thread-safe data structures like `BlockingQueue` to manage shared resources.
-- **Thread Management**: Use a thread pool to manage worker threads efficiently. This approach allows you to control the number of concurrent threads and reuse threads for multiple tasks.
-- **Task Prioritization**: If certain tasks have higher priority, consider using a priority queue to manage the command queue.
-
-### Error Handling and Task Completion
-
-Error handling is essential in any concurrent system. Ensure that exceptions in worker threads do not crash the application. Instead, handle them gracefully and log errors for debugging.
-
-```java
-private void processCommands() {
-    while (true) {
-        try {
-            Command command = commandQueue.take();
-            command.execute();
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-            System.err.println("Worker thread interrupted: " + e.getMessage());
-            break;
-        } catch (Exception e) {
-            System.err.println("Error executing command: " + e.getMessage());
-        }
-    }
-}
-```
-
-In this example, we catch and log exceptions during command execution, ensuring that the worker thread continues processing subsequent commands.
-
-### Visualizing the Active Object Pattern
-
-To better understand the flow of the Active Object pattern, let's visualize the interaction between components using a sequence diagram.
-
-```mermaid
-sequenceDiagram
-    participant Client
-    participant Proxy
-    participant Scheduler
-    participant WorkerThread
-    participant Command
-
-    Client->>Proxy: Request (printMessage)
-    Proxy->>Scheduler: Enqueue Command
-    Scheduler->>WorkerThread: Dequeue Command
-    WorkerThread->>Command: Execute
-    Command->>WorkerThread: Execution Complete
-    WorkerThread->>Scheduler: Ready for Next Command
-```
-
-This diagram illustrates how a client request is handled by the proxy, enqueued by the scheduler, and processed by a worker thread.
-
-### Try It Yourself
-
-Now that we've covered the implementation details, let's encourage you to experiment with the Active Object pattern:
-
-- **Modify the Command**: Create additional command classes that perform different tasks, such as file I/O or network operations.
-- **Adjust the Thread Pool Size**: Experiment with different thread pool sizes to observe the impact on performance.
-- **Implement Task Prioritization**: Use a priority queue to manage commands with varying priorities.
-
-### Conclusion
-
-The Active Object pattern is a powerful tool for managing concurrency in Java applications. By decoupling method execution from invocation, it allows for efficient asynchronous processing of tasks. Remember to handle concurrency issues carefully, manage threads effectively, and implement robust error handling to ensure the reliability of your application.
-
-## Quiz Time!
+## Test Your Knowledge: Factory Method Pattern in Java Quiz
 
 {{< quizdown >}}
 
-### What is the primary purpose of the Active Object pattern?
+### What is the primary intent of the Factory Method pattern?
 
-- [x] To decouple method execution from invocation for asynchronous processing.
-- [ ] To provide a synchronous interface for remote method invocation.
-- [ ] To manage memory allocation in concurrent applications.
-- [ ] To simplify the implementation of complex algorithms.
+- [x] To define an interface for creating an object, but allow subclasses to alter the type of objects created.
+- [ ] To create a single instance of a class.
+- [ ] To provide a way to access elements sequentially.
+- [ ] To define a family of algorithms.
 
-> **Explanation:** The Active Object pattern is designed to decouple method execution from invocation, allowing for asynchronous processing of tasks.
+> **Explanation:** The Factory Method pattern is intended to define an interface for creating an object, allowing subclasses to determine the specific type of object created.
 
-### Which component of the Active Object pattern encapsulates method requests?
+### Which class in the Factory Method pattern is responsible for declaring the factory method?
 
-- [x] Command Objects
-- [ ] Scheduler
-- [ ] Proxy
-- [ ] Worker Threads
+- [x] Creator
+- [ ] ConcreteProduct
+- [ ] Product
+- [ ] ConcreteCreator
 
-> **Explanation:** Command objects encapsulate the details of a request, representing method calls with their parameters.
+> **Explanation:** The Creator class declares the factory method, which is overridden by ConcreteCreator subclasses to return specific product instances.
 
-### What Java class is commonly used to manage a queue of pending requests in the Active Object pattern?
+### In the Factory Method pattern, what role does the ConcreteProduct class play?
 
-- [x] BlockingQueue
-- [ ] ArrayList
-- [ ] HashMap
-- [ ] LinkedList
+- [x] It implements the Product interface.
+- [ ] It declares the factory method.
+- [ ] It creates instances of the Creator class.
+- [ ] It provides an interface for creating objects.
 
-> **Explanation:** A `BlockingQueue` is commonly used to manage a queue of pending requests, ensuring thread-safe access.
+> **Explanation:** The ConcreteProduct class implements the Product interface, providing specific implementations of the product.
 
-### How does the proxy in the Active Object pattern provide a synchronous interface to clients?
+### How does the Factory Method pattern promote scalability?
 
-- [x] By acting as a placeholder and forwarding requests to the scheduler.
-- [ ] By executing commands directly within the client thread.
-- [ ] By blocking client threads until execution completes.
-- [ ] By managing a pool of worker threads.
+- [x] By allowing new product types to be introduced without altering existing code.
+- [ ] By reducing the number of classes in the system.
+- [ ] By ensuring a single instance of a class.
+- [ ] By providing a global point of access to objects.
 
-> **Explanation:** The proxy acts as a placeholder, providing a synchronous interface while forwarding requests to the scheduler for asynchronous execution.
+> **Explanation:** The Factory Method pattern promotes scalability by enabling new product types to be added without modifying existing code, adhering to the Open/Closed Principle.
 
-### What is a best practice for handling concurrency issues in the Active Object pattern?
+### Which of the following is a potential drawback of the Factory Method pattern?
 
-- [x] Use thread-safe data structures like BlockingQueue.
-- [ ] Use a single thread for all operations.
-- [ ] Avoid using synchronization mechanisms.
-- [ ] Execute all commands in the main thread.
+- [x] It can introduce additional complexity due to subclassing.
+- [ ] It limits the number of product types that can be created.
+- [ ] It requires all products to be of the same type.
+- [ ] It prevents the use of interfaces.
 
-> **Explanation:** Using thread-safe data structures like `BlockingQueue` helps manage shared resources and handle concurrency issues effectively.
+> **Explanation:** The Factory Method pattern can introduce complexity due to the need for subclassing and managing multiple classes.
 
-### What is the role of worker threads in the Active Object pattern?
+### What is a common use case for the Factory Method pattern?
 
-- [x] To process commands asynchronously.
-- [ ] To manage client requests directly.
-- [ ] To provide a synchronous interface to clients.
-- [ ] To handle network communication.
+- [x] Creating different types of UI components in a GUI framework.
+- [ ] Ensuring a class has only one instance.
+- [ ] Providing a way to access elements sequentially.
+- [ ] Defining a family of algorithms.
 
-> **Explanation:** Worker threads process commands asynchronously, allowing the client to continue its execution without waiting for the task to complete.
+> **Explanation:** A common use case for the Factory Method pattern is creating different types of UI components in a GUI framework, allowing for flexibility in component creation.
 
-### How can you prioritize tasks in the Active Object pattern?
+### How does the Factory Method pattern relate to the Abstract Factory pattern?
 
-- [x] Use a priority queue to manage the command queue.
-- [ ] Increase the number of worker threads.
-- [ ] Execute high-priority tasks in the main thread.
-- [ ] Use a separate scheduler for high-priority tasks.
+- [x] The Abstract Factory pattern is a higher-level abstraction over the Factory Method pattern.
+- [ ] The Factory Method pattern is a higher-level abstraction over the Abstract Factory pattern.
+- [ ] They are unrelated patterns.
+- [ ] They both ensure a single instance of a class.
 
-> **Explanation:** Using a priority queue allows you to manage the command queue based on task priorities.
+> **Explanation:** The Abstract Factory pattern is a higher-level abstraction over the Factory Method pattern, providing an interface for creating families of related objects.
 
-### What should you do if an exception occurs during command execution in a worker thread?
+### Which Java framework commonly uses the Factory Method pattern?
 
-- [x] Catch and log the exception, then continue processing subsequent commands.
-- [ ] Terminate the worker thread immediately.
-- [ ] Ignore the exception and proceed.
-- [ ] Restart the entire application.
+- [x] Spring Framework
+- [ ] Hibernate
+- [ ] JUnit
+- [ ] Log4j
 
-> **Explanation:** Catching and logging exceptions ensures that the worker thread continues processing subsequent commands without crashing the application.
+> **Explanation:** The Spring Framework commonly uses the Factory Method pattern, particularly in its BeanFactory interface for creating and managing beans.
 
-### What is a key benefit of using a thread pool in the Active Object pattern?
+### What is the role of the Product interface in the Factory Method pattern?
 
-- [x] Efficient management of worker threads and control over concurrency.
-- [ ] Simplified implementation of command objects.
-- [ ] Direct execution of commands in the client thread.
-- [ ] Elimination of the need for a scheduler.
+- [x] It defines the operations that all concrete products must implement.
+- [ ] It declares the factory method.
+- [ ] It creates instances of the Creator class.
+- [ ] It provides a global point of access to objects.
 
-> **Explanation:** A thread pool efficiently manages worker threads, allowing for control over concurrency and reuse of threads for multiple tasks.
+> **Explanation:** The Product interface defines the operations that all concrete products must implement, serving as a contract for product classes.
 
-### True or False: The Active Object pattern is useful for scenarios where you need to perform long-running tasks asynchronously without blocking the calling thread.
+### True or False: The Factory Method pattern can be used to create a single instance of a class.
 
-- [x] True
-- [ ] False
+- [ ] True
+- [x] False
 
-> **Explanation:** True. The Active Object pattern is designed to handle long-running tasks asynchronously, allowing the calling thread to continue execution without blocking.
+> **Explanation:** False. The Factory Method pattern is not intended to create a single instance of a class; it is used to define an interface for creating objects, allowing subclasses to determine the specific type of object created.
 
 {{< /quizdown >}}
+
+By mastering the Factory Method pattern, Java developers can enhance their ability to design flexible, scalable, and maintainable software systems. This pattern is a fundamental tool in the arsenal of any experienced software architect or developer, enabling them to tackle complex design challenges with confidence.

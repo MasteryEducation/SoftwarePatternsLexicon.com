@@ -1,510 +1,238 @@
 ---
 canonical: "https://softwarepatternslexicon.com/patterns-java/16/1"
-title: "Recap of Key Concepts in Java Design Patterns"
-description: "A comprehensive summary of key concepts in Java design patterns, reinforcing major themes and learning objectives for expert software engineers."
-linkTitle: "16.1 Recap of Key Concepts"
-categories:
-- Java
-- Design Patterns
-- Software Engineering
+title: "Comprehensive Overview of Java Web Technologies"
+description: "Explore the evolution, frameworks, and modern practices in Java web development, from servlets to microservices."
+linkTitle: "16.1 Overview of Java Web Technologies"
 tags:
-- Java Design Patterns
-- Software Architecture
-- Object-Oriented Design
-- Creational Patterns
-- Structural Patterns
-date: 2024-11-17
+- "Java"
+- "Web Development"
+- "Java EE"
+- "Spring MVC"
+- "Microservices"
+- "RESTful APIs"
+- "JavaScript Integration"
+- "Jakarta EE"
+date: 2024-11-25
 type: docs
-nav_weight: 16100
+nav_weight: 161000
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 
-## 16.1 Recap of Key Concepts
+## 16.1 Overview of Java Web Technologies
 
-As we conclude our journey through the intricate world of design patterns in Java, it's essential to revisit and reinforce the key concepts we've explored. This recap will highlight the major themes, reinforce learning objectives, and encourage reflection on how these patterns can be applied to enhance your software engineering practices.
+Java has been a cornerstone of web development since the late 1990s, evolving from simple servlets to sophisticated frameworks that support modern web applications. This section provides an in-depth exploration of Java web technologies, tracing their evolution, examining key frameworks, and discussing the current trends in Java web development.
 
-### Introduction to Design Patterns in Java
+### Evolution of Java Web Technologies
 
-**Major Themes:**
-- **Definition and Purpose:** Design patterns are reusable solutions to common software design problems. They provide a template for solving issues in a way that is proven and effective.
-- **Historical Context:** Understanding the evolution of design patterns helps us appreciate their role in modern software development.
-- **Importance in Development:** Design patterns are crucial for writing maintainable, scalable, and efficient code.
+Java's journey in web development began with the introduction of servlets and JavaServer Pages (JSP) in the late 1990s. These technologies laid the foundation for server-side programming in Java, allowing developers to create dynamic web content.
 
-**Learning Objectives:**
-- Recognize the value of design patterns in improving code quality.
-- Appreciate the historical development of design patterns and their relevance today.
-- Understand the benefits of using design patterns in Java, including enhanced readability and reduced complexity.
+#### Servlets and JSP
 
-### Principles of Object-Oriented Design
+**Servlets** are Java programs that run on a server and handle client requests. They provide a robust mechanism for building web applications by extending the capabilities of servers that host applications accessed via a request-response programming model.
 
-**Major Themes:**
-- **SOLID Principles:** These five principles (Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, Dependency Inversion) form the foundation of robust object-oriented design.
-- **DRY, KISS, and YAGNI:** These principles emphasize simplicity, avoiding redundancy, and implementing only necessary features.
-- **Composition Over Inheritance:** Encourages using composition to achieve flexibility over inheritance.
-- **Law of Demeter and GRASP Principles:** Focus on reducing coupling and assigning responsibilities effectively.
-
-**Learning Objectives:**
-- Apply SOLID principles to ensure your code is flexible and maintainable.
-- Use DRY, KISS, and YAGNI to write efficient and straightforward code.
-- Understand when to use composition instead of inheritance for better design.
-- Implement GRASP principles to assign responsibilities clearly and effectively.
-
-### Creational Patterns
-
-**Major Themes:**
-- **Singleton, Factory Method, Abstract Factory, Builder, Prototype, Object Pool, and Dependency Injection:** These patterns focus on object creation mechanisms, ensuring that objects are created in a manner suitable to the situation.
-
-**Learning Objectives:**
-- Implement Singleton to ensure a class has only one instance.
-- Use Factory Method and Abstract Factory to create objects without specifying the exact class.
-- Apply Builder for constructing complex objects step-by-step.
-- Utilize Prototype for creating new objects by copying existing ones.
-- Manage resources efficiently with Object Pool.
-- Enhance flexibility and testability with Dependency Injection.
-
-**Code Example: Singleton Pattern**
+**JavaServer Pages (JSP)**, introduced shortly after servlets, allow developers to embed Java code directly into HTML pages. This made it easier to create dynamic web content by separating the presentation layer from the business logic.
 
 ```java
-public class Singleton {
-    private static Singleton instance;
+// Example of a simple servlet
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
 
-    private Singleton() {}
-
-    public static Singleton getInstance() {
-        if (instance == null) {
-            instance = new Singleton();
-        }
-        return instance;
+public class HelloWorldServlet extends HttpServlet {
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+        out.println("<h1>Hello, World!</h1>");
     }
 }
 ```
 
-### Structural Patterns
+### Java EE and Jakarta EE
 
-**Major Themes:**
-- **Adapter, Bridge, Composite, Decorator, Facade, Flyweight, Proxy, Private Class Data, and Extension Object:** These patterns simplify relationships between entities and enhance the flexibility of your code.
+Java EE (Enterprise Edition), now known as **Jakarta EE**, expanded the capabilities of Java for enterprise-level applications. It introduced a set of specifications that extend the Java SE (Standard Edition) with specifications for enterprise features such as distributed computing and web services.
 
-**Learning Objectives:**
-- Use Adapter to allow incompatible interfaces to work together.
-- Apply Bridge to separate abstraction from implementation.
-- Implement Composite to treat individual objects and compositions uniformly.
-- Use Decorator to add responsibilities to objects dynamically.
-- Simplify complex subsystems with Facade.
-- Optimize memory usage with Flyweight.
-- Control access to objects with Proxy.
-- Protect data with Private Class Data.
-- Add functionality dynamically with Extension Object.
+#### Key Components of Java EE
 
-**Code Example: Adapter Pattern**
+- **Enterprise JavaBeans (EJB)**: Provides a framework for building scalable, transactional, and multi-user secure enterprise-level applications.
+- **JavaServer Faces (JSF)**: A Java specification for building component-based user interfaces for web applications.
+- **Java Persistence API (JPA)**: A specification for accessing, persisting, and managing data between Java objects and a relational database.
+- **Contexts and Dependency Injection (CDI)**: A set of services that allow developers to use enterprise beans along with JavaServer Faces technology in web applications.
+
+### Modern Java Web Frameworks
+
+As web applications became more complex, new frameworks emerged to simplify development and enhance productivity. These frameworks abstract much of the boilerplate code and provide a more structured approach to building web applications.
+
+#### Spring MVC
+
+**Spring MVC** is a part of the Spring Framework, which is one of the most popular frameworks for building web applications in Java. It follows the Model-View-Controller (MVC) design pattern, providing a clean separation of concerns.
 
 ```java
-// Existing interface
-interface OldInterface {
-    void oldMethod();
-}
+// Example of a simple Spring MVC Controller
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-// New interface
-interface NewInterface {
-    void newMethod();
-}
+@Controller
+public class HelloWorldController {
 
-// Adapter class
-class Adapter implements NewInterface {
-    private OldInterface oldObject;
-
-    public Adapter(OldInterface oldObject) {
-        this.oldObject = oldObject;
-    }
-
-    @Override
-    public void newMethod() {
-        oldObject.oldMethod();
+    @RequestMapping("/hello")
+    @ResponseBody
+    public String sayHello() {
+        return "Hello, World!";
     }
 }
 ```
 
-### Behavioral Patterns
+#### JavaServer Faces (JSF)
 
-**Major Themes:**
-- **Chain of Responsibility, Command, Interpreter, Iterator, Mediator, Memento, Observer, State, Strategy, Template Method, Visitor, Specification, and Null Object:** These patterns manage algorithms, relationships, and responsibilities between objects.
+**JSF** is a Java specification for building component-based user interfaces for web applications. It simplifies the development integration of web-based user interfaces.
 
-**Learning Objectives:**
-- Implement Chain of Responsibility to pass requests along a chain of handlers.
-- Use Command to encapsulate requests as objects.
-- Apply Interpreter for language interpretation.
-- Use Iterator to traverse collections without exposing their underlying representation.
-- Implement Mediator to reduce coupling between objects.
-- Use Memento to capture and restore object states.
-- Apply Observer for one-to-many dependency management.
-- Use State to allow an object to alter its behavior when its state changes.
-- Implement Strategy for interchangeable algorithms.
-- Use Template Method to define the skeleton of an algorithm.
-- Apply Visitor to perform operations on elements of an object structure.
+#### Vaadin
 
-**Code Example: Observer Pattern**
+**Vaadin** is a framework for building modern web applications that run on the server side. It allows developers to create rich, interactive user interfaces using Java.
+
+### Shift Towards Microservices and RESTful APIs
+
+The architecture of web applications has shifted towards microservices, where applications are composed of small, independent services that communicate over a network. This approach offers greater flexibility, scalability, and resilience.
+
+#### RESTful APIs
+
+REST (Representational State Transfer) is an architectural style for designing networked applications. RESTful APIs allow different services to communicate over HTTP by using standard HTTP methods.
 
 ```java
-import java.util.ArrayList;
-import java.util.List;
+// Example of a simple RESTful service using Spring Boot
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-// Subject interface
-interface Subject {
-    void registerObserver(Observer o);
-    void removeObserver(Observer o);
-    void notifyObservers();
-}
+@RestController
+public class GreetingController {
 
-// Observer interface
-interface Observer {
-    void update(String message);
-}
-
-// Concrete subject
-class ConcreteSubject implements Subject {
-    private List<Observer> observers = new ArrayList<>();
-    private String message;
-
-    @Override
-    public void registerObserver(Observer o) {
-        observers.add(o);
-    }
-
-    @Override
-    public void removeObserver(Observer o) {
-        observers.remove(o);
-    }
-
-    @Override
-    public void notifyObservers() {
-        for (Observer o : observers) {
-            o.update(message);
-        }
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-        notifyObservers();
-    }
-}
-
-// Concrete observer
-class ConcreteObserver implements Observer {
-    private String name;
-
-    public ConcreteObserver(String name) {
-        this.name = name;
-    }
-
-    @Override
-    public void update(String message) {
-        System.out.println(name + " received message: " + message);
+    @GetMapping("/greeting")
+    public String greeting() {
+        return "Hello, World!";
     }
 }
 ```
 
-### Concurrency Patterns
+### Impact of JavaScript on Java Web Development
 
-**Major Themes:**
-- **Active Object, Balking, Double-Checked Locking, Read-Write Lock, Thread Pool, Future and Promise, Reactor, Proactor, and Scheduler:** These patterns address issues related to multi-threading and concurrency.
+JavaScript has become an integral part of web development, influencing how Java web applications are built. The rise of front-end frameworks like Angular, React, and Vue.js has led to a more interactive and dynamic user experience.
 
-**Learning Objectives:**
-- Use Active Object to decouple method execution from invocation.
-- Apply Balking to ignore requests when an object is in an inappropriate state.
-- Implement Double-Checked Locking to reduce overhead.
-- Use Read-Write Lock to synchronize access to resources.
-- Manage threads efficiently with Thread Pool.
-- Represent asynchronous computations with Future and Promise.
-- Handle service requests with Reactor and Proactor.
-- Manage task execution with Scheduler.
+#### Integration with Front-End Frameworks
 
-**Code Example: Thread Pool Pattern**
+Java web applications often integrate with JavaScript frameworks to enhance the client-side experience. This integration allows developers to build rich, interactive applications that provide a seamless user experience.
 
-```java
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+### Server-Side and Client-Side Responsibilities
 
-public class ThreadPoolExample {
-    public static void main(String[] args) {
-        ExecutorService executor = Executors.newFixedThreadPool(5);
+In modern web applications, responsibilities are often divided between the server-side and client-side. The server-side handles business logic, data processing, and integration with databases, while the client-side focuses on rendering the user interface and handling user interactions.
 
-        for (int i = 0; i < 10; i++) {
-            Runnable worker = new WorkerThread("" + i);
-            executor.execute(worker);
-        }
-        executor.shutdown();
-        while (!executor.isTerminated()) {
-        }
-        System.out.println("Finished all threads");
-    }
-}
+#### Server-Side Responsibilities
 
-class WorkerThread implements Runnable {
-    private String command;
+- **Business Logic**: Processing data and implementing the core functionality of the application.
+- **Data Management**: Interacting with databases and managing data persistence.
+- **Security**: Implementing authentication and authorization mechanisms.
 
-    public WorkerThread(String s) {
-        this.command = s;
-    }
+#### Client-Side Responsibilities
 
-    @Override
-    public void run() {
-        System.out.println(Thread.currentThread().getName() + " Start. Command = " + command);
-        processCommand();
-        System.out.println(Thread.currentThread().getName() + " End.");
-    }
-
-    private void processCommand() {
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Architectural Patterns
-
-**Major Themes:**
-- **Layered Architecture, MVC, MVP, MVVM, Microservices, Event-Driven Architecture, SOA, Hexagonal Architecture, Event Sourcing, and CQRS:** These patterns provide high-level structures for system organization.
-
-**Learning Objectives:**
-- Implement Layered Architecture to separate concerns.
-- Use MVC, MVP, and MVVM to organize code into distinct components.
-- Design applications as suites of independently deployable services with Microservices.
-- Build systems that react to events with Event-Driven Architecture.
-- Structure applications around reusable services with SOA.
-- Isolate application core from external factors with Hexagonal Architecture.
-- Separate read and write models with Event Sourcing and CQRS.
-
-**Code Example: MVC Pattern**
-
-```java
-// Model
-class Model {
-    private String data;
-
-    public String getData() {
-        return data;
-    }
-
-    public void setData(String data) {
-        this.data = data;
-    }
-}
-
-// View
-class View {
-    public void display(String data) {
-        System.out.println("Data: " + data);
-    }
-}
-
-// Controller
-class Controller {
-    private Model model;
-    private View view;
-
-    public Controller(Model model, View view) {
-        this.model = model;
-        this.view = view;
-    }
-
-    public void setData(String data) {
-        model.setData(data);
-    }
-
-    public void updateView() {
-        view.display(model.getData());
-    }
-}
-```
-
-### Enterprise Design Patterns
-
-**Major Themes:**
-- **DAO, Repository, Dependency Injection, Service Locator, Business Delegate, Transfer Object, Intercepting Filter, Front Controller:** These patterns are essential for large-scale application development.
-
-**Learning Objectives:**
-- Abstract data persistence with DAO.
-- Mediate between data source and business logic with Repository.
-- Decouple components with Dependency Injection.
-- Provide a central registry to locate services with Service Locator.
-- Decouple presentation layer from business services with Business Delegate.
-- Encapsulate data for transfer with Transfer Object.
-- Pre-process and post-process requests with Intercepting Filter.
-- Provide a centralized entry point for handling requests with Front Controller.
-
-**Code Example: DAO Pattern**
-
-```java
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
-// DAO Interface
-interface UserDAO {
-    User getUserById(int id);
-}
-
-// DAO Implementation
-class UserDAOImpl implements UserDAO {
-    private static final String URL = "jdbc:mysql://localhost:3306/mydatabase";
-    private static final String USER = "root";
-    private static final String PASSWORD = "password";
-
-    @Override
-    public User getUserById(int id) {
-        User user = null;
-        try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD)) {
-            String query = "SELECT * FROM users WHERE id = ?";
-            PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, id);
-            ResultSet resultSet = preparedStatement.executeQuery();
-            if (resultSet.next()) {
-                user = new User(resultSet.getInt("id"), resultSet.getString("name"));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return user;
-    }
-}
-
-// User Class
-class User {
-    private int id;
-    private String name;
-
-    public User(int id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
-    // Getters and setters
-}
-```
-
-### Anti-Patterns and Refactoring
-
-**Major Themes:**
-- **Understanding Anti-Patterns:** Recognizing and avoiding common pitfalls in software design.
-- **Refactoring Techniques:** Methods to improve code quality and apply design patterns effectively.
-
-**Learning Objectives:**
-- Identify and avoid anti-patterns like Spaghetti Code, God Object, and Hard Coding.
-- Apply refactoring techniques to enhance code quality.
-- Use design patterns during refactoring to improve code structure and maintainability.
-
-### Best Practices and Principles
-
-**Major Themes:**
-- **SOLID Principles in Practice:** Applying these principles to design patterns for better code quality.
-- **Patterns and Testability:** Using design patterns to improve testability and maintainability.
-- **Performance Considerations:** Assessing the impact of patterns on efficiency.
-
-**Learning Objectives:**
-- Apply SOLID principles to design patterns in real-world scenarios.
-- Use design patterns to enhance testability and maintainability.
-- Consider performance implications when selecting and implementing design patterns.
+- **User Interface**: Rendering the visual elements of the application.
+- **User Interaction**: Handling events and providing feedback to the user.
+- **Data Presentation**: Displaying data fetched from the server in a user-friendly format.
 
 ### Conclusion
 
-As we wrap up this comprehensive guide on design patterns in Java, it's crucial to reflect on the journey we've undertaken. We've explored a wide array of patterns, each with its unique strengths and applications. By mastering these patterns, you are equipped to tackle complex software design challenges with confidence and creativity.
+Java web technologies have evolved significantly over the years, adapting to the changing landscape of web development. From the early days of servlets and JSP to the modern frameworks and microservices architecture, Java continues to be a powerful platform for building web applications. As we delve deeper into building web applications with Java in the following sections, we will explore these technologies in greater detail, providing practical insights and examples to enhance your understanding and skills.
 
-Remember, the true power of design patterns lies not just in their implementation but in their ability to inspire innovative solutions. Keep experimenting, stay curious, and continue to refine your craft as a software engineer.
-
-## Quiz Time!
+## Test Your Knowledge: Java Web Technologies Quiz
 
 {{< quizdown >}}
 
-### What is the primary purpose of design patterns in software engineering?
+### What was the primary purpose of introducing servlets in Java web development?
 
-- [x] To provide reusable solutions to common software design problems.
-- [ ] To enforce strict coding standards.
-- [ ] To replace the need for documentation.
-- [ ] To ensure all code is written in Java.
+- [x] To handle client requests and generate dynamic web content.
+- [ ] To manage database connections.
+- [ ] To provide a graphical user interface.
+- [ ] To compile Java code.
 
-> **Explanation:** Design patterns offer reusable solutions to common problems, enhancing code maintainability and scalability.
+> **Explanation:** Servlets were introduced to handle client requests and generate dynamic web content, extending the capabilities of servers.
 
-### Which principle emphasizes that a class should have only one reason to change?
+### Which Java EE component is used for building component-based user interfaces?
 
-- [x] Single Responsibility Principle (SRP)
-- [ ] Open/Closed Principle (OCP)
-- [ ] Liskov Substitution Principle (LSP)
-- [ ] Dependency Inversion Principle (DIP)
+- [ ] EJB
+- [x] JSF
+- [ ] JPA
+- [ ] CDI
 
-> **Explanation:** SRP states that a class should have only one reason to change, focusing on a single responsibility.
+> **Explanation:** JavaServer Faces (JSF) is used for building component-based user interfaces in Java web applications.
 
-### In the context of creational patterns, what is the main advantage of using the Factory Method pattern?
+### What is the main architectural style used for designing networked applications in microservices?
 
-- [x] It allows subclasses to decide which class to instantiate.
-- [ ] It ensures a class has only one instance.
-- [ ] It separates the construction of a complex object from its representation.
-- [ ] It provides a simplified interface to a complex subsystem.
+- [ ] SOAP
+- [x] REST
+- [ ] CORBA
+- [ ] RMI
 
-> **Explanation:** The Factory Method pattern lets subclasses decide which class to instantiate, promoting flexibility.
+> **Explanation:** REST (Representational State Transfer) is the main architectural style used for designing networked applications in microservices.
 
-### Which structural pattern is used to treat individual objects and compositions uniformly?
+### Which framework is known for following the Model-View-Controller (MVC) design pattern?
 
-- [x] Composite Pattern
-- [ ] Adapter Pattern
-- [ ] Proxy Pattern
-- [ ] Flyweight Pattern
+- [x] Spring MVC
+- [ ] Vaadin
+- [ ] JSF
+- [ ] Hibernate
 
-> **Explanation:** The Composite Pattern allows treating individual objects and compositions uniformly, simplifying client code.
+> **Explanation:** Spring MVC follows the Model-View-Controller (MVC) design pattern, providing a clean separation of concerns.
 
-### What is the primary goal of the Observer pattern?
+### How do Java web applications typically integrate with JavaScript frameworks?
 
-- [x] To define a one-to-many dependency so that when one object changes state, all its dependents are notified.
-- [ ] To encapsulate a request as an object.
-- [ ] To provide a way to access elements of a collection sequentially.
-- [ ] To separate an abstraction from its implementation.
+- [x] To enhance the client-side experience.
+- [ ] To manage server-side logic.
+- [ ] To compile Java code.
+- [ ] To handle database transactions.
 
-> **Explanation:** The Observer pattern manages one-to-many dependencies, notifying dependents of state changes.
+> **Explanation:** Java web applications integrate with JavaScript frameworks to enhance the client-side experience by providing a more interactive and dynamic user interface.
 
-### Which concurrency pattern is used to manage a pool of reusable threads for executing tasks?
+### What is the primary benefit of using microservices architecture?
 
-- [x] Thread Pool Pattern
-- [ ] Active Object Pattern
-- [ ] Reactor Pattern
-- [ ] Proactor Pattern
+- [x] Greater flexibility and scalability.
+- [ ] Simplified database management.
+- [ ] Reduced server load.
+- [ ] Enhanced graphical user interface.
 
-> **Explanation:** The Thread Pool Pattern manages a pool of reusable threads, optimizing resource usage.
+> **Explanation:** Microservices architecture offers greater flexibility and scalability by allowing applications to be composed of small, independent services.
 
-### What is a key benefit of using the MVC architectural pattern?
+### Which Java framework allows developers to create rich, interactive user interfaces using Java?
 
-- [x] It separates concerns by dividing an application into models, views, and controllers.
-- [ ] It ensures all components are tightly coupled.
-- [ ] It eliminates the need for a database.
-- [ ] It provides a single point of failure.
+- [ ] JSF
+- [ ] Spring MVC
+- [x] Vaadin
+- [ ] Hibernate
 
-> **Explanation:** MVC separates concerns, organizing code into models, views, and controllers for better maintainability.
+> **Explanation:** Vaadin is a framework that allows developers to create rich, interactive user interfaces using Java.
 
-### Which enterprise pattern is used to abstract data persistence?
+### What is the role of the server-side in modern web applications?
 
-- [x] Data Access Object (DAO) Pattern
-- [ ] Business Delegate Pattern
-- [ ] Service Locator Pattern
-- [ ] Intercepting Filter Pattern
+- [x] Handling business logic and data processing.
+- [ ] Rendering the user interface.
+- [ ] Managing user interactions.
+- [ ] Compiling Java code.
 
-> **Explanation:** The DAO Pattern abstracts data persistence, encapsulating data access logic.
+> **Explanation:** The server-side is responsible for handling business logic, data processing, and integration with databases in modern web applications.
 
-### What is the main focus of the SOLID principles?
+### Which Java EE specification is used for accessing and managing data between Java objects and a relational database?
 
-- [x] To improve code quality and maintainability.
-- [ ] To enforce strict coding standards.
-- [ ] To eliminate the need for testing.
-- [ ] To ensure all code is written in Java.
+- [ ] EJB
+- [ ] JSF
+- [x] JPA
+- [ ] CDI
 
-> **Explanation:** SOLID principles focus on improving code quality and maintainability through better design.
+> **Explanation:** The Java Persistence API (JPA) is used for accessing and managing data between Java objects and a relational database.
 
-### True or False: The primary purpose of refactoring is to add new features to the codebase.
+### True or False: JavaScript has no impact on Java web development.
 
 - [ ] True
 - [x] False
 
-> **Explanation:** Refactoring aims to improve code quality and structure without changing its external behavior.
+> **Explanation:** False. JavaScript has a significant impact on Java web development, especially in enhancing the client-side experience with frameworks like Angular, React, and Vue.js.
 
 {{< /quizdown >}}

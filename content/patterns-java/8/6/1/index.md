@@ -1,312 +1,304 @@
 ---
 canonical: "https://softwarepatternslexicon.com/patterns-java/8/6/1"
-title: "Implementing Business Delegate in Java: A Comprehensive Guide"
-description: "Learn how to implement the Business Delegate pattern in Java to create a façade for business services, enhancing modularity and reducing coupling."
-linkTitle: "8.6.1 Implementing Business Delegate in Java"
-categories:
-- Design Patterns
-- Java Programming
-- Enterprise Architecture
+
+title: "Implementing Mediator Pattern in Java: A Comprehensive Guide"
+description: "Explore the Mediator design pattern in Java, learn its implementation, and understand how it facilitates communication between objects while promoting loose coupling."
+linkTitle: "8.6.1 Implementing Mediator in Java"
 tags:
-- Business Delegate
-- Java Design Patterns
-- Enterprise Java
-- Service Locator
-- Exception Handling
-date: 2024-11-17
+- "Java"
+- "Design Patterns"
+- "Mediator Pattern"
+- "Behavioral Patterns"
+- "Software Architecture"
+- "Object-Oriented Design"
+- "Loose Coupling"
+- "Software Development"
+date: 2024-11-25
 type: docs
-nav_weight: 8610
+nav_weight: 86100
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
+
 ---
 
-## 8.6.1 Implementing Business Delegate in Java
+## 8.6.1 Implementing Mediator in Java
 
-In this section, we delve into the implementation of the Business Delegate pattern in Java, a crucial design pattern for enterprise applications. The Business Delegate pattern acts as an intermediary between the client and the business services, providing a façade that simplifies client interactions with the underlying business logic. This pattern is particularly useful in reducing coupling between presentation and business tiers, thus enhancing maintainability and scalability.
+The Mediator pattern is a behavioral design pattern that defines an object, known as the mediator, to encapsulate the way a set of objects interact. By centralizing communication, the mediator promotes loose coupling between colleague objects, allowing them to interact without knowing each other's details. This pattern is particularly useful in scenarios where multiple objects need to communicate in a complex system, as it simplifies the communication logic and enhances maintainability.
 
-### Understanding the Business Delegate Pattern
+### Intent
 
-The Business Delegate pattern is a structural pattern that abstracts the complexity of interactions with business services. It provides a single entry point for clients to access various business services, encapsulating the service lookup and invocation logic. By doing so, it decouples the client from the implementation details of the business services, allowing for more flexible and maintainable code.
+The primary intent of the Mediator pattern is to reduce the complexity of communication between multiple objects or classes. Instead of having each object communicate directly with others, the mediator acts as an intermediary, handling all interactions. This approach minimizes dependencies between objects, leading to a more modular and flexible system.
 
-#### Key Components of the Business Delegate Pattern
+### Participants
 
-1. **Business Delegate**: This is the main component that acts as a façade for the client. It provides methods for the client to interact with business services and handles service lookup and invocation.
+The Mediator pattern involves several key participants:
 
-2. **Business Service**: These are the actual services that contain the business logic. The Business Delegate interacts with these services to fulfill client requests.
+- **Mediator**: An interface that defines the communication methods used by colleague objects.
+- **ConcreteMediator**: A class that implements the Mediator interface and coordinates communication between colleague objects.
+- **Colleague**: An abstract class or interface representing objects that communicate through the mediator.
+- **ConcreteColleague**: Classes that implement the Colleague interface and interact with each other via the mediator.
 
-3. **Service Locator**: This optional component is used by the Business Delegate to locate and obtain references to business services. It abstracts the complexity of service lookup, which can involve JNDI lookups or other mechanisms.
+### Structure
 
-4. **Exception Handling**: The Business Delegate is responsible for translating exceptions from the business services into client-friendly messages or actions.
-
-### Implementing the Business Delegate Pattern in Java
-
-Let's walk through the implementation of a Business Delegate in Java with a practical example. We'll create a simple application that manages orders, with the Business Delegate pattern facilitating communication between the client and the order management services.
-
-#### Step 1: Define the Business Service Interface
-
-First, we define the interface for the business service. This interface declares the methods that the business service will implement.
-
-```java
-public interface OrderService {
-    void placeOrder(String orderId);
-    String getOrderStatus(String orderId);
-}
-```
-
-#### Step 2: Implement the Business Service
-
-Next, we implement the business service. This class contains the actual business logic for managing orders.
-
-```java
-public class OrderServiceImpl implements OrderService {
-    @Override
-    public void placeOrder(String orderId) {
-        // Business logic to place an order
-        System.out.println("Order placed: " + orderId);
-    }
-
-    @Override
-    public String getOrderStatus(String orderId) {
-        // Business logic to get order status
-        return "Order status for " + orderId + ": Shipped";
-    }
-}
-```
-
-#### Step 3: Create the Service Locator
-
-The Service Locator is responsible for locating and obtaining references to the business services. In a real-world application, this might involve JNDI lookups or other mechanisms.
-
-```java
-public class ServiceLocator {
-    private static final Map<String, Object> services = new HashMap<>();
-
-    static {
-        services.put("OrderService", new OrderServiceImpl());
-    }
-
-    public static Object getService(String serviceName) {
-        return services.get(serviceName);
-    }
-}
-```
-
-#### Step 4: Implement the Business Delegate
-
-The Business Delegate acts as a façade for the client, providing methods to interact with the business services. It uses the Service Locator to obtain references to the services.
-
-```java
-public class OrderDelegate {
-    private OrderService orderService;
-
-    public OrderDelegate() {
-        this.orderService = (OrderService) ServiceLocator.getService("OrderService");
-    }
-
-    public void placeOrder(String orderId) {
-        try {
-            orderService.placeOrder(orderId);
-        } catch (Exception e) {
-            handleException(e);
-        }
-    }
-
-    public String getOrderStatus(String orderId) {
-        try {
-            return orderService.getOrderStatus(orderId);
-        } catch (Exception e) {
-            handleException(e);
-            return "Error retrieving order status";
-        }
-    }
-
-    private void handleException(Exception e) {
-        // Log the exception and translate it into a client-friendly message
-        System.err.println("An error occurred: " + e.getMessage());
-    }
-}
-```
-
-#### Step 5: Client Interaction with the Business Delegate
-
-Finally, the client interacts with the Business Delegate to perform operations on the business services.
-
-```java
-public class Client {
-    public static void main(String[] args) {
-        OrderDelegate orderDelegate = new OrderDelegate();
-
-        // Place an order
-        orderDelegate.placeOrder("12345");
-
-        // Get order status
-        String status = orderDelegate.getOrderStatus("12345");
-        System.out.println(status);
-    }
-}
-```
-
-### Best Practices for Implementing Business Delegate
-
-1. **Focus on Communication**: The Business Delegate should focus solely on communication between the client and the business services. It should not contain any business logic itself.
-
-2. **Transparency**: Ensure that the Business Delegate is transparent to clients in terms of service interaction details. Clients should not be aware of the underlying service lookup and invocation mechanisms.
-
-3. **Exception Handling**: Handle exceptions gracefully within the Business Delegate and translate them into client-friendly messages or actions. This improves the robustness of the application.
-
-4. **Use of Patterns**: Consider using other patterns like Proxy or Adapter within the Business Delegate to enhance flexibility and reusability.
-
-### Potential Use of Proxy and Adapter Patterns
-
-The Business Delegate pattern can be complemented by other patterns like Proxy and Adapter to further enhance its functionality.
-
-- **Proxy Pattern**: A Proxy can be used within the Business Delegate to control access to the business services. This can be useful for implementing security checks or caching mechanisms.
-
-- **Adapter Pattern**: An Adapter can be used to adapt the interface of a business service to match the expected interface of the Business Delegate. This is useful when integrating with legacy systems or third-party services.
-
-### Visualizing the Business Delegate Pattern
-
-Below is a class diagram that illustrates the relationships between the components of the Business Delegate pattern.
+The following UML diagram illustrates the structure of the Mediator pattern:
 
 ```mermaid
 classDiagram
-    class Client {
-        +main(args: String[])
-    }
-    class OrderDelegate {
-        -OrderService orderService
-        +placeOrder(orderId: String)
-        +getOrderStatus(orderId: String): String
-    }
-    class OrderService {
+    class Mediator {
         <<interface>>
-        +placeOrder(orderId: String)
-        +getOrderStatus(orderId: String): String
-    }
-    class OrderServiceImpl {
-        +placeOrder(orderId: String)
-        +getOrderStatus(orderId: String): String
-    }
-    class ServiceLocator {
-        +getService(serviceName: String): Object
+        +notify(Colleague, String)
     }
 
-    Client --> OrderDelegate
-    OrderDelegate --> OrderService
-    OrderService <|.. OrderServiceImpl
-    OrderDelegate --> ServiceLocator
-    ServiceLocator --> OrderServiceImpl
+    class ConcreteMediator {
+        +notify(Colleague, String)
+        +addColleague(Colleague)
+    }
+
+    class Colleague {
+        <<interface>>
+        +send(String)
+        +receive(String)
+    }
+
+    class ConcreteColleagueA {
+        +send(String)
+        +receive(String)
+    }
+
+    class ConcreteColleagueB {
+        +send(String)
+        +receive(String)
+    }
+
+    Mediator <|-- ConcreteMediator
+    Colleague <|-- ConcreteColleagueA
+    Colleague <|-- ConcreteColleagueB
+    ConcreteColleagueA --> ConcreteMediator : uses
+    ConcreteColleagueB --> ConcreteMediator : uses
 ```
 
-### Try It Yourself
+**Diagram Explanation**: The diagram shows the relationships between the Mediator, ConcreteMediator, Colleague, and ConcreteColleague classes. The ConcreteMediator coordinates communication between ConcreteColleagueA and ConcreteColleagueB.
 
-To gain a deeper understanding of the Business Delegate pattern, try modifying the code examples above:
+### Implementation
 
-- **Add New Services**: Extend the Service Locator and Business Delegate to support additional services, such as a `PaymentService`.
-- **Implement Caching**: Use the Proxy pattern to implement a caching mechanism within the Business Delegate.
-- **Integrate with a Database**: Modify the `OrderServiceImpl` to interact with a database for order management.
+#### Java Code Example
 
-### Knowledge Check
+Let's implement the Mediator pattern in Java with a simple chat room example, where users (colleagues) communicate through a chat room (mediator).
 
-- **What is the primary role of the Business Delegate in the pattern?**
-- **How does the Service Locator assist the Business Delegate?**
-- **What are some best practices for implementing the Business Delegate pattern?**
+```java
+// Mediator interface
+interface ChatMediator {
+    void sendMessage(String message, User user);
+    void addUser(User user);
+}
+
+// ConcreteMediator class
+class ChatRoom implements ChatMediator {
+    private List<User> users = new ArrayList<>();
+
+    @Override
+    public void addUser(User user) {
+        users.add(user);
+    }
+
+    @Override
+    public void sendMessage(String message, User user) {
+        for (User u : users) {
+            // Message should not be received by the user sending it
+            if (u != user) {
+                u.receive(message);
+            }
+        }
+    }
+}
+
+// Colleague interface
+abstract class User {
+    protected ChatMediator mediator;
+    protected String name;
+
+    public User(ChatMediator mediator, String name) {
+        this.mediator = mediator;
+        this.name = name;
+    }
+
+    public abstract void send(String message);
+    public abstract void receive(String message);
+}
+
+// ConcreteColleague class
+class ConcreteUser extends User {
+
+    public ConcreteUser(ChatMediator mediator, String name) {
+        super(mediator, name);
+    }
+
+    @Override
+    public void send(String message) {
+        System.out.println(this.name + " Sending Message: " + message);
+        mediator.sendMessage(message, this);
+    }
+
+    @Override
+    public void receive(String message) {
+        System.out.println(this.name + " Received Message: " + message);
+    }
+}
+
+// Client code
+public class MediatorPatternDemo {
+    public static void main(String[] args) {
+        ChatMediator chatMediator = new ChatRoom();
+
+        User user1 = new ConcreteUser(chatMediator, "Alice");
+        User user2 = new ConcreteUser(chatMediator, "Bob");
+        User user3 = new ConcreteUser(chatMediator, "Charlie");
+
+        chatMediator.addUser(user1);
+        chatMediator.addUser(user2);
+        chatMediator.addUser(user3);
+
+        user1.send("Hello, everyone!");
+    }
+}
+```
+
+**Explanation**: In this example, the `ChatRoom` class acts as the mediator, coordinating communication between `ConcreteUser` instances. Each user can send and receive messages through the chat room, demonstrating how the mediator pattern centralizes communication.
+
+### Promoting Loose Coupling
+
+The Mediator pattern promotes loose coupling by preventing direct communication between colleague objects. Instead, all interactions are managed by the mediator, which reduces dependencies and simplifies the system's architecture. This decoupling allows for easier maintenance and scalability, as changes to one colleague do not directly impact others.
+
+### Trade-offs
+
+While the Mediator pattern offers significant benefits, it also introduces some trade-offs:
+
+- **Complexity**: The mediator can become a complex central point, especially in systems with numerous interactions. Managing this complexity requires careful design and implementation.
+- **Single Point of Failure**: The mediator becomes a critical component, and any issues with it can affect the entire system's communication.
+
+### Sample Use Cases
+
+The Mediator pattern is commonly used in scenarios such as:
+
+- **User Interface Components**: Coordinating interactions between UI elements, such as buttons and text fields.
+- **Chat Applications**: Managing communication between users in a chat room.
+- **Air Traffic Control Systems**: Centralizing communication between aircraft and control towers.
+
+### Related Patterns
+
+The Mediator pattern is related to other patterns, such as:
+
+- **Observer Pattern**: While both patterns deal with communication, the Observer pattern focuses on notifying observers of changes, whereas the Mediator pattern centralizes communication.
+- **Facade Pattern**: Both patterns provide a simplified interface, but the Facade pattern does not encapsulate communication between objects.
+
+### Known Uses
+
+The Mediator pattern is widely used in frameworks and libraries, such as:
+
+- **Java Swing**: The `Action` class in Swing acts as a mediator between UI components and their actions.
+- **Apache Camel**: Uses the Mediator pattern to route messages between different endpoints.
 
 ### Conclusion
 
-The Business Delegate pattern is a powerful tool for decoupling client applications from business services, enhancing modularity and maintainability. By following best practices and considering complementary patterns like Proxy and Adapter, you can create robust and flexible enterprise applications.
+The Mediator pattern is a powerful tool for managing complex interactions between objects in a system. By centralizing communication, it promotes loose coupling and enhances maintainability. However, it is essential to manage the complexity of the mediator itself to avoid it becoming a bottleneck or single point of failure.
 
-Remember, this is just the beginning. As you progress, you'll build more complex and interactive systems. Keep experimenting, stay curious, and enjoy the journey!
+### Exercises
 
-## Quiz Time!
+1. Modify the chat room example to include a private message feature, allowing users to send messages directly to specific users.
+2. Implement a logging mechanism in the `ChatRoom` class to track all messages sent through the mediator.
+3. Explore how the Mediator pattern can be applied to a real-world scenario, such as a traffic light system.
+
+## Test Your Knowledge: Mediator Pattern in Java Quiz
 
 {{< quizdown >}}
 
-### What is the primary role of the Business Delegate in the pattern?
+### What is the primary purpose of the Mediator pattern?
 
-- [x] To act as an intermediary between the client and business services
-- [ ] To implement business logic
-- [ ] To manage database connections
-- [ ] To handle user interface rendering
+- [x] To encapsulate how a set of objects interact
+- [ ] To create objects without specifying their concrete classes
+- [ ] To provide a simplified interface to a complex subsystem
+- [ ] To define a one-to-many dependency between objects
 
-> **Explanation:** The Business Delegate acts as an intermediary, providing a façade for business services and decoupling the client from the service implementation details.
+> **Explanation:** The Mediator pattern encapsulates how a set of objects interact, promoting loose coupling by centralizing communication.
 
-### How does the Service Locator assist the Business Delegate?
+### Which class in the provided Java example acts as the mediator?
 
-- [x] By locating and obtaining references to business services
-- [ ] By executing business logic
-- [ ] By managing client sessions
-- [ ] By rendering user interfaces
+- [ ] User
+- [x] ChatRoom
+- [ ] ConcreteUser
+- [ ] MediatorPatternDemo
 
-> **Explanation:** The Service Locator abstracts the complexity of service lookup, allowing the Business Delegate to obtain references to business services easily.
+> **Explanation:** The `ChatRoom` class implements the `ChatMediator` interface and coordinates communication between users.
 
-### What should the Business Delegate focus on?
+### How does the Mediator pattern promote loose coupling?
 
-- [x] Communication between the client and business services
-- [ ] Implementing business logic
-- [ ] Managing database transactions
-- [ ] Rendering user interfaces
+- [x] By preventing direct communication between colleague objects
+- [ ] By allowing objects to communicate directly with each other
+- [ ] By increasing dependencies between objects
+- [ ] By centralizing object creation
 
-> **Explanation:** The Business Delegate should focus on communication and not contain any business logic itself.
+> **Explanation:** The Mediator pattern promotes loose coupling by centralizing communication, preventing direct interactions between colleagues.
 
-### Which pattern can be used within the Business Delegate to control access to services?
+### What is a potential drawback of using the Mediator pattern?
 
-- [x] Proxy Pattern
+- [x] The mediator can become a complex central point
+- [ ] It increases direct dependencies between objects
+- [ ] It simplifies communication logic
+- [ ] It reduces the number of classes in a system
+
+> **Explanation:** The mediator can become a complex central point, which requires careful management to avoid becoming a bottleneck.
+
+### In which scenarios is the Mediator pattern commonly used?
+
+- [x] User Interface Components
+- [x] Chat Applications
 - [ ] Singleton Pattern
 - [ ] Factory Pattern
-- [ ] Builder Pattern
 
-> **Explanation:** The Proxy Pattern can be used within the Business Delegate to control access to business services, such as implementing security checks or caching.
+> **Explanation:** The Mediator pattern is commonly used in scenarios like UI components and chat applications to manage interactions.
 
-### What is a best practice for exception handling in the Business Delegate?
+### Which pattern is related to the Mediator pattern but focuses on notifying observers of changes?
 
-- [x] Translate exceptions into client-friendly messages
-- [ ] Ignore exceptions
-- [ ] Log exceptions without handling
-- [ ] Directly propagate exceptions to the client
+- [ ] Facade Pattern
+- [x] Observer Pattern
+- [ ] Singleton Pattern
+- [ ] Factory Pattern
 
-> **Explanation:** It is a best practice to handle exceptions gracefully within the Business Delegate and translate them into client-friendly messages or actions.
+> **Explanation:** The Observer pattern focuses on notifying observers of changes, whereas the Mediator pattern centralizes communication.
 
-### What is the purpose of the Adapter Pattern in the context of the Business Delegate?
+### What is a known use of the Mediator pattern in Java frameworks?
 
-- [x] To adapt the interface of a business service to match the expected interface
-- [ ] To create a single instance of a service
-- [ ] To manage object creation
-- [ ] To handle concurrent access
+- [x] Java Swing's Action class
+- [ ] Java's Stream API
+- [ ] Java's Collection Framework
+- [ ] Java's Reflection API
 
-> **Explanation:** The Adapter Pattern is used to adapt the interface of a business service to match the expected interface of the Business Delegate, especially when integrating with legacy systems or third-party services.
+> **Explanation:** Java Swing's `Action` class acts as a mediator between UI components and their actions.
 
-### Which component is responsible for the actual business logic in the Business Delegate pattern?
+### How can the complexity of the mediator be managed?
 
-- [x] Business Service
-- [ ] Business Delegate
-- [ ] Service Locator
-- [ ] Client
+- [x] By careful design and implementation
+- [ ] By increasing the number of colleague objects
+- [ ] By reducing the number of interactions
+- [ ] By allowing direct communication between objects
 
-> **Explanation:** The Business Service contains the actual business logic, while the Business Delegate acts as a façade for the client.
+> **Explanation:** Careful design and implementation are essential to manage the complexity of the mediator.
 
-### What is a potential use of the Proxy Pattern within the Business Delegate?
+### What is a potential benefit of using the Mediator pattern?
 
-- [x] Implementing caching mechanisms
-- [ ] Managing database transactions
-- [ ] Rendering user interfaces
-- [ ] Handling user authentication
+- [x] Enhanced maintainability
+- [ ] Increased complexity
+- [ ] Direct communication between objects
+- [ ] Reduced number of classes
 
-> **Explanation:** The Proxy Pattern can be used within the Business Delegate to implement caching mechanisms, controlling access to business services.
+> **Explanation:** The Mediator pattern enhances maintainability by centralizing communication and reducing dependencies.
 
-### Which of the following is NOT a component of the Business Delegate pattern?
-
-- [ ] Business Delegate
-- [ ] Business Service
-- [ ] Service Locator
-- [x] User Interface
-
-> **Explanation:** The User Interface is not a component of the Business Delegate pattern. The pattern focuses on decoupling the client from business services.
-
-### True or False: The Business Delegate pattern is primarily used for rendering user interfaces.
+### True or False: The Mediator pattern is a creational design pattern.
 
 - [ ] True
 - [x] False
 
-> **Explanation:** False. The Business Delegate pattern is used to decouple the client from business services, not for rendering user interfaces.
+> **Explanation:** The Mediator pattern is a behavioral design pattern, not a creational one.
 
 {{< /quizdown >}}
+
+By understanding and implementing the Mediator pattern, developers can create more modular and maintainable systems, effectively managing complex interactions between objects.

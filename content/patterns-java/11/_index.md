@@ -1,5 +1,5 @@
 ---
-title: "11. Case Studies and Applications"
+title: "11. Event-Driven Architecture"
 type: docs
 nav_weight: 110000
 ---

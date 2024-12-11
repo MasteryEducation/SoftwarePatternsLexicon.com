@@ -1,338 +1,382 @@
 ---
 canonical: "https://softwarepatternslexicon.com/patterns-java/6/2/2"
-title: "Scheduling and Execution in Active Object Pattern"
-description: "Explore strategies for managing request queues, dispatching tasks, and controlling execution flow in the Active Object pattern using Java."
-linkTitle: "6.2.2 Scheduling and Execution"
-categories:
-- Java Design Patterns
-- Concurrency Patterns
-- Software Engineering
+
+title: "Java Factory Method Pattern: Product and Creator Hierarchies"
+description: "Explore the intricate relationships between product and creator classes in the Factory Method pattern, and learn how to extend hierarchies effectively."
+linkTitle: "6.2.2 Product and Creator Hierarchies"
 tags:
-- Active Object Pattern
-- Scheduling
-- Java Concurrency
-- Thread Management
-- ExecutorService
-date: 2024-11-17
+- "Java"
+- "Design Patterns"
+- "Factory Method"
+- "Creational Patterns"
+- "Software Architecture"
+- "Object-Oriented Programming"
+- "Product Hierarchies"
+- "Creator Hierarchies"
+date: 2024-11-25
 type: docs
-nav_weight: 6220
+nav_weight: 62200
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
+
 ---
 
-## 6.2.2 Scheduling and Execution
+## 6.2.2 Product and Creator Hierarchies
 
-In this section, we delve into the intricacies of scheduling and execution within the Active Object pattern. This pattern is pivotal in decoupling method execution from invocation, thereby enhancing concurrency in Java applications. We'll explore various scheduling strategies, implementation of the Activation List or Scheduler, task dispatching, load balancing, and synchronization mechanisms. Additionally, we'll discuss handling task cancellation, completion callbacks, and leveraging Java concurrency utilities like `BlockingQueue`, `ExecutorService`, and `Future`.
+In the realm of software design, the Factory Method pattern stands out as a pivotal creational pattern that provides a way to delegate the instantiation of objects to subclasses. This section delves into the intricate relationships between product and creator hierarchies, emphasizing how these hierarchies facilitate the addition of new products without altering existing creator code. This exploration is crucial for experienced Java developers and software architects aiming to design robust, maintainable, and scalable applications.
 
-### Understanding Scheduling Strategies
+### Understanding Product and Creator Hierarchies
 
-Scheduling is a critical component of the Active Object pattern, determining how tasks are managed and executed. Different scheduling strategies can be employed depending on the application's requirements:
+#### Product Hierarchies
 
-1. **First-In-First-Out (FIFO) Queues**: 
-   - **Explanation**: Tasks are processed in the order they arrive. This is the simplest form of scheduling and is suitable for tasks of equal priority.
-   - **Implementation**: Use a `LinkedBlockingQueue` to maintain task order.
+In the Factory Method pattern, the **product hierarchy** refers to the set of classes that represent the objects being created. These classes typically implement a common interface or inherit from a common abstract class. This hierarchy allows for polymorphic behavior, enabling the client code to interact with different product types through a unified interface.
 
-2. **Priority Queues**:
-   - **Explanation**: Tasks are processed based on priority levels. Higher priority tasks are executed before lower priority ones.
-   - **Implementation**: Utilize a `PriorityBlockingQueue` to manage tasks with varying priorities.
+#### Creator Hierarchies
 
-3. **Timed Scheduling**:
-   - **Explanation**: Tasks are scheduled to execute at specific times or after certain intervals. This is useful for periodic tasks.
-   - **Implementation**: Use `ScheduledExecutorService` for timed task execution.
+The **creator hierarchy** consists of classes responsible for defining the factory method, which is used to create product objects. These classes often contain the logic to determine which specific product subclass to instantiate. The creator hierarchy can be abstract, with concrete subclasses implementing the factory method to produce specific product instances.
 
-### Implementing the Activation List or Scheduler
+### Relationship Between Product and Creator Hierarchies
 
-The Activation List or Scheduler is a core component in the Active Object pattern, responsible for managing task execution. It maintains a queue of tasks and dispatches them to worker threads for execution.
+The relationship between product and creator hierarchies is symbiotic. The creator hierarchy relies on the product hierarchy to define the types of objects it can create. Conversely, the product hierarchy depends on the creator hierarchy to instantiate its objects. This relationship is typically characterized by the following:
 
-#### Code Example: Basic Scheduler Implementation
+- **Decoupling**: The creator hierarchy is decoupled from the concrete product classes it instantiates. This decoupling is achieved through the use of interfaces or abstract classes, allowing the creator to work with any product that adheres to the expected interface.
+- **Extensibility**: New product types can be added to the product hierarchy without modifying existing creator code. This is possible because the creator interacts with products through a common interface, allowing for seamless integration of new products.
+
+### Implementing Product and Creator Hierarchies in Java
+
+To illustrate the implementation of product and creator hierarchies in Java, consider the following example involving a simple document creation system. In this system, different types of documents (e.g., Word, PDF) are created using a factory method.
+
+#### Step 1: Define the Product Interface
+
+First, define a common interface for all product types:
 
 ```java
-import java.util.concurrent.*;
-
-public class ActiveObjectScheduler {
-    private final BlockingQueue<Runnable> taskQueue;
-    private final ExecutorService executorService;
-
-    public ActiveObjectScheduler(int poolSize) {
-        this.taskQueue = new LinkedBlockingQueue<>();
-        this.executorService = Executors.newFixedThreadPool(poolSize);
-    }
-
-    public void enqueueTask(Runnable task) {
-        try {
-            taskQueue.put(task);
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-        }
-    }
-
-    public void start() {
-        while (!Thread.currentThread().isInterrupted()) {
-            try {
-                Runnable task = taskQueue.take();
-                executorService.submit(task);
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-            }
-        }
-    }
-
-    public void shutdown() {
-        executorService.shutdown();
-    }
+// Product interface
+public interface Document {
+    void open();
+    void save();
+    void close();
 }
 ```
 
-**Explanation**:
-- **BlockingQueue**: Used to store tasks in a FIFO manner.
-- **ExecutorService**: Manages a pool of worker threads to execute tasks.
-- **EnqueueTask**: Adds tasks to the queue.
-- **Start**: Continuously fetches and executes tasks from the queue.
-- **Shutdown**: Gracefully shuts down the executor service.
+#### Step 2: Implement Concrete Products
 
-### Dispatching Tasks to Worker Threads
-
-Task dispatching involves assigning tasks from the queue to available worker threads for execution. This process must be efficient to ensure optimal resource utilization and minimal latency.
-
-#### Code Example: Task Dispatching
+Next, implement concrete product classes that adhere to the `Document` interface:
 
 ```java
-public class TaskDispatcher {
-    private final ActiveObjectScheduler scheduler;
-
-    public TaskDispatcher(ActiveObjectScheduler scheduler) {
-        this.scheduler = scheduler;
-    }
-
-    public void dispatch(Runnable task) {
-        scheduler.enqueueTask(task);
-    }
-}
-```
-
-**Explanation**:
-- **TaskDispatcher**: Acts as a mediator to submit tasks to the scheduler.
-- **Dispatch**: Enqueues tasks for execution.
-
-### Balancing Load and Minimizing Thread Contention
-
-Effective load balancing and minimizing thread contention are crucial for maintaining high performance in concurrent systems. Consider the following strategies:
-
-1. **Dynamic Thread Pool Sizing**:
-   - Adjust the number of threads in the pool based on the current load. Use `ThreadPoolExecutor` with a dynamic pool size.
-
-2. **Task Batching**:
-   - Group smaller tasks into batches to reduce overhead and improve throughput.
-
-3. **Work Stealing**:
-   - Implement work-stealing algorithms where idle threads can "steal" tasks from busy threads' queues.
-
-### Synchronization Mechanisms for Thread Safety
-
-Ensuring thread safety during scheduling and execution is paramount. Java provides several synchronization mechanisms to achieve this:
-
-1. **Locks**:
-   - Use `ReentrantLock` for explicit locking and unlocking of critical sections.
-
-2. **Atomic Variables**:
-   - Use `AtomicInteger`, `AtomicBoolean`, etc., for lock-free thread-safe operations.
-
-3. **Concurrent Collections**:
-   - Use collections like `ConcurrentHashMap` and `ConcurrentLinkedQueue` for thread-safe data structures.
-
-### Handling Task Cancellation and Completion Callbacks
-
-Task cancellation and completion callbacks are essential for managing long-running or potentially blocking tasks.
-
-#### Code Example: Task Cancellation and Callbacks
-
-```java
-public class CancellableTask implements Runnable {
-    private final Future<?> future;
-
-    public CancellableTask(Future<?> future) {
-        this.future = future;
+// Concrete product: WordDocument
+public class WordDocument implements Document {
+    @Override
+    public void open() {
+        System.out.println("Opening Word document...");
     }
 
     @Override
-    public void run() {
-        if (!future.isCancelled()) {
-            // Perform task
-        }
+    public void save() {
+        System.out.println("Saving Word document...");
     }
 
-    public void cancel() {
-        future.cancel(true);
+    @Override
+    public void close() {
+        System.out.println("Closing Word document...");
     }
 }
 
-public class TaskCompletionCallback {
-    public void onComplete() {
-        System.out.println("Task completed successfully.");
+// Concrete product: PdfDocument
+public class PdfDocument implements Document {
+    @Override
+    public void open() {
+        System.out.println("Opening PDF document...");
     }
 
-    public void onFailure(Throwable t) {
-        System.err.println("Task failed: " + t.getMessage());
+    @Override
+    public void save() {
+        System.out.println("Saving PDF document...");
+    }
+
+    @Override
+    public void close() {
+        System.out.println("Closing PDF document...");
     }
 }
 ```
 
-**Explanation**:
-- **CancellableTask**: Wraps a `Future` to allow task cancellation.
-- **TaskCompletionCallback**: Provides methods to handle task completion and failure.
+#### Step 3: Define the Creator Class
 
-### Leveraging Java Concurrency Utilities
+Define an abstract creator class that declares the factory method:
 
-Java provides a rich set of concurrency utilities to facilitate scheduling and execution in the Active Object pattern:
+```java
+// Creator class
+public abstract class DocumentCreator {
+    public abstract Document createDocument();
 
-1. **BlockingQueue**:
-   - Use for thread-safe task queuing.
+    public void newDocument() {
+        Document doc = createDocument();
+        doc.open();
+        doc.save();
+        doc.close();
+    }
+}
+```
 
-2. **ExecutorService**:
-   - Use for managing thread pools and task execution.
+#### Step 4: Implement Concrete Creators
 
-3. **Future**:
-   - Use for handling asynchronous task results and cancellations.
+Implement concrete creator classes that override the factory method to create specific product instances:
 
-4. **ScheduledExecutorService**:
-   - Use for scheduling tasks with fixed delays or periodic execution.
+```java
+// Concrete creator: WordDocumentCreator
+public class WordDocumentCreator extends DocumentCreator {
+    @Override
+    public Document createDocument() {
+        return new WordDocument();
+    }
+}
 
-### Try It Yourself
+// Concrete creator: PdfDocumentCreator
+public class PdfDocumentCreator extends DocumentCreator {
+    @Override
+    public Document createDocument() {
+        return new PdfDocument();
+    }
+}
+```
 
-To solidify your understanding, try modifying the provided code examples:
+### Extending Product and Creator Hierarchies
 
-1. **Implement a Priority Queue**: Modify the `ActiveObjectScheduler` to use a `PriorityBlockingQueue` and assign priorities to tasks.
-2. **Add Timed Scheduling**: Extend the scheduler to support timed task execution using `ScheduledExecutorService`.
-3. **Implement Task Batching**: Group tasks into batches before dispatching them to worker threads.
+One of the key advantages of the Factory Method pattern is its support for extending product and creator hierarchies. To add a new document type, such as an Excel document, follow these steps:
 
-### Visualizing Scheduling and Execution
+1. **Create a New Product Class**: Implement a new product class that adheres to the `Document` interface.
 
-Let's visualize the scheduling and execution process in the Active Object pattern using a sequence diagram:
+```java
+// Concrete product: ExcelDocument
+public class ExcelDocument implements Document {
+    @Override
+    public void open() {
+        System.out.println("Opening Excel document...");
+    }
+
+    @Override
+    public void save() {
+        System.out.println("Saving Excel document...");
+    }
+
+    @Override
+    public void close() {
+        System.out.println("Closing Excel document...");
+    }
+}
+```
+
+2. **Create a New Creator Class**: Implement a new creator class that overrides the factory method to create the new product instance.
+
+```java
+// Concrete creator: ExcelDocumentCreator
+public class ExcelDocumentCreator extends DocumentCreator {
+    @Override
+    public Document createDocument() {
+        return new ExcelDocument();
+    }
+}
+```
+
+### Practical Applications and Real-World Scenarios
+
+The Factory Method pattern is widely used in software development, particularly in scenarios where a system needs to be open for extension but closed for modification. Some practical applications include:
+
+- **GUI Frameworks**: In graphical user interface frameworks, the Factory Method pattern is often used to create different types of UI components (e.g., buttons, text fields) based on the platform or theme.
+- **Logging Libraries**: Logging libraries may use the Factory Method pattern to create different types of loggers (e.g., file logger, console logger) based on configuration settings.
+- **Data Access Layers**: In data access layers, the Factory Method pattern can be used to create different types of database connections (e.g., MySQL, PostgreSQL) based on the application's configuration.
+
+### Historical Context and Evolution
+
+The Factory Method pattern has its roots in the early days of object-oriented programming, where it was introduced as a way to encapsulate object creation logic. Over time, the pattern has evolved to accommodate modern programming paradigms, such as dependency injection and inversion of control. Today, it remains a fundamental pattern in software design, providing a flexible and extensible approach to object creation.
+
+### Visualizing Product and Creator Hierarchies
+
+To better understand the structure of product and creator hierarchies, consider the following class diagram:
 
 ```mermaid
-sequenceDiagram
-    participant Client
-    participant TaskDispatcher
-    participant ActiveObjectScheduler
-    participant WorkerThread
+classDiagram
+    class Document {
+        <<interface>>
+        +open()
+        +save()
+        +close()
+    }
 
-    Client->>TaskDispatcher: Submit Task
-    TaskDispatcher->>ActiveObjectScheduler: Enqueue Task
-    loop Continuously
-        ActiveObjectScheduler->>WorkerThread: Dispatch Task
-        WorkerThread->>ActiveObjectScheduler: Task Completed
-    end
+    class WordDocument {
+        +open()
+        +save()
+        +close()
+    }
+
+    class PdfDocument {
+        +open()
+        +save()
+        +close()
+    }
+
+    class ExcelDocument {
+        +open()
+        +save()
+        +close()
+    }
+
+    class DocumentCreator {
+        +createDocument() Document
+        +newDocument()
+    }
+
+    class WordDocumentCreator {
+        +createDocument() Document
+    }
+
+    class PdfDocumentCreator {
+        +createDocument() Document
+    }
+
+    class ExcelDocumentCreator {
+        +createDocument() Document
+    }
+
+    Document <|.. WordDocument
+    Document <|.. PdfDocument
+    Document <|.. ExcelDocument
+
+    DocumentCreator <|-- WordDocumentCreator
+    DocumentCreator <|-- PdfDocumentCreator
+    DocumentCreator <|-- ExcelDocumentCreator
 ```
 
-**Diagram Explanation**:
-- **Client** submits tasks to the **TaskDispatcher**.
-- **TaskDispatcher** enqueues tasks in the **ActiveObjectScheduler**.
-- **ActiveObjectScheduler** dispatches tasks to **WorkerThread** for execution.
-- **WorkerThread** notifies **ActiveObjectScheduler** upon task completion.
+**Caption**: This diagram illustrates the relationships between product and creator hierarchies in the Factory Method pattern. The `Document` interface defines the contract for all product types, while the `DocumentCreator` class defines the factory method for creating documents.
 
 ### Key Takeaways
 
-- **Scheduling Strategies**: Choose the appropriate strategy (FIFO, priority, timed) based on application needs.
-- **Activation List/Scheduler**: Central component managing task execution.
-- **Task Dispatching**: Efficiently assign tasks to worker threads.
-- **Load Balancing**: Use dynamic thread pools and task batching to optimize performance.
-- **Synchronization**: Ensure thread safety with locks, atomic variables, and concurrent collections.
-- **Task Management**: Handle cancellations and completion callbacks effectively.
-- **Java Concurrency Utilities**: Leverage `BlockingQueue`, `ExecutorService`, `Future`, and `ScheduledExecutorService`.
+- **Decoupling**: The Factory Method pattern decouples the creator from the concrete product classes, promoting flexibility and maintainability.
+- **Extensibility**: New product types can be added without modifying existing creator code, adhering to the open/closed principle.
+- **Polymorphism**: The use of interfaces or abstract classes allows for polymorphic behavior, enabling the client code to interact with different product types through a unified interface.
 
-### Embrace the Journey
+### Encouraging Experimentation
 
-Remember, mastering concurrency patterns like the Active Object pattern is a journey. As you progress, you'll build more robust and scalable applications. Keep experimenting, stay curious, and enjoy the journey!
+To deepen your understanding of product and creator hierarchies, consider experimenting with the following:
 
-## Quiz Time!
+- **Add a New Document Type**: Implement a new document type, such as a PowerPoint document, and create a corresponding creator class.
+- **Modify the Creator Logic**: Experiment with different logic in the creator classes to determine which product type to instantiate based on runtime conditions.
+- **Integrate Modern Java Features**: Explore how modern Java features, such as lambda expressions and streams, can be integrated into the Factory Method pattern.
+
+### Common Pitfalls and How to Avoid Them
+
+- **Overcomplicating the Hierarchy**: Avoid creating overly complex product and creator hierarchies that are difficult to maintain. Keep the design simple and focused on the specific requirements of your application.
+- **Ignoring the Open/Closed Principle**: Ensure that your design adheres to the open/closed principle by allowing for the addition of new product types without modifying existing code.
+- **Neglecting Performance Considerations**: Be mindful of the performance implications of your design, particularly if the factory method involves complex logic or resource-intensive operations.
+
+### Exercises and Practice Problems
+
+1. **Implement a New Product Type**: Create a new product type and corresponding creator class for a different domain, such as a vehicle manufacturing system.
+2. **Refactor an Existing System**: Identify an existing system in your codebase that could benefit from the Factory Method pattern and refactor it to use product and creator hierarchies.
+3. **Design a Plugin System**: Design a plugin system using the Factory Method pattern, allowing for the dynamic addition of new plugins without modifying the core application code.
+
+### Reflection
+
+Consider how the Factory Method pattern can be applied to your current projects. Reflect on the following questions:
+
+- How can product and creator hierarchies improve the flexibility and maintainability of your code?
+- What challenges might you encounter when implementing these hierarchies, and how can you overcome them?
+- How can you leverage modern Java features to enhance the design of your product and creator hierarchies?
+
+By mastering the relationships between product and creator hierarchies in the Factory Method pattern, you can design software systems that are both flexible and robust, capable of adapting to changing requirements and accommodating new features with ease.
+
+## Test Your Knowledge: Java Factory Method Pattern Quiz
 
 {{< quizdown >}}
 
-### What is the primary role of the Activation List or Scheduler in the Active Object pattern?
+### What is the primary benefit of using product and creator hierarchies in the Factory Method pattern?
 
-- [x] To manage task execution by maintaining a queue of tasks and dispatching them to worker threads.
-- [ ] To directly execute tasks without queuing.
-- [ ] To prioritize tasks based on their complexity.
-- [ ] To handle network communication.
+- [x] They allow for the addition of new products without modifying existing creator code.
+- [ ] They simplify the code by reducing the number of classes.
+- [ ] They eliminate the need for interfaces.
+- [ ] They improve the performance of the application.
 
-> **Explanation:** The Activation List or Scheduler is responsible for managing task execution by maintaining a queue of tasks and dispatching them to worker threads.
+> **Explanation:** Product and creator hierarchies allow for the addition of new products without modifying existing creator code, adhering to the open/closed principle.
 
-### Which Java utility is best suited for implementing a FIFO queue in the Active Object pattern?
+### In the Factory Method pattern, what does the creator hierarchy consist of?
 
-- [x] LinkedBlockingQueue
-- [ ] PriorityBlockingQueue
-- [ ] ConcurrentHashMap
-- [ ] ArrayList
+- [x] Classes responsible for defining the factory method.
+- [ ] Classes that implement the product interface.
+- [ ] Interfaces that define the product contract.
+- [ ] Concrete product classes.
 
-> **Explanation:** `LinkedBlockingQueue` is used to implement a FIFO queue, ensuring tasks are processed in the order they arrive.
+> **Explanation:** The creator hierarchy consists of classes responsible for defining the factory method, which is used to create product objects.
 
-### How can you implement priority-based task scheduling in Java?
+### How does the Factory Method pattern promote decoupling?
 
-- [ ] Using LinkedBlockingQueue
-- [x] Using PriorityBlockingQueue
-- [ ] Using ConcurrentLinkedQueue
-- [ ] Using ArrayBlockingQueue
+- [x] By using interfaces or abstract classes to interact with products.
+- [ ] By eliminating the need for concrete product classes.
+- [ ] By reducing the number of classes in the hierarchy.
+- [ ] By using static methods for object creation.
 
-> **Explanation:** `PriorityBlockingQueue` allows tasks to be scheduled based on priority levels.
+> **Explanation:** The Factory Method pattern promotes decoupling by using interfaces or abstract classes to interact with products, allowing the creator to work with any product that adheres to the expected interface.
 
-### What is a key benefit of using `ExecutorService` in the Active Object pattern?
+### What is a common pitfall when implementing product and creator hierarchies?
 
-- [x] It manages a pool of worker threads for executing tasks efficiently.
-- [ ] It provides direct network communication capabilities.
-- [ ] It simplifies database transactions.
-- [ ] It automatically prioritizes tasks.
+- [x] Overcomplicating the hierarchy.
+- [ ] Using too few classes.
+- [ ] Ignoring the use of interfaces.
+- [ ] Relying on static methods.
 
-> **Explanation:** `ExecutorService` manages a pool of worker threads, allowing tasks to be executed efficiently.
+> **Explanation:** A common pitfall is overcomplicating the hierarchy, which can make the design difficult to maintain.
 
-### Which synchronization mechanism is suitable for lock-free thread-safe operations?
+### Which of the following is a real-world application of the Factory Method pattern?
 
-- [ ] ReentrantLock
-- [x] Atomic Variables
-- [ ] Synchronized Blocks
-- [ ] Semaphore
+- [x] GUI frameworks for creating UI components.
+- [ ] Sorting algorithms for data processing.
+- [ ] Encryption libraries for data security.
+- [ ] Network protocols for communication.
 
-> **Explanation:** Atomic variables like `AtomicInteger` provide lock-free thread-safe operations.
+> **Explanation:** GUI frameworks often use the Factory Method pattern to create different types of UI components based on the platform or theme.
 
-### What is the purpose of a `Future` in Java concurrency?
+### How can modern Java features be integrated into the Factory Method pattern?
 
-- [x] To handle asynchronous task results and cancellations.
-- [ ] To directly execute tasks.
-- [ ] To manage database connections.
-- [ ] To prioritize tasks based on execution time.
+- [x] By using lambda expressions and streams.
+- [ ] By eliminating the use of interfaces.
+- [ ] By relying solely on static methods.
+- [ ] By reducing the number of classes.
 
-> **Explanation:** `Future` is used to handle asynchronous task results and manage cancellations.
+> **Explanation:** Modern Java features, such as lambda expressions and streams, can be integrated into the Factory Method pattern to enhance its design.
 
-### How can you implement timed scheduling in Java?
+### What is the role of the product interface in the Factory Method pattern?
 
-- [ ] Using LinkedBlockingQueue
-- [x] Using ScheduledExecutorService
-- [ ] Using PriorityBlockingQueue
-- [ ] Using ConcurrentHashMap
+- [x] To define a common contract for all product types.
+- [ ] To implement the factory method.
+- [ ] To create concrete product instances.
+- [ ] To eliminate the need for creator classes.
 
-> **Explanation:** `ScheduledExecutorService` is used for scheduling tasks with fixed delays or periodic execution.
+> **Explanation:** The product interface defines a common contract for all product types, allowing for polymorphic behavior.
 
-### What is a common strategy for balancing load in concurrent systems?
+### How does the Factory Method pattern adhere to the open/closed principle?
 
-- [ ] Using a single-threaded executor
-- [x] Dynamic Thread Pool Sizing
-- [ ] Prioritizing all tasks equally
-- [ ] Using only one worker thread
+- [x] By allowing new product types to be added without modifying existing code.
+- [ ] By using static methods for object creation.
+- [ ] By reducing the number of classes in the hierarchy.
+- [ ] By eliminating the use of interfaces.
 
-> **Explanation:** Dynamic thread pool sizing adjusts the number of threads based on the current load, balancing the system's performance.
+> **Explanation:** The Factory Method pattern adheres to the open/closed principle by allowing new product types to be added without modifying existing code.
 
-### Which Java utility is used for thread-safe task queuing?
+### What is the purpose of the factory method in the creator class?
 
-- [x] BlockingQueue
-- [ ] ArrayList
-- [ ] HashMap
-- [ ] Vector
+- [x] To create product objects.
+- [ ] To define the product interface.
+- [ ] To implement concrete product classes.
+- [ ] To eliminate the need for product hierarchies.
 
-> **Explanation:** `BlockingQueue` is used for thread-safe task queuing, ensuring tasks are managed safely in concurrent environments.
+> **Explanation:** The factory method in the creator class is responsible for creating product objects.
 
-### True or False: The Active Object pattern decouples method execution from invocation to enhance concurrency.
+### True or False: The Factory Method pattern eliminates the need for concrete product classes.
 
-- [x] True
-- [ ] False
+- [ ] True
+- [x] False
 
-> **Explanation:** True. The Active Object pattern decouples method execution from invocation, enhancing concurrency by allowing tasks to be managed and executed independently.
+> **Explanation:** False. The Factory Method pattern does not eliminate the need for concrete product classes; it provides a way to instantiate them through a factory method.
 
 {{< /quizdown >}}
+
+By understanding and applying the principles of product and creator hierarchies in the Factory Method pattern, you can enhance the flexibility and maintainability of your software designs, ensuring they are well-equipped to handle future changes and extensions.

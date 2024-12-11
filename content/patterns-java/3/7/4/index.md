@@ -1,327 +1,452 @@
 ---
 canonical: "https://softwarepatternslexicon.com/patterns-java/3/7/4"
-title: "Object Pool Pattern: Use Cases and Examples in Java"
-description: "Explore practical examples of the Object Pool Pattern in Java, including thread pools, database connections, and socket pools. Learn how to implement and benefit from object pooling in real-world applications."
-linkTitle: "3.7.4 Use Cases and Examples"
-categories:
-- Java Design Patterns
-- Creational Patterns
-- Software Engineering
+
+title: "Low Coupling: Enhance Modularity and Flexibility in Java Design Patterns"
+description: "Explore the Low Coupling principle in Java design patterns to improve modularity, flexibility, and maintainability in software development."
+linkTitle: "3.7.4 Low Coupling"
 tags:
-- Object Pool Pattern
-- Java
-- Thread Pools
-- Database Connections
-- Resource Management
-date: 2024-11-17
+- "Java"
+- "Design Patterns"
+- "Low Coupling"
+- "Software Architecture"
+- "Dependency Injection"
+- "Modularity"
+- "Observer Pattern"
+- "Mediator Pattern"
+date: 2024-11-25
 type: docs
-nav_weight: 3740
+nav_weight: 37400
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
+
 ---
 
-## 3.7.4 Use Cases and Examples
+## 3.7.4 Low Coupling
 
-In the realm of software engineering, efficient resource management is paramount, especially when dealing with objects that are expensive to create and manage. The Object Pool Pattern is a creational design pattern that addresses this need by reusing objects that are costly to instantiate. This section delves into practical use cases of the Object Pool Pattern, focusing on thread pools, database connection pools, and socket pools, while providing detailed examples and code snippets to illustrate its implementation in Java.
+### Introduction to Low Coupling
 
-### Understanding the Object Pool Pattern
+In the realm of software design, **Low Coupling** is a fundamental principle that aims to reduce the dependencies between classes and components. This principle is integral to creating systems that are modular, flexible, and maintainable. By minimizing the interdependencies, developers can ensure that changes in one part of the system have minimal impact on others, thereby enhancing the system's adaptability and robustness.
 
-Before we dive into specific use cases, let's briefly revisit what the Object Pool Pattern entails. This pattern involves creating a pool of reusable objects that clients can borrow and return, thus minimizing the overhead of object creation and destruction. It is particularly useful in scenarios where:
+### Why Low Coupling is Desirable
 
-- **Object creation is costly**: For instance, establishing a database connection or creating a new thread.
-- **Frequent object creation and destruction**: This can lead to significant performance bottlenecks.
-- **Limited resources**: Such as a limited number of database connections or network sockets.
+Low coupling is desirable for several reasons:
 
-### Use Case 1: Thread Pools in Concurrent Applications
+1. **Modularity**: Systems with low coupling are easier to understand, test, and maintain. Each module or class can be developed and modified independently, reducing the risk of introducing errors when changes are made.
 
-#### Why Use Thread Pools?
+2. **Flexibility**: Low coupling allows for easier adaptation to changing requirements. Since components are less dependent on each other, they can be replaced or updated with minimal impact on the rest of the system.
 
-In concurrent applications, managing threads efficiently is crucial for performance and resource optimization. Creating and destroying threads repeatedly can be resource-intensive and lead to performance degradation. Thread pools address this by maintaining a pool of threads that can be reused for executing tasks.
+3. **Reusability**: Components with low coupling are more reusable across different projects or contexts. They can be easily extracted and integrated into new systems without requiring significant modifications.
 
-#### Implementing a Thread Pool in Java
+4. **Ease of Maintenance**: With low coupling, the maintenance of the system becomes more straightforward. Bugs can be isolated and fixed without affecting unrelated parts of the system.
 
-Java provides robust support for thread pools through the `java.util.concurrent` package. The `ExecutorService` interface and its implementations, such as `ThreadPoolExecutor`, facilitate the creation and management of thread pools.
+### Strategies for Achieving Low Coupling
+
+Achieving low coupling involves several strategies, including the use of interfaces, dependency injection, and design patterns. Let's explore these strategies in detail.
+
+#### Using Interfaces
+
+Interfaces play a crucial role in achieving low coupling by defining a contract that classes can implement. This allows for the interchangeability of implementations without altering the dependent code.
 
 ```java
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+// Define an interface for a payment processor
+public interface PaymentProcessor {
+    void processPayment(double amount);
+}
 
-public class ThreadPoolExample {
+// Implement the interface with a specific payment method
+public class CreditCardProcessor implements PaymentProcessor {
+    @Override
+    public void processPayment(double amount) {
+        // Process payment using credit card
+        System.out.println("Processing credit card payment of $" + amount);
+    }
+}
+
+// Another implementation using PayPal
+public class PayPalProcessor implements PaymentProcessor {
+    @Override
+    public void processPayment(double amount) {
+        // Process payment using PayPal
+        System.out.println("Processing PayPal payment of $" + amount);
+    }
+}
+
+// Client code using the interface
+public class PaymentService {
+    private PaymentProcessor paymentProcessor;
+
+    public PaymentService(PaymentProcessor paymentProcessor) {
+        this.paymentProcessor = paymentProcessor;
+    }
+
+    public void makePayment(double amount) {
+        paymentProcessor.processPayment(amount);
+    }
+}
+
+// Usage
+public class Main {
     public static void main(String[] args) {
-        // Create a thread pool with a fixed number of threads
-        ExecutorService executor = Executors.newFixedThreadPool(5);
+        PaymentProcessor processor = new CreditCardProcessor();
+        PaymentService service = new PaymentService(processor);
+        service.makePayment(100.0);
 
-        // Submit tasks to the executor
-        for (int i = 0; i < 10; i++) {
-            executor.submit(() -> {
-                System.out.println("Executing task: " + Thread.currentThread().getName());
-                // Simulate task processing
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    Thread.currentThread().interrupt();
-                }
-            });
-        }
-
-        // Shutdown the executor
-        executor.shutdown();
+        // Switch to PayPal without changing the client code
+        processor = new PayPalProcessor();
+        service = new PaymentService(processor);
+        service.makePayment(200.0);
     }
 }
 ```
 
-In this example, a fixed thread pool with 5 threads is created. Tasks are submitted to the pool, and threads are reused to execute these tasks, reducing the overhead of thread creation.
+**Explanation**: In this example, the `PaymentService` class depends on the `PaymentProcessor` interface rather than a specific implementation. This allows for flexibility in changing the payment method without modifying the `PaymentService` class.
 
-#### Benefits of Using Thread Pools
+#### Dependency Injection
 
-- **Improved Performance**: By reusing threads, the application avoids the overhead of creating and destroying threads.
-- **Resource Management**: Limits the number of concurrent threads, preventing resource exhaustion.
-- **Scalability**: Easily scales with the number of tasks by adjusting the pool size.
-
-### Use Case 2: Database Connection Pools in Web Servers
-
-#### The Need for Connection Pools
-
-Database connections are expensive to establish and maintain. In web applications, where multiple users may request data simultaneously, creating a new connection for each request can lead to latency and resource exhaustion. Connection pools mitigate this by reusing existing connections.
-
-#### Implementing a Database Connection Pool in Java
-
-Java applications often use libraries like HikariCP or Apache DBCP to manage database connection pools. Here's an example using HikariCP:
+Dependency Injection (DI) is a design pattern that helps achieve low coupling by injecting dependencies into a class rather than having the class instantiate them. This can be done through constructor injection, setter injection, or interface injection.
 
 ```java
-import com.zaxxer.hikari.HikariConfig;
-import com.zaxxer.hikari.HikariDataSource;
+// Dependency Injection using constructor
+public class OrderService {
+    private final PaymentProcessor paymentProcessor;
 
-import java.sql.Connection;
-import java.sql.SQLException;
-
-public class ConnectionPoolExample {
-    private static HikariDataSource dataSource;
-
-    static {
-        HikariConfig config = new HikariConfig();
-        config.setJdbcUrl("jdbc:mysql://localhost:3306/mydatabase");
-        config.setUsername("user");
-        config.setPassword("password");
-        config.setMaximumPoolSize(10);
-
-        dataSource = new HikariDataSource(config);
+    // Constructor injection
+    public OrderService(PaymentProcessor paymentProcessor) {
+        this.paymentProcessor = paymentProcessor;
     }
 
-    public static Connection getConnection() throws SQLException {
-        return dataSource.getConnection();
+    public void processOrder(double amount) {
+        paymentProcessor.processPayment(amount);
     }
+}
 
+// Usage with DI
+public class Main {
     public static void main(String[] args) {
-        try (Connection connection = getConnection()) {
-            System.out.println("Connection obtained: " + connection);
-            // Perform database operations
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        PaymentProcessor processor = new CreditCardProcessor();
+        OrderService orderService = new OrderService(processor);
+        orderService.processOrder(150.0);
     }
 }
 ```
 
-This example demonstrates setting up a connection pool using HikariCP. The pool is configured with a maximum size, and connections are obtained from the pool for database operations.
+**Explanation**: By injecting the `PaymentProcessor` dependency into the `OrderService` class, we decouple the service from the specific implementation of the payment processor, allowing for greater flexibility and easier testing.
 
-#### Benefits of Using Connection Pools
+#### Design Patterns Promoting Low Coupling
 
-- **Reduced Latency**: Connections are reused, reducing the time taken to establish new connections.
-- **Efficient Resource Utilization**: Limits the number of open connections, preventing database overload.
-- **Scalability**: Supports high concurrency by efficiently managing connections.
+Several design patterns inherently promote low coupling, including the Observer and Mediator patterns.
 
-### Use Case 3: Socket Pools in Network Applications
+##### Observer Pattern
 
-#### Importance of Socket Pools
-
-Network applications often require multiple socket connections for communication. Creating and destroying sockets for each communication can be inefficient and lead to performance issues. Socket pools allow for the reuse of socket connections.
-
-#### Implementing a Socket Pool in Java
-
-While Java does not provide a built-in socket pool, you can implement one using a similar approach to thread and connection pools. Here's a basic example:
+The Observer pattern defines a one-to-many dependency between objects, allowing multiple observers to listen to changes in a subject without the subject being aware of the observers' details.
 
 ```java
-import java.io.IOException;
-import java.net.Socket;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.BlockingQueue;
+// Subject interface
+public interface Subject {
+    void registerObserver(Observer o);
+    void removeObserver(Observer o);
+    void notifyObservers();
+}
 
-public class SocketPool {
-    private final BlockingQueue<Socket> pool;
+// Observer interface
+public interface Observer {
+    void update(String message);
+}
 
-    public SocketPool(int poolSize, String host, int port) throws IOException {
-        pool = new ArrayBlockingQueue<>(poolSize);
-        for (int i = 0; i < poolSize; i++) {
-            pool.add(new Socket(host, port));
+// Concrete subject
+public class NewsAgency implements Subject {
+    private List<Observer> observers = new ArrayList<>();
+    private String news;
+
+    @Override
+    public void registerObserver(Observer o) {
+        observers.add(o);
+    }
+
+    @Override
+    public void removeObserver(Observer o) {
+        observers.remove(o);
+    }
+
+    @Override
+    public void notifyObservers() {
+        for (Observer observer : observers) {
+            observer.update(news);
         }
     }
 
-    public Socket borrowSocket() throws InterruptedException {
-        return pool.take();
+    public void setNews(String news) {
+        this.news = news;
+        notifyObservers();
     }
+}
 
-    public void returnSocket(Socket socket) {
-        if (socket != null) {
-            pool.offer(socket);
-        }
+// Concrete observer
+public class NewsChannel implements Observer {
+    private String news;
+
+    @Override
+    public void update(String news) {
+        this.news = news;
+        System.out.println("News Channel received news: " + news);
     }
+}
 
+// Usage
+public class Main {
     public static void main(String[] args) {
-        try {
-            SocketPool socketPool = new SocketPool(5, "localhost", 8080);
-            Socket socket = socketPool.borrowSocket();
-            // Use the socket for communication
-            socketPool.returnSocket(socket);
-        } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
-        }
+        NewsAgency agency = new NewsAgency();
+        NewsChannel channel = new NewsChannel();
+
+        agency.registerObserver(channel);
+        agency.setNews("Breaking News: Low Coupling in Java!");
     }
 }
 ```
 
-In this example, a pool of socket connections is created. Sockets are borrowed from the pool for communication and returned after use.
+**Explanation**: In this example, the `NewsAgency` class (subject) is decoupled from the `NewsChannel` class (observer). The subject only knows about the observer interface, allowing for any number of observers to be added or removed dynamically.
 
-#### Benefits of Using Socket Pools
+##### Mediator Pattern
 
-- **Reduced Overhead**: Reusing sockets reduces the cost of creating and destroying connections.
-- **Improved Performance**: Minimizes latency in network communication.
-- **Resource Management**: Controls the number of active socket connections.
+The Mediator pattern reduces coupling between classes by introducing a mediator object that handles communication between them.
 
-### Visualizing Object Pool Pattern
+```java
+// Mediator interface
+public interface ChatMediator {
+    void sendMessage(String message, User user);
+    void addUser(User user);
+}
 
-To better understand the flow of the Object Pool Pattern, let's visualize it using a sequence diagram.
+// Concrete mediator
+public class ChatRoom implements ChatMediator {
+    private List<User> users = new ArrayList<>();
 
-```mermaid
-sequenceDiagram
-    participant Client
-    participant Pool
-    participant Resource
+    @Override
+    public void addUser(User user) {
+        users.add(user);
+    }
 
-    Client->>Pool: Request Resource
-    alt Resource Available
-        Pool->>Client: Provide Resource
-        Client->>Resource: Use Resource
-        Client->>Pool: Return Resource
-    else Resource Not Available
-        Pool->>Client: Wait
-    end
+    @Override
+    public void sendMessage(String message, User user) {
+        for (User u : users) {
+            // Message should not be received by the user sending it
+            if (u != user) {
+                u.receive(message);
+            }
+        }
+    }
+}
+
+// User class
+public abstract class User {
+    protected ChatMediator mediator;
+    protected String name;
+
+    public User(ChatMediator mediator, String name) {
+        this.mediator = mediator;
+        this.name = name;
+    }
+
+    public abstract void send(String message);
+    public abstract void receive(String message);
+}
+
+// Concrete user
+public class ConcreteUser extends User {
+    public ConcreteUser(ChatMediator mediator, String name) {
+        super(mediator, name);
+    }
+
+    @Override
+    public void send(String message) {
+        System.out.println(this.name + " sends: " + message);
+        mediator.sendMessage(message, this);
+    }
+
+    @Override
+    public void receive(String message) {
+        System.out.println(this.name + " receives: " + message);
+    }
+}
+
+// Usage
+public class Main {
+    public static void main(String[] args) {
+        ChatMediator mediator = new ChatRoom();
+
+        User user1 = new ConcreteUser(mediator, "Alice");
+        User user2 = new ConcreteUser(mediator, "Bob");
+        User user3 = new ConcreteUser(mediator, "Charlie");
+
+        mediator.addUser(user1);
+        mediator.addUser(user2);
+        mediator.addUser(user3);
+
+        user1.send("Hello everyone!");
+    }
+}
 ```
 
-This diagram illustrates the interaction between the client, the pool, and the resource. The client requests a resource from the pool, uses it, and returns it to the pool. If no resources are available, the client waits until one becomes available.
+**Explanation**: The `ChatRoom` class acts as a mediator, managing communication between `ConcreteUser` instances. This reduces direct dependencies between users, promoting low coupling.
 
-### Encouraging Object Pooling in Your Applications
+### Refactoring Tightly Coupled Code
 
-As we have seen, object pooling is a powerful pattern for managing expensive resources efficiently. Here are some key takeaways and considerations for implementing object pooling in your applications:
+Refactoring tightly coupled code involves identifying dependencies and systematically reducing them. Consider the following example of tightly coupled code:
 
-- **Identify Expensive Resources**: Determine which resources in your application are costly to create and manage.
-- **Evaluate Pooling Libraries**: Use existing libraries and frameworks that provide pooling mechanisms, such as `ExecutorService` for threads and HikariCP for database connections.
-- **Configure Pools Appropriately**: Set pool sizes and configurations based on your application's concurrency and resource requirements.
-- **Monitor and Tune**: Continuously monitor the performance of your pools and adjust configurations as needed to optimize resource utilization.
+```java
+// Tightly coupled code
+public class OrderProcessor {
+    private CreditCardProcessor creditCardProcessor = new CreditCardProcessor();
 
-### Try It Yourself
+    public void processOrder(double amount) {
+        creditCardProcessor.processPayment(amount);
+    }
+}
+```
 
-To deepen your understanding of the Object Pool Pattern, try modifying the examples provided:
+To refactor this code for low coupling, introduce an interface and use dependency injection:
 
-- **Experiment with Different Pool Sizes**: Change the pool size in the thread pool and connection pool examples to see how it affects performance.
-- **Implement a Custom Object Pool**: Create a pool for a different type of resource, such as file handles or custom objects.
-- **Integrate with a Real Application**: Use the connection pool example in a simple web application to see how it improves performance under load.
+```java
+// Refactored code
+public class OrderProcessor {
+    private PaymentProcessor paymentProcessor;
+
+    public OrderProcessor(PaymentProcessor paymentProcessor) {
+        this.paymentProcessor = paymentProcessor;
+    }
+
+    public void processOrder(double amount) {
+        paymentProcessor.processPayment(amount);
+    }
+}
+```
+
+**Explanation**: By introducing the `PaymentProcessor` interface and using constructor injection, the `OrderProcessor` class is decoupled from the specific implementation of the payment processor.
+
+### Relationship Between Low Coupling and Design Patterns
+
+Low coupling is a common goal in many design patterns. The Observer and Mediator patterns, as discussed earlier, are prime examples of patterns that promote low coupling by abstracting dependencies and facilitating communication between components.
+
+#### Observer Pattern
+
+The Observer pattern decouples the subject from its observers, allowing for dynamic changes in the observer list without affecting the subject. This is particularly useful in event-driven systems where multiple components need to react to changes in state.
+
+#### Mediator Pattern
+
+The Mediator pattern centralizes communication between components, reducing direct dependencies. This is beneficial in complex systems where multiple components interact, as it simplifies the communication logic and enhances maintainability.
 
 ### Conclusion
 
-The Object Pool Pattern is an essential tool in the software engineer's toolkit, offering significant benefits in terms of performance, resource management, and scalability. By understanding and applying this pattern, you can optimize the use of expensive resources in your applications, leading to more efficient and responsive systems.
+Low coupling is a vital principle in software design that enhances modularity, flexibility, and maintainability. By employing strategies such as interfaces, dependency injection, and design patterns like Observer and Mediator, developers can achieve low coupling and create robust, adaptable systems. As you continue to design and develop software, consider how you can apply these principles to improve the quality and longevity of your applications.
 
-## Quiz Time!
+### Key Takeaways
+
+- Low coupling reduces dependencies between classes, enhancing modularity and flexibility.
+- Interfaces and dependency injection are effective strategies for achieving low coupling.
+- Design patterns like Observer and Mediator inherently promote low coupling.
+- Refactoring tightly coupled code involves identifying dependencies and systematically reducing them.
+
+### Exercises
+
+1. Refactor a tightly coupled class in your current project to use interfaces and dependency injection.
+2. Implement the Observer pattern in a simple Java application to understand its impact on coupling.
+3. Explore other design patterns that promote low coupling and consider their applicability to your projects.
+
+### Reflection
+
+Consider how low coupling can be applied to your current projects. What dependencies can be reduced or eliminated? How can design patterns help achieve this goal?
+
+## Test Your Knowledge: Low Coupling in Java Design Patterns Quiz
 
 {{< quizdown >}}
 
-### What is the primary purpose of the Object Pool Pattern?
+### What is the primary benefit of low coupling in software design?
 
-- [x] To reuse objects that are expensive to create
-- [ ] To create new objects for each request
-- [ ] To destroy objects after use
-- [ ] To limit the number of objects in an application
+- [x] Enhances modularity and flexibility
+- [ ] Increases code complexity
+- [ ] Reduces code readability
+- [ ] Limits code reusability
 
-> **Explanation:** The Object Pool Pattern is designed to reuse objects that are costly to create, reducing the overhead of object creation and destruction.
+> **Explanation:** Low coupling enhances modularity and flexibility by reducing dependencies between components, making the system easier to maintain and adapt.
 
-### Which Java package provides support for thread pools?
+### Which design pattern is known for promoting low coupling by defining a one-to-many dependency?
 
-- [x] java.util.concurrent
-- [ ] java.util.thread
-- [ ] java.lang.thread
-- [ ] java.concurrent.thread
+- [x] Observer Pattern
+- [ ] Singleton Pattern
+- [ ] Factory Pattern
+- [ ] Builder Pattern
 
-> **Explanation:** The `java.util.concurrent` package provides support for thread pools and other concurrency utilities.
+> **Explanation:** The Observer pattern promotes low coupling by allowing multiple observers to listen to changes in a subject without the subject being aware of the observers' details.
 
-### What is a key benefit of using a database connection pool?
+### How does dependency injection help achieve low coupling?
 
-- [x] Reduced latency in establishing connections
-- [ ] Increased number of database connections
-- [ ] Faster database queries
-- [ ] Simplified database schema
+- [x] By injecting dependencies into a class rather than having the class instantiate them
+- [ ] By increasing the number of dependencies a class has
+- [ ] By making all dependencies private
+- [ ] By using static methods for dependency management
 
-> **Explanation:** Connection pools reduce latency by reusing existing connections, avoiding the overhead of establishing new connections for each request.
+> **Explanation:** Dependency injection helps achieve low coupling by injecting dependencies into a class, allowing for greater flexibility and easier testing.
 
-### In the context of socket pools, what is a primary advantage?
+### In the context of low coupling, what role do interfaces play?
 
-- [x] Reduced overhead of creating and destroying sockets
-- [ ] Increased number of sockets
-- [ ] Faster data transmission
-- [ ] Simplified network protocol
+- [x] They define a contract that classes can implement, allowing for interchangeability of implementations
+- [ ] They increase the number of dependencies in a system
+- [ ] They make code less readable
+- [ ] They enforce a specific implementation
 
-> **Explanation:** Socket pools reduce the overhead of creating and destroying sockets by reusing existing connections.
+> **Explanation:** Interfaces define a contract that classes can implement, allowing for interchangeability of implementations and reducing dependencies.
 
-### What is a common library for managing database connection pools in Java?
+### Which design pattern centralizes communication between components to reduce direct dependencies?
 
-- [x] HikariCP
-- [ ] Apache Commons
-- [ ] Log4j
-- [ ] JUnit
+- [x] Mediator Pattern
+- [ ] Observer Pattern
+- [ ] Singleton Pattern
+- [ ] Factory Pattern
 
-> **Explanation:** HikariCP is a popular library for managing database connection pools in Java applications.
+> **Explanation:** The Mediator pattern centralizes communication between components, reducing direct dependencies and simplifying the communication logic.
 
-### Which method is used to submit tasks to a thread pool in Java?
+### What is a common goal of many design patterns, including Observer and Mediator?
 
-- [x] submit()
-- [ ] execute()
-- [ ] run()
-- [ ] start()
+- [x] Achieving low coupling
+- [ ] Increasing code complexity
+- [ ] Reducing code readability
+- [ ] Limiting code reusability
 
-> **Explanation:** The `submit()` method is used to submit tasks to a thread pool for execution.
+> **Explanation:** A common goal of many design patterns, including Observer and Mediator, is achieving low coupling by abstracting dependencies and facilitating communication between components.
 
-### What does the `ExecutorService` interface in Java provide?
+### How can tightly coupled code be refactored to achieve low coupling?
 
-- [x] A framework for managing thread pools
-- [ ] A method for creating new threads
-- [ ] A utility for synchronizing threads
-- [ ] A tool for debugging threads
+- [x] By introducing interfaces and using dependency injection
+- [ ] By increasing the number of dependencies
+- [ ] By making all dependencies private
+- [ ] By using static methods for dependency management
 
-> **Explanation:** The `ExecutorService` interface provides a framework for managing thread pools and executing tasks asynchronously.
+> **Explanation:** Tightly coupled code can be refactored to achieve low coupling by introducing interfaces and using dependency injection to reduce dependencies.
 
-### How can you obtain a connection from a HikariCP connection pool?
+### What is the impact of low coupling on system maintenance?
 
-- [x] Using the `getConnection()` method
-- [ ] Using the `openConnection()` method
-- [ ] Using the `createConnection()` method
-- [ ] Using the `connect()` method
+- [x] It simplifies maintenance by isolating changes to specific components
+- [ ] It complicates maintenance by increasing dependencies
+- [ ] It has no impact on maintenance
+- [ ] It makes maintenance more difficult
 
-> **Explanation:** The `getConnection()` method is used to obtain a connection from a HikariCP connection pool.
+> **Explanation:** Low coupling simplifies maintenance by isolating changes to specific components, reducing the risk of introducing errors when changes are made.
 
-### What is a key consideration when configuring an object pool?
+### Which of the following is NOT a strategy for achieving low coupling?
 
-- [x] Setting the appropriate pool size
-- [ ] Choosing the fastest algorithm
-- [ ] Minimizing the number of objects
-- [ ] Maximizing the number of threads
+- [ ] Using interfaces
+- [ ] Dependency injection
+- [ ] Observer pattern
+- [x] Increasing the number of dependencies
 
-> **Explanation:** Setting the appropriate pool size is crucial to ensure efficient resource utilization and performance.
+> **Explanation:** Increasing the number of dependencies is not a strategy for achieving low coupling; it actually increases coupling.
 
-### True or False: Object pooling is only useful for managing database connections.
+### True or False: Low coupling limits code reusability.
 
 - [ ] True
 - [x] False
 
-> **Explanation:** Object pooling is useful for managing various types of expensive resources, including threads, sockets, and custom objects.
+> **Explanation:** Low coupling enhances code reusability by allowing components to be easily extracted and integrated into new systems without requiring significant modifications.
 
 {{< /quizdown >}}
 
-Remember, mastering the Object Pool Pattern is just one step in your journey to becoming an expert software engineer. Keep exploring, experimenting, and applying these concepts to build efficient and scalable applications.
+

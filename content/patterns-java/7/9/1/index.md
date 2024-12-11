@@ -1,388 +1,268 @@
 ---
 canonical: "https://softwarepatternslexicon.com/patterns-java/7/9/1"
-title: "Implementing Event Sourcing in Java: Techniques for Recording Changes as Events"
-description: "Explore the implementation of Event Sourcing in Java applications, focusing on event classes, event store implementations, aggregators, and more."
-linkTitle: "7.9.1 Implementing Event Sourcing in Java"
-categories:
-- Java
-- Software Engineering
-- Design Patterns
+
+title: "Implementing Private Class Data in Java"
+description: "Learn how to implement the Private Class Data pattern in Java to enhance encapsulation and control write access to class attributes."
+linkTitle: "7.9.1 Implementing Private Class Data in Java"
 tags:
-- Event Sourcing
-- Java
-- CQRS
-- Architectural Patterns
-- Software Design
-date: 2024-11-17
+- "Java"
+- "Design Patterns"
+- "Private Class Data"
+- "Encapsulation"
+- "Immutability"
+- "Software Architecture"
+- "Advanced Java"
+- "Object-Oriented Programming"
+date: 2024-11-25
 type: docs
-nav_weight: 7910
+nav_weight: 79100
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
+
 ---
 
-## 7.9.1 Implementing Event Sourcing in Java
+## 7.9.1 Implementing Private Class Data in Java
 
-Event Sourcing is a powerful architectural pattern that involves storing the state of a system as a sequence of events. These events represent changes to the system's state, and the current state can be reconstructed by replaying these events. This approach offers several benefits, including improved auditability, the ability to reconstruct past states, and enhanced scalability.
+### Introduction
 
-In this section, we will explore how to implement Event Sourcing in Java. We'll cover the creation of event classes, the implementation of an event store, the use of aggregators, and the reconstruction of application state from events. Additionally, we'll discuss the use of event streams and snapshots, as well as considerations for performance and storage.
+In the realm of software design, maintaining the integrity and security of data is paramount. The **Private Class Data** pattern is a structural design pattern that focuses on encapsulating class data to control write access and enhance immutability. This pattern is particularly useful in scenarios where data integrity is crucial, and it helps in minimizing the exposure of internal data structures.
 
-### Understanding Event Sourcing
+### Intent of the Private Class Data Pattern
 
-Before diving into the implementation, let's briefly understand the core concepts of Event Sourcing:
+The primary intent of the Private Class Data pattern is to **encapsulate class data** to protect it from unauthorized access and modification. By separating the data from the methods that operate on it, this pattern ensures that the data remains consistent and secure. It achieves this by providing controlled access to the data through well-defined interfaces, thus promoting immutability and reducing the risk of unintended side effects.
 
-- **Event**: A record of a change to the system's state. Events are immutable and represent facts that have occurred.
-- **Event Store**: A storage mechanism for persisting events. It acts as the source of truth for the system's state.
-- **Aggregator**: An entity that processes events to maintain the current state of the system.
-- **Snapshot**: A periodic capture of the system's state, used to optimize the process of state reconstruction.
+### Encapsulation and Immutability
 
-### Setting Up Event Sourcing in Java
+Encapsulation is a fundamental principle of object-oriented programming that involves bundling the data and the methods that operate on the data within a single unit, typically a class. The Private Class Data pattern takes encapsulation a step further by ensuring that the data is not directly accessible from outside the class. This is achieved by:
 
-To implement Event Sourcing in Java, we'll follow these steps:
+- **Hiding the data**: The data is stored in a separate class, often referred to as the data class, which is not exposed to the outside world.
+- **Providing controlled access**: Access to the data is provided through getter methods, and any modification is done through controlled interfaces, if at all.
 
-1. **Define Event Classes**: Create classes that represent different types of events.
-2. **Implement an Event Store**: Develop a mechanism to persist and retrieve events.
-3. **Create Aggregators**: Implement logic to process events and maintain the current state.
-4. **Reconstruct State from Events**: Use events to rebuild the system's state.
-5. **Utilize Event Streams and Snapshots**: Optimize state reconstruction using snapshots.
+Immutability is another key aspect of this pattern. By making the data immutable, the pattern ensures that once the data is set, it cannot be changed. This is particularly useful in multi-threaded environments where data consistency is critical.
 
-#### Defining Event Classes
+### Implementing Private Class Data in Java
 
-Event classes are the building blocks of Event Sourcing. Each event class represents a specific change to the system's state. Let's define a simple event class in Java:
+To implement the Private Class Data pattern in Java, follow these steps:
 
-```java
-public abstract class Event {
-    private final String eventId;
-    private final long timestamp;
+1. **Define the Data Class**: Create a separate class to hold the data. This class should have private fields and only provide getter methods to access the data.
 
-    public Event(String eventId, long timestamp) {
-        this.eventId = eventId;
-        this.timestamp = timestamp;
-    }
+2. **Create the Main Class**: This class will use the data class and provide methods to operate on the data. It should not expose the data class directly.
 
-    public String getEventId() {
-        return eventId;
-    }
+3. **Ensure Immutability**: Make the fields in the data class final and provide no setters, ensuring that the data cannot be modified once set.
 
-    public long getTimestamp() {
-        return timestamp;
-    }
-}
+#### Java Code Example
 
-public class AccountCreatedEvent extends Event {
-    private final String accountId;
-    private final String ownerName;
-
-    public AccountCreatedEvent(String eventId, long timestamp, String accountId, String ownerName) {
-        super(eventId, timestamp);
-        this.accountId = accountId;
-        this.ownerName = ownerName;
-    }
-
-    public String getAccountId() {
-        return accountId;
-    }
-
-    public String getOwnerName() {
-        return ownerName;
-    }
-}
-
-public class MoneyDepositedEvent extends Event {
-    private final String accountId;
-    private final double amount;
-
-    public MoneyDepositedEvent(String eventId, long timestamp, String accountId, double amount) {
-        super(eventId, timestamp);
-        this.accountId = accountId;
-        this.amount = amount;
-    }
-
-    public String getAccountId() {
-        return accountId;
-    }
-
-    public double getAmount() {
-        return amount;
-    }
-}
-```
-
-In this example, we define a base `Event` class and two specific event types: `AccountCreatedEvent` and `MoneyDepositedEvent`. Each event contains relevant data and metadata, such as an event ID and timestamp.
-
-#### Implementing an Event Store
-
-The event store is responsible for persisting and retrieving events. It acts as the system's source of truth. Let's implement a simple in-memory event store in Java:
+Let's consider a scenario where we have a `Car` class that needs to encapsulate its data securely.
 
 ```java
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
+// Data class to hold car data
+public class CarData {
+    private final String make;
+    private final String model;
+    private final int year;
 
-public class InMemoryEventStore {
-    private final List<Event> events = new ArrayList<>();
-
-    public void saveEvent(Event event) {
-        events.add(event);
+    public CarData(String make, String model, int year) {
+        this.make = make;
+        this.model = model;
+        this.year = year;
     }
 
-    public List<Event> getEventsForAccount(String accountId) {
-        return events.stream()
-                .filter(event -> event instanceof AccountCreatedEvent && ((AccountCreatedEvent) event).getAccountId().equals(accountId) ||
-                                 event instanceof MoneyDepositedEvent && ((MoneyDepositedEvent) event).getAccountId().equals(accountId))
-                .collect(Collectors.toList());
+    public String getMake() {
+        return make;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public int getYear() {
+        return year;
+    }
+}
+
+// Main class that uses the data class
+public class Car {
+    private final CarData carData;
+
+    public Car(String make, String model, int year) {
+        this.carData = new CarData(make, model, year);
+    }
+
+    public String getCarDetails() {
+        return "Car Make: " + carData.getMake() + ", Model: " + carData.getModel() + ", Year: " + carData.getYear();
     }
 }
 ```
 
-This `InMemoryEventStore` class provides methods to save events and retrieve events related to a specific account. In a production environment, you would replace this with a more robust storage solution, such as a database.
+In this example, the `CarData` class encapsulates the data related to a car. The `Car` class uses this data class but does not expose it directly, ensuring that the data remains secure and immutable.
 
-#### Creating Aggregators
+### Benefits of the Private Class Data Pattern
 
-Aggregators process events to maintain the current state of the system. Let's create an aggregator for managing account balances:
+The Private Class Data pattern offers several benefits:
 
-```java
-import java.util.List;
+- **Enhanced Encapsulation**: By separating data from methods, the pattern ensures that the data is not exposed directly, thus enhancing encapsulation.
+- **Immutability**: Making the data immutable ensures that it cannot be changed once set, which is particularly useful in multi-threaded environments.
+- **Reduced Complexity**: By providing a clear separation between data and methods, the pattern reduces the complexity of the code and makes it easier to maintain.
+- **Improved Security**: By controlling access to the data, the pattern enhances the security of the application.
 
-public class AccountAggregator {
-    private double balance;
+### Practical Applications and Real-World Scenarios
 
-    public AccountAggregator() {
-        this.balance = 0.0;
-    }
+The Private Class Data pattern is particularly useful in scenarios where data integrity and security are critical. Some real-world applications include:
 
-    public void applyEvents(List<Event> events) {
-        for (Event event : events) {
-            if (event instanceof MoneyDepositedEvent) {
-                apply((MoneyDepositedEvent) event);
-            }
-        }
-    }
+- **Financial Applications**: In financial applications, data integrity is crucial. The Private Class Data pattern can be used to ensure that sensitive data, such as account balances and transaction details, are not exposed or modified inadvertently.
+- **Healthcare Systems**: In healthcare systems, patient data must be kept secure and immutable. The Private Class Data pattern can help in achieving this by encapsulating patient data and providing controlled access.
+- **Multi-threaded Applications**: In multi-threaded applications, data consistency is critical. The Private Class Data pattern can help in ensuring that the data remains consistent and immutable across different threads.
 
-    private void apply(MoneyDepositedEvent event) {
-        balance += event.getAmount();
-    }
+### Historical Context and Evolution
 
-    public double getBalance() {
-        return balance;
-    }
-}
-```
+The concept of encapsulating data to protect it from unauthorized access has been around since the early days of object-oriented programming. The Private Class Data pattern is an evolution of this concept, providing a more structured approach to encapsulation and immutability. Over the years, this pattern has been adapted and refined to meet the needs of modern software development, particularly in the context of multi-threaded and distributed systems.
 
-The `AccountAggregator` class processes `MoneyDepositedEvent` events to update the account balance. It maintains the current state by applying each event in sequence.
+### Common Pitfalls and How to Avoid Them
 
-#### Reconstructing State from Events
+While the Private Class Data pattern offers several benefits, there are some common pitfalls to be aware of:
 
-To reconstruct the state of the system, we replay the events stored in the event store. Here's how we can achieve this:
+- **Over-Encapsulation**: Over-encapsulating data can lead to unnecessary complexity and make the code difficult to understand and maintain. It is important to strike a balance between encapsulation and simplicity.
+- **Performance Overhead**: In some cases, the additional layer of abstraction introduced by the pattern can lead to performance overhead. It is important to consider the performance implications and optimize the code where necessary.
+- **Limited Flexibility**: Making data immutable can limit the flexibility of the application. It is important to carefully consider the trade-offs between immutability and flexibility.
 
-```java
-public class AccountService {
-    private final InMemoryEventStore eventStore;
+### Exercises and Practice Problems
 
-    public AccountService(InMemoryEventStore eventStore) {
-        this.eventStore = eventStore;
-    }
+To reinforce your understanding of the Private Class Data pattern, consider the following exercises:
 
-    public double getAccountBalance(String accountId) {
-        List<Event> events = eventStore.getEventsForAccount(accountId);
-        AccountAggregator aggregator = new AccountAggregator();
-        aggregator.applyEvents(events);
-        return aggregator.getBalance();
-    }
-}
-```
+1. **Exercise 1**: Implement a `BankAccount` class using the Private Class Data pattern. The class should encapsulate account details such as account number, balance, and account holder's name.
 
-The `AccountService` class retrieves events for a specific account and uses the `AccountAggregator` to reconstruct the account balance.
+2. **Exercise 2**: Modify the `Car` class example to include additional data such as color and engine type. Ensure that the data remains encapsulated and immutable.
 
-#### Utilizing Event Streams and Snapshots
+3. **Exercise 3**: Consider a scenario where you need to implement a `UserProfile` class for a social media application. Use the Private Class Data pattern to encapsulate user details such as username, email, and profile picture.
 
-As the number of events grows, reconstructing the state by replaying all events can become inefficient. To address this, we can use snapshots to periodically capture the state of the system. This allows us to start replaying events from the last snapshot, reducing the number of events that need to be processed.
+### Summary and Key Takeaways
 
-Here's an example of how to implement snapshots:
+The Private Class Data pattern is a powerful tool for enhancing encapsulation and immutability in Java applications. By separating data from methods and providing controlled access, this pattern helps in maintaining data integrity and security. It is particularly useful in scenarios where data consistency is critical, such as in financial applications, healthcare systems, and multi-threaded environments.
 
-```java
-public class Snapshot {
-    private final String accountId;
-    private final double balance;
-    private final long timestamp;
+### Encouragement for Further Exploration
 
-    public Snapshot(String accountId, double balance, long timestamp) {
-        this.accountId = accountId;
-        this.balance = balance;
-        this.timestamp = timestamp;
-    }
+As you continue to explore the world of design patterns, consider how the Private Class Data pattern can be applied to your own projects. Think about the scenarios where data integrity and security are critical, and how this pattern can help in achieving these goals. Experiment with different implementations and explore the trade-offs between encapsulation, immutability, and flexibility.
 
-    public String getAccountId() {
-        return accountId;
-    }
+### Related Patterns
 
-    public double getBalance() {
-        return balance;
-    }
+The Private Class Data pattern is closely related to other design patterns such as:
 
-    public long getTimestamp() {
-        return timestamp;
-    }
-}
+- **[6.6 Singleton Pattern]({{< ref "/patterns-java/6/6" >}} "Singleton Pattern")**: The Singleton pattern ensures that a class has only one instance and provides a global point of access to it. It is often used in conjunction with the Private Class Data pattern to ensure that the data is not only encapsulated but also globally accessible.
+- **[7.1 Adapter Pattern]({{< ref "/patterns-java/7/1" >}} "Adapter Pattern")**: The Adapter pattern allows incompatible interfaces to work together. It can be used in conjunction with the Private Class Data pattern to provide a consistent interface for accessing encapsulated data.
 
-public class SnapshotStore {
-    private final List<Snapshot> snapshots = new ArrayList<>();
+### Known Uses
 
-    public void saveSnapshot(Snapshot snapshot) {
-        snapshots.add(snapshot);
-    }
+The Private Class Data pattern is widely used in various libraries and frameworks, including:
 
-    public Snapshot getLatestSnapshot(String accountId) {
-        return snapshots.stream()
-                .filter(snapshot -> snapshot.getAccountId().equals(accountId))
-                .max((s1, s2) -> Long.compare(s1.getTimestamp(), s2.getTimestamp()))
-                .orElse(null);
-    }
-}
-```
+- **Java Collections Framework**: The Java Collections Framework uses encapsulation extensively to protect the internal data structures of collections such as lists, sets, and maps.
+- **Spring Framework**: The Spring Framework uses encapsulation to manage the configuration and lifecycle of beans, ensuring that the internal state of beans is not exposed to the outside world.
 
-In this implementation, the `SnapshotStore` class manages snapshots, allowing us to save and retrieve the latest snapshot for a specific account.
+### Conclusion
 
-### Performance and Storage Considerations
+The Private Class Data pattern is an essential tool in the arsenal of any Java developer or software architect. By encapsulating data and providing controlled access, this pattern helps in maintaining data integrity and security, making it an invaluable asset in the development of robust and maintainable applications.
 
-When implementing Event Sourcing, it's important to consider performance and storage:
+---
 
-- **Event Store**: Choose a storage solution that can handle high write and read throughput. Consider using databases optimized for append-only operations, such as Apache Kafka or EventStoreDB.
-- **Snapshots**: Determine an appropriate snapshot frequency based on the system's requirements. More frequent snapshots reduce the number of events that need to be replayed but increase storage requirements.
-- **Event Streams**: Organize events into streams based on logical groupings, such as by account or entity type. This allows for efficient retrieval and processing of events.
-- **Scalability**: Design the system to scale horizontally by partitioning event streams and distributing them across multiple nodes.
-
-### Visualizing Event Sourcing Architecture
-
-To better understand the flow of data in an Event Sourcing system, let's visualize the architecture using a Mermaid.js diagram:
-
-```mermaid
-flowchart TD
-    A[User Action] --> B[Generate Event]
-    B --> C[Event Store]
-    C --> D[Snapshot Store]
-    C --> E[Event Stream]
-    E --> F[Aggregator]
-    F --> G[Reconstructed State]
-    D --> F
-```
-
-**Diagram Description**: This flowchart illustrates the process of generating events from user actions, storing them in the event store, and using snapshots and event streams to reconstruct the system's state through aggregators.
-
-### Try It Yourself
-
-To deepen your understanding of Event Sourcing, try modifying the code examples provided:
-
-- **Add New Event Types**: Create additional event classes to represent different types of changes, such as `MoneyWithdrawnEvent`.
-- **Implement a Persistent Event Store**: Replace the in-memory event store with a database-backed implementation.
-- **Optimize State Reconstruction**: Experiment with different snapshot frequencies and observe the impact on performance.
-
-### References and Further Reading
-
-For more information on Event Sourcing and related concepts, consider exploring the following resources:
-
-- [Martin Fowler's article on Event Sourcing](https://martinfowler.com/eaaDev/EventSourcing.html)
-- [Event Store Documentation](https://eventstore.com/docs/)
-- [Apache Kafka Documentation](https://kafka.apache.org/documentation/)
-
-### Key Takeaways
-
-- Event Sourcing involves storing the state of a system as a sequence of events.
-- Events are immutable records of changes to the system's state.
-- An event store acts as the source of truth for the system's state.
-- Aggregators process events to maintain the current state.
-- Snapshots optimize state reconstruction by capturing the system's state periodically.
-
-## Quiz Time!
+## Test Your Knowledge: Implementing Private Class Data in Java
 
 {{< quizdown >}}
 
-### What is the primary purpose of Event Sourcing?
+### What is the primary intent of the Private Class Data pattern?
 
-- [x] To store the state of a system as a sequence of events.
-- [ ] To optimize database queries.
-- [ ] To replace traditional databases.
-- [ ] To enhance user interface design.
+- [x] To encapsulate class data and control write access.
+- [ ] To provide a global point of access to a class.
+- [ ] To allow incompatible interfaces to work together.
+- [ ] To create a single instance of a class.
 
-> **Explanation:** Event Sourcing involves storing the state of a system as a sequence of events, allowing for state reconstruction and auditability.
+> **Explanation:** The primary intent of the Private Class Data pattern is to encapsulate class data and control write access, ensuring data integrity and security.
 
-### Which class in the example is responsible for maintaining the current state of the system?
 
-- [ ] Event
-- [ ] InMemoryEventStore
-- [x] AccountAggregator
-- [ ] AccountService
+### How does the Private Class Data pattern enhance encapsulation?
 
-> **Explanation:** The `AccountAggregator` class processes events to maintain the current state of the system.
+- [x] By separating data from methods and hiding the data.
+- [ ] By exposing all class data through public fields.
+- [ ] By allowing direct modification of class data.
+- [ ] By providing a single instance of the data class.
 
-### What is the role of a snapshot in Event Sourcing?
+> **Explanation:** The pattern enhances encapsulation by separating data from methods and hiding the data, thus preventing unauthorized access.
 
-- [x] To periodically capture the system's state for optimized state reconstruction.
-- [ ] To store user preferences.
-- [ ] To replace event stores.
-- [ ] To enhance security.
 
-> **Explanation:** Snapshots capture the system's state periodically, reducing the number of events needed for state reconstruction.
+### What is a key benefit of making data immutable in the Private Class Data pattern?
 
-### How can event streams be organized for efficient retrieval?
+- [x] It ensures data consistency and prevents unintended modifications.
+- [ ] It allows data to be modified freely.
+- [ ] It reduces the performance of the application.
+- [ ] It makes the code more complex.
 
-- [x] By logical groupings such as account or entity type.
-- [ ] By random order.
-- [ ] By event size.
-- [ ] By user preference.
+> **Explanation:** Making data immutable ensures data consistency and prevents unintended modifications, which is crucial in multi-threaded environments.
 
-> **Explanation:** Organizing events into streams based on logical groupings allows for efficient retrieval and processing.
 
-### What is a key consideration when choosing a storage solution for Event Sourcing?
+### In the provided Java example, what role does the `CarData` class play?
 
-- [x] High write and read throughput.
-- [ ] Low cost.
-- [ ] User-friendly interface.
-- [ ] Colorful UI.
+- [x] It encapsulates the data related to a car.
+- [ ] It provides methods to modify car data.
+- [ ] It exposes car data directly to the outside world.
+- [ ] It acts as a singleton instance.
 
-> **Explanation:** A storage solution with high write and read throughput is essential for handling the demands of Event Sourcing.
+> **Explanation:** The `CarData` class encapsulates the data related to a car, ensuring that it is not exposed directly to the outside world.
 
-### What is a benefit of using Event Sourcing?
 
-- [x] Improved auditability and ability to reconstruct past states.
-- [ ] Reduced code complexity.
-- [ ] Enhanced user interface design.
-- [ ] Faster application startup.
+### Which of the following is a common pitfall of the Private Class Data pattern?
 
-> **Explanation:** Event Sourcing improves auditability and allows for the reconstruction of past states.
+- [x] Over-encapsulation leading to unnecessary complexity.
+- [ ] Exposing all data through public fields.
+- [ ] Allowing direct modification of data.
+- [ ] Making data mutable.
 
-### Which of the following is NOT a component of Event Sourcing?
+> **Explanation:** Over-encapsulation can lead to unnecessary complexity, making the code difficult to understand and maintain.
 
-- [ ] Event
-- [ ] Event Store
-- [ ] Aggregator
-- [x] User Interface
 
-> **Explanation:** The User Interface is not a component of Event Sourcing, which focuses on events, event stores, and aggregators.
+### How can the Private Class Data pattern improve security in an application?
 
-### What is the purpose of the `InMemoryEventStore` class?
+- [x] By controlling access to sensitive data through well-defined interfaces.
+- [ ] By exposing all data to the outside world.
+- [ ] By allowing direct modification of sensitive data.
+- [ ] By making data mutable.
 
-- [x] To persist and retrieve events.
-- [ ] To manage user sessions.
-- [ ] To handle network requests.
-- [ ] To optimize memory usage.
+> **Explanation:** The pattern improves security by controlling access to sensitive data through well-defined interfaces, preventing unauthorized modifications.
 
-> **Explanation:** The `InMemoryEventStore` class is responsible for persisting and retrieving events.
 
-### Which Java class is used to represent a specific change to the system's state?
+### What is a practical application of the Private Class Data pattern?
 
-- [x] Event
-- [ ] Snapshot
-- [ ] Aggregator
-- [ ] Service
+- [x] Ensuring data integrity in financial applications.
+- [ ] Allowing direct access to all class data.
+- [ ] Reducing the performance of the application.
+- [ ] Making data mutable.
 
-> **Explanation:** The `Event` class represents a specific change to the system's state.
+> **Explanation:** The pattern is useful in ensuring data integrity in financial applications, where data consistency and security are critical.
 
-### True or False: Event Sourcing can enhance scalability by partitioning event streams.
 
-- [x] True
-- [ ] False
+### How does the Private Class Data pattern relate to the Singleton pattern?
 
-> **Explanation:** Event Sourcing can enhance scalability by partitioning event streams and distributing them across multiple nodes.
+- [x] Both patterns can be used to control access to data.
+- [ ] Both patterns expose data directly to the outside world.
+- [ ] Both patterns allow direct modification of data.
+- [ ] Both patterns make data mutable.
+
+> **Explanation:** Both patterns can be used to control access to data, ensuring that it is not exposed or modified inadvertently.
+
+
+### What is a key consideration when implementing the Private Class Data pattern?
+
+- [x] Balancing encapsulation with simplicity.
+- [ ] Exposing all data through public fields.
+- [ ] Allowing direct modification of data.
+- [ ] Making data mutable.
+
+> **Explanation:** It is important to balance encapsulation with simplicity to avoid unnecessary complexity in the code.
+
+
+### True or False: The Private Class Data pattern is only applicable in single-threaded environments.
+
+- [ ] True
+- [x] False
+
+> **Explanation:** The Private Class Data pattern is applicable in both single-threaded and multi-threaded environments, as it helps in maintaining data integrity and security.
 
 {{< /quizdown >}}
 
-Remember, this is just the beginning. As you progress, you'll build more complex and interactive systems using Event Sourcing. Keep experimenting, stay curious, and enjoy the journey!
+---

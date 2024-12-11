@@ -1,5 +1,5 @@
 ---
-title: "10. Best Practices and Principles"
+title: "10. Concurrency and Parallelism in Java"
 type: docs
 nav_weight: 100000
 ---

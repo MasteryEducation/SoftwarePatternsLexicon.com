@@ -1,5 +1,5 @@
 ---
-title: "6. Concurrency Patterns"
+title: "6. Creational Patterns"
 type: docs
 nav_weight: 60000
 ---

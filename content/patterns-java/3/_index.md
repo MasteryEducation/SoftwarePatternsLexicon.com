@@ -1,5 +1,5 @@
 ---
-title: "3. Creational Patterns"
+title: "3. Principles of Object-Oriented Design"
 type: docs
 nav_weight: 30000
 ---

@@ -1,5 +1,5 @@
 ---
-title: "12. Design Patterns in Java Standard Libraries"
+title: "12. Reactive Programming"
 type: docs
 nav_weight: 120000
 ---

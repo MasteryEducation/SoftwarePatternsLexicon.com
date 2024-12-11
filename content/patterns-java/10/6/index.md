@@ -1,410 +1,270 @@
 ---
 canonical: "https://softwarepatternslexicon.com/patterns-java/10/6"
-title: "Refactoring with Design Patterns in Java: Enhancing Code Structure and Maintainability"
-description: "Explore how refactoring with design patterns can improve Java code structure, maintainability, and performance. Learn when and how to apply patterns like Factory and Observer during refactoring."
-linkTitle: "10.6 Patterns and Refactoring"
-categories:
-- Java Design Patterns
-- Software Engineering
-- Code Refactoring
+
+title: "Java Futures and Callables: Mastering Asynchronous Execution"
+description: "Explore Java's Futures and Callables for efficient asynchronous task execution, enhancing concurrency and parallelism in modern applications."
+linkTitle: "10.6 Futures and Callables"
 tags:
-- Design Patterns
-- Refactoring
-- Java
-- Software Development
-- Code Maintenance
-date: 2024-11-17
+- "Java"
+- "Concurrency"
+- "Asynchronous Programming"
+- "Futures"
+- "Callables"
+- "ExecutorService"
+- "Multithreading"
+- "Best Practices"
+date: 2024-11-25
 type: docs
-nav_weight: 10600
+nav_weight: 106000
 license: "© 2024 Tokenizer Inc. CC BY-NC-SA 4.0"
 ---
 
-## 10.6 Patterns and Refactoring
+## 10.6 Futures and Callables
 
-In the ever-evolving landscape of software development, maintaining a clean and efficient codebase is crucial. Refactoring, the process of restructuring existing code without changing its external behavior, plays a pivotal role in achieving this goal. By leveraging design patterns during refactoring, we can enhance code structure, improve maintainability, and future-proof our applications. Let's delve into the world of refactoring with design patterns, exploring when and how to apply them effectively.
+In the realm of Java concurrency, **Futures** and **Callables** play a pivotal role in executing tasks asynchronously, allowing developers to write efficient and responsive applications. This section delves into the intricacies of these constructs, providing a comprehensive understanding of their usage, benefits, and practical applications.
 
-### Refactoring Concepts
+### Understanding Callable and Future
 
-Refactoring is a disciplined technique for improving the design of existing code. It involves making small, incremental changes to the codebase to improve its structure, readability, and maintainability. The primary goal of refactoring is to make the code easier to understand and modify while preserving its functionality.
+#### Callable vs. Runnable
 
-**Importance of Refactoring:**
+The `Callable` interface is a part of the `java.util.concurrent` package and is designed to represent tasks that return a result and can throw exceptions. This is a significant enhancement over the `Runnable` interface, which does not return a result or throw checked exceptions.
 
-- **Improves Code Readability:** Clean code is easier to read and understand, reducing the cognitive load on developers.
-- **Enhances Maintainability:** Well-structured code is easier to maintain and extend, reducing the risk of introducing bugs.
-- **Facilitates Code Reuse:** By organizing code into reusable components, refactoring promotes code reuse across projects.
-- **Supports Agile Development:** Frequent refactoring aligns with agile practices, enabling rapid iteration and adaptation.
-
-### When to Refactor to Patterns
-
-Identifying opportunities to refactor code using design patterns requires a keen eye for recognizing code smells—indications that the code may be suffering from design issues. Here are some common signs that your code might benefit from introducing a design pattern:
-
-- **Duplicated Code:** Repeated code blocks can be consolidated using patterns like Factory or Strategy.
-- **Complex Conditional Logic:** Patterns like State or Strategy can simplify complex conditional structures.
-- **Tight Coupling:** If classes are too tightly coupled, consider using patterns like Observer or Mediator to decouple them.
-- **Lack of Flexibility:** Patterns like Factory or Builder can provide flexibility in object creation.
-- **Difficult to Test:** Patterns like Dependency Injection can enhance testability by decoupling components.
-
-### Step-by-Step Refactoring Examples
-
-Let's explore detailed examples of refactoring existing code to implement design patterns, focusing on the Factory and Observer patterns.
-
-#### Refactoring to Factory Pattern
-
-**Scenario:** You have a codebase with multiple classes that instantiate objects directly, leading to duplicated code and tight coupling.
-
-**Before Refactoring:**
+- **Runnable**: Represents a task that can be executed by a thread but does not return a result.
+- **Callable**: Represents a task that returns a result and can throw a checked exception.
 
 ```java
-public class NotificationService {
-    public void sendNotification(String type, String message) {
-        if (type.equals("Email")) {
-            EmailNotification email = new EmailNotification();
-            email.send(message);
-        } else if (type.equals("SMS")) {
-            SMSNotification sms = new SMSNotification();
-            sms.send(message);
+import java.util.concurrent.Callable;
+
+// A simple Callable implementation
+public class FactorialCalculator implements Callable<Integer> {
+    private final int number;
+
+    public FactorialCalculator(int number) {
+        this.number = number;
+    }
+
+    @Override
+    public Integer call() throws Exception {
+        int result = 1;
+        for (int i = 1; i <= number; i++) {
+            result *= i;
         }
-    }
-}
-
-class EmailNotification {
-    public void send(String message) {
-        // Send email
-    }
-}
-
-class SMSNotification {
-    public void send(String message) {
-        // Send SMS
+        return result;
     }
 }
 ```
 
-**Refactoring Steps:**
+In this example, the `FactorialCalculator` class implements `Callable<Integer>`, indicating that it returns an `Integer` result.
 
-1. **Identify the Creation Logic:** Locate the code responsible for creating instances of `EmailNotification` and `SMSNotification`.
-2. **Create a Factory Interface:** Define an interface for creating notification objects.
+### Submitting Callable Tasks to ExecutorService
 
-```java
-interface NotificationFactory {
-    Notification createNotification();
-}
-```
-
-3. **Implement Concrete Factories:** Create concrete factory classes for each notification type.
+To execute a `Callable`, you must submit it to an `ExecutorService`, which manages a pool of threads to execute tasks asynchronously. The `submit` method returns a `Future` object, representing the result of the computation.
 
 ```java
-class EmailNotificationFactory implements NotificationFactory {
-    public Notification createNotification() {
-        return new EmailNotification();
-    }
-}
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
-class SMSNotificationFactory implements NotificationFactory {
-    public Notification createNotification() {
-        return new SMSNotification();
-    }
-}
-```
+public class CallableExample {
+    public static void main(String[] args) {
+        ExecutorService executor = Executors.newFixedThreadPool(2);
+        Callable<Integer> task = new FactorialCalculator(5);
 
-4. **Refactor the Client Code:** Modify the `NotificationService` to use the factory interface.
+        Future<Integer> future = executor.submit(task);
 
-```java
-public class NotificationService {
-    private NotificationFactory factory;
-
-    public NotificationService(NotificationFactory factory) {
-        this.factory = factory;
-    }
-
-    public void sendNotification(String message) {
-        Notification notification = factory.createNotification();
-        notification.send(message);
-    }
-}
-```
-
-5. **Use the Factory:** Instantiate the `NotificationService` with the appropriate factory.
-
-```java
-NotificationService emailService = new NotificationService(new EmailNotificationFactory());
-emailService.sendNotification("Hello via Email!");
-
-NotificationService smsService = new NotificationService(new SMSNotificationFactory());
-smsService.sendNotification("Hello via SMS!");
-```
-
-**After Refactoring:**
-
-The refactored code is more flexible and easier to extend with new notification types without modifying existing code.
-
-#### Refactoring to Observer Pattern
-
-**Scenario:** You have a system where multiple components need to be notified of changes in a subject, but the current implementation uses tight coupling.
-
-**Before Refactoring:**
-
-```java
-public class WeatherStation {
-    private double temperature;
-
-    public void setTemperature(double temperature) {
-        this.temperature = temperature;
-        displayTemperature();
-        logTemperature();
-    }
-
-    private void displayTemperature() {
-        // Display temperature
-    }
-
-    private void logTemperature() {
-        // Log temperature
-    }
-}
-```
-
-**Refactoring Steps:**
-
-1. **Identify the Subject:** Determine the class that maintains the state and notifies other components.
-
-2. **Define Observer Interface:** Create an interface for observers.
-
-```java
-interface Observer {
-    void update(double temperature);
-}
-```
-
-3. **Implement Concrete Observers:** Implement the observer interface in the classes that need to be notified.
-
-```java
-class Display implements Observer {
-    public void update(double temperature) {
-        // Display updated temperature
-    }
-}
-
-class Logger implements Observer {
-    public void update(double temperature) {
-        // Log updated temperature
-    }
-}
-```
-
-4. **Refactor the Subject:** Modify the `WeatherStation` to maintain a list of observers and notify them of changes.
-
-```java
-import java.util.ArrayList;
-import java.util.List;
-
-public class WeatherStation {
-    private double temperature;
-    private List<Observer> observers = new ArrayList<>();
-
-    public void addObserver(Observer observer) {
-        observers.add(observer);
-    }
-
-    public void removeObserver(Observer observer) {
-        observers.remove(observer);
-    }
-
-    public void setTemperature(double temperature) {
-        this.temperature = temperature;
-        notifyObservers();
-    }
-
-    private void notifyObservers() {
-        for (Observer observer : observers) {
-            observer.update(temperature);
+        try {
+            Integer result = future.get(); // Blocks until the result is available
+            System.out.println("Factorial is: " + result);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            executor.shutdown();
         }
     }
 }
 ```
 
-5. **Use the Observer Pattern:** Register observers with the subject.
+### Working with Future
+
+The `Future` interface provides methods to check the status of a `Callable` task, retrieve its result, or cancel it.
+
+- **`get()`**: Retrieves the result of the computation, blocking if necessary until it is available.
+- **`cancel(boolean mayInterruptIfRunning)`**: Attempts to cancel the execution of the task.
+- **`isDone()`**: Returns `true` if the task is completed.
+- **`isCancelled()`**: Returns `true` if the task was cancelled before completion.
+
+#### Handling Exceptions and Timeouts
+
+When using `get()`, you can specify a timeout to avoid indefinite blocking. Additionally, handle exceptions such as `ExecutionException`, `InterruptedException`, and `TimeoutException`.
 
 ```java
-WeatherStation station = new WeatherStation();
-station.addObserver(new Display());
-station.addObserver(new Logger());
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
-station.setTemperature(25.0);
+try {
+    Integer result = future.get(1, TimeUnit.SECONDS); // Waits for 1 second
+    System.out.println("Factorial is: " + result);
+} catch (TimeoutException e) {
+    System.out.println("Task timed out");
+} catch (InterruptedException | ExecutionException e) {
+    e.printStackTrace();
+}
 ```
 
-**After Refactoring:**
+### Real-World Scenarios
 
-The refactored code decouples the `WeatherStation` from its observers, making it easier to add new observers without modifying the subject.
+#### Scenario 1: Web Scraping
 
-### Tools and Techniques
+In a web scraping application, you might use `Callable` to fetch data from multiple URLs concurrently, improving the efficiency of data collection.
 
-Refactoring can be a daunting task, but modern Integrated Development Environments (IDEs) and tools offer features that simplify the process. Here are some tools and techniques to assist in refactoring:
+```java
+import java.util.concurrent.Callable;
 
-- **IDEs:** Most modern IDEs like IntelliJ IDEA, Eclipse, and NetBeans offer built-in refactoring tools. These tools can automate common refactoring tasks such as renaming, extracting methods, and introducing interfaces.
-- **Code Analysis Tools:** Tools like SonarQube and PMD can identify code smells and suggest refactoring opportunities.
-- **Version Control:** Use version control systems like Git to track changes and revert if necessary.
-- **Automated Testing:** Ensure you have a robust suite of automated tests to verify that refactoring does not introduce bugs.
+public class WebScraper implements Callable<String> {
+    private final String url;
 
-### Best Practices
-
-Refactoring requires careful planning and execution to ensure that it maintains code functionality and doesn't introduce bugs. Here are some best practices to follow:
-
-- **Refactor in Small Steps:** Make small, incremental changes to the codebase. This approach reduces the risk of introducing errors and makes it easier to identify the source of any issues.
-- **Maintain a Comprehensive Test Suite:** Automated tests are essential for verifying that refactoring does not alter the external behavior of the code. Ensure that your test suite covers all critical paths.
-- **Document Changes:** Keep a record of the changes made during refactoring. This documentation can be invaluable for future reference and for onboarding new team members.
-- **Review and Collaborate:** Conduct code reviews to catch potential issues early and to benefit from the collective expertise of the team.
-- **Prioritize Readability:** Always prioritize code readability and maintainability over clever or complex solutions.
-
-### Impact on Codebase
-
-Refactoring with design patterns can have a profound impact on the codebase:
-
-- **Improved Readability:** Patterns provide a common vocabulary for developers, making the code easier to read and understand.
-- **Enhanced Maintainability:** By organizing code into well-defined patterns, refactoring reduces complexity and makes the codebase easier to maintain.
-- **Future-Proofing:** Patterns facilitate the addition of new features and functionality, ensuring that the codebase can evolve with changing requirements.
-- **Increased Flexibility:** Patterns like Factory and Observer decouple components, allowing for greater flexibility and adaptability.
-
-### Visualizing Refactoring with Patterns
-
-To better understand the transformation process, let's visualize the refactoring of the `WeatherStation` example using a class diagram.
-
-```mermaid
-classDiagram
-    class WeatherStation {
-        - double temperature
-        - List~Observer~ observers
-        + addObserver(Observer observer)
-        + removeObserver(Observer observer)
-        + setTemperature(double temperature)
-        - notifyObservers()
+    public WebScraper(String url) {
+        this.url = url;
     }
 
-    class Observer {
-        <<interface>>
-        + update(double temperature)
+    @Override
+    public String call() throws Exception {
+        // Simulate fetching data from the URL
+        return "Data from " + url;
     }
-
-    class Display {
-        + update(double temperature)
-    }
-
-    class Logger {
-        + update(double temperature)
-    }
-
-    WeatherStation --> Observer
-    Display ..|> Observer
-    Logger ..|> Observer
+}
 ```
 
-**Diagram Description:**
+#### Scenario 2: Financial Calculations
 
-- **WeatherStation:** Acts as the subject, maintaining a list of observers and notifying them of state changes.
-- **Observer Interface:** Defines the contract for observers, ensuring they implement the `update` method.
-- **Display and Logger:** Concrete implementations of the `Observer` interface, responding to updates from the `WeatherStation`.
+In financial applications, `Callable` can be used to perform complex calculations, such as risk assessments or pricing models, in parallel.
 
-### Try It Yourself
+```java
+import java.util.concurrent.Callable;
 
-To deepen your understanding, try modifying the refactored examples:
+public class RiskAssessment implements Callable<Double> {
+    private final double[] data;
 
-- **Factory Pattern:** Add a new notification type, such as `PushNotification`, and implement the corresponding factory.
-- **Observer Pattern:** Introduce a new observer, such as `AlertSystem`, that triggers alerts based on temperature changes.
+    public RiskAssessment(double[] data) {
+        this.data = data;
+    }
+
+    @Override
+    public Double call() throws Exception {
+        // Simulate a complex risk assessment calculation
+        return Math.random() * 100;
+    }
+}
+```
+
+### Best Practices and Tips
+
+- **Use Thread Pools**: Always use `ExecutorService` to manage threads instead of creating them manually. This improves resource management and application performance.
+- **Handle Exceptions Gracefully**: Always handle exceptions when calling `get()` to avoid application crashes.
+- **Consider Timeouts**: Use timeouts with `get()` to prevent indefinite blocking, especially in applications with real-time requirements.
+- **Optimize Task Granularity**: Ensure tasks submitted to `Callable` are neither too fine-grained nor too coarse-grained to optimize performance.
 
 ### Conclusion
 
-Refactoring with design patterns is a powerful technique for enhancing code structure and maintainability. By recognizing opportunities to apply patterns, leveraging tools and techniques, and following best practices, we can transform our codebase into a clean, efficient, and future-proof system. Remember, refactoring is not a one-time task but an ongoing process that aligns with the principles of agile development and continuous improvement.
+The `Callable` and `Future` interfaces are powerful tools for asynchronous programming in Java, enabling developers to execute tasks concurrently and manage their results effectively. By understanding and leveraging these constructs, you can build robust, efficient, and responsive applications that meet modern concurrency demands.
 
-## Quiz Time!
+### References and Further Reading
+
+- [Oracle Java Documentation](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/package-summary.html)
+- [Java Concurrency in Practice](https://www.amazon.com/Java-Concurrency-Practice-Brian-Goetz/dp/0321349601)
+
+---
+
+## Test Your Knowledge: Java Futures and Callables Quiz
 
 {{< quizdown >}}
 
-### What is the primary goal of refactoring?
+### What is the primary advantage of using Callable over Runnable?
 
-- [x] Improve code readability and maintainability without changing external behavior.
-- [ ] Add new features to the codebase.
-- [ ] Fix bugs in the existing code.
-- [ ] Optimize code for performance.
+- [x] Callable can return a result and throw exceptions.
+- [ ] Callable is faster than Runnable.
+- [ ] Callable uses less memory than Runnable.
+- [ ] Callable is easier to implement than Runnable.
 
-> **Explanation:** The primary goal of refactoring is to improve the internal structure of the code without altering its external behavior, making it easier to read and maintain.
+> **Explanation:** Callable is designed to return a result and can throw checked exceptions, unlike Runnable.
 
-### Which design pattern is suitable for simplifying complex conditional logic?
+### How do you submit a Callable task for execution?
 
-- [ ] Singleton
-- [x] Strategy
-- [ ] Factory
-- [ ] Observer
+- [x] Using an ExecutorService's submit method.
+- [ ] Using a Thread's start method.
+- [ ] Using a Future's get method.
+- [ ] Using a Runnable's run method.
 
-> **Explanation:** The Strategy pattern is ideal for simplifying complex conditional logic by encapsulating different algorithms or behaviors and making them interchangeable.
+> **Explanation:** Callable tasks are submitted to an ExecutorService using the submit method, which returns a Future.
 
-### What is a common sign that code might benefit from the Observer pattern?
+### Which method in Future blocks until the result is available?
 
-- [ ] Duplicated code
-- [ ] Complex conditional logic
-- [x] Tight coupling between components
-- [ ] Lack of flexibility
+- [x] get()
+- [ ] cancel()
+- [ ] isDone()
+- [ ] isCancelled()
 
-> **Explanation:** Tight coupling between components is a common sign that the Observer pattern might be beneficial, as it helps decouple the subject from its observers.
+> **Explanation:** The get() method blocks until the result of the Callable task is available.
 
-### Which tool can help automate common refactoring tasks in Java?
+### What exception is thrown if a Future task is interrupted?
 
-- [ ] Git
-- [ ] SonarQube
-- [x] IntelliJ IDEA
-- [ ] Maven
+- [x] InterruptedException
+- [ ] ExecutionException
+- [ ] TimeoutException
+- [ ] IllegalStateException
 
-> **Explanation:** IntelliJ IDEA is an IDE that offers built-in refactoring tools to automate common refactoring tasks, such as renaming and extracting methods.
+> **Explanation:** InterruptedException is thrown if the current thread is interrupted while waiting.
 
-### What is a best practice to follow during refactoring?
+### Which method in Future attempts to cancel the execution of a task?
 
-- [x] Refactor in small steps
-- [ ] Refactor all at once
-- [ ] Avoid using automated tests
-- [ ] Document changes after refactoring
+- [x] cancel(boolean mayInterruptIfRunning)
+- [ ] get()
+- [ ] isDone()
+- [ ] isCancelled()
 
-> **Explanation:** Refactoring in small steps is a best practice as it reduces the risk of introducing errors and makes it easier to identify issues.
+> **Explanation:** The cancel method attempts to cancel the execution of the task.
 
-### How does refactoring with design patterns impact code readability?
+### What does the isDone() method in Future indicate?
 
-- [x] Improves readability by providing a common vocabulary
-- [ ] Decreases readability by adding complexity
-- [ ] Has no impact on readability
-- [ ] Makes code harder to understand
+- [x] The task is completed.
+- [ ] The task is cancelled.
+- [ ] The task is running.
+- [ ] The task has failed.
 
-> **Explanation:** Refactoring with design patterns improves readability by providing a common vocabulary that developers can use to understand the code structure.
+> **Explanation:** The isDone() method returns true if the task is completed, regardless of its outcome.
 
-### What is the role of the Observer interface in the Observer pattern?
+### How can you specify a timeout when retrieving a result from a Future?
 
-- [ ] To create new observers
-- [x] To define the contract for observers
-- [ ] To notify observers of changes
-- [ ] To manage the state of the subject
+- [x] By using the get(long timeout, TimeUnit unit) method.
+- [ ] By using the cancel(boolean mayInterruptIfRunning) method.
+- [ ] By using the isDone() method.
+- [ ] By using the isCancelled() method.
 
-> **Explanation:** The Observer interface defines the contract for observers, ensuring they implement the necessary methods to respond to updates from the subject.
+> **Explanation:** The get method with a timeout parameter allows specifying a maximum wait time.
 
-### Which pattern is useful for decoupling components in a system?
+### What happens if a Future task times out?
 
-- [ ] Singleton
-- [ ] Factory
-- [x] Observer
-- [ ] Builder
+- [x] A TimeoutException is thrown.
+- [ ] The task is cancelled.
+- [ ] The task continues running.
+- [ ] The task is restarted.
 
-> **Explanation:** The Observer pattern is useful for decoupling components in a system by allowing observers to register with a subject and be notified of changes without tight coupling.
+> **Explanation:** A TimeoutException is thrown if the task does not complete within the specified time.
 
-### What is a benefit of using the Factory pattern?
+### Which of the following is a best practice when using Callable and Future?
 
-- [x] Provides flexibility in object creation
-- [ ] Simplifies complex conditional logic
-- [ ] Enhances testability
-- [ ] Reduces code duplication
+- [x] Use ExecutorService to manage threads.
+- [ ] Create threads manually for each task.
+- [ ] Avoid handling exceptions.
+- [ ] Use Runnable instead of Callable.
 
-> **Explanation:** The Factory pattern provides flexibility in object creation by allowing the instantiation of objects through a common interface, making it easier to add new types.
+> **Explanation:** Using ExecutorService is a best practice for managing threads efficiently.
 
-### True or False: Refactoring should only be done when adding new features.
+### True or False: Callable tasks can only be executed synchronously.
 
 - [ ] True
 - [x] False
 
-> **Explanation:** False. Refactoring is an ongoing process that should be done regularly to improve code structure and maintainability, not just when adding new features.
+> **Explanation:** Callable tasks are designed for asynchronous execution, allowing them to run concurrently.
 
 {{< /quizdown >}}

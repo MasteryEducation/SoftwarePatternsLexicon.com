@@ -1,5 +1,5 @@
 ---
-title: "14. Testing and Design Patterns"
+title: "14. Integration Patterns"
 type: docs
 nav_weight: 140000
 ---
