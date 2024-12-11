@@ -212,7 +212,6 @@ To reinforce your understanding of stateless processing, consider the following 
 3. Provide an example of a real-world application where stateless processing is used.
 4. Modify the provided code examples to implement a different stateless operation, such as mapping values to their lengths.
 
-### SEO-Optimized Quiz Title
 
 ## Test Your Knowledge: Stateless Processing in Stream Processing Design Patterns
 

@@ -115,7 +115,6 @@ To reinforce your understanding of chaos engineering with Kafka, consider the fo
 - What tools can be used to simulate network partitions in a Kafka environment?
 - How can chaos engineering improve incident response strategies?
 
-### SEO-Optimized Quiz Title
 
 ## Test Your Knowledge: Chaos Engineering with Kafka
 

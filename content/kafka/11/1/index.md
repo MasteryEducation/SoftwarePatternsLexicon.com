@@ -101,7 +101,6 @@ To reinforce your understanding of observability in Kafka, consider the followin
 4. What tools can be used for metrics collection in Kafka?
 5. How can tracing be used to identify bottlenecks in Kafka?
 
-### SEO-Optimized Quiz Title
 
 ## Test Your Knowledge: Observability in Apache Kafka
 

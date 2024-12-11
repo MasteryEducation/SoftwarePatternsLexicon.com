@@ -224,7 +224,6 @@ To reinforce your understanding of Infrastructure as Code for Kafka deployments,
 4. **Discuss the advantages and disadvantages of using Puppet for Kafka deployments.**
 5. **Describe best practices for managing infrastructure code in a team environment.**
 
-### SEO-Optimized Quiz Title
 
 ## Test Your Knowledge: Infrastructure as Code for Apache Kafka Deployments
 

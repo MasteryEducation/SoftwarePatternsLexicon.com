@@ -108,7 +108,6 @@ To reinforce your understanding of green computing and energy efficiency in Kafk
 3. What role do renewable energy sources play in reducing the carbon footprint of data centers?
 4. How can tools like Prometheus and Grafana be used to monitor energy consumption in Kafka deployments?
 
-### SEO-Optimized Quiz Title
 
 ## Test Your Knowledge: Green Computing and Energy Efficiency in Apache Kafka
 
