@@ -108,7 +108,7 @@ hb:
       strict_matching: true
       input_position: top
       reactions: true
-      lazy_loading: true
+      lazy_loading: false
 
 
 
