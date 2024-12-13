@@ -14,7 +14,7 @@ code_block_panel:
 
 meta: 
   date: false
-  reading_time: false
+  reading_time: true
   
 hb:
   # override SASS variables, please replace the dash with underline, e.g. `list-group-color` should be `list_group_color`.
@@ -23,7 +23,7 @@ hb:
     primary: '#0004FF'
   
 
-  full_width: true
+  full_width: false
   revision:
     repo_service: github
     repo_owner: MasteryEducation
