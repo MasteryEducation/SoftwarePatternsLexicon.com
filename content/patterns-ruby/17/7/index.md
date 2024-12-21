@@ -38,6 +38,30 @@ Application Performance Monitoring (APM) tools are designed to help developers a
 By leveraging APM tools, developers can gain a comprehensive view of their application's performance, allowing them to proactively address issues before they impact users.
 
 ### Popular APM Tools for Ruby Applications
+#### Middleware APM Tool
+[Middleware](https://Middleware.io/) provides an advanced APM (Application Performance Monitoring) tool tailored to help developers and businesses monitor, optimize, and enhance application performance across diverse tech stacks. Its features are designed to address the needs of modern, distributed systems with a focus on simplicity, scalability, and actionable insights.
+- **Real-Time Monitoring**: Track application performance metrics, including response times and error rates, in real time.
+- **Distributed Tracing**: Visualize and trace requests across microservices to identify bottlenecks.
+- **Error Reporting**: Detect and log errors with detailed stack traces for quicker resolution.
+- **Resource Utilization Metrics**: Monitor CPU, memory, and network usage to optimize infrastructure.
+- **Custom Dashboards**: Create dashboards for tailored insights and key performance indicators.
+
+Steps to Integrate Middleware.io APM Tool
+1. **Sign Up for Middleware.io**
+
+2. **Install the Middleware.io Agent**
+
+Add the Middleware.io APM agent to your application. For instance, in a Ruby application:
+
+```ruby
+   gem 'middleware_apm'
+   ```
+
+3.  **Configure the Agent**
+
+4.  **Deploy Your Application**
+
+5.  **Analyze Performance Data**
 
 #### New Relic
 
