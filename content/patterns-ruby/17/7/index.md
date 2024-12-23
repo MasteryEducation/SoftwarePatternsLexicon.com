@@ -39,7 +39,7 @@ By leveraging APM tools, developers can gain a comprehensive view of their appli
 
 ### Popular APM Tools for Ruby Applications
 #### Middleware APM Tool
-[Middleware](https://Middleware.io/) provides an advanced APM (Application Performance Monitoring) tool tailored to help developers and businesses monitor, optimize, and enhance application performance across diverse tech stacks. Its features are designed to address the needs of modern, distributed systems with a focus on simplicity, scalability, and actionable insights.
+[Middleware APM](https://middleware.io/product/apm/) provides an advanced APM (Application Performance Monitoring) tool tailored to help developers and businesses monitor, optimize, and enhance application performance across diverse tech stacks. Its features are designed to address the needs of modern, distributed systems with a focus on simplicity, scalability, and actionable insights.
 - **Real-Time Monitoring**: Track application performance metrics, including response times and error rates, in real time.
 - **Distributed Tracing**: Visualize and trace requests across microservices to identify bottlenecks.
 - **Error Reporting**: Detect and log errors with detailed stack traces for quicker resolution.
