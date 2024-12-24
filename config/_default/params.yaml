@@ -9,7 +9,7 @@ description: >
   Discover the benefits and trade-offs, and learn how to harness language-specific features and paradigms. 
   Test your understanding with engaging quizzes, enhancing your learning experience and reinforcing key concepts. Enhance your coding skills and tackle complex challenges with confidence using proven solutions from the world of software development.
 code_block_panel:
-  max_lines: 100
+  max_lines: 125
 
 
 meta: 
@@ -37,7 +37,7 @@ hb:
     date_format: ':date_full'
     font_size: '.825rem'
   header:
-    brand: Design Patterns
+    brand: Software Patterns Lexicon
     socials:
       # github: hbstack
       # twitter: razonyang
@@ -52,7 +52,7 @@ hb:
   blog:
     sidebar:
       profile:
-        title: Design Patterns
+        title: Software Patterns Lexicon
       posts:
         recent_count: 0
         featured_count: 0
@@ -127,7 +127,7 @@ pwa:
   manifest:
     background_color: '#712cf9'
     theme_color: '#712cf9'
-    short_name: 'Design Patterns'
+    short_name: 'Software Patterns Lexicon'
 
 # https://hugomods.com/search/configurations/
 search:
