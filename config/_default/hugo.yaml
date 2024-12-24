@@ -1,7 +1,7 @@
 baseURL: https://softwarepatternslexicon.com/
-title: Design Patterns
+title: Software Patterns Lexicon
 # Copyright, the {year} is the placeholder of this year.
-copyright: "© 2023-{year} [Tokenizer Inc.](https://tokenizer.ca/) | © 2023-{year} [Mastery Education](https://github.com/orgs/MasteryEducation) | All Rights Reserved."
+copyright: "© 2023-{year} [Mastery Education](https://github.com/orgs/MasteryEducation) by [Tokenizer Inc.](https://tokenizer.ca/) | Empowering mastery across Finance, IT, and more through open-source collaboration."
 defaultContentLanguage: en
 defaultContentLanguageInSubdir: # true # disable this to remove the default language code from URL, i.e. /en/docs -> /docs.
 enableRobotsTXT: true
