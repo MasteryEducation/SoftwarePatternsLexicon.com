@@ -173,7 +173,16 @@ See [LICENSE](LICENSE.md) for more information.
 > If your work was funded by any organization or institution, acknowledge their support here.
 > In addition, if your work relies on other software libraries, or was inspired by looking at other work, it is appropriate to acknowledge this intellectual debt too.
 
-## Maintenance Commands
+## How to build and run this Hugo-powered website
+
+Hugo is the Golang powered static site generator.
+
+1. Follow [Hugo Installation](https://gohugo.io/installation/) guide to install it locally.
+2. Run `hugo server` command from the root folder of this project
+3. Visit http://localhost:1313
+
+
+### Typical Commands
 
     brew upgrade hugo
     brew upgrade node
@@ -182,7 +191,7 @@ See [LICENSE](LICENSE.md) for more information.
     npm install
     npm update
     hugo mod get -u ./...
-    git add -A && git commit -am. && git push
+    git add -A && git commit -am "fixed Mermaid diagram" && git push
 
 ### Upgrade Dart Sass for Hugo 0.139.0
 
