@@ -3,7 +3,6 @@ Allow: /
 
 User-agent: Googlebot
 Allow: /$
-Allow: /kafka
 Allow: /patterns-java
 Disallow: /
 
