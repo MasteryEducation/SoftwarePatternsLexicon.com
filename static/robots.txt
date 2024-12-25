@@ -6,3 +6,5 @@ Allow: /$
 Allow: /kafka
 Allow: /patterns-java
 Disallow: /
+
+Sitemap: https://softwarepatternslexicon.com/sitemap.xml
