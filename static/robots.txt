@@ -1,9 +1,4 @@
 User-agent: *
 Allow: /
 
-User-agent: Googlebot
-Allow: /$
-Allow: /patterns-java
-Disallow: /
-
 Sitemap: https://softwarepatternslexicon.com/sitemap.xml
