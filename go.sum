@@ -13,6 +13,8 @@ github.com/KaTeX/KaTeX v0.16.15/go.mod h1:VI+aE+CVs/VqtbHnuhstfQST46GmrwpXH7LQAz
 github.com/KaTeX/KaTeX v0.16.19/go.mod h1:VI+aE+CVs/VqtbHnuhstfQST46GmrwpXH7LQAzYIouw=
 github.com/KaTeX/KaTeX v0.16.20 h1:2Yt5TdKUS4CwopMDwkcMY1fH40BvilTabIsEaisMEC0=
 github.com/KaTeX/KaTeX v0.16.20/go.mod h1:VI+aE+CVs/VqtbHnuhstfQST46GmrwpXH7LQAzYIouw=
+github.com/KaTeX/KaTeX v0.16.21 h1:WxvgOkSa6vGciImP153yRpnsJ/aKiglwmMiuCX6fMxg=
+github.com/KaTeX/KaTeX v0.16.21/go.mod h1:VI+aE+CVs/VqtbHnuhstfQST46GmrwpXH7LQAzYIouw=
 github.com/desandro/masonry v4.2.2+incompatible h1:4LI69kwq5DJSF9jhHVGfCw+q2Nt3IgJ0KzEp19Z3YiA=
 github.com/desandro/masonry v4.2.2+incompatible/go.mod h1:4P4Or5YZcNuAtGW3JOYLTrmi+ZyqhCPj7xTgradMEVU=
 github.com/gohugoio/hugo-mod-bootstrap-scss/v5 v5.20300.20200 h1:SmpwwN3DNzJWbV+IT8gaFu07ENUFpCvKou5BHYUKuVs=
@@ -207,6 +209,8 @@ github.com/hbstack/header v0.16.2/go.mod h1:ruhJLStQ+YHY31W/PpcBSuvKJbWENbbB9RmN
 github.com/hbstack/header v0.16.3/go.mod h1:4f3Nhslt+UQ1Fo82HuspQO7jLJ/UrZ8GgDKImiZx5FA=
 github.com/hbstack/header v0.16.4 h1:Ia/Sww4b/uOvpyN5/IGmVuWT4h1cxJSnWm5qwoVmrAI=
 github.com/hbstack/header v0.16.4/go.mod h1:4f3Nhslt+UQ1Fo82HuspQO7jLJ/UrZ8GgDKImiZx5FA=
+github.com/hbstack/header v0.16.5 h1:KIOgyq/vdWpdnE9oFsLH2a9L4BnbBsZQxz2VuFO3esk=
+github.com/hbstack/header v0.16.5/go.mod h1:ZfeQNeNWaBeGPBZHtbRz2W9IWkmIoMrpOXoDsoYa/Gg=
 github.com/hbstack/header/modules/language-picker v0.1.24 h1:OEWy+B1PCJXgoz62EKwBhObq5lNOsfXdjjtESHBi81c=
 github.com/hbstack/header/modules/language-picker v0.1.24/go.mod h1:HeIUdvoG+2ni8dqQNnsUtOQVo1U8ydVBEowJ/U85KCA=
 github.com/hbstack/header/modules/language-picker v0.1.25 h1:F8ervz2fAJa2PaCaexmQaVRqkcVb7/dHK1ZSiHCcu6A=
@@ -265,6 +269,8 @@ github.com/hbstack/revision v0.6.7 h1:L5+CcJV0wf2GhaqTnCx1X6Tk8v7WtsqGYgwvdaXYbX
 github.com/hbstack/revision v0.6.7/go.mod h1:hG6AkgIoiARIJBG3PV0M7qh9a72YJPNVWQC0mWJmle4=
 github.com/hbstack/revision v0.6.8 h1:LO5RVWfPdNmRfKZJ+QVq2RNGZkGWfzjLBPaca3wCN74=
 github.com/hbstack/revision v0.6.8/go.mod h1:SQQ1u5JVvXM29Mww7R6/M5R7ofF8PJLW2fNdvfWOmIw=
+github.com/hbstack/revision v0.6.9 h1:RU3Y48Nm/ozwlOimnttS7jBOcIG9WCp1/0kcUzcIk8U=
+github.com/hbstack/revision v0.6.9/go.mod h1:SqUgr9HJXcRBB4DK/edMb3OEae7Amx3ktSioaTOX8pY=
 github.com/hbstack/scrollbar v0.1.0 h1:uQMNbkWbLxnjQMiD3zdt33RG48sY2a0XWyGQkK2HsyY=
 github.com/hbstack/scrollbar v0.1.0/go.mod h1:BEDha5gOjQfXBKZfwT+4vn8hCE88qElocjEI2SY1eAs=
 github.com/hbstack/search v0.2.1 h1:u7DbLPZ0WO1db2ARb2reubn5KzPE3wG6NLrgylB6WQg=
@@ -424,6 +430,8 @@ github.com/hugomods/icons/vendors/simple-icons v1.0.61 h1:PNDI2fXu648RCh6MXdPfCz
 github.com/hugomods/icons/vendors/simple-icons v1.0.61/go.mod h1:x5TsryarJP5xAGVAXiZCa/7tP8+b22n5BbHfxtjX2uc=
 github.com/hugomods/icons/vendors/simple-icons v1.1.0 h1:ytt+1CK2wzjCp5PtIkYCgI2gQfThf2hynyZODZQxy6E=
 github.com/hugomods/icons/vendors/simple-icons v1.1.0/go.mod h1:x5TsryarJP5xAGVAXiZCa/7tP8+b22n5BbHfxtjX2uc=
+github.com/hugomods/icons/vendors/simple-icons v1.1.1 h1:ZM+Oi+U3glq+WuVMsoplkQpCnRLd6UU416NZCydtPvw=
+github.com/hugomods/icons/vendors/simple-icons v1.1.1/go.mod h1:ZKdcZ++UGSRnEoaVL+MTth91x4NJRIe8aJOD8oAFcRA=
 github.com/hugomods/idb-js v0.1.0 h1:mA6hEGtR0aFEdmq9zYMGpfSpCU6SMilx9RzC4uK3DqY=
 github.com/hugomods/idb-js v0.1.0/go.mod h1:GPfnmr+BQpP4s6Epd4Yu+RlUog8q/Djw8qy8BZFWZ04=
 github.com/hugomods/images v0.10.1 h1:ok3ZUZ63MAcmFuTx2kC5JJ3Sffd420RRW9yO57SFeQA=
@@ -473,6 +481,8 @@ github.com/hugomods/search v0.19.0 h1:SQoSJoX9EbcnH1m3+IiAv99lSg8C+iCHpZguU9Wbyg
 github.com/hugomods/search v0.19.0/go.mod h1:xPnDGjP/HCdEWJrJBwwdI2mEtdxFxp+wHBwSl/r2m00=
 github.com/hugomods/search-index v0.1.1 h1:jAJ+Gu0nzCq/bbjEeJQcI1gLgqJOn+RHnTf9Sp1go2w=
 github.com/hugomods/search-index v0.1.1/go.mod h1:2owtATJ1XxWAvK/trnNoUC1EoBimAtRYVa7F+JO/s9c=
+github.com/hugomods/search-index v0.1.2 h1:ZYMT7YMhWxH5/vomtxZtJUgdu9/QAQbNnKRLi2CCXvA=
+github.com/hugomods/search-index v0.1.2/go.mod h1:2owtATJ1XxWAvK/trnNoUC1EoBimAtRYVa7F+JO/s9c=
 github.com/hugomods/seo/modules/alternatives v0.1.0 h1:G5IjM7j7ExgXEMyxQj1Z/5JwwRW8DEmL0nDJYxA3NhE=
 github.com/hugomods/seo/modules/alternatives v0.1.0/go.mod h1:ff9uz+f5yii9k2jbwt/HKM3RpLR3EYZrNQBAOabNxMA=
 github.com/hugomods/seo/modules/alternatives v0.1.1 h1:Y8NdyBhvkSfr43ZKtXvQBgOW9lHL0a6vC1UIZFNbMpo=
@@ -562,8 +572,12 @@ github.com/jakearchibald/idb v8.0.0+incompatible h1:sTNGHgh+JoyQ4Eqey+1ScX4F03uT
 github.com/jakearchibald/idb v8.0.0+incompatible/go.mod h1:AuDoW54s2DKfbclM+ScrnPp8ahUQ9rHph9bb8sZTEXc=
 github.com/jakearchibald/idb v8.0.1+incompatible h1:OPNohpLPEcal6K1v10aKTZT5Nsbs7uRwa6dpf9/xCPw=
 github.com/jakearchibald/idb v8.0.1+incompatible/go.mod h1:AuDoW54s2DKfbclM+ScrnPp8ahUQ9rHph9bb8sZTEXc=
+github.com/jakearchibald/idb v8.0.2+incompatible h1:yaX22MGrQ5g7LRbLI7AKpBlqUcuu/E10qfIYyCEFzpU=
+github.com/jakearchibald/idb v8.0.2+incompatible/go.mod h1:AuDoW54s2DKfbclM+ScrnPp8ahUQ9rHph9bb8sZTEXc=
 github.com/krisk/Fuse v7.0.0+incompatible h1:jVyg6No+Joc51Rn97QQYJZIpCxzd4ywACn/4+FKWjvo=
 github.com/krisk/Fuse v7.0.0+incompatible/go.mod h1:3moWv8rDjwoKic9nwiPLgZjldkbdTAbtzJHCu/Vsj4A=
+github.com/krisk/Fuse v7.1.0+incompatible h1:WKrE7/HvvQQnysvOcOXk+KDlKoH+Z6S0KJcAtbglvXs=
+github.com/krisk/Fuse v7.1.0+incompatible/go.mod h1:3moWv8rDjwoKic9nwiPLgZjldkbdTAbtzJHCu/Vsj4A=
 github.com/twbs/bootstrap v5.3.2+incompatible/go.mod h1:fZTSrkpSf0/HkL0IIJzvVspTt1r9zuf7XlZau8kpcY0=
 github.com/twbs/bootstrap v5.3.3+incompatible h1:goFoqinzdHfkeegpFP7pvhbd0g+A3O2hbU3XCjuNrEQ=
 github.com/twbs/bootstrap v5.3.3+incompatible/go.mod h1:fZTSrkpSf0/HkL0IIJzvVspTt1r9zuf7XlZau8kpcY0=

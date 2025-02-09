@@ -4,7 +4,7 @@ go 1.19
 
 require (
 	github.com/GoogleChrome/workbox v7.3.0+incompatible // indirect
-	github.com/KaTeX/KaTeX v0.16.20 // indirect
+	github.com/KaTeX/KaTeX v0.16.21 // indirect
 	github.com/desandro/masonry v4.2.2+incompatible // indirect
 	github.com/gohugoio/hugo-mod-bootstrap-scss/v5 v5.20300.20200 // indirect
 	github.com/gohugoio/hugo-mod-jslibs-dist/popperjs/v2 v2.21100.20000 // indirect
@@ -43,7 +43,7 @@ require (
 	github.com/hbstack/footer/modules/socials v0.3.0 // indirect
 	github.com/hbstack/giscus v0.1.1 // indirect
 	github.com/hbstack/hb v0.16.0 // indirect
-	github.com/hbstack/header v0.16.4 // indirect
+	github.com/hbstack/header v0.16.5 // indirect
 	github.com/hbstack/header/modules/language-picker v0.1.26 // indirect
 	github.com/hbstack/header/modules/search v0.1.38 // indirect
 	github.com/hbstack/header/modules/socials v0.2.2 // indirect
@@ -55,7 +55,7 @@ require (
 	github.com/hbstack/pagination v0.8.0 // indirect
 	github.com/hbstack/progress-bar v0.1.1 // indirect
 	github.com/hbstack/pwa v0.1.2 // indirect
-	github.com/hbstack/revision v0.6.8 // indirect
+	github.com/hbstack/revision v0.6.9 // indirect
 	github.com/hbstack/scrollbar v0.1.0 // indirect
 	github.com/hbstack/search v0.2.2 // indirect
 	github.com/hbstack/slide v0.4.0 // indirect
@@ -81,7 +81,7 @@ require (
 	github.com/hugomods/icons v0.6.6 // indirect
 	github.com/hugomods/icons/vendors/bootstrap v0.5.9 // indirect
 	github.com/hugomods/icons/vendors/font-awesome v0.6.12 // indirect
-	github.com/hugomods/icons/vendors/simple-icons v1.1.0 // indirect
+	github.com/hugomods/icons/vendors/simple-icons v1.1.1 // indirect
 	github.com/hugomods/idb-js v0.1.0 // indirect
 	github.com/hugomods/images v0.11.2 // indirect
 	github.com/hugomods/katex v0.3.6 // indirect
@@ -89,7 +89,7 @@ require (
 	github.com/hugomods/mermaid v0.1.4 // indirect
 	github.com/hugomods/pwa v0.9.0 // indirect
 	github.com/hugomods/search v0.19.0 // indirect
-	github.com/hugomods/search-index v0.1.1 // indirect
+	github.com/hugomods/search-index v0.1.2 // indirect
 	github.com/hugomods/seo/modules/alternatives v0.1.1 // indirect
 	github.com/hugomods/seo/modules/base v0.1.3 // indirect
 	github.com/hugomods/seo/modules/favicons v0.2.2 // indirect
@@ -101,8 +101,8 @@ require (
 	github.com/hugomods/simple-icons v13.21.0+incompatible // indirect
 	github.com/hugomods/snackbar v0.1.2 // indirect
 	github.com/hugomods/workbox v0.1.0 // indirect
-	github.com/jakearchibald/idb v8.0.1+incompatible // indirect
-	github.com/krisk/Fuse v7.0.0+incompatible // indirect
+	github.com/jakearchibald/idb v8.0.2+incompatible // indirect
+	github.com/krisk/Fuse v7.1.0+incompatible // indirect
 	github.com/twbs/bootstrap v5.3.3+incompatible // indirect
 	github.com/twbs/icons v1.11.3 // indirect
 )
