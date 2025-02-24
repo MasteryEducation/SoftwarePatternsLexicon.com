@@ -226,7 +226,7 @@ graph TD;
 - Effective communication between teams is crucial for successful implementation.
 - Experimentation and adaptation of bounded contexts can lead to more robust and maintainable systems.
 
-### SEO-Optimized Quiz Title
+### Quiz Title
 
 ## Test Your Understanding of Bounded Contexts in Domain-Driven Design
 

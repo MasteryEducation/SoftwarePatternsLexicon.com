@@ -178,7 +178,7 @@ Composing complex asynchronous workflows in Java using reactive streams allows d
 - [RxJava Documentation](https://github.com/ReactiveX/RxJava)
 - [Java Flow API](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/Flow.html)
 
-### SEO-Optimized Quiz Title
+### Quiz
 
 {{< quizdown >}}
 

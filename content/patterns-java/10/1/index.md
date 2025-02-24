@@ -84,7 +84,7 @@ By mastering these concepts, developers can harness the full power of Java's con
 
 ---
 
-## SEO-Optimized Quiz: Test Your Knowledge of Concurrent Programming in Java
+## Quiz: Test Your Knowledge of Concurrent Programming in Java
 
 {{< quizdown >}}
 

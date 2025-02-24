@@ -140,7 +140,7 @@ Copy-Paste Programming is a pervasive anti-pattern that can severely impact the 
 - Techniques such as abstraction, the DRY principle, and refactoring are essential for eliminating code duplication.
 - Modularity and reuse improve maintainability, reusability, scalability, and consistency in software design.
 
-### SEO-Optimized Quiz Title
+### Quiz Title
 
 ## Test Your Understanding of Copy-Paste Programming and Code Duplication
 

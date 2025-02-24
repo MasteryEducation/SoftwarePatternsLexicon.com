@@ -231,7 +231,7 @@ The Factory Method Pattern is widely used in various real-world applications bey
 
 Consider how the Factory Method Pattern can be applied to your own projects. Reflect on the scenarios where encapsulating object creation logic can enhance the flexibility and maintainability of your system. How can you leverage this pattern to improve the adaptability of your software architecture?
 
-## SEO-Optimized Quiz: Test Your Knowledge on Factory Method Pattern
+## Quiz: Test Your Knowledge on Factory Method Pattern
 
 {{< quizdown >}}
 

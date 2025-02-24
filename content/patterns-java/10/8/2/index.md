@@ -151,7 +151,7 @@ Exception handling in asynchronous Java code requires careful consideration and 
 1. Modify the retry mechanism example to include a delay between retries.
 2. Implement a `CompletableFuture` chain that handles multiple types of exceptions differently.
 
-### SEO-Optimized Quiz Title
+### Quiz
 
 ## Test Your Mastery of Exception Handling in Asynchronous Java Code
 

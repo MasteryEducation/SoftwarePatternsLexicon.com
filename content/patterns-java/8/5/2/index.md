@@ -142,7 +142,7 @@ Understanding the differences between internal and external iterators is crucial
 - [Oracle Java Tutorials](https://docs.oracle.com/javase/tutorial/)
 - [Effective Java by Joshua Bloch](https://www.oreilly.com/library/view/effective-java/9780134686097/)
 
-### SEO-Optimized Quiz Title
+### Quiz Title
 
 ## Test Your Knowledge: Internal vs. External Iterators in Java
 

@@ -139,7 +139,7 @@ The `Phaser` class in Java provides a flexible and powerful synchronization mech
 - [Java Documentation](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/Phaser.html)
 - [Concurrency in Practice](https://www.amazon.com/Java-Concurrency-Practice-Brian-Goetz/dp/0321349601)
 
-### SEO-Optimized Quiz Title
+### Quiz
 
 ## Test Your Knowledge: Mastering Java's Phaser Synchronization
 

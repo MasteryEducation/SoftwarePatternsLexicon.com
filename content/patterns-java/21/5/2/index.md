@@ -211,7 +211,7 @@ For more information, visit the [Apache Ignite](https://ignite.apache.org/) webs
 
 Parallel processing in Java offers powerful tools and frameworks to enhance application performance by leveraging multi-core processors. By understanding and applying these techniques, developers can build efficient, high-performance applications that meet the demands of modern computing environments.
 
-### SEO-Optimized Quiz Title
+### Quiz
 
 ## Test Your Knowledge: Advanced Parallel Processing in Java
 

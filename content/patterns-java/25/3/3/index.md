@@ -159,7 +159,7 @@ Incremental refactoring is particularly beneficial in large, legacy codebases wh
 
 Consider how incremental refactoring techniques can be applied to your current projects. What areas of your codebase could benefit from gradual improvements? How can you integrate these practices into your development workflow?
 
-## SEO-Optimized Quiz: Test Your Knowledge on Incremental Refactoring Techniques
+## Quiz: Test Your Knowledge on Incremental Refactoring Techniques
 
 {{< quizdown >}}
 

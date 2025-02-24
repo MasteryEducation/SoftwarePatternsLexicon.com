@@ -121,7 +121,7 @@ For more information on Docker and its capabilities, visit the [Docker Official 
 
 ---
 
-## SEO-Optimized Quiz Title
+## Quiz
 
 {{< quizdown >}}
 
