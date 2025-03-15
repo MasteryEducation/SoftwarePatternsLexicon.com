@@ -1,5 +1,5 @@
 baseURL: https://softwarepatternslexicon.com/
-title: Software Patterns Lexicon
+title: SoftwarePatternsLexicon.com
 # Copyright, the {year} is the placeholder of this year.
 copyright: "© 2023-{year} [Mastery Education](https://github.com/orgs/MasteryEducation) by [Tokenizer Inc.](https://tokenizer.ca/) | Empowering mastery across Finance, IT, and more through open-source collaboration."
 defaultContentLanguage: en
