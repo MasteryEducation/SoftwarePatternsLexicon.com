@@ -157,6 +157,8 @@ github.com/hbstack/docs v0.21.0 h1:WtyQFc/LuCvd/coVZoyW1FgLkUpUQUWZaF25++NzljI=
 github.com/hbstack/docs v0.21.0/go.mod h1:ELqW8PDL68RHa8RwdmfyEB2smfP8nYN4ryhLmYptawU=
 github.com/hbstack/docs v0.22.0 h1:zgss2k9qIIJqXDNZ/rOJhCKKFMwLs6p31PF+b2EsK1g=
 github.com/hbstack/docs v0.22.0/go.mod h1:hAPrZzKLNTYYzcDDpKoaskXaQLzRHz4rgM0ajFjxg+w=
+github.com/hbstack/docs v0.23.0 h1:cLTKXJlVnVkCOQfqzemUF6nR/OHCQe7s1swZIzrsROk=
+github.com/hbstack/docs v0.23.0/go.mod h1:8MmOryl2Ko6LRXzcRpHC8Qg5InSx958JXTZ2Rk05EhI=
 github.com/hbstack/docs/modules/breadcrumb v0.1.9 h1:znf/33KfQFZXOXVKezdksy/euM0FDnoNKeKSyw3SwCk=
 github.com/hbstack/docs/modules/breadcrumb v0.1.9/go.mod h1:vpQYRcZmRTqYpVb7x7sOgw13MxBuNgUt82wQDz6ZtZU=
 github.com/hbstack/docs/modules/breadcrumb v0.1.10 h1:Ryp68WkRdOxL2UlGNYtN5ZJUxbbHv7bWe0NdzDt2Obg=
@@ -491,6 +493,8 @@ github.com/hugomods/search v0.19.0 h1:SQoSJoX9EbcnH1m3+IiAv99lSg8C+iCHpZguU9Wbyg
 github.com/hugomods/search v0.19.0/go.mod h1:xPnDGjP/HCdEWJrJBwwdI2mEtdxFxp+wHBwSl/r2m00=
 github.com/hugomods/search v0.19.2 h1:ZTiff1TB6g7bHoXurVXx+qyp4Il73ruBo3FMkMN36lc=
 github.com/hugomods/search v0.19.2/go.mod h1:xPnDGjP/HCdEWJrJBwwdI2mEtdxFxp+wHBwSl/r2m00=
+github.com/hugomods/search v0.20.0 h1:zko3/0UqsB5SiW30eK0KgDfs4Eczeis25FFLDPrjARA=
+github.com/hugomods/search v0.20.0/go.mod h1:xPnDGjP/HCdEWJrJBwwdI2mEtdxFxp+wHBwSl/r2m00=
 github.com/hugomods/search-index v0.1.1 h1:jAJ+Gu0nzCq/bbjEeJQcI1gLgqJOn+RHnTf9Sp1go2w=
 github.com/hugomods/search-index v0.1.1/go.mod h1:2owtATJ1XxWAvK/trnNoUC1EoBimAtRYVa7F+JO/s9c=
 github.com/hugomods/search-index v0.1.2 h1:ZYMT7YMhWxH5/vomtxZtJUgdu9/QAQbNnKRLi2CCXvA=

@@ -1,13 +1,17 @@
 title_separator: '|'
 title_sections: true # when false, remove the sections from the title.
-title_sections_depth: 0 # the depth of sections on the title.
+title_sections_depth: 1 # the depth of sections on the title.
 title_sections_depth_dir: start # when start, the depth is counting from the root sections.
 
 description: >
+  Master the art of software development with Design Patterns.
   Dive into real-life examples across a multitude of languages including C#, Clojure, C++, D, Dart, Elixir, 
   F#, Go, Haskell, Haxe, Java, JavaScript, Julia, Kotlin, Lua, PHP, Python, Ruby, Scala, SQL, Swift, TypeScript, and more. 
   Discover the benefits and trade-offs, and learn how to harness language-specific features and paradigms. 
-  Test your understanding with engaging quizzes, enhancing your learning experience and reinforcing key concepts. Enhance your coding skills and tackle complex challenges with confidence using proven solutions from the world of software development.
+  Test your understanding with engaging quizzes, enhancing your learning experience and reinforcing key concepts. 
+  Enhance your coding skills and tackle complex challenges with confidence using proven solutions from the world of software development.
+
+
 code_block_panel:
   max_lines: 125
 
